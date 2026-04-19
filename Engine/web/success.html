@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIRR — Preparing Your Reading</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Newsreader:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Aligned with landing + unified view: cream editorial palette */
+  --bg:#f5f1ea; --amber:#a8482d; --amber-d:#8b3a24;
+  --text:#1a1814; --text-d:#8a8178; --border:rgba(26,24,20,0.12);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+body{background:var(--bg);color:var(--text);font-family:'Newsreader','Instrument Serif',serif;min-height:100vh;display:flex;align-items:center;justify-content:center;}
+.wrap{text-align:center;padding:40px 24px;max-width:480px;}
+.spinner{width:36px;height:36px;border:1px solid var(--border);border-top-color:var(--amber);border-radius:50%;animation:spin 1.2s linear infinite;margin:0 auto 36px;}
+.status-title{font-size:clamp(22px,4vw,32px);font-weight:300;font-family:'Instrument Serif',serif;margin-bottom:12px;animation:fadeUp .8s ease both;}
+.status-sub{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:var(--text-d);letter-spacing:.08em;font-weight:300;line-height:1.8;}
+.order-id{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;color:var(--amber-d);letter-spacing:.2em;margin-top:32px;}
+.progress{width:200px;height:1px;background:var(--border);margin:28px auto;overflow:hidden;}
+.progress-bar{height:1px;background:var(--amber);width:0%;transition:width .5s ease;}
+.ready-msg{display:none;margin-top:24px;}
+.btn-reading{display:inline-block;padding:12px 36px;background:var(--amber);color:var(--bg);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;font-weight:500;}
+.btn-reading:hover{background:var(--amber-d);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="spinner" id="spinner"></div>
+  <h1 class="status-title" id="status-title">Your analysis is running</h1>
+  <p class="status-sub" id="status-sub">Independent symbolic systems are computing.<br>This may take a minute or two.</p>
+  <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
+  <div class="order-id" id="order-id-display"></div>
+  <div class="ready-msg" id="ready-msg">
+    <p class="status-sub" style="margin-bottom:20px">Your reading is ready.</p>
+    <a href="#" class="btn-reading" id="reading-link">Open Your Reading</a>
+  </div>
+</div>
+<script>
+const params = new URLSearchParams(location.search);
+const orderId = params.get('order_id');
+if (orderId) document.getElementById('order-id-display').textContent = 'Order: ' + orderId;
+
+let progress = 5;
+const bar = document.getElementById('progress-bar');
+const progressTimer = setInterval(() => {
+  progress = Math.min(progress + 1.2, 88);
+  bar.style.width = progress + '%';
+}, 800);
+
+const msgs = [
+  [5,  'Normalizing your name…'],
+  [20, 'Computing numerology…'],
+  [38, 'Computing name intelligence…'],
+  [55, 'Computing astro timing…'],
+  [72, 'Detecting convergences…'],
+  [85, 'Preparing your reading…'],
+];
+let msgIdx = 0;
+const sub = document.getElementById('status-sub');
+const msgTimer = setInterval(() => {
+  if (progress >= msgs[msgIdx]?.[0]) {
+    sub.textContent = msgs[msgIdx][1];
+    msgIdx++;
+  }
+  if (msgIdx >= msgs.length) clearInterval(msgTimer);
+}, 800);
+
+async function checkStatus() {
+  if (!orderId) return;
+  try {
+    const res = await fetch('/api/order-status/' + orderId);
+    if (!res.ok) return;
+    const d = await res.json();
+    if (d.status === 'ready' && d.reading_url) {
+      clearInterval(progressTimer);
+      clearInterval(msgTimer);
+      clearInterval(pollTimer);
+      bar.style.width = '100%';
+      document.getElementById('spinner').style.display = 'none';
+      document.getElementById('status-title').textContent = 'Your reading is ready';
+      document.getElementById('ready-msg').style.display = 'block';
+      document.getElementById('reading-link').href = d.reading_url;
+      setTimeout(() => { window.location.href = d.reading_url; }, 2000);
+    }
+    if (d.status === 'failed') {
+      clearInterval(progressTimer); clearInterval(msgTimer); clearInterval(pollTimer);
+      document.getElementById('status-title').textContent = 'Something went wrong';
+      sub.textContent = 'Please contact support with your order ID.';
+      document.getElementById('spinner').style.display = 'none';
+    }
+  } catch(_) {}
+}
+const pollTimer = setInterval(checkStatus, 5000);
+checkStatus();
+</script>
+</body>
+</html>
