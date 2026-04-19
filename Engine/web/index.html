@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIRR — A Unified Symbolic Reading</title>
+<meta name="description" content="A unified symbolic reading of your name and birth. Receive a written portrait, structural patterns, tensions, evidence tables, and convergence receipts.">
+<meta property="og:title" content="SIRR — A Unified Symbolic Reading">
+<meta property="og:description" content="A unified symbolic reading of your name and birth: portrait, hierarchy, patterns, tension, evidence, and convergence receipts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<style>
+:root {
+  /* SIRR editorial-archival palette — aligned with unified view
+     (was: dark amber-on-obsidian; now: cream with rust accent) */
+  --bg:       #f5f1ea;
+  --bg2:      #ebe4d5;
+  --border:   rgba(26, 24, 20, 0.12);
+  --amber:    #a8482d;   /* primary accent: rust (was dark gold) */
+  --amber-d:  #8b3a24;   /* deeper rust */
+  --indigo:   #4b5a7a;   /* secondary accent — muted ink-blue */
+  --teal:     #5a7a6e;   /* secondary accent — muted sage */
+  --bronze:   #8b6335;   /* kept — works in both themes */
+  --text:     #1a1814;   /* primary text: warm near-black (was warm cream) */
+  --text-d:   #8a8178;   /* muted warm gray */
+  --text-f:   #b5ac9f;   /* faint warm gray — borders/decoration */
+  --gold:     #c77a4a;   /* brighter accent: copper */
+  --serif:    'Newsreader', 'Instrument Serif', Georgia, serif;
+  --display:  'Instrument Serif', 'Newsreader', Georgia, serif;
+  --sans:     'JetBrains Mono', ui-monospace, monospace;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+</style>
+<style>
+/* ── Animations ── */
+@keyframes fadeUp   { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
+@keyframes pulse    { 0%,100% { opacity:.06; } 50% { opacity:.13; } }
+@keyframes lineDown { from { height:0; } to { height:60px; } }
+@keyframes spin     { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+
+/* ── Nav ── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  display: flex; justify-content:space-between; align-items:center;
+  padding: 18px 40px;
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s, background .3s;
+}
+nav.scrolled { border-color:var(--border); background:rgba(245,241,234,.88); backdrop-filter:blur(8px); }
+.nav-brand { font-family:var(--sans); font-size:11px; letter-spacing:.25em; color:var(--amber); font-weight:400; }
+.nav-lang {
+  font-family:var(--sans); font-size:10px; letter-spacing:.12em; color:var(--text-d);
+  background:none; border:1px solid var(--border); padding:5px 12px; cursor:pointer;
+  transition:border-color .2s, color .2s;
+}
+.nav-lang:hover { border-color:var(--amber-d); color:var(--amber); }
+
+/* ── Hero ── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align:center; padding:120px 24px 80px;
+  position:relative; overflow:hidden;
+}
+.hero-bg-glyph {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  font-size: clamp(280px, 40vw, 480px);
+  color: var(--amber); opacity:.05;
+  font-family:var(--serif); font-weight:300; pointer-events:none; user-select:none;
+  animation:pulse 8s ease-in-out infinite;
+  line-height:1;
+}
+.hero-tag {
+  font-family:var(--sans); font-size:10px; letter-spacing:.3em; color:var(--amber-d);
+  text-transform:uppercase; font-weight:300; margin-bottom:40px;
+  animation:fadeIn 1.2s ease .2s both;
+}
+.hero-headline {
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight:300; letter-spacing:.02em; line-height:1.2;
+  color:var(--text); max-width:720px;
+  animation:fadeUp 1.2s ease .4s both;
+}
+.hero-headline em { font-style:italic; color:var(--gold); }
+.hero-sub {
+  font-family:var(--sans); font-size:14px; color:var(--text-d); font-weight:300;
+  margin-top:24px; letter-spacing:.04em; max-width:480px;
+  animation:fadeUp 1.2s ease .6s both;
+}
+.hero-stem { width:1px; height:0; background:linear-gradient(to bottom,var(--amber),transparent); margin:40px auto; animation:lineDown 1s ease 1s both; }
+.hero-cta-group { animation:fadeUp 1s ease 1.2s both; }
+.btn-primary {
+  display:inline-block; padding:14px 44px;
+  background:var(--amber); color:var(--bg);
+  font-family:var(--sans); font-size:13px; font-weight:500; letter-spacing:.1em;
+  text-transform:uppercase; border:none; cursor:pointer;
+  transition:background .2s, transform .15s;
+  text-decoration:none;
+}
+.btn-primary:hover { background:var(--amber-d); transform:translateY(-1px); }
+.hero-price-note { font-family:var(--sans); font-size:10px; color:var(--text-f); letter-spacing:.1em; margin-top:14px; }
+</style>
+
+
+<style>
+/* ── Section ── */
+.section { padding:96px 24px; max-width:960px; margin:0 auto; }
+.section-rule { width:48px; height:1px; background:var(--amber-d); margin:0 auto 48px; }
+.section-title {
+  font-size:11px; font-family:var(--sans); letter-spacing:.3em; text-transform:uppercase;
+  color:var(--amber-d); text-align:center; margin-bottom:48px;
+}
+.full-rule { width:100%; height:1px; background:var(--border); }
+
+/* ── Method block ── */
+.method-text {
+  font-size:clamp(20px,2.5vw,28px); font-weight:300; line-height:1.7;
+  text-align:center; max-width:680px; margin:0 auto; color:var(--text);
+}
+.method-text strong { font-weight:500; color:var(--gold); }
+.method-note {
+  font-family:var(--sans); font-size:12px; color:var(--text-d); text-align:center;
+  margin-top:32px; letter-spacing:.04em; font-weight:300;
+}
+
+/* ── Traditions grid ── */
+.traditions-grid {
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(180px,1fr));
+  gap:1px; background:var(--border); border:1px solid var(--border);
+  margin-top:48px;
+}
+.trad-cell {
+  background:var(--bg2); padding:20px 24px;
+  font-size:12px; font-family:var(--sans); letter-spacing:.06em; color:var(--text-d);
+  font-weight:300; transition:background .2s, color .2s;
+}
+.trad-cell:hover { background:var(--bg); color:var(--amber); }
+.trad-cell .trad-script { font-size:16px; color:var(--text-f); margin-bottom:6px; font-family:var(--serif); }
+
+/* ── Product card ── */
+.product-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); margin-top:48px; }
+.product-cell { background:var(--bg2); padding:32px 28px; }
+.product-cell h3 { font-size:13px; font-family:var(--sans); letter-spacing:.12em; text-transform:uppercase; color:var(--amber-d); margin-bottom:12px; font-weight:400; }
+.product-cell p { font-size:15px; line-height:1.75; color:var(--text-d); font-weight:300; }
+.product-cell p em { color:var(--text); font-style:normal; }
+
+/* ── Constitutional ── */
+.constitutional {
+  border-left:2px solid var(--amber-d); padding:24px 28px;
+  background:var(--bg2); margin-top:48px;
+}
+.constitutional p { font-size:14px; line-height:1.9; color:var(--text-d); font-style:italic; }
+.constitutional p strong { color:var(--text); font-style:normal; font-weight:500; }
+
+@media(max-width:600px) {
+  .product-grid { grid-template-columns:1fr; }
+  nav { padding:16px 20px; }
+}
+</style>
+
+
+<style>
+/* ── Order form ── */
+.order-section {
+  padding:96px 24px; background:var(--bg2);
+  border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+}
+.order-inner { max-width:560px; margin:0 auto; }
+.order-title { font-size:clamp(24px,3vw,36px); font-weight:300; text-align:center; margin-bottom:8px; }
+.order-sub { font-family:var(--sans); font-size:12px; color:var(--text-d); text-align:center; letter-spacing:.08em; margin-bottom:48px; }
+
+/* Guided header (replaces labeled tabs) */
+.guided-header {
+  border:1px solid var(--border); padding:18px 22px; margin-bottom:24px;
+  background:var(--bg);
+}
+.guided-step-label {
+  font-family:var(--sans); font-size:10px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--amber); margin-bottom:12px;
+  display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+}
+.guided-step-label .step-num { color:var(--text-f); letter-spacing:.15em; font-weight:300; }
+.guided-progress {
+  display:flex; align-items:center; gap:4px;
+}
+.progress-seg {
+  flex:1; height:2px; background:var(--border); transition:background .4s;
+}
+.progress-seg.done   { background:var(--amber-d); }
+.progress-seg.active { background:var(--amber); }
+
+/* Form fields */
+.step-panel { display:none; }
+.step-panel.active { display:block; }
+.field { margin-bottom:20px; }
+.field label { display:block; font-family:var(--sans); font-size:10px; letter-spacing:.15em; text-transform:uppercase; color:var(--text-d); margin-bottom:8px; }
+.field-prompt {
+  font-family:var(--serif); font-size:22px; font-weight:300; line-height:1.4;
+  color:var(--text); margin-bottom:16px; letter-spacing:.01em;
+}
+.field-hint {
+  font-family:var(--sans); font-size:11px; color:var(--text-d);
+  font-style:italic; margin-bottom:18px; line-height:1.6;
+}
+.field-note { font-family:var(--sans); font-size:10px; color:var(--text-f); margin-top:4px; }
+.field input, .field select, .field textarea {
+  width:100%; padding:12px 14px;
+  background:var(--bg); border:1px solid var(--border);
+  color:var(--text); font-family:var(--sans); font-size:14px;
+  outline:none; transition:border-color .2s;
+  -webkit-appearance:none;
+}
+.field input:focus, .field select:focus, .field textarea:focus { border-color:var(--amber-d); }
+.field input[dir="rtl"], .field textarea[dir="rtl"] { font-family:'Arial',sans-serif; font-size:16px; }
+.field-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.field-triple { display:grid; grid-template-columns:1fr 1.6fr 1.1fr; gap:10px; }
+.optional-tag { font-family:var(--sans); font-size:9px; color:var(--text-f); letter-spacing:.1em; margin-left:6px; }
+
+/* Skip button (for optional steps) */
+.btn-skip {
+  background:none; border:1px dashed var(--text-f);
+  color:var(--text-d); padding:12px 24px;
+  font-family:var(--sans); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  cursor:pointer; transition:all .2s;
+}
+.btn-skip:hover { border-color:var(--text-d); color:var(--text); border-style:solid; }
+
+/* ── Name length tier chip ── */
+.tier-row {
+  display:flex; align-items:center; gap:10px; margin-top:8px;
+  font-family:var(--sans); font-size:10px; letter-spacing:.12em;
+  color:var(--text-f); text-transform:uppercase;
+  min-height:22px;
+}
+.tier-chip {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:4px 10px; border:1px solid var(--border);
+  font-size:10px; letter-spacing:.15em; text-transform:uppercase;
+  font-family:var(--sans);
+  background:transparent;
+  transition:border-color .25s, color .25s, background .25s;
+  opacity:0;
+}
+.tier-chip.visible { opacity:1; }
+.tier-chip .tier-dot {
+  width:6px; height:6px; border-radius:50%;
+  background:var(--text-f); transition:background .25s;
+}
+.tier-chip.tier-short  { border-color:var(--bronze); color:var(--bronze); }
+.tier-chip.tier-short .tier-dot  { background:var(--bronze); }
+.tier-chip.tier-medium { border-color:var(--teal);   color:var(--teal); }
+.tier-chip.tier-medium .tier-dot { background:var(--teal); }
+.tier-chip.tier-long   { border-color:var(--amber);  color:var(--amber); }
+.tier-chip.tier-long .tier-dot   { background:var(--amber); }
+.tier-word-count { color:var(--text-d); font-size:10px; letter-spacing:.08em; text-transform:none; }
+
+/* Review panel */
+.review-box { border:1px solid var(--border); padding:24px; margin-bottom:24px; }
+.review-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--text-f); font-size:13px; }
+.review-row:last-child { border-bottom:none; }
+.review-label { font-family:var(--sans); font-size:10px; letter-spacing:.1em; color:var(--text-d); text-transform:uppercase; }
+.review-val { color:var(--text); font-weight:300; }
+.price-row { padding:16px 0 0; }
+.price-row .review-label { font-size:11px; }
+.price-row .review-val { font-size:24px; font-weight:300; color:var(--gold); font-family:var(--serif); }
+
+/* Navigation buttons */
+.form-nav { display:flex; gap:12px; justify-content:space-between; margin-top:28px; }
+.btn-next, .btn-back, .btn-pay {
+  padding:12px 32px; font-family:var(--sans); font-size:12px; letter-spacing:.1em;
+  text-transform:uppercase; border:1px solid var(--border); cursor:pointer; transition:all .2s;
+}
+.btn-back { background:none; color:var(--text-d); }
+.btn-back:hover { color:var(--text); border-color:var(--text-d); }
+.btn-next { background:var(--bg); color:var(--amber); border-color:var(--amber-d); }
+.btn-next:hover { background:var(--amber); color:var(--bg); }
+.btn-pay { background:var(--amber); color:var(--bg); border-color:var(--amber); flex:1; font-weight:500; font-size:13px; }
+.btn-pay:hover { background:var(--gold); }
+.btn-pay:disabled { opacity:.5; cursor:not-allowed; }
+.error-msg { font-family:var(--sans); font-size:11px; color:#C07070; margin-top:8px; display:none; }
+</style>
+
+
+<style>
+/* ── Footer ── */
+footer {
+  padding:48px 24px; border-top:1px solid var(--border);
+  display:flex; flex-direction:column; align-items:center; gap:16px;
+}
+.footer-brand { font-family:var(--sans); font-size:11px; letter-spacing:.2em; color:var(--amber-d); }
+.footer-links { display:flex; gap:24px; }
+.footer-links a { font-family:var(--sans); font-size:10px; color:var(--text-f); letter-spacing:.1em; text-decoration:none; }
+.footer-links a:hover { color:var(--text-d); }
+.footer-note { font-family:var(--sans); font-size:10px; color:var(--text-f); text-align:center; max-width:420px; line-height:1.9; letter-spacing:.03em; }
+
+/* ── Processing overlay ── */
+#processing-overlay {
+  display:none; position:fixed; inset:0;
+  background:rgba(245,241,234,.96); z-index:999;
+  flex-direction:column; align-items:center; justify-content:center; gap:24px;
+}
+#processing-overlay.active { display:flex; }
+.spinner { width:32px; height:32px; border:1px solid var(--border); border-top-color:var(--amber); border-radius:50%; animation:spin 1s linear infinite; }
+.processing-text { font-family:var(--sans); font-size:12px; letter-spacing:.2em; color:var(--text-d); }
+.processing-sub { font-family:var(--sans); font-size:10px; color:var(--text-f); letter-spacing:.08em; }
+
+/* ── Scroll reveal ── */
+.reveal { opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+</style>
+
+<!-- ═══════════════════════════ HTML ═══════════════════════════ -->
+
+<nav id="main-nav">
+  <div class="nav-brand">S I R R</div>
+  <button class="nav-lang" onclick="toggleLang()" id="lang-btn">العربية</button>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-bg-glyph" aria-hidden="true">السر</div>
+  <div class="hero-tag" id="ht">A unified symbolic reading</div>
+  <h1 class="hero-headline" id="hh">One reading of your name and birth — where they converge, and where they <em>pull apart</em>.</h1>
+  <p class="hero-sub" id="hs">One page of portrait, pattern, tension, and evidence from your name and birth.</p>
+  <div class="hero-stem"></div>
+  <div class="hero-cta-group">
+    <a href="#order" class="btn-primary" id="hcta">Begin your reading — $49</a>
+    <div class="hero-price-note" id="hpn">One-time · No subscription · No account</div>
+  </div>
+</section>
+
+<div class="full-rule"></div>
+
+
+<!-- ── Method ── -->
+<section class="section reveal">
+  <div class="section-rule"></div>
+  <p class="method-text" id="method-text">
+    SIRR computes across many symbolic systems behind the scenes, then returns one unified reading.
+    <strong>What you receive is a written portrait, the structure beneath it, and the evidence that holds it up.</strong>
+  </p>
+  <p class="method-note" id="method-note">
+    The page opens with the portrait, then moves through the hierarchy triangle, patterns, theses, tension, evidence, and convergence receipts.
+  </p>
+</section>
+
+<div class="full-rule"></div>
+
+<!-- ── Traditions ── -->
+<section class="section reveal">
+  <div class="section-title" id="traditions-title">Traditions behind the reading</div>
+  <div class="traditions-grid">
+    <div class="trad-cell"><div class="trad-script">ع</div>Islamic Hurufism</div>
+    <div class="trad-cell"><div class="trad-script">3</div>Western Numerology</div>
+    <div class="trad-cell"><div class="trad-script">♃</div>Western Astrology</div>
+    <div class="trad-cell"><div class="trad-script">☿</div>Hellenistic Astrology</div>
+    <div class="trad-cell"><div class="trad-script">ॐ</div>Vedic Jyotish</div>
+    <div class="trad-cell"><div class="trad-script">八</div>Chinese Metaphysics</div>
+    <div class="trad-cell"><div class="trad-script">א</div>Hebrew Kabbalah</div>
+    <div class="trad-cell"><div class="trad-script">α</div>Gematria Systems</div>
+    <div class="trad-cell"><div class="trad-script">☽</div>Tarot &amp; Cartomancy</div>
+    <div class="trad-cell"><div class="trad-script">◈</div>African Divination</div>
+    <div class="trad-cell"><div class="trad-script">𓂀</div>Egyptian &amp; Babylonian</div>
+    <div class="trad-cell"><div class="trad-script">◉</div>Mesoamerican</div>
+    <div class="trad-cell"><div class="trad-script">ᚠ</div>Celtic &amp; Norse</div>
+    <div class="trad-cell"><div class="trad-script">བ</div>Tibetan</div>
+    <div class="trad-cell"><div class="trad-script">⚙</div>Western Esoteric</div>
+    <div class="trad-cell"><div class="trad-script">☼</div>Modern Cycle Theories</div>
+    <div class="trad-cell"><div class="trad-script">🌺</div>Southeast Asian</div>
+  </div>
+</section>
+
+<div class="full-rule"></div>
+
+<!-- ── Product ── -->
+<section class="section reveal">
+  <div class="section-title" id="product-title">What the paid reading includes</div>
+  <div class="product-grid">
+    <div class="product-cell">
+      <h3 id="p1h">Coherence Score</h3>
+      <p id="p1">A single metric of alignment between your <em>birth data and your name</em>, calculated from the systems surfaced in the unified reading — not praise, not blame, a measurement.</p>
+    </div>
+    <div class="product-cell">
+      <h3 id="p2h">Primary Tension</h3>
+      <p id="p2">One sentence naming the central pull inside the profile — the place where <em>your birth pattern and your naming pattern</em> do not lean in the same direction.</p>
+    </div>
+    <div class="product-cell">
+      <h3 id="p3h">Four Domains</h3>
+      <p id="p3">Your results are grouped into <em>Numerology, Name Intelligence, Astro Timing, and Convergence</em>. You receive readable tables — not a raw dump of every system the engine computes.</p>
+    </div>
+    <div class="product-cell">
+      <h3 id="p4h">Strongest Convergences</h3>
+      <p id="p4">The clearest repeated signals are shown with their source systems and independence count, so you can see <em>where agreement is broad, and where it is thin</em>.</p>
+    </div>
+  </div>
+
+  <div class="constitutional">
+    <p id="constitutional-text">
+      <strong>This is a mirror, not a forecast.</strong>
+      SIRR computes more than the delivered page displays. What you receive is the unified reading:
+      a written portrait, the patterns and tensions beneath it, and the evidence that supports the read.
+      Not destiny, not prediction, not fortune.
+    </p>
+  </div>
+</section>
+
+<div class="full-rule"></div>
+
+
+<!-- ── Order Form ── -->
+<section class="order-section" id="order">
+  <div class="order-inner">
+    <h2 class="order-title reveal" id="order-title">Begin Your Reading</h2>
+    <p class="order-sub reveal" id="order-sub">Enter your full name, your birth date, and your birth place. The result is one unified reading.</p>
+
+    <!-- Guided progress header -->
+    <div class="guided-header">
+      <div class="guided-step-label">
+        <span id="step-name-label">Your full name</span>
+        <span class="step-num" id="step-num-label">Step 1 of 4</span>
+      </div>
+      <div class="guided-progress" id="progress-bar">
+        <div class="progress-seg active" data-seg="1"></div>
+        <div class="progress-seg" data-seg="2"></div>
+        <div class="progress-seg" data-seg="3"></div>
+        <div class="progress-seg" data-seg="4"></div>
+      </div>
+    </div>
+
+    <!-- Step 1: Full name (single free-text field + auto Arabic rendering) -->
+    <div class="step-panel active" id="step-1">
+      <div class="field">
+        <div class="field-prompt" id="name-prompt">What is your full name?</div>
+        <div class="field-hint" id="name-hint">
+          Enter your full name as you know it. The more complete, the deeper the reading.
+        </div>
+        <input type="text" id="name-latin"
+               placeholder="FATIMA AHMED OMAR ALKATIB"
+               autocomplete="name"
+               oninput="handleLatinNameInput(this)">
+
+        <div style="margin-top:16px;">
+          <label for="name-arabic" id="name-arabic-label">
+            Arabic rendering <span class="optional-tag" id="name-arabic-tag">auto-filled · editable</span>
+          </label>
+          <input type="text" id="name-arabic" dir="rtl"
+                 placeholder="سيظهر هنا تلقائياً"
+                 autocomplete="off"
+                 oninput="handleArabicNameInput(this)">
+        </div>
+
+        <div class="tier-row" style="margin-top:12px;">
+          <div id="tier-chip" class="tier-chip">
+            <span class="tier-dot"></span>
+            <span id="tier-label">—</span>
+          </div>
+          <span id="tier-word-count" class="tier-word-count"></span>
+        </div>
+      </div>
+      <div id="err-1" class="error-msg">
+        Please enter your full name — at least your given name and family name.
+      </div>
+      <div class="form-nav">
+        <div></div>
+        <button class="btn-next" onclick="goStep(2)">Continue →</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Date of birth (day/month/year separate) -->
+    <div class="step-panel" id="step-2">
+      <div class="field">
+        <div class="field-prompt">When were you born?</div>
+        <div class="field-hint">Day, month, and year — the calendar anchor of the reading.</div>
+        <div class="field-triple">
+          <select id="dob-day" onchange="updateDobPreview()">
+            <option value="">Day</option>
+          </select>
+          <select id="dob-month" onchange="updateDobPreview()">
+            <option value="">Month</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+          <select id="dob-year" onchange="updateDobPreview()">
+            <option value="">Year</option>
+          </select>
+        </div>
+      </div>
+      <div id="err-2" class="error-msg">Please select day, month, and year.</div>
+      <div class="form-nav">
+        <button class="btn-back" onclick="goStep(1)">← Back</button>
+        <button class="btn-next" onclick="goStep(3)">Continue →</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Birth time (optional) -->
+    <div class="step-panel" id="step-3">
+      <div class="field">
+        <div class="field-prompt">Do you know your birth time?</div>
+        <div class="field-hint">Even approximate is useful. Skip if truly unknown.</div>
+        <input type="time" id="birth-time" placeholder="08:30">
+      </div>
+      <div class="form-nav">
+        <button class="btn-back" onclick="goStep(2)">← Back</button>
+        <div style="display:flex; gap:10px;">
+          <button class="btn-skip" onclick="skipBirthTime()">Skip — unknown</button>
+          <button class="btn-next" onclick="goStep(4)">Continue →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Birth city -->
+    <div class="step-panel" id="step-4">
+      <div class="field">
+        <div class="field-prompt">Where were you born?</div>
+        <div class="field-hint">City and country. The ground beneath the chart.</div>
+        <input type="text" id="birth-loc" placeholder="e.g. Riyadh, Saudi Arabia" autocomplete="off">
+      </div>
+      <div id="err-4" class="error-msg">Please enter your birth city.</div>
+      <div class="form-nav">
+        <button class="btn-back" onclick="goStep(3)">← Back</button>
+        <button class="btn-next" onclick="goStep(5)">Review →</button>
+      </div>
+    </div>
+
+    <!-- Step 5: Review + Pay -->
+    <div class="step-panel" id="step-5">
+      <div class="review-box" id="review-content"></div>
+      <div id="err-5" class="error-msg">Something went wrong. Please try again.</div>
+      <div class="form-nav">
+        <button class="btn-back" onclick="goStep(4)">← Back</button>
+        <button class="btn-pay" id="pay-btn" onclick="startCheckout()">Pay $49 &amp; Get Reading</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-brand">S I R R · السر</div>
+  <p class="footer-note" id="footer-note">
+    SIRR delivers a unified structural reading of your name and birth — not a forecast.
+    You receive a written portrait, the patterns and tensions beneath it, and the evidence that supports the read.
+    One-time payment. No subscription. No account required.
+  </p>
+</footer>
+
+<!-- ── Processing overlay ── -->
+<div id="processing-overlay">
+  <div class="spinner"></div>
+  <div class="processing-text">Running your analysis</div>
+  <div class="processing-sub">Independent symbolic systems are computing.</div>
+</div>
+
+
+<script>
+/* ── Nav scroll ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* ── Scroll reveal ── */
+const observer = new IntersectionObserver(els => {
+  els.forEach(el => { if (el.isIntersecting) { el.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ── Language toggle (EN/AR) ── */
+const COPY = {
+  en: {
+    ht: 'A unified symbolic reading',
+    hh_html: 'One reading of your name and birth — where they converge, and where they <em>pull apart</em>.',
+    hs: 'One page of portrait, pattern, tension, and evidence from your name and birth.',
+    hcta: 'Begin your reading — $49',
+    hpn: 'One-time · No subscription · No account',
+    method_html: 'SIRR computes across many symbolic systems behind the scenes, then returns one unified reading. <strong>What you receive is a written portrait, the structure beneath it, and the evidence that holds it up.</strong>',
+    method_note: 'The page opens with the portrait, then moves through the hierarchy triangle, patterns, theses, tension, evidence, and convergence receipts.',
+    traditions_title: 'Traditions behind the reading',
+    product_title: 'What the paid reading includes',
+    p1h: 'Coherence Score',
+    p1_html: 'A single metric of alignment between your <em>birth data and your name</em>, calculated from the systems surfaced in the unified reading — not praise, not blame, a measurement.',
+    p2h: 'Primary Tension',
+    p2_html: 'One sentence naming the central pull inside the profile — the place where <em>your birth pattern and your naming pattern</em> do not lean in the same direction.',
+    p3h: 'Four Domains',
+    p3_html: 'Your results are grouped into <em>Numerology, Name Intelligence, Astro Timing, and Convergence</em>. You receive readable tables — not a raw dump of every system the engine computes.',
+    p4h: 'Strongest Convergences',
+    p4_html: 'The clearest repeated signals are shown with their source systems and independence count, so you can see <em>where agreement is broad, and where it is thin</em>.',
+    constitutional_html: '<strong>This is a mirror, not a forecast.</strong> SIRR computes more than the delivered page displays. What you receive is the unified reading: a written portrait, the patterns and tensions beneath it, and the evidence that supports the read. Not destiny, not prediction, not fortune.',
+    order_title: 'Begin Your Reading',
+    order_sub: 'Enter your full name, your birth date, and your birth place. The result is one unified reading.',
+    name_prompt: 'What is your full name?',
+    name_hint: 'Enter your full name as you know it. The more complete, the deeper the reading.',
+    name_arabic_label_html: 'Arabic rendering <span class="optional-tag" id="name-arabic-tag">auto-filled · editable</span>',
+    err_1: 'Please enter your full name — at least your given name and family name.',
+    footer_note: 'SIRR delivers a unified structural reading of your name and birth — not a forecast. You receive a written portrait, the patterns and tensions beneath it, and the evidence that supports the read. One-time payment. No subscription. No account required.',
+    lang: 'العربية'
+  },
+  ar: {
+    ht: 'قراءة رمزية موحَّدة',
+    hh_html: 'قراءة واحدة لاسمك وميلادك — حيث يلتقيان، وحيث <em>يشدّ كلٌّ منهما في اتجاه</em>.',
+    hs: 'صفحة واحدة: صورة، ونمط، وتوتر، وأدلّة — من اسمك وميلادك.',
+    hcta: 'ابدأ قراءتك — $49',
+    hpn: 'دفعة واحدة · بلا اشتراك · بلا حساب',
+    method_html: 'يحسب SIRR أنظمة رمزية كثيرة في الخلفية، ثم يعيدها في قراءة موحَّدة واحدة. <strong>ما تتسلَّمه صورة مكتوبة، والبنية التي تحتها، والأدلّة التي تسندها.</strong>',
+    method_note: 'تبدأ الصفحة بالصورة المكتوبة، ثم تنتقل إلى مثلث الأولوية، فالأنماط، فالأطروحات، فالتوتر، فالأدلّة، ثم إيصالات التقاطع.',
+    traditions_title: 'بعض التقاليد وراء القراءة',
+    product_title: 'ما الذي تتسلَّمه فعلاً',
+    p1h: 'درجة التماسك',
+    p1_html: 'مقياس واحد لمدى اصطفاف <em>بيانات ميلادك واسمك</em> داخل الأنظمة التي تظهر في القراءة الموحَّدة — لا مدحاً ولا ذمّاً، بل قياساً.',
+    p2h: 'التوتر الأساسي',
+    p2_html: 'جملة واحدة تسمّي الشدّ المركزي داخل الملف — الموضع الذي <em>لا يميل فيه نمط الميلاد ونمط التسمية في الاتجاه نفسه</em>.',
+    p3h: 'أربعة مجالات',
+    p3_html: 'تُجمع النتيجة في <em>علم الأعداد، وذكاء الاسم، والتوقيت الفلكي، والتقاطع</em>. ما تتسلَّمه جداول قابلة للقراءة — لا تفريغاً خاماً لكل ما يحسبه المحرّك.',
+    p4h: 'أقوى مواضع الاتفاق',
+    p4_html: 'تُعرض أوضح الإشارات المتكررة مع الأنظمة التي أنتجتها وعدد عائلات الاستقلال فيها، لكي ترى <em>أين يكون الاتفاق واسعاً، وأين يكون أرقّ</em>.',
+    constitutional_html: '<strong>هذه مرآة، لا نبوءة.</strong> يحسب SIRR أكثر مما تعرضه الصفحة المُسلَّمة. ما تتسلَّمه هو القراءة الموحَّدة: صورة مكتوبة، والأنماط والتوترات التي تحتها، والأدلّة التي تسند القراءة. لا قدر، ولا تنبؤ، ولا حظ.',
+    order_title: 'ابدأ قراءتك',
+    order_sub: 'أدخل اسمك الكامل وتاريخ ميلادك ومكان ولادتك.',
+    name_prompt: 'ما اسمك الكامل؟',
+    name_hint: 'أدخل اسمك الكامل كما تعرفه. كلما كان أكثر اكتمالاً، كانت القراءة أعمق.',
+    name_arabic_label_html: 'الاسم بالعربية <span class="optional-tag" id="name-arabic-tag">يُملأ تلقائياً · قابل للتعديل</span>',
+    err_1: 'يرجى إدخال اسمك الكامل — على الأقل الاسم الأول والعائلة.',
+    footer_note: 'يقدِّم SIRR قراءة بنيوية موحَّدة لاسمك وميلادك — لا توقُّعاً. ما تتسلَّمه صورة مكتوبة، والأنماط والتوترات التي تحتها، والأدلّة التي تسند القراءة. دفعة واحدة. بلا اشتراك. وبلا حساب.',
+    lang: 'English'
+  }
+}
+let lang = 'en';
+function toggleLang() {
+  lang = lang === 'en' ? 'ar' : 'en';
+  const c = COPY[lang];
+  document.getElementById('ht').textContent = c.ht;
+  document.getElementById('hh').innerHTML = c.hh_html;
+  document.getElementById('hs').textContent = c.hs;
+  document.getElementById('hcta').textContent = c.hcta;
+  document.getElementById('hpn').textContent = c.hpn;
+  document.getElementById('method-text').innerHTML = c.method_html;
+  document.getElementById('method-note').textContent = c.method_note;
+  document.getElementById('traditions-title').textContent = c.traditions_title;
+  document.getElementById('product-title').textContent = c.product_title;
+  document.getElementById('p1h').textContent = c.p1h;
+  document.getElementById('p1').innerHTML = c.p1_html;
+  document.getElementById('p2h').textContent = c.p2h;
+  document.getElementById('p2').innerHTML = c.p2_html;
+  document.getElementById('p3h').textContent = c.p3h;
+  document.getElementById('p3').innerHTML = c.p3_html;
+  document.getElementById('p4h').textContent = c.p4h;
+  document.getElementById('p4').innerHTML = c.p4_html;
+  document.getElementById('constitutional-text').innerHTML = c.constitutional_html;
+  document.getElementById('order-title').textContent = c.order_title;
+  document.getElementById('order-sub').textContent = c.order_sub;
+  document.getElementById('name-prompt').textContent = c.name_prompt;
+  document.getElementById('name-hint').textContent = c.name_hint;
+  document.getElementById('name-arabic-label').innerHTML = c.name_arabic_label_html;
+  document.getElementById('err-1').textContent = c.err_1;
+  document.getElementById('footer-note').textContent = c.footer_note;
+  document.getElementById('lang-btn').textContent = c.lang;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+}
+
+/* ── Name state (single full-name field + editable Arabic) ── */
+const nameState = {
+  en: '',
+  ar: '',
+  arabic_dirty: false,  // true once user manually edits Arabic
+};
+
+const STEP_LABELS = {
+  1: 'Your full name',
+  2: 'Date of birth',
+  3: 'Birth time',
+  4: 'Birth city',
+  5: 'Review',
+};
+const TOTAL_STEPS = 4;
+
+/* ── Populate DOB selects on load ── */
+(function populateDob() {
+  const daySel  = document.getElementById('dob-day');
+  const yearSel = document.getElementById('dob-year');
+  for (let d = 1; d <= 31; d++) {
+    const o = document.createElement('option');
+    o.value = d; o.textContent = d;
+    daySel.appendChild(o);
+  }
+  for (let y = 2015; y >= 1900; y--) {
+    const o = document.createElement('option');
+    o.value = y; o.textContent = y;
+    yearSel.appendChild(o);
+  }
+})();
+
+/* ── Latin name input: uppercase, store, schedule transliteration ── */
+function handleLatinNameInput(el) {
+  const up = el.value.toUpperCase();
+  if (el.value !== up) el.value = up;
+  nameState.en = up.trim();
+  const wc = nameState.en ? nameState.en.split(/\s+/).filter(Boolean).length : 0;
+  updateTierChip(wc);
+  scheduleTransliterate();
+}
+
+/* ── Arabic manual input: user override wins ── */
+function handleArabicNameInput(el) {
+  nameState.ar = el.value.trim();
+  nameState.arabic_dirty = true;
+}
+
+/* ── Debounced transliteration (respects manual override) ── */
+let translitTimer = null;
+function scheduleTransliterate() {
+  clearTimeout(translitTimer);
+  if (nameState.arabic_dirty) return;
+  translitTimer = setTimeout(async () => {
+    if (!nameState.en || nameState.en.length < 2) {
+      nameState.ar = '';
+      document.getElementById('name-arabic').value = '';
+      return;
+    }
+    try {
+      const res = await fetch('/api/transliterate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: nameState.en })
+      });
+      if (res.ok) {
+        const d = await res.json();
+        if (d.arabic && !nameState.arabic_dirty) {
+          nameState.ar = d.arabic.trim();
+          document.getElementById('name-arabic').value = nameState.ar;
+        }
+      }
+    } catch (_) { /* silent */ }
+  }, 600);
+}
+
+/* ── Name length tier chip (mirrors server tier logic) ── */
+function updateTierChip(wc) {
+  const chip  = document.getElementById('tier-chip');
+  const label = document.getElementById('tier-label');
+  const count = document.getElementById('tier-word-count');
+  chip.classList.remove('tier-short', 'tier-medium', 'tier-long');
+
+  if (!wc || wc === 0) {
+    chip.classList.remove('visible');
+    label.textContent = '—';
+    count.textContent = '';
+    return;
+  }
+  let tier, tierClass;
+  if (wc >= 7)      { tier = 'LONG';   tierClass = 'tier-long'; }
+  else if (wc >= 4) { tier = 'MEDIUM'; tierClass = 'tier-medium'; }
+  else              { tier = 'SHORT';  tierClass = 'tier-short'; }
+  chip.classList.add('visible', tierClass);
+  label.textContent = tier;
+  count.textContent = wc === 1 ? '1 word' : wc + ' words';
+}
+
+/* ── Update progress bar + header label ── */
+function updateProgress(n) {
+  const segs = document.querySelectorAll('.progress-seg');
+  segs.forEach((seg, i) => {
+    seg.classList.remove('done', 'active');
+    const segStep = i + 1;
+    if (segStep < Math.min(n, TOTAL_STEPS))       seg.classList.add('done');
+    else if (segStep === Math.min(n, TOTAL_STEPS)) seg.classList.add('active');
+  });
+  const clamped = Math.min(n, TOTAL_STEPS);
+  document.getElementById('step-name-label').textContent =
+    n === 5 ? 'Review your reading' : STEP_LABELS[n];
+  document.getElementById('step-num-label').textContent =
+    n === 5 ? 'Final review' : `Step ${clamped} of ${TOTAL_STEPS}`;
+}
+
+/* ── Step navigation with per-step validation ── */
+function goStep(n) {
+  // Validate the step we're LEAVING
+  const current = parseInt(
+    document.querySelector('.step-panel.active').id.replace('step-', ''),
+    10
+  );
+  if (n > current) {
+    if (!validateStep(current)) return;
+  }
+
+  // Switch panels
+  document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('step-' + n).classList.add('active');
+  updateProgress(n);
+
+  // Build review when entering step 5
+  if (n === 5) buildReview();
+
+  // Smooth-scroll to top of form
+  document.getElementById('order').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function validateStep(n) {
+  const show = id => { const el = document.getElementById(id); if (el) el.style.display = 'block'; };
+  const hide = id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; };
+
+  if (n === 1) {
+    const wc = nameState.en ? nameState.en.split(/\s+/).filter(Boolean).length : 0;
+    if (wc < 2) { show('err-1'); return false; }
+    hide('err-1'); return true;
+  }
+  if (n === 2) {
+    const d = document.getElementById('dob-day').value;
+    const m = document.getElementById('dob-month').value;
+    const y = document.getElementById('dob-year').value;
+    if (!d || !m || !y) { show('err-2'); return false; }
+    hide('err-2'); return true;
+  }
+  if (n === 3) return true;  // birth time optional
+  if (n === 4) {
+    const loc = document.getElementById('birth-loc').value.trim();
+    if (!loc) { show('err-4'); return false; }
+    hide('err-4'); return true;
+  }
+  return true;
+}
+
+function skipBirthTime() {
+  document.getElementById('birth-time').value = '';
+  goStep(4);
+}
+
+function updateDobPreview() { /* no-op, kept for potential future live DOB echo */ }
+
+/* ── Build DOB string for API ── */
+function buildDobString() {
+  const d = document.getElementById('dob-day').value;
+  const m = document.getElementById('dob-month').value;
+  const y = document.getElementById('dob-year').value;
+  if (!d || !m || !y) return '';
+  return `${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+}
+
+/* ── Build review card ── */
+function buildReview() {
+  const en = nameState.en;
+  const ar = nameState.ar;
+  const wc = en ? en.split(/\s+/).filter(Boolean).length : 0;
+
+  let tierLabel = 'SHORT';
+  if (wc >= 7)      tierLabel = 'LONG';
+  else if (wc >= 4) tierLabel = 'MEDIUM';
+
+  const dob  = buildDobString();
+  const time = document.getElementById('birth-time').value;
+  const loc  = document.getElementById('birth-loc').value.trim();
+
+  const rows = [
+    ['Full name', en],
+    ['Arabic', ar || '(being prepared…)'],
+    ['Name tier', `${tierLabel} · ${wc} ${wc === 1 ? 'word' : 'words'}`],
+    ['Date of birth', dob],
+    time ? ['Birth time', time] : null,
+    loc  ? ['Birth city', loc] : null,
+  ].filter(Boolean);
+
+  document.getElementById('review-content').innerHTML =
+    rows.map(([l, v]) =>
+      `<div class="review-row"><span class="review-label">${l}</span><span class="review-val">${v}</span></div>`
+    ).join('') +
+    `<div class="review-row price-row"><span class="review-label">Total</span><span class="review-val">$49</span></div>`;
+}
+
+/* ── Checkout ── */
+async function startCheckout() {
+  const btn = document.getElementById('pay-btn');
+  btn.disabled = true;
+  btn.textContent = 'Preparing…';
+  document.getElementById('err-5').style.display = 'none';
+
+  const payload = {
+    name_latin:     nameState.en,
+    name_arabic:    nameState.ar,
+    dob:            buildDobString(),
+    birth_time:     document.getElementById('birth-time').value || null,
+    birth_location: document.getElementById('birth-loc').value.trim() || null,
+    lang:           lang,
+  };
+
+  try {
+    const res = await fetch('/api/checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error('Server error');
+    const d = await res.json();
+    if (d.checkout_url) {
+      window.location.href = d.checkout_url;
+    } else {
+      throw new Error('No checkout URL');
+    }
+  } catch (e) {
+    document.getElementById('err-5').style.display = 'block';
+    document.getElementById('err-5').textContent = 'Something went wrong. Please try again.';
+    btn.disabled = false;
+    btn.textContent = 'Pay $49 & Get Reading';
+  }
+}
+</script>
+</body>
+</html>
