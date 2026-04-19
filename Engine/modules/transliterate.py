@@ -67,8 +67,6 @@ _AR_OVERRIDES: dict[str, str] = {
     "ISMAIL":    "\u0625\u0633\u0645\u0627\u0639\u064a\u0644",  # إسماعيل
     "ISMAEL":    "\u0625\u0633\u0645\u0627\u0639\u064a\u0644",  # إسماعيل
     "IBRAHIM":   "\u0625\u0628\u0631\u0627\u0647\u064a\u0645",  # إبراهيم
-    "MUHAB":     "\u0645\u0647\u0627\u0628",           # مهاب
-    "AKIF":      "\u0639\u0627\u0643\u0641",           # عاكف
     "ALI":       "\u0639\u0644\u064a",                 # علي
     "HUSSEIN":   "\u062d\u0633\u064a\u0646",           # حسين
     "HASSAN":    "\u062d\u0633\u0646",                 # حسن
@@ -127,7 +125,6 @@ _AR_OVERRIDES: dict[str, str] = {
     "MOHAMAD":   "\u0645\u062d\u0645\u062f",                    # محمد
     "MHMD":      "\u0645\u062d\u0645\u062f",                    # محمد (initials)
     # ── Names with emphatic letters phonetic fallback can't infer ──
-    "WASFI":     "\u0648\u0635\u0641\u064a",                    # وصفي
     "WASEF":     "\u0648\u0627\u0635\u0641",                    # واصف
     "NASSER":    "\u0646\u0627\u0635\u0631",                    # ناصر
     "NASIR":     "\u0646\u0627\u0635\u0631",                    # ناصر
@@ -258,7 +255,6 @@ _AR_OVERRIDES: dict[str, str] = {
     "MAHA":      "\u0645\u0647\u0627",                          # مها
     "MAYA":      "\u0645\u0627\u064a\u0627",                    # مايا
     "MAYSOUN":   "\u0645\u064a\u0633\u0648\u0646",              # ميسون
-    "MIRAL":     "\u0645\u064a\u0631\u0627\u0644",              # ميرال
     "MONA":      "\u0645\u0646\u0649",                          # منى
     "MUNA":      "\u0645\u0646\u0649",                          # منى
     "NADIA":     "\u0646\u0627\u062f\u064a\u0627",              # ناديا

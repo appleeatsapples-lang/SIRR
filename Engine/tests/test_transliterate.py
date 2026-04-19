@@ -110,10 +110,6 @@ class TestFullNasabCanonical:
         """MOHAMMAD (O-variant, double-M ending) must produce محمد."""
         assert transliterate_to_arabic("MOHAMMAD") == "\u0645\u062d\u0645\u062f"
 
-    def test_wasfi(self):
-        """WASFI must produce وصفي (emphatic ص, not س)."""
-        assert transliterate_to_arabic("WASFI") == "\u0648\u0635\u0641\u064a"
-
 
 class TestCommonArabNames:
     """Smoke-test a sampling of newly added Arab names for canonical correctness."""
@@ -128,10 +124,6 @@ class TestCommonArabNames:
 
     def test_hossam(self):
         assert transliterate_to_arabic("HOSSAM") == "\u062d\u0633\u0627\u0645"
-
-    def test_miral(self):
-        """MIRAL must produce ميرال."""
-        assert transliterate_to_arabic("MIRAL") == "\u0645\u064a\u0631\u0627\u0644"
 
     def test_noor_variants_identical(self):
         """NOOR / NUR / NOUR must all produce the same Arabic نور."""
