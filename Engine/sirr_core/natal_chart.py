@@ -52,7 +52,6 @@ class GeoResult:
 # utc_offset is STANDARD time (not DST-adjusted)
 CITY_DB: Dict[str, Tuple[float, float, str, float, str]] = {
     # ── Middle East ──
-    "dhahran":          (26.3927, 50.1146, "Asia/Riyadh", 3, "Dhahran, Saudi Arabia"),
     "riyadh":           (24.7136, 46.6753, "Asia/Riyadh", 3, "Riyadh, Saudi Arabia"),
     "jeddah":           (21.5433, 39.1728, "Asia/Riyadh", 3, "Jeddah, Saudi Arabia"),
     "mecca":            (21.3891, 39.8579, "Asia/Riyadh", 3, "Mecca, Saudi Arabia"),
@@ -206,7 +205,6 @@ CITY_DB: Dict[str, Tuple[float, float, str, float, str]] = {
 
 # Build a mapping from the old natal_chart module's location format
 _LEGACY_LOCATION_MAP = {
-    "Dhahran, Saudi Arabia": "dhahran",
     "Riyadh, Saudi Arabia": "riyadh",
     "Jeddah, Saudi Arabia": "jeddah",
     "Amman, Jordan": "amman",
@@ -227,10 +225,10 @@ def geocode(place: str) -> Optional[GeoResult]:
     Resolve a place string to coordinates + timezone.
 
     Accepts:
-      - City name: "Dhahran", "New York", "cairo"
-      - Legacy format: "Dhahran, Saudi Arabia"
-      - Lat,lng: "26.3927,50.1146" (assumes UTC+0, caller should override)
-      - Lat,lng with tz: "26.3927,50.1146,3" (third value = UTC offset)
+      - City name: "Cairo", "New York", "tokyo"
+      - Legacy format: "Cairo, Egypt"
+      - Lat,lng: "30.0444,31.2357" (assumes UTC+0, caller should override)
+      - Lat,lng with tz: "30.0444,31.2357,2" (third value = UTC offset)
 
     Returns GeoResult or None if unrecognized.
     """
@@ -254,7 +252,7 @@ def geocode(place: str) -> Optional[GeoResult]:
 
     # 3. Normalize and try city lookup
     normalized = raw.lower().strip().rstrip(".,")
-    # Strip country suffix for matching: "dhahran, saudi arabia" → "dhahran"
+    # Strip country suffix for matching: "cairo, egypt" → "cairo"
     result = _lookup_city(normalized)
     if result:
         return result

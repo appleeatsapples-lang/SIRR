@@ -26,7 +26,6 @@ TEST_CITIES = [
     ("Balkh, Afghanistan", 36.7581, 66.8981, 4.5),
     ("Malmesbury, England", 51.5858, -2.0990, 0.0),
     ("Schonhausen, Germany", 52.6333, 12.0000, 1.0),
-    ("Dhahran, Saudi Arabia", 26.3927, 50.1146, 3.0),
     ("Koboko, Uganda", 3.4141, 30.9603, 3.0),
     ("Qasr Abu Hadi, Libya", 31.1706, 16.5892, 2.0),
     ("Mangyongdae, Korea", 39.0050, 125.7289, 9.0),
