@@ -1,12 +1,30 @@
+# Production + CI dependencies — single source of truth.
+# Railway installs from this file (repo root). CI installs from this file.
+# Do NOT create Engine/requirements.txt — the drift caused the 2p.1 outage.
+
+# Engine / astrology
 pyswisseph
 hijri-converter
 hdate
+
+# Document generation (reports, PDFs)
 reportlab
 openpyxl
-stripe
-python-dotenv
+
+# Web framework
 fastapi
 uvicorn[standard]
-anthropic
 httpx
+python-dotenv
+
+# Payments
+stripe
+
+# LLM narrative generation
+anthropic
+
+# §16.2 Tier 2 at-rest encryption
 cryptography
+
+# Testing (needed in CI; prod containers will load but not use)
+pytest
