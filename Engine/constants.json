@@ -1,0 +1,4746 @@
+{
+  "version": "sirr-new-systems-v1.2",
+  "mayan": {
+    "gmt_correlation": 584283,
+    "haab_offset": 348,
+    "glord_offset": 0,
+    "notes": "glord_offset=0 is raw JDN%9 mapping; likely needs calibration against known dates."
+  },
+  "wafq": {
+    "loshu_base": [
+      [
+        4,
+        9,
+        2
+      ],
+      [
+        3,
+        5,
+        7
+      ],
+      [
+        8,
+        1,
+        6
+      ]
+    ]
+  },
+  "cardology": {
+    "version": "lookup-v1",
+    "source": "Olney Richmond-style chart (user-provided mapping)",
+    "map": {
+      "9-23": [
+        "7 of Clubs",
+        "Spiritual Knowledge & Faith"
+      ]
+    }
+  },
+  "iching": {
+    "plum_blossom": {
+      "earthly_branch_year_rat": 1,
+      "hour_branch_si": 6,
+      "hexagram_table_version": "king-wen-matrix-v1"
+    }
+  },
+  "essence": {
+    "name_letter_durations": {
+      "FATIMA": [
+        [
+          "F",
+          6
+        ],
+        [
+          "A",
+          1
+        ],
+        [
+          "T",
+          2
+        ],
+        [
+          "I",
+          9
+        ],
+        [
+          "M",
+          4
+        ],
+        [
+          "A",
+          1
+        ]
+      ],
+      "AHMED": [
+        [
+          "A",
+          1
+        ],
+        [
+          "H",
+          8
+        ],
+        [
+          "M",
+          4
+        ],
+        [
+          "E",
+          5
+        ],
+        [
+          "D",
+          4
+        ]
+      ],
+      "ALKATIB": [
+        [
+          "A",
+          1
+        ],
+        [
+          "L",
+          3
+        ],
+        [
+          "K",
+          2
+        ],
+        [
+          "A",
+          1
+        ],
+        [
+          "T",
+          2
+        ],
+        [
+          "I",
+          9
+        ],
+        [
+          "B",
+          2
+        ]
+      ]
+    }
+  },
+  "nayin": {
+    "version": "60-jiazi-v2-gemini-verified",
+    "source": "Standard 60 Jiazi NaYin table, verified against golden fixture (pos 13 = 涧下水/Water)",
+    "cycle": {
+      "1": [
+        "甲子",
+        "Jiǎ Zǐ",
+        "Ocean Gold",
+        "海中金",
+        "Gold"
+      ],
+      "2": [
+        "乙丑",
+        "Yǐ Chǒu",
+        "Ocean Gold",
+        "海中金",
+        "Gold"
+      ],
+      "3": [
+        "丙寅",
+        "Bǐng Yín",
+        "Furnace Fire",
+        "炉中火",
+        "Fire"
+      ],
+      "4": [
+        "丁卯",
+        "Dīng Mǎo",
+        "Furnace Fire",
+        "炉中火",
+        "Fire"
+      ],
+      "5": [
+        "戊辰",
+        "Wù Chén",
+        "Great Forest Wood",
+        "大林木",
+        "Wood"
+      ],
+      "6": [
+        "己巳",
+        "Jǐ Sì",
+        "Great Forest Wood",
+        "大林木",
+        "Wood"
+      ],
+      "7": [
+        "庚午",
+        "Gēng Wǔ",
+        "Roadside Earth",
+        "路旁土",
+        "Earth"
+      ],
+      "8": [
+        "辛未",
+        "Xīn Wèi",
+        "Roadside Earth",
+        "路旁土",
+        "Earth"
+      ],
+      "9": [
+        "壬申",
+        "Rén Shēn",
+        "Sword Gold",
+        "剑锋金",
+        "Gold"
+      ],
+      "10": [
+        "癸酉",
+        "Guǐ Yǒu",
+        "Sword Gold",
+        "剑锋金",
+        "Gold"
+      ],
+      "11": [
+        "甲戌",
+        "Jiǎ Xū",
+        "Mountain Top Fire",
+        "山头火",
+        "Fire"
+      ],
+      "12": [
+        "乙亥",
+        "Yǐ Hài",
+        "Mountain Top Fire",
+        "山头火",
+        "Fire"
+      ],
+      "13": [
+        "丙子",
+        "Bǐng Zǐ",
+        "Cave Water",
+        "涧下水",
+        "Water"
+      ],
+      "14": [
+        "丁丑",
+        "Dīng Chǒu",
+        "Cave Water",
+        "涧下水",
+        "Water"
+      ],
+      "15": [
+        "戊寅",
+        "Wù Yín",
+        "City Rampart Earth",
+        "城头土",
+        "Earth"
+      ],
+      "16": [
+        "己卯",
+        "Jǐ Mǎo",
+        "City Rampart Earth",
+        "城头土",
+        "Earth"
+      ],
+      "17": [
+        "庚辰",
+        "Gēng Chén",
+        "White Wax Gold",
+        "白蜡金",
+        "Gold"
+      ],
+      "18": [
+        "辛巳",
+        "Xīn Sì",
+        "White Wax Gold",
+        "白蜡金",
+        "Gold"
+      ],
+      "19": [
+        "壬午",
+        "Rén Wǔ",
+        "Willow Wood",
+        "杨柳木",
+        "Wood"
+      ],
+      "20": [
+        "癸未",
+        "Guǐ Wèi",
+        "Willow Wood",
+        "杨柳木",
+        "Wood"
+      ],
+      "21": [
+        "甲申",
+        "Jiǎ Shēn",
+        "Stream Water",
+        "泉中水",
+        "Water"
+      ],
+      "22": [
+        "乙酉",
+        "Yǐ Yǒu",
+        "Stream Water",
+        "泉中水",
+        "Water"
+      ],
+      "23": [
+        "丙戌",
+        "Bǐng Xū",
+        "Roof Tile Earth",
+        "屋上土",
+        "Earth"
+      ],
+      "24": [
+        "丁亥",
+        "Dīng Hài",
+        "Roof Tile Earth",
+        "屋上土",
+        "Earth"
+      ],
+      "25": [
+        "戊子",
+        "Wù Zǐ",
+        "Thunder Fire",
+        "霹雳火",
+        "Fire"
+      ],
+      "26": [
+        "己丑",
+        "Jǐ Chǒu",
+        "Thunder Fire",
+        "霹雳火",
+        "Fire"
+      ],
+      "27": [
+        "庚寅",
+        "Gēng Yín",
+        "Pine Tree Wood",
+        "松柏木",
+        "Wood"
+      ],
+      "28": [
+        "辛卯",
+        "Xīn Mǎo",
+        "Pine Tree Wood",
+        "松柏木",
+        "Wood"
+      ],
+      "29": [
+        "壬辰",
+        "Rén Chén",
+        "Long Flowing Water",
+        "长流水",
+        "Water"
+      ],
+      "30": [
+        "癸巳",
+        "Guǐ Sì",
+        "Long Flowing Water",
+        "长流水",
+        "Water"
+      ],
+      "31": [
+        "甲午",
+        "Jiǎ Wǔ",
+        "Sand Gold",
+        "沙中金",
+        "Gold"
+      ],
+      "32": [
+        "乙未",
+        "Yǐ Wèi",
+        "Sand Gold",
+        "沙中金",
+        "Gold"
+      ],
+      "33": [
+        "丙申",
+        "Bǐng Shēn",
+        "Mountain Bottom Fire",
+        "山下火",
+        "Fire"
+      ],
+      "34": [
+        "丁酉",
+        "Dīng Yǒu",
+        "Mountain Bottom Fire",
+        "山下火",
+        "Fire"
+      ],
+      "35": [
+        "戊戌",
+        "Wù Xū",
+        "Flatland Wood",
+        "平地木",
+        "Wood"
+      ],
+      "36": [
+        "己亥",
+        "Jǐ Hài",
+        "Flatland Wood",
+        "平地木",
+        "Wood"
+      ],
+      "37": [
+        "庚子",
+        "Gēng Zǐ",
+        "Wall Earth",
+        "壁上土",
+        "Earth"
+      ],
+      "38": [
+        "辛丑",
+        "Xīn Chǒu",
+        "Wall Earth",
+        "壁上土",
+        "Earth"
+      ],
+      "39": [
+        "壬寅",
+        "Rén Yín",
+        "Gold Foil Gold",
+        "金箔金",
+        "Gold"
+      ],
+      "40": [
+        "癸卯",
+        "Guǐ Mǎo",
+        "Gold Foil Gold",
+        "金箔金",
+        "Gold"
+      ],
+      "41": [
+        "甲辰",
+        "Jiǎ Chén",
+        "Lamp Fire",
+        "佛灯火",
+        "Fire"
+      ],
+      "42": [
+        "乙巳",
+        "Yǐ Sì",
+        "Lamp Fire",
+        "佛灯火",
+        "Fire"
+      ],
+      "43": [
+        "丙午",
+        "Bǐng Wǔ",
+        "Heavenly River Water",
+        "天河水",
+        "Water"
+      ],
+      "44": [
+        "丁未",
+        "Dīng Wèi",
+        "Heavenly River Water",
+        "天河水",
+        "Water"
+      ],
+      "45": [
+        "戊申",
+        "Wù Shēn",
+        "Great Post Earth",
+        "大驿土",
+        "Earth"
+      ],
+      "46": [
+        "己酉",
+        "Jǐ Yǒu",
+        "Great Post Earth",
+        "大驿土",
+        "Earth"
+      ],
+      "47": [
+        "庚戌",
+        "Gēng Xū",
+        "Jewelry Gold",
+        "钗钏金",
+        "Gold"
+      ],
+      "48": [
+        "辛亥",
+        "Xīn Hài",
+        "Jewelry Gold",
+        "钗钏金",
+        "Gold"
+      ],
+      "49": [
+        "壬子",
+        "Rén Zǐ",
+        "Mulberry Wood",
+        "桑柘木",
+        "Wood"
+      ],
+      "50": [
+        "癸丑",
+        "Guǐ Chǒu",
+        "Mulberry Wood",
+        "桑柘木",
+        "Wood"
+      ],
+      "51": [
+        "甲寅",
+        "Jiǎ Yín",
+        "Great Stream Water",
+        "大溪水",
+        "Water"
+      ],
+      "52": [
+        "乙卯",
+        "Yǐ Mǎo",
+        "Great Stream Water",
+        "大溪水",
+        "Water"
+      ],
+      "53": [
+        "丙辰",
+        "Bǐng Chén",
+        "Sand Earth",
+        "沙中土",
+        "Earth"
+      ],
+      "54": [
+        "丁巳",
+        "Dīng Sì",
+        "Sand Earth",
+        "沙中土",
+        "Earth"
+      ],
+      "55": [
+        "戊午",
+        "Wù Wǔ",
+        "Sky Fire",
+        "天上火",
+        "Fire"
+      ],
+      "56": [
+        "己未",
+        "Jǐ Wèi",
+        "Sky Fire",
+        "天上火",
+        "Fire"
+      ],
+      "57": [
+        "庚申",
+        "Gēng Shēn",
+        "Pomegranate Wood",
+        "石榴木",
+        "Wood"
+      ],
+      "58": [
+        "辛酉",
+        "Xīn Yǒu",
+        "Pomegranate Wood",
+        "石榴木",
+        "Wood"
+      ],
+      "59": [
+        "壬戌",
+        "Rén Xū",
+        "Ocean Water",
+        "大海水",
+        "Water"
+      ],
+      "60": [
+        "癸亥",
+        "Guǐ Hài",
+        "Ocean Water",
+        "大海水",
+        "Water"
+      ]
+    },
+    "notes": "Key=sexagenary position. 1996 丙子 Yang Fire Rat = position 13 = Cave Water (涧下水). English name updated from 'Stream Water' to 'Cave Water' per Gemini—both are valid translations of 涧下水."
+  },
+  "compound": {
+    "version": "cheiro-v2-gemini-verified",
+    "source": "Cheiro's Book of Numbers, verified against 3 known entries (15/21/23). Corrects prior mixing of modern numerology with authentic Chaldean compound meanings.",
+    "meanings": {
+      "10": [
+        "The Wheel of Fortune",
+        "It is a number of honor, of faith and self-confidence, of rise and fall; one's name will be known for good or evil, according to one's desires; it is a fortunate number in the sense that one's plans are likely to be carried out."
+      ],
+      "11": [
+        "The Clenched Hand",
+        "This is an ominous number to occultists. It gives warning of hidden dangers, trial, and treachery from others. It has a symbol of a Clenched Hand, and a Lion Muzzled, and of a person who will have great difficulties to contend against."
+      ],
+      "12": [
+        "The Sacrifice",
+        "The symbolism of this number is suffering and anxiety of mind. It is also indicated as the Sacrifice or the Victim and generally foreshadows one being sacrificed for the plans or intrigues of others."
+      ],
+      "13": [
+        "Regeneration and Change",
+        "A number indicating change of plans and place. It is symbolized by a Skeleton or Death reaping men. It is a number of upheaval and destruction, representing a symbol of Power which if wrongly used will wreak destruction upon itself."
+      ],
+      "14": [
+        "Movement and Challenge",
+        "A number of movement, combination of people and things, and danger from natural forces such as tempests, water, air or fire. Fortunate for money and business changes, but carrying a strong element of risk and danger."
+      ],
+      "15": [
+        "The Magician",
+        "A number of occult significance, magic, and mystery. It represents persons who use every art of magic to carry out their purpose. Associated with eloquence, art, a dramatic personality, and strong personal magnetism. Fortunate for obtaining money and gifts."
+      ],
+      "16": [
+        "The Shattered Citadel",
+        "Pictured by a Tower Struck by Lightning from which a man is falling with a Crown on his head. It gives warning of some strange fatality awaiting one, also danger of accidents and defeat of one's plans."
+      ],
+      "17": [
+        "The Star of the Magi",
+        "A highly spiritual number expressed by the 8-pointed Star of Venus, a symbol of Peace and Love. It expresses that the person has risen superior in spirit to the trials of life. It is considered a Number of Immortality."
+      ],
+      "18": [
+        "Spiritual-Material Conflict",
+        "Symbolic of materialism striving to destroy the spiritual side of the nature. It associates a person with bitter quarrels, family disputes, war, social upheavals, and revolutions; in some cases indicating making money through wars."
+      ],
+      "19": [
+        "The Prince of Heaven",
+        "Regarded as extremely favorable, symbolized as the Sun. It is a number promising happiness, success, esteem, and honor, and promises success in one's plans for the future."
+      ],
+      "20": [
+        "The Awakening",
+        "Also called The Judgment. Symbolized by a winged angel sounding a trumpet, with people rising from a tomb. It denotes the awakening of new purpose, new plans, new ambitions, and the call to action for some great purpose or duty."
+      ],
+      "21": [
+        "The Crown of the Magi",
+        "Symbolized by the Universe. A number of advancement, honors, elevation in life, and general success. It means victory after a long initiation and tests of determination."
+      ],
+      "22": [
+        "The Blind Man",
+        "Symbolized by a Good Man blinded by the folly of others, with a knapsack full of Errors. A warning number of illusion and delusion; a dreamer who awakens only when surrounded by danger, and a number of false judgments."
+      ],
+      "23": [
+        "The Royal Star of the Lion",
+        "A promise of success, help from superiors, and protection from those in high places. In dealing with future events, it is a most fortunate number and a promise of success for one's plans."
+      ],
+      "24": [
+        "Assistance and Association",
+        "A fortunate number promising the assistance and association of those of rank and position with one's plans. It denotes gain through love and the opposite sex, and is favorable regarding future events."
+      ],
+      "25": [
+        "Strength Through Experience",
+        "Denotes strength gained through experience, and benefits obtained through observation of people and things. Success is given through strife and trials in the earlier life. Favorable regarding the future."
+      ],
+      "26": [
+        "Gravest Warnings",
+        "Full of the gravest warnings for the future. It foreshadows disasters brought about by association with others; ruin by bad speculations, by partnerships, unions, and bad advice."
+      ],
+      "27": [
+        "The Sceptre",
+        "A promise of authority, power, and command. Reward will come from the productive intellect and creative faculties. Persons with this number should carry out their own ideas and not be intimidated by others."
+      ],
+      "28": [
+        "The Trusting Lamb",
+        "Full of contradictions. Indicates a person of great promise who is likely to see all taken away unless they carefully provide for the future. Indicates loss through trust in others, opposition in trade, and danger through law."
+      ],
+      "29": [
+        "Uncertainties and Treachery",
+        "Indicates uncertainties, treachery, and deception of others. It foreshadows trials, tribulation, unexpected dangers, unreliable friends, and grief and deception caused by members of the opposite sex."
+      ],
+      "30": [
+        "Thoughtful Deduction",
+        "A number of thoughtful deduction, retrospection, and mental superiority. Belonging completely to the mental plane, persons it represents are likely to put all material things aside by their own wish."
+      ],
+      "31": [
+        "The Recluse",
+        "Similar to 30, except the person is even more self-contained, lonely, and isolated from their fellows. It is not a fortunate number from a worldly or material standpoint."
+      ],
+      "32": [
+        "Magical Combinations",
+        "Associated with combinations of people or nations. A fortunate number if the person holds to their own judgment and opinions; if not, their plans are liable to be wrecked by the stubbornness of others."
+      ],
+      "33": [
+        "Assistance and Association",
+        "This number has no potency of its own, but carries the exact same meaning as 24. It promises the assistance and association of those of rank and position, and gain through the opposite sex."
+      ],
+      "34": [
+        "Strength Through Experience",
+        "Has the same meaning as the number 25. It denotes strength gained through experience, and success given through strife and trials in the earlier life."
+      ],
+      "35": [
+        "Gravest Warnings",
+        "Has the same meaning as the number 26. It foreshadows disasters brought about by association with others, ruin by bad speculations, and bad advice."
+      ],
+      "36": [
+        "The Sceptre",
+        "Has the same meaning as the number 27. It is a promise of authority, power, and command, indicating that reward will come from the productive intellect."
+      ],
+      "37": [
+        "Fortunate Friendships",
+        "This number has a distinct potency of its own. It is a number of good and fortunate friendships in love, and in combinations connected with the opposite sex. Good for partnerships of all kinds."
+      ],
+      "38": [
+        "Uncertainties and Treachery",
+        "Has the same meaning as the number 29. It indicates uncertainties, treachery, and deception of others, foreshadowing trials and unexpected dangers."
+      ],
+      "39": [
+        "Thoughtful Deduction",
+        "Has the same meaning as the number 30. It is a number of thoughtful deduction, retrospection, and mental superiority, often putting material things aside."
+      ],
+      "40": [
+        "The Recluse",
+        "Has the same meaning as the number 31. The person it represents is self-contained, lonely, and isolated from their fellows. Not a fortunate number from a material standpoint."
+      ],
+      "41": [
+        "Magical Combinations",
+        "Has the same meaning as the number 32. A fortunate number if the person holds to their own judgment, otherwise plans may be wrecked by the stubbornness of others."
+      ],
+      "42": [
+        "Assistance and Association",
+        "Has the same meaning as the number 24. It promises the assistance and association of those of rank and position with one's plans, denoting gain through love."
+      ],
+      "43": [
+        "Revolution and Upheaval",
+        "An unfortunate number symbolized by the signs of revolution, upheaval, strife, failure, and prevention. It is not a fortunate number if it comes out in calculation relating to future events."
+      ],
+      "44": [
+        "Gravest Warnings",
+        "Has the same meaning as the number 26. It is full of gravest warnings for the future, foreshadowing disasters brought about by association with others."
+      ],
+      "45": [
+        "The Sceptre",
+        "Has the same meaning as the number 27. It is a promise of authority, power, and command, rewarding the productive intellect."
+      ],
+      "46": [
+        "Fortunate Friendships",
+        "Has the same meaning as the number 37. It is a number of good and fortunate friendships in love, and in combinations connected with the opposite sex."
+      ],
+      "47": [
+        "Uncertainties and Treachery",
+        "Has the same meaning as the number 29. It indicates uncertainties, treachery, and deception of others, foreshadowing trials and unexpected dangers."
+      ],
+      "48": [
+        "Thoughtful Deduction",
+        "Has the same meaning as the number 30. It represents thoughtful deduction, retrospection, and mental superiority over one's fellows."
+      ],
+      "49": [
+        "The Recluse",
+        "Has the same meaning as the number 31. It represents someone self-contained, lonely, and isolated from their fellows. Not a fortunate number materially."
+      ],
+      "50": [
+        "Magical Combinations",
+        "Has the same meaning as the number 32. It has a magical power usually associated with combinations of people or nations, requiring independent judgment."
+      ],
+      "51": [
+        "The Warrior",
+        "Represents the nature of the warrior; it promises sudden advancement in whatever one undertakes, especially favorable for military leaders. It threatens enemies, danger, and likelihood of assassination."
+      ],
+      "52": [
+        "Revolution and Upheaval",
+        "Has the same meaning as the number 43. It is an unfortunate number symbolized by the signs of revolution, upheaval, strife, failure, and prevention."
+      ]
+    },
+    "notes": "Numbers 10-32 have unique meanings. 33+ repeat cyclically: 33=24, 34=25... with exceptions at 37 (unique), 43 (unique), 51 (unique)."
+  },
+  "sabian": {
+    "version": "rudhyar-v2-gemini-360",
+    "source": "Dane Rudhyar, An Astrological Mandala (1973). Extracted via Gemini, verified against LIB-1.",
+    "symbols": {
+      "ARI-1": {
+        "degree": "0-1 Aries",
+        "symbol": "A woman just risen from the sea; a seal is embracing her",
+        "keynote": "Emergence of new forms and of the potentiality of conscious being."
+      },
+      "ARI-2": {
+        "degree": "1-2 Aries",
+        "symbol": "A comedian reveals human nature",
+        "keynote": "The capacity to look objectively at oneself and at others."
+      },
+      "ARI-3": {
+        "degree": "2-3 Aries",
+        "symbol": "The cameo profile of a man, suggesting the shape of his country",
+        "keynote": "The sustaining power of the Whole, as the individual identifies himself with Its life."
+      },
+      "ARI-4": {
+        "degree": "3-4 Aries",
+        "symbol": "Two lovers strolling on a secluded walk",
+        "keynote": "The progressive polarization of energies needed for fulfilling one's life function."
+      },
+      "ARI-5": {
+        "degree": "4-5 Aries",
+        "symbol": "A triangle with wings",
+        "keynote": "The capacity for self-transcending."
+      },
+      "ARI-6": {
+        "degree": "5-6 Aries",
+        "symbol": "A square, with one of its sides brightly illumined",
+        "keynote": "The emotional desire for concrete and stabilized existence."
+      },
+      "ARI-7": {
+        "degree": "6-7 Aries",
+        "symbol": "A man succeeds in expressing himself simultaneously in two realms",
+        "keynote": "The first realization of the dual nature of man and of the possibilities it implies."
+      },
+      "ARI-8": {
+        "degree": "7-8 Aries",
+        "symbol": "A large woman's hat with streamers blown by an east wind",
+        "keynote": "Protection and spiritual guidance in the development of consciousness."
+      },
+      "ARI-9": {
+        "degree": "8-9 Aries",
+        "symbol": "A crystal gazer",
+        "keynote": "The development of an inner realization of organic wholeness."
+      },
+      "ARI-10": {
+        "degree": "9-10 Aries",
+        "symbol": "A teacher gives new symbolic forms to traditional images",
+        "keynote": "Revision of attitude at the beginning of a new cycle of experience."
+      },
+      "ARI-11": {
+        "degree": "10-11 Aries",
+        "symbol": "The ruler of a nation",
+        "keynote": "The power resulting from the formal integration of the collective desire for order."
+      },
+      "ARI-12": {
+        "degree": "11-12 Aries",
+        "symbol": "A triangularly shaped flight of wild geese",
+        "keynote": "An idealistic reliance upon a mental image of universal order."
+      },
+      "ARI-13": {
+        "degree": "12-13 Aries",
+        "symbol": "An unexploded bomb reveals an unsuccessful social protest",
+        "keynote": "An immature evaluation of the possibility of transforming suddenly the status quo."
+      },
+      "ARI-14": {
+        "degree": "13-14 Aries",
+        "symbol": "A serpent coiling near a man and a woman",
+        "keynote": "Identification in bipolar relationship with the impersonal rhythm of natural energy."
+      },
+      "ARI-15": {
+        "degree": "14-15 Aries",
+        "symbol": "An Indian weaving a circular blanket",
+        "keynote": "The projection of an inner realization of wholeness and order."
+      },
+      "ARI-16": {
+        "degree": "15-16 Aries",
+        "symbol": "Nature spirits are seen at work in the light of sunset",
+        "keynote": "Attunement to the potency of invisible forces, of nature."
+      },
+      "ARI-17": {
+        "degree": "16-17 Aries",
+        "symbol": "Two dignified spinsters sitting in silence",
+        "keynote": "The ability to transform a natural lack of potency into a poise and inner serenity."
+      },
+      "ARI-18": {
+        "degree": "17-18 Aries",
+        "symbol": "An empty hammock stretched between two trees",
+        "keynote": "A constructive alternation of activity and rest."
+      },
+      "ARI-19": {
+        "degree": "18-19 Aries",
+        "symbol": "The magic carpet of oriental imagery",
+        "keynote": "The use of creative imagination."
+      },
+      "ARI-20": {
+        "degree": "19-20 Aries",
+        "symbol": "A young girl feeding birds in winter",
+        "keynote": "Overcoming crises through compassion."
+      },
+      "ARI-21": {
+        "degree": "20-21 Aries",
+        "symbol": "A pugilist enters the ring",
+        "keynote": "The release and glorification of social aggressiveness."
+      },
+      "ARI-22": {
+        "degree": "21-22 Aries",
+        "symbol": "The gate to the garden of all fulfilled desires",
+        "keynote": "Abundance made possible by human togetherness and cooperation."
+      },
+      "ARI-23": {
+        "degree": "22-23 Aries",
+        "symbol": "A pregnant woman in light summer dress",
+        "keynote": "Fecundity."
+      },
+      "ARI-24": {
+        "degree": "23-24 Aries",
+        "symbol": "Blown inward by the wind, the curtains of an open window take the shape of a cornucopia",
+        "keynote": "Openness to the influx of spiritual energies."
+      },
+      "ARI-25": {
+        "degree": "24-25 Aries",
+        "symbol": "The possibility for man to gain experience at two levels of being",
+        "keynote": "The revelation of new potentialities."
+      },
+      "ARI-26": {
+        "degree": "25-26 Aries",
+        "symbol": "A man possessed of more gifts than he can hold",
+        "keynote": "Obsession by potentiality."
+      },
+      "ARI-27": {
+        "degree": "26-27 Aries",
+        "symbol": "Through imagination a lost opportunity is regained",
+        "keynote": "Revision of attitude and inner evaluation."
+      },
+      "ARI-28": {
+        "degree": "27-28 Aries",
+        "symbol": "A large audience confronts the performer who disappointed its expectations",
+        "keynote": "The necessity for mature preparation and self-criticism."
+      },
+      "ARI-29": {
+        "degree": "28-29 Aries",
+        "symbol": "The music of the spheres",
+        "keynote": "Attunement to cosmic order."
+      },
+      "ARI-30": {
+        "degree": "29-30 Aries",
+        "symbol": "A duck pond and its brood",
+        "keynote": "The realization of natural boundaries."
+      },
+      "TAU-1": {
+        "degree": "0-1 Taurus",
+        "symbol": "A clear mountain stream",
+        "keynote": "The pure, uncontaminated and spontaneous manifestation of one's own nature."
+      },
+      "TAU-2": {
+        "degree": "1-2 Taurus",
+        "symbol": "An electrical storm",
+        "keynote": "The cosmic power able to transform all the implications of natural existence."
+      },
+      "TAU-3": {
+        "degree": "2-3 Taurus",
+        "symbol": "Natural steps lead to a lawn of clover in bloom",
+        "keynote": "The gradual expansion of the individual consciousness after a fecundating experience."
+      },
+      "TAU-4": {
+        "degree": "3-4 Taurus",
+        "symbol": "The pot of gold at the end of the rainbow",
+        "keynote": "Riches that come from linking the celestial and the earthly nature."
+      },
+      "TAU-5": {
+        "degree": "4-5 Taurus",
+        "symbol": "A widow at an open grave",
+        "keynote": "The impermanence of all material and social bonds."
+      },
+      "TAU-6": {
+        "degree": "5-6 Taurus",
+        "symbol": "Cantilever bridge across a deep gorge",
+        "keynote": "The conquest of separativeness through group-cooperation."
+      },
+      "TAU-7": {
+        "degree": "6-7 Taurus",
+        "symbol": "The woman of Samaria at the ancestral well",
+        "keynote": "The meeting of the traditional past and of the creative spirit pointing to the future."
+      },
+      "TAU-8": {
+        "degree": "7-8 Taurus",
+        "symbol": "A sleigh on land uncovered by snow",
+        "keynote": "The value of anticipating and preparing for expectable conditions."
+      },
+      "TAU-9": {
+        "degree": "8-9 Taurus",
+        "symbol": "A fully decorated Christmas tree",
+        "keynote": "The ability to create inner happiness in dark hours."
+      },
+      "TAU-10": {
+        "degree": "9-10 Taurus",
+        "symbol": "A Red Cross nurse",
+        "keynote": "The compassionate linking of all men."
+      },
+      "TAU-11": {
+        "degree": "10-11 Taurus",
+        "symbol": "A woman watering flowers in her garden",
+        "keynote": "Development of the powers of the mind on which ego-consciousness is based."
+      },
+      "TAU-12": {
+        "degree": "11-12 Taurus",
+        "symbol": "A young couple window shopping",
+        "keynote": "The fascination of the youthful ego with the products of its culture."
+      },
+      "TAU-13": {
+        "degree": "12-13 Taurus",
+        "symbol": "A porter carrying heavy baggage",
+        "keynote": "Self-mobilization for social advantage."
+      },
+      "TAU-14": {
+        "degree": "13-14 Taurus",
+        "symbol": "On the beach, children play while shellfish grope at the edge of the water",
+        "keynote": "Return to simpler joys for revitalization."
+      },
+      "TAU-15": {
+        "degree": "14-15 Taurus",
+        "symbol": "Head covered with a rakish silk hat, muffled against the cold, a man braves a storm",
+        "keynote": "The courage needed to meet the crises precipitated by social ambition."
+      },
+      "TAU-16": {
+        "degree": "15-16 Taurus",
+        "symbol": "An old teacher fails to interest his pupils in traditional knowledge",
+        "keynote": "The inadequacy of past knowledge in time of crisis."
+      },
+      "TAU-17": {
+        "degree": "16-17 Taurus",
+        "symbol": "A symbolical battle between swords and torches",
+        "keynote": "Refusing to depend upon the past, the seeker turns warrior, fighting anew the eternal Great War."
+      },
+      "TAU-18": {
+        "degree": "17-18 Taurus",
+        "symbol": "A woman airing an old bag through the open window of her room",
+        "keynote": "The cleansing of the ego-consciousness."
+      },
+      "TAU-19": {
+        "degree": "18-19 Taurus",
+        "symbol": "A new continent rising out of the ocean",
+        "keynote": "The surge of new potentiality after the crisis."
+      },
+      "TAU-20": {
+        "degree": "19-20 Taurus",
+        "symbol": "Wisps of winglike clouds streaming across the sky",
+        "keynote": "The awareness of spiritual forces at work."
+      },
+      "TAU-21": {
+        "degree": "20-21 Taurus",
+        "symbol": "A finger pointing to a line in an open book",
+        "keynote": "Learning to discern what in your culture and religion is meaningful to you personally."
+      },
+      "TAU-22": {
+        "degree": "21-22 Taurus",
+        "symbol": "White dove flying over troubled waters",
+        "keynote": "The spiritual inspiration that comes to the individual in the overcoming of crisis."
+      },
+      "TAU-23": {
+        "degree": "22-23 Taurus",
+        "symbol": "A jewelry shop filled with valuable gems",
+        "keynote": "The social confirmation of natural excellence."
+      },
+      "TAU-24": {
+        "degree": "23-24 Taurus",
+        "symbol": "An Indian warrior riding fiercely, human scalps hanging from his belt",
+        "keynote": "The aggressiveness of human instincts when fighting for their earthly basis of operation."
+      },
+      "TAU-25": {
+        "degree": "24-25 Taurus",
+        "symbol": "A vast public park",
+        "keynote": "The cultivation of natural energies for collective use and recreation."
+      },
+      "TAU-26": {
+        "degree": "25-26 Taurus",
+        "symbol": "A Spanish gallant serenades his beloved",
+        "keynote": "The ritualization of individual desires."
+      },
+      "TAU-27": {
+        "degree": "26-27 Taurus",
+        "symbol": "An old Indian woman selling the artifacts of her tribe to passers-by",
+        "keynote": "Peaceful adaptation to collective needs."
+      },
+      "TAU-28": {
+        "degree": "27-28 Taurus",
+        "symbol": "A woman, past her change of life, experiences a new love",
+        "keynote": "Man's capacity to rise in consciousness and feelings above biological limitations."
+      },
+      "TAU-29": {
+        "degree": "28-29 Taurus",
+        "symbol": "Two cobblers working at a table",
+        "keynote": "A two-way approach to a problem."
+      },
+      "TAU-30": {
+        "degree": "29-30 Taurus",
+        "symbol": "A peacock parading on the terrace of an old castle",
+        "keynote": "The personal display of inherited gifts."
+      },
+      "GEM-1": {
+        "degree": "0-1 Gemini",
+        "symbol": "A glass-bottomed boat reveals under-sea wonders",
+        "keynote": "The revelation of unconscious energies and submerged psychic structures."
+      },
+      "GEM-2": {
+        "degree": "1-2 Gemini",
+        "symbol": "Santa Claus furtively filling stockings hanging in front of fireplace",
+        "keynote": "A rewarded faith in spiritual blessings."
+      },
+      "GEM-3": {
+        "degree": "2-3 Gemini",
+        "symbol": "The garden of the Tuileries in Paris",
+        "keynote": "The formalization of collective ideals through the application of reason and order to newly discovered aspects of nature."
+      },
+      "GEM-4": {
+        "degree": "3-4 Gemini",
+        "symbol": "Holly and mistletoe reawaken old memories of Christmas",
+        "keynote": "A return to the preconscious source of existence in order to experience a national or planetary rhythm."
+      },
+      "GEM-5": {
+        "degree": "4-5 Gemini",
+        "symbol": "A revolutionary magazine asking for action",
+        "keynote": "The explosive tendency of repressed feelings and root emotions."
+      },
+      "GEM-6": {
+        "degree": "5-6 Gemini",
+        "symbol": "Workmen drilling for oil",
+        "keynote": "The avidity for that knowledge which ensures wealth and power."
+      },
+      "GEM-7": {
+        "degree": "6-7 Gemini",
+        "symbol": "A well with bucket and rope under the shade of majestic trees",
+        "keynote": "Man's deep and lifelong resolve to rely upon the hidden potential of his own being."
+      },
+      "GEM-8": {
+        "degree": "7-8 Gemini",
+        "symbol": "Aroused strikers surround a factory",
+        "keynote": "The disruptive power of the ambitious mind upon the organic wholeness of human relationship."
+      },
+      "GEM-9": {
+        "degree": "8-9 Gemini",
+        "symbol": "A quiver filled with arrows",
+        "keynote": "Man's aggressive relationship to natural life, as a basis for survival and conquest."
+      },
+      "GEM-10": {
+        "degree": "9-10 Gemini",
+        "symbol": "An airplane performing a nose dive",
+        "keynote": "A superior ability to challenge nature and play with danger."
+      },
+      "GEM-11": {
+        "degree": "10-11 Gemini",
+        "symbol": "Newly opened lands offer the pioneer new opportunities for experience",
+        "keynote": "The power and joy of new beginnings."
+      },
+      "GEM-12": {
+        "degree": "11-12 Gemini",
+        "symbol": "A Negro girl fights for her independence in the city",
+        "keynote": "Liberation from the ghosts of the past."
+      },
+      "GEM-13": {
+        "degree": "12-13 Gemini",
+        "symbol": "A famous pianist giving a concert performance",
+        "keynote": "Individual fulfillment in the performing of a social function to which some prestige is attached."
+      },
+      "GEM-14": {
+        "degree": "13-14 Gemini",
+        "symbol": "Bridging physical space and social distinctions, two men communicate telepathically",
+        "keynote": "The capacity to transcend the limitations of bodily existence."
+      },
+      "GEM-15": {
+        "degree": "14-15 Gemini",
+        "symbol": "Two Dutch children talking to each other, exchanging their knowledge",
+        "keynote": "The need to clarify one's experiences through actual contacts with like-minded individuals."
+      },
+      "GEM-16": {
+        "degree": "15-16 Gemini",
+        "symbol": "A woman activist in an emotional speech dramatizing her cause",
+        "keynote": "A passionate response to a deeply felt new experience."
+      },
+      "GEM-17": {
+        "degree": "16-17 Gemini",
+        "symbol": "The head of a robust youth changes into that of a mature thinker",
+        "keynote": "The transformation of physical vitality into the power to build concepts and intellectual formulations through which knowledge can be transferred."
+      },
+      "GEM-18": {
+        "degree": "17-18 Gemini",
+        "symbol": "Two Chinese men converse in their native tongue in an American city",
+        "keynote": "The need for independence from one's physical environment in order to concentrate on one's deepest problems."
+      },
+      "GEM-19": {
+        "degree": "18-19 Gemini",
+        "symbol": "A large archaic volume reveals a traditional wisdom",
+        "keynote": "Contacting the all-human planetary Mind underlying any cultural and personal mentality."
+      },
+      "GEM-20": {
+        "degree": "19-20 Gemini",
+        "symbol": "A modern cafeteria displays an abundance of food, products of various regions",
+        "keynote": "The assimilation of multifarious knowledge through the synthesizing power of the mind."
+      },
+      "GEM-21": {
+        "degree": "20-21 Gemini",
+        "symbol": "A tumultuous labor demonstration",
+        "keynote": "The revolutionary impact of mental concepts upon the collective emotions and desires of man."
+      },
+      "GEM-22": {
+        "degree": "21-22 Gemini",
+        "symbol": "Dancing couples in a harvest festival",
+        "keynote": "The wholesome enjoyment of organic processes and emotional drives."
+      },
+      "GEM-23": {
+        "degree": "22-23 Gemini",
+        "symbol": "Three fledglings in a nest high in a tree",
+        "keynote": "The growth of spiritually creative processes in an at least relatively integrated mind."
+      },
+      "GEM-24": {
+        "degree": "23-24 Gemini",
+        "symbol": "Children skating over a frozen village pond",
+        "keynote": "The use of inhibiting circumstances for the development of character and a transcendent approach to the environment."
+      },
+      "GEM-25": {
+        "degree": "24-25 Gemini",
+        "symbol": "A gardener trimming large palm trees",
+        "keynote": "Bringing under control nature's power of expansion."
+      },
+      "GEM-26": {
+        "degree": "25-26 Gemini",
+        "symbol": "Frost-covered trees against winter skies",
+        "keynote": "The revelation of archetypal form and essential rhythm of existence."
+      },
+      "GEM-27": {
+        "degree": "26-27 Gemini",
+        "symbol": "A gypsy emerging from the forest wherein her tribe is encamped",
+        "keynote": "Reaching out toward participation in a larger whole of mind-unfolding."
+      },
+      "GEM-28": {
+        "degree": "27-28 Gemini",
+        "symbol": "Through bankruptcy, society gives to an overburdened individual the opportunity to begin again",
+        "keynote": "A release from unbearable pressures, freeing one for new tasks."
+      },
+      "GEM-29": {
+        "degree": "28-29 Gemini",
+        "symbol": "The first mockingbird of spring",
+        "keynote": "The creative exuberance of the human soul in response to basic life experiences."
+      },
+      "GEM-30": {
+        "degree": "29-30 Gemini",
+        "symbol": "A parade of bathing beauties before large beach crowds",
+        "keynote": "The setting of social standards through personal excellence and competition."
+      },
+      "CAN-1": {
+        "degree": "0-1 Cancer",
+        "symbol": "On a ship the sailors lower an old flag and raise a new one",
+        "keynote": "A radical change of allegiance or of focal point of conscious involvement."
+      },
+      "CAN-2": {
+        "degree": "1-2 Cancer",
+        "symbol": "A man on a magic carpet hovers over a large area of land",
+        "keynote": "A broadening of perspective through a survey of a complex situation."
+      },
+      "CAN-3": {
+        "degree": "2-3 Cancer",
+        "symbol": "A man bundled in fur leads a shaggy deer",
+        "keynote": "The need to overcome stagnation and to open oneself to new environmental situations."
+      },
+      "CAN-4": {
+        "degree": "3-4 Cancer",
+        "symbol": "A cat arguing with a mouse",
+        "keynote": "An attempt at self-justification through intellectual sophistry."
+      },
+      "CAN-5": {
+        "degree": "4-5 Cancer",
+        "symbol": "At a railroad crossing, an automobile is wrecked by a train",
+        "keynote": "The tragic results which may follow an individual's attempt to cross the collective will."
+      },
+      "CAN-6": {
+        "degree": "5-6 Cancer",
+        "symbol": "Game birds feathering their nests",
+        "keynote": "An instinctual dedication to the building of new forms of life."
+      },
+      "CAN-7": {
+        "degree": "6-7 Cancer",
+        "symbol": "Two nature spirits dancing under the moonlight",
+        "keynote": "The unfoldment of creative and joyous potentials in the protected background of nature."
+      },
+      "CAN-8": {
+        "degree": "7-8 Cancer",
+        "symbol": "A group of rabbits dressed in human clothes walk as if on parade",
+        "keynote": "The tendency in all forms of life to imitate higher forms as a stimulus to growth."
+      },
+      "CAN-9": {
+        "degree": "8-9 Cancer",
+        "symbol": "A small, naked girl bends over a pond trying to catch a fish",
+        "keynote": "The first naive attempt to grasp and assimilate a fragment of the unknown."
+      },
+      "CAN-10": {
+        "degree": "9-10 Cancer",
+        "symbol": "A large diamond in the first stages of the cutting process",
+        "keynote": "The arduous training for perfection in order to fully manifest an ideal."
+      },
+      "CAN-11": {
+        "degree": "10-11 Cancer",
+        "symbol": "A clown caricaturing well-known personalities",
+        "keynote": "The value of humor in developing objectivity and independence of mind."
+      },
+      "CAN-12": {
+        "degree": "11-12 Cancer",
+        "symbol": "A Chinese woman nursing a baby whose aura reveals him to be the reincarnation of a great teacher",
+        "keynote": "The revelation of past worth and value in a new cycle of existence."
+      },
+      "CAN-13": {
+        "degree": "12-13 Cancer",
+        "symbol": "A hand with a prominent thumb is held out for study",
+        "keynote": "The power of the will in shaping character."
+      },
+      "CAN-14": {
+        "degree": "13-14 Cancer",
+        "symbol": "A very old man facing a vast dark space to the northeast",
+        "keynote": "Fulfillment of past efforts in a realization of spiritual order."
+      },
+      "CAN-15": {
+        "degree": "14-15 Cancer",
+        "symbol": "In a sumptuous dining hall guests relax after partaking of a huge banquet",
+        "keynote": "The need that exists at an early stage of human growth to materialize the concept of fulfillment."
+      },
+      "CAN-16": {
+        "degree": "15-16 Cancer",
+        "symbol": "A man studying a mandala in front of him, with the help of a very ancient book",
+        "keynote": "The process of acquiring a deep and integrated understanding of the life processes."
+      },
+      "CAN-17": {
+        "degree": "16-17 Cancer",
+        "symbol": "The unfoldment of a multilevel potentiality issuing from an original germ",
+        "keynote": "The realization of the infinite potentialities inherent in the original seed of life."
+      },
+      "CAN-18": {
+        "degree": "17-18 Cancer",
+        "symbol": "A hen scratching the ground to find nourishment for her progeny",
+        "keynote": "The practical fostering of life in order to bring about its evolutionary growth."
+      },
+      "CAN-19": {
+        "degree": "18-19 Cancer",
+        "symbol": "A priest performing a marriage ceremony",
+        "keynote": "The ritualization of a biological process."
+      },
+      "CAN-20": {
+        "degree": "19-20 Cancer",
+        "symbol": "Venetian gondoliers giving a serenade",
+        "keynote": "The integration of social and traditional factors in the expression of love."
+      },
+      "CAN-21": {
+        "degree": "20-21 Cancer",
+        "symbol": "A famous singer is proving her virtuosity during an operatic performance",
+        "keynote": "The emotional reward accompanying cultural excellence."
+      },
+      "CAN-22": {
+        "degree": "21-22 Cancer",
+        "symbol": "A young woman awaiting a sailboat",
+        "keynote": "The yearning for a transcendent ideal."
+      },
+      "CAN-23": {
+        "degree": "22-23 Cancer",
+        "symbol": "The meeting of a literary society",
+        "keynote": "An objective and critical approach to the common cultural factors of our society."
+      },
+      "CAN-24": {
+        "degree": "23-24 Cancer",
+        "symbol": "A woman and two men castaways on a small island of the South Seas",
+        "keynote": "The establishment of social relationships under abnormal or restrictive conditions."
+      },
+      "CAN-25": {
+        "degree": "24-25 Cancer",
+        "symbol": "A will-o'-the-wisp takes on the shape of a man",
+        "keynote": "The ability to actualize an inner prompting or ideal."
+      },
+      "CAN-26": {
+        "degree": "25-26 Cancer",
+        "symbol": "Guests are reading in the library of a luxurious home",
+        "keynote": "The transference of social prestige to the sphere of intellect and culture."
+      },
+      "CAN-27": {
+        "degree": "26-27 Cancer",
+        "symbol": "A violent storm in a canyon filled with expensive homes",
+        "keynote": "A confrontation with a social disturbance revealing the precariousness of the isolated individual's position."
+      },
+      "CAN-28": {
+        "degree": "27-28 Cancer",
+        "symbol": "An Indian girl introduces her white lover to her assembled tribe",
+        "keynote": "Emotional blending of two types of cultures."
+      },
+      "CAN-29": {
+        "degree": "28-29 Cancer",
+        "symbol": "A Greek muse weighing new-born twins in golden scales",
+        "keynote": "The inner weighting of new potentials of experience."
+      },
+      "CAN-30": {
+        "degree": "29-30 Cancer",
+        "symbol": "A Daughter of the American Revolution",
+        "keynote": "The prestige and conservatism of a long-maintained heritage."
+      },
+      "LEO-1": {
+        "degree": "0-1 Leo",
+        "symbol": "Blood rushes to a man's head as his vital energies are mobilized under the spur of ambition",
+        "keynote": "The irruption of bio-psychic energies into the ego-controlled field of consciousness."
+      },
+      "LEO-2": {
+        "degree": "1-2 Leo",
+        "symbol": "An epidemic of mumps",
+        "keynote": "The spread of an uncontrolled emotional experience."
+      },
+      "LEO-3": {
+        "degree": "2-3 Leo",
+        "symbol": "A middle-aged woman, her long hair flowing over her shoulders and in a braless youthful garment",
+        "keynote": "The will to meet the challenge of age in terms of our modern society."
+      },
+      "LEO-4": {
+        "degree": "3-4 Leo",
+        "symbol": "A formally dressed elderly man stands near trophies he brought back from a hunting expedition",
+        "keynote": "The masculine will to conquer his animal nature and to impress his peers with his skill."
+      },
+      "LEO-5": {
+        "degree": "4-5 Leo",
+        "symbol": "Rock formations tower over a deep canyon",
+        "keynote": "The realization of the enduring and awesome power of natural forces."
+      },
+      "LEO-6": {
+        "degree": "5-6 Leo",
+        "symbol": "A conservative, old-fashioned lady is confronted by a hippie girl",
+        "keynote": "The need to transcend our subservience to fashion, in morals as well as in clothes."
+      },
+      "LEO-7": {
+        "degree": "6-7 Leo",
+        "symbol": "The constellations of stars shine brilliantly in the night sky",
+        "keynote": "A sense of the vastness and the eternal order of the universe."
+      },
+      "LEO-8": {
+        "degree": "7-8 Leo",
+        "symbol": "A communist activist spreading his revolutionary ideals",
+        "keynote": "The catabolic action of a mind attempting to rebuild society by criticizing its present state."
+      },
+      "LEO-9": {
+        "degree": "8-9 Leo",
+        "symbol": "Glass blowers shape beautiful vases with their controlled breathing",
+        "keynote": "The breath of life as the builder of form."
+      },
+      "LEO-10": {
+        "degree": "9-10 Leo",
+        "symbol": "Early morning dew sparkles as sunlight floods the field",
+        "keynote": "The transforming power of light over the darkness of matter."
+      },
+      "LEO-11": {
+        "degree": "10-11 Leo",
+        "symbol": "Children play on a swing hanging from the branches of a huge oak tree",
+        "keynote": "The joy of moving with the rhythm of nature."
+      },
+      "LEO-12": {
+        "degree": "11-12 Leo",
+        "symbol": "An evening party of adults on a lawn illumined by fancy lanterns",
+        "keynote": "The superficialization of human relationships."
+      },
+      "LEO-13": {
+        "degree": "12-13 Leo",
+        "symbol": "An old sea captain rocking himself on the porch of his cottage",
+        "keynote": "The quiet enjoyment of memories of a life of struggle and endeavor."
+      },
+      "LEO-14": {
+        "degree": "13-14 Leo",
+        "symbol": "A human soul seeking opportunities for outward manifestation",
+        "keynote": "The yearning for self-actualization."
+      },
+      "LEO-15": {
+        "degree": "14-15 Leo",
+        "symbol": "A pageant, with its spectacular floats, moves along a street crowded with cheering people",
+        "keynote": "The spectacular display of collective power and social prestige."
+      },
+      "LEO-16": {
+        "degree": "15-16 Leo",
+        "symbol": "The storm ended, all nature rejoices in brilliant sunshine",
+        "keynote": "The surge of life and love after a major crisis."
+      },
+      "LEO-17": {
+        "degree": "16-17 Leo",
+        "symbol": "A volunteer church choir singing religious hymns",
+        "keynote": "The feeling of togetherness which unites men in their dedication to a collective ideal."
+      },
+      "LEO-18": {
+        "degree": "17-18 Leo",
+        "symbol": "A chemist conducts an experiment for his students",
+        "keynote": "The alchemical process of transformation."
+      },
+      "LEO-19": {
+        "degree": "18-19 Leo",
+        "symbol": "A houseboat party",
+        "keynote": "The enjoyment of temporary freedom from rigidly structured social behavior."
+      },
+      "LEO-20": {
+        "degree": "19-20 Leo",
+        "symbol": "Zuni Indians perform a ritual to the sun",
+        "keynote": "A return to the glorification of natural energies."
+      },
+      "LEO-21": {
+        "degree": "20-21 Leo",
+        "symbol": "Intoxicated chickens dizzily flap their wings trying to fly",
+        "keynote": "The often negative and ludicrous results of an inexperienced attempt at spiritual realization."
+      },
+      "LEO-22": {
+        "degree": "21-22 Leo",
+        "symbol": "A carrier pigeon fulfilling its mission",
+        "keynote": "The return of the soul to its spiritual source."
+      },
+      "LEO-23": {
+        "degree": "22-23 Leo",
+        "symbol": "In a circus the bareback rider displays her dangerous skill",
+        "keynote": "The audacity and skill required to control the powerful energies of nature."
+      },
+      "LEO-24": {
+        "degree": "23-24 Leo",
+        "symbol": "Totally concentrated upon inner spiritual attainment, a man is sitting in a state of complete neglect of bodily appearance and cleanliness",
+        "keynote": "An interior focalization of energy and consciousness at the expense of all forms of outward activity and care."
+      },
+      "LEO-25": {
+        "degree": "24-25 Leo",
+        "symbol": "A large camel is seen crossing a vast and forbidding desert",
+        "keynote": "Superiority over ordinary circumstances."
+      },
+      "LEO-26": {
+        "degree": "25-26 Leo",
+        "symbol": "After the heavy storm, a rainbow",
+        "keynote": "A promise of conscious immortality after the death of empty illusions."
+      },
+      "LEO-27": {
+        "degree": "26-27 Leo",
+        "symbol": "The luminescence of dawn in the eastern sky",
+        "keynote": "The transforming power of creative impulses as they bring a new cycle to its start."
+      },
+      "LEO-28": {
+        "degree": "27-28 Leo",
+        "symbol": "Many little birds on a limb of a big tree",
+        "keynote": "A multiplicity of potentials seeking outward actualization."
+      },
+      "LEO-29": {
+        "degree": "28-29 Leo",
+        "symbol": "A mermaid emerges from the ocean waves ready for rebirth in human form",
+        "keynote": "A new feeling of conscious participation in the evolutionary process."
+      },
+      "LEO-30": {
+        "degree": "29-30 Leo",
+        "symbol": "An unsealed letter",
+        "keynote": "The realization by the individual that he is a channel for a higher intelligence."
+      },
+      "VIR-1": {
+        "degree": "0-1 Virgo",
+        "symbol": "In a portrait, the significant features of a man's head are artistically emphasized",
+        "keynote": "The capacity to conceptualize clearly the character of an individual or a situation."
+      },
+      "VIR-2": {
+        "degree": "1-2 Virgo",
+        "symbol": "A large white cross dominates the landscape",
+        "keynote": "The dominating power of the spiritual over the material."
+      },
+      "VIR-3": {
+        "degree": "2-3 Virgo",
+        "symbol": "Two guardian angels",
+        "keynote": "Divine protection."
+      },
+      "VIR-4": {
+        "degree": "3-4 Virgo",
+        "symbol": "Black and white children play together happily",
+        "keynote": "The transcendence of socio-cultural prejudices."
+      },
+      "VIR-5": {
+        "degree": "4-5 Virgo",
+        "symbol": "A man becoming aware of nature spirits and normally unseen spiritual agencies",
+        "keynote": "The realization of the presence of subtle energies in the natural environment."
+      },
+      "VIR-6": {
+        "degree": "5-6 Virgo",
+        "symbol": "A merry-go-round",
+        "keynote": "The repetitive and cyclic character of life experience."
+      },
+      "VIR-7": {
+        "degree": "6-7 Virgo",
+        "symbol": "A harem",
+        "keynote": "A fateful subservience to the whims and desires of a socially dominant power."
+      },
+      "VIR-8": {
+        "degree": "7-8 Virgo",
+        "symbol": "A five-year-old child takes a first dancing lesson",
+        "keynote": "The early training of the emotional nature."
+      },
+      "VIR-9": {
+        "degree": "8-9 Virgo",
+        "symbol": "An expressionist painter at work",
+        "keynote": "The urge to actualize a transcendent ideal."
+      },
+      "VIR-10": {
+        "degree": "9-10 Virgo",
+        "symbol": "Two heads looking out and beyond the shadows",
+        "keynote": "The capacity to see beyond the shadows of one's limited environment."
+      },
+      "VIR-11": {
+        "degree": "10-11 Virgo",
+        "symbol": "In her baby a mother sees her deep longing for a son answered",
+        "keynote": "The answer to a deeply felt need."
+      },
+      "VIR-12": {
+        "degree": "11-12 Virgo",
+        "symbol": "After the wedding, the groom snatches the veil away from his bride",
+        "keynote": "The penetration of the mysteries of nature."
+      },
+      "VIR-13": {
+        "degree": "12-13 Virgo",
+        "symbol": "A powerful statesman overcomes a state of political hysteria",
+        "keynote": "The power of a strong personality to act as a center of integration for the collective mind."
+      },
+      "VIR-14": {
+        "degree": "13-14 Virgo",
+        "symbol": "An aristocratic family tree",
+        "keynote": "A deep reliance upon the ancestral roots of individual character."
+      },
+      "VIR-15": {
+        "degree": "14-15 Virgo",
+        "symbol": "A fine lace handkerchief, heirloom from valorous ancestors",
+        "keynote": "The heritage of a past culture."
+      },
+      "VIR-16": {
+        "degree": "15-16 Virgo",
+        "symbol": "In the zoo, children are brought face to face with an orangutan",
+        "keynote": "A direct confrontation with the wild power of the primordial past."
+      },
+      "VIR-17": {
+        "degree": "16-17 Virgo",
+        "symbol": "A volcanic eruption",
+        "keynote": "The explosive energy of repressed forces."
+      },
+      "VIR-18": {
+        "degree": "17-18 Virgo",
+        "symbol": "A Ouija board",
+        "keynote": "The ability to contact deeper recesses of the unconscious."
+      },
+      "VIR-19": {
+        "degree": "18-19 Virgo",
+        "symbol": "A swimming race",
+        "keynote": "The urge to test one's skill and endurance."
+      },
+      "VIR-20": {
+        "degree": "19-20 Virgo",
+        "symbol": "A caravan of cars headed to the West Coast",
+        "keynote": "A cooperative effort in reaching a new environment."
+      },
+      "VIR-21": {
+        "degree": "20-21 Virgo",
+        "symbol": "A girl's basketball team",
+        "keynote": "Physical training as a means to inculcate the feeling of participation in a collective whole."
+      },
+      "VIR-22": {
+        "degree": "21-22 Virgo",
+        "symbol": "A royal coat of arms enriched with precious stones",
+        "keynote": "The social prestige and the power of ancient lineages."
+      },
+      "VIR-23": {
+        "degree": "22-23 Virgo",
+        "symbol": "A lion tamer displays his skill and character",
+        "keynote": "The power of a strong will over the animal nature."
+      },
+      "VIR-24": {
+        "degree": "23-24 Virgo",
+        "symbol": "Mary and her little lamb",
+        "keynote": "The need to keep alive the naive and pure feeling-state of a simple childhood."
+      },
+      "VIR-25": {
+        "degree": "24-25 Virgo",
+        "symbol": "A flag at half-mast in front of a public building",
+        "keynote": "The social recognition of a job well done and a destiny fulfilled."
+      },
+      "VIR-26": {
+        "degree": "25-26 Virgo",
+        "symbol": "A boy with a censer serves the priest near the altar",
+        "keynote": "The capacity to participate in the performance of a collective ritual."
+      },
+      "VIR-27": {
+        "degree": "26-27 Virgo",
+        "symbol": "A group of aristocratic ladies meet ceremonially at a court's function",
+        "keynote": "The preservation of a cultural heritage."
+      },
+      "VIR-28": {
+        "degree": "27-28 Virgo",
+        "symbol": "A baldheaded man who has seized power",
+        "keynote": "The sheer power of personality in times that call for decision."
+      },
+      "VIR-29": {
+        "degree": "28-29 Virgo",
+        "symbol": "A seeker after occult knowledge is reading an ancient scroll which illumines his mind",
+        "keynote": "The search for the ultimate meaning of life."
+      },
+      "VIR-30": {
+        "degree": "29-30 Virgo",
+        "symbol": "Totally intent upon completing an immediate task, a man is deaf to any allurement",
+        "keynote": "A one-pointed attention to what must be done, disregarding any other consideration."
+      },
+      "LIB-1": {
+        "degree": "0-1 Libra",
+        "symbol": "In a collection of perfect specimens of many biological forms, a butterfly displays the beauty of its wings, its body impaled by a fine dart",
+        "keynote": "The immortal archetypal reality that a perfect and dedicated life reveals."
+      },
+      "LIB-2": {
+        "degree": "1-2 Libra",
+        "symbol": "The transmutation of the fruits of past experiences into the seed-realizations of the forever creative spirit",
+        "keynote": "A repolarization of inner energies leading to a creative centralization of consciousness."
+      },
+      "LIB-3": {
+        "degree": "2-3 Libra",
+        "symbol": "The dawn of a new day reveals everything changed",
+        "keynote": "The ever-present possibility of beginning again on a new foundation of values."
+      },
+      "LIB-4": {
+        "degree": "3-4 Libra",
+        "symbol": "A group of young people sit around a campfire in spiritual communion",
+        "keynote": "The necessity to unite with kindred spirits as one enters a difficult path which one must tread alone."
+      },
+      "LIB-5": {
+        "degree": "4-5 Libra",
+        "symbol": "A man revealing to his students the foundation of an inner knowledge upon which a new world could be built",
+        "keynote": "The necessity for the youthful spirit to learn from the Teacher who through long experience has been able to reach concrete and communicable truths."
+      },
+      "LIB-6": {
+        "degree": "5-6 Libra",
+        "symbol": "A man watches his ideals taking a concrete form before his inner vision",
+        "keynote": "The inevitability of the flowering of the heart's fondest dreams."
+      },
+      "LIB-7": {
+        "degree": "6-7 Libra",
+        "symbol": "A woman feeding chickens and protecting them from the hawks",
+        "keynote": "The need to face the antagonism of dark powers as one attempts to feed the mind of a helpless and frightened humanity."
+      },
+      "LIB-8": {
+        "degree": "7-8 Libra",
+        "symbol": "A blazing fireplace in a deserted home",
+        "keynote": "The constant presence of unseen, sustaining agencies in every creation of man."
+      },
+      "LIB-9": {
+        "degree": "8-9 Libra",
+        "symbol": "Three old masters hanging on the wall of a special room in an art gallery",
+        "keynote": "The need to return to source during a confused search for new value in a chaotic society."
+      },
+      "LIB-10": {
+        "degree": "9-10 Libra",
+        "symbol": "Having passed safely through narrow rapids, a canoe reaches calm waters",
+        "keynote": "The self-control and poise necessary to reach a state of inner stability."
+      },
+      "LIB-11": {
+        "degree": "10-11 Libra",
+        "symbol": "A professor peering over his glasses at his students",
+        "keynote": "Problems attending the transmission of knowledge in a special cultural setup."
+      },
+      "LIB-12": {
+        "degree": "11-12 Libra",
+        "symbol": "Miners are surfacing from a deep coal mine",
+        "keynote": "The need to carry on at ever deeper levels the quest for knowledge which keeps the fires of the collective mind burning."
+      },
+      "LIB-13": {
+        "degree": "12-13 Libra",
+        "symbol": "Children blowing soap bubbles",
+        "keynote": "The cultural fantasies through which young minds dream of perfect fulfillment."
+      },
+      "LIB-14": {
+        "degree": "13-14 Libra",
+        "symbol": "In the heat of the noon hour a man takes a siesta",
+        "keynote": "The need for recuperation within the social pattern of everyday activity."
+      },
+      "LIB-15": {
+        "degree": "14-15 Libra",
+        "symbol": "Circular paths",
+        "keynote": "Coming to terms with the inevitability of establishing a steady rhythm of social activity."
+      },
+      "LIB-16": {
+        "degree": "15-16 Libra",
+        "symbol": "After a storm a boat landing stands in need of reconstruction",
+        "keynote": "The need to keep in operation steady links between the vast Unconscious and the ego-consciousness."
+      },
+      "LIB-17": {
+        "degree": "16-17 Libra",
+        "symbol": "A retired sea captain watches ships entering and leaving the harbor",
+        "keynote": "The capacity to gain an objective and calm understanding of human experiences in which one was once deeply involved."
+      },
+      "LIB-18": {
+        "degree": "17-18 Libra",
+        "symbol": "Two men placed under arrest",
+        "keynote": "The consequences of refusing to face the implications of a negative integration of the social values of one's environment."
+      },
+      "LIB-19": {
+        "degree": "18-19 Libra",
+        "symbol": "A gang of robbers in hiding",
+        "keynote": "Protest against disharmonic social privilege."
+      },
+      "LIB-20": {
+        "degree": "19-20 Libra",
+        "symbol": "A rabbi performing his duties",
+        "keynote": "The ability to draw on the power of an ancestral tradition in order to serve and inspire one's fellowmen."
+      },
+      "LIB-21": {
+        "degree": "20-21 Libra",
+        "symbol": "A Sunday crowd enjoying the beach",
+        "keynote": "A revivifying contact with the Mother-force of nature and of social togetherness."
+      },
+      "LIB-22": {
+        "degree": "21-22 Libra",
+        "symbol": "A child giving birds a drink at a fountain",
+        "keynote": "The solicitude of simple souls for the welfare and happiness of less-evolved beings who need help."
+      },
+      "LIB-23": {
+        "degree": "22-23 Libra",
+        "symbol": "Chanticleer's voice heralds sunrise",
+        "keynote": "A creative and unsophisticated response to life."
+      },
+      "LIB-24": {
+        "degree": "23-24 Libra",
+        "symbol": "A butterfly with a third wing on its left side",
+        "keynote": "The ability to develop, for inner strengthening, new modes of response to basic life situations."
+      },
+      "LIB-25": {
+        "degree": "24-25 Libra",
+        "symbol": "The sight of an autumn leaf brings to a pilgrim the sudden revelation of the mystery of life and death",
+        "keynote": "The ability to discover in every experience a transcendent or cosmic meaning."
+      },
+      "LIB-26": {
+        "degree": "25-26 Libra",
+        "symbol": "An eagle and a large white dove change into each other",
+        "keynote": "The interaction of the spiritual Will and of the Love principle when critical needs arise."
+      },
+      "LIB-27": {
+        "degree": "26-27 Libra",
+        "symbol": "An airplane sails, high in the clear sky",
+        "keynote": "A consciousness able to transcend the conflicts and pressures of the personal life."
+      },
+      "LIB-28": {
+        "degree": "27-28 Libra",
+        "symbol": "A man becoming aware of spiritual forces surrounding and assisting him",
+        "keynote": "The realization, at any level of existence, that one is never alone, and that the community - visible or invisible - is sustaining one's efforts."
+      },
+      "LIB-29": {
+        "degree": "28-29 Libra",
+        "symbol": "Mankind's vast and enduring effort to reach for knowledge transferrable from generation to generation",
+        "keynote": "A deep sense of participation in, and commitment to, social processes which seek to bring to all men Truth and a greater Life."
+      },
+      "LIB-30": {
+        "degree": "29-30 Libra",
+        "symbol": "Three mounds of knowledge on a philosopher's head",
+        "keynote": "The fulfillment of man's power of understanding at whatever level of existence the person operates."
+      },
+      "SCO-1": {
+        "degree": "0-1 Scorpio",
+        "symbol": "A crowded sightseeing bus on a city street",
+        "keynote": "The fundamental human eagerness to expand one's social horizon and to experience the results of collective achievements and ways of life."
+      },
+      "SCO-2": {
+        "degree": "1-2 Scorpio",
+        "symbol": "A delicate bottle of perfume lies broken, releasing its fragrance",
+        "keynote": "The accidental nature of opportunities that impel one to break away from a past and not yet understood level of existence."
+      },
+      "SCO-3": {
+        "degree": "2-3 Scorpio",
+        "symbol": "A house-raising party in a small village enlists the neighbors' cooperation",
+        "keynote": "The feeling of community demonstrated in a basic collective effort."
+      },
+      "SCO-4": {
+        "degree": "3-4 Scorpio",
+        "symbol": "A youth carries a lighted candle in a devotional ritual",
+        "keynote": "The educative power of ceremonies which impress the great images of a culture upon its gathered participants."
+      },
+      "SCO-5": {
+        "degree": "4-5 Scorpio",
+        "symbol": "A massive rocky shore resists the pounding of the sea",
+        "keynote": "The inertia of all institutionalized procedures."
+      },
+      "SCO-6": {
+        "degree": "5-6 Scorpio",
+        "symbol": "The gold rush tears men away from their native soil",
+        "keynote": "The passionate search for new values which, at any level, promise a more abundant life."
+      },
+      "SCO-7": {
+        "degree": "6-7 Scorpio",
+        "symbol": "Deep-sea divers",
+        "keynote": "The will to explore the hidden depths of all existence and to search for primordial causes."
+      },
+      "SCO-8": {
+        "degree": "7-8 Scorpio",
+        "symbol": "A calm lake bathed in moonlight",
+        "keynote": "A quiet openness to higher inspiration."
+      },
+      "SCO-9": {
+        "degree": "8-9 Scorpio",
+        "symbol": "A dentist at work",
+        "keynote": "Overcoming the negative results of social practices and an ego-craving for softness."
+      },
+      "SCO-10": {
+        "degree": "9-10 Scorpio",
+        "symbol": "A fellowship supper reunites old comrades",
+        "keynote": "The overtones of human relationships based on a community of work or experiences."
+      },
+      "SCO-11": {
+        "degree": "10-11 Scorpio",
+        "symbol": "A drowning man is being rescued",
+        "keynote": "The deep concern of the social group for the safety of the individual."
+      },
+      "SCO-12": {
+        "degree": "11-12 Scorpio",
+        "symbol": "An official embassy ball",
+        "keynote": "Group-consciousness at the level of the highest hierarchy in cultural elaborations."
+      },
+      "SCO-13": {
+        "degree": "12-13 Scorpio",
+        "symbol": "An inventor performs a laboratory experiment",
+        "keynote": "The driving urge toward achievement, which is the basis of civilization."
+      },
+      "SCO-14": {
+        "degree": "13-14 Scorpio",
+        "symbol": "Telephone linemen at work installing new connections",
+        "keynote": "The need to establish new channels of communication."
+      },
+      "SCO-15": {
+        "degree": "14-15 Scorpio",
+        "symbol": "Children playing around five mounds of sand",
+        "keynote": "Early steps in the development of a mind seeking to be attuned to the higher level of human evolution."
+      },
+      "SCO-16": {
+        "degree": "15-16 Scorpio",
+        "symbol": "A girl's face breaking into a smile",
+        "keynote": "The fervent reach to extend one's being in new ways."
+      },
+      "SCO-17": {
+        "degree": "16-17 Scorpio",
+        "symbol": "A woman, fecundated by her own spirit, is great with child",
+        "keynote": "A total reliance upon the dictates of the God-within."
+      },
+      "SCO-18": {
+        "degree": "17-18 Scorpio",
+        "symbol": "A path through woods rich in autumn coloring",
+        "keynote": "The light which transfigures the sodden entities of the past: the light of fulfillment."
+      },
+      "SCO-19": {
+        "degree": "18-19 Scorpio",
+        "symbol": "A parrot repeats the conversation he has overheard",
+        "keynote": "The capacity to transmit transcendental knowledge."
+      },
+      "SCO-20": {
+        "degree": "19-20 Scorpio",
+        "symbol": "A woman drawing aside two dark curtains that closed the entrance to a sacred pathway",
+        "keynote": "The revelation to the human consciousness of what lies beyond dualistic knowledge."
+      },
+      "SCO-21": {
+        "degree": "20-21 Scorpio",
+        "symbol": "Obeying his conscience, a soldier resists orders",
+        "keynote": "A readiness to face the results of a refusal to follow the authoritarian patterns of an aggressive society."
+      },
+      "SCO-22": {
+        "degree": "21-22 Scorpio",
+        "symbol": "Hunters shooting wild ducks",
+        "keynote": "The aggressive assertion of the individual or the collective will against nature."
+      },
+      "SCO-23": {
+        "degree": "22-23 Scorpio",
+        "symbol": "A rabbit metamorphoses into a nature spirit",
+        "keynote": "The raising of animal drives to a higher level."
+      },
+      "SCO-24": {
+        "degree": "23-24 Scorpio",
+        "symbol": "After having heard an inspired individual deliver his sermon on the mount, crowds are returning home",
+        "keynote": "The need to incorporate inspiring experiences and teachings into everyday living."
+      },
+      "SCO-25": {
+        "degree": "24-25 Scorpio",
+        "symbol": "An X-ray photograph",
+        "keynote": "The capacity to acquire an understanding of the structural principles of reality."
+      },
+      "SCO-26": {
+        "degree": "25-26 Scorpio",
+        "symbol": "American Indians making camp after moving into a new territory",
+        "keynote": "The ability to adjust to a new situation by tuning in to its specific requirements."
+      },
+      "SCO-27": {
+        "degree": "26-27 Scorpio",
+        "symbol": "A military band marches noisily on through the city streets",
+        "keynote": "The aggressive glorification of cultural values."
+      },
+      "SCO-28": {
+        "degree": "27-28 Scorpio",
+        "symbol": "The king of the fairies approaching his domain",
+        "keynote": "The capacity to recognize and to pay homage to an integrating Principle at the core of all existence."
+      },
+      "SCO-29": {
+        "degree": "28-29 Scorpio",
+        "symbol": "An Indian squaw pleading to the chief for the lives of her children",
+        "keynote": "Love as a principle of redemption."
+      },
+      "SCO-30": {
+        "degree": "29-30 Scorpio",
+        "symbol": "Children in Halloween costumes indulge in various pranks",
+        "keynote": "The periodic release from social pressure."
+      },
+      "SAG-1": {
+        "degree": "0-1 Sagittarius",
+        "symbol": "Retired army veterans gather to reawaken old memories",
+        "keynote": "The will to reaffirm the value of the struggle upon which civilization and group-achievements are founded."
+      },
+      "SAG-2": {
+        "degree": "1-2 Sagittarius",
+        "symbol": "White-capped waves display the power of wind over sea",
+        "keynote": "The mobilization of unconscious energies under the pressure of superpersonal motives."
+      },
+      "SAG-3": {
+        "degree": "2-3 Sagittarius",
+        "symbol": "Two men playing chess",
+        "keynote": "The transcendent ritualization of conflict."
+      },
+      "SAG-4": {
+        "degree": "3-4 Sagittarius",
+        "symbol": "A little child learning to walk with the encouragement of his parents",
+        "keynote": "The natural assistance of superior powers during crises of growth."
+      },
+      "SAG-5": {
+        "degree": "4-5 Sagittarius",
+        "symbol": "An old owl sits alone on the branch of a large tree",
+        "keynote": "A poised and wise reliance upon traditional knowledge."
+      },
+      "SAG-6": {
+        "degree": "5-6 Sagittarius",
+        "symbol": "A game of cricket",
+        "keynote": "The solidarity required in the accumulation of group-prestige."
+      },
+      "SAG-7": {
+        "degree": "6-7 Sagittarius",
+        "symbol": "Cupid knocking at the door of a human heart",
+        "keynote": "A stirring up of individual longings for romantic love."
+      },
+      "SAG-8": {
+        "degree": "7-8 Sagittarius",
+        "symbol": "Within the depths of the earth new elements are being formed",
+        "keynote": "The alchemical fire which both purifies and transforms the very substance of man's inner life."
+      },
+      "SAG-9": {
+        "degree": "8-9 Sagittarius",
+        "symbol": "A mother leads her small child step by step up a steep stairway",
+        "keynote": "The need in any social situation to assist the less evolved in their management of the problems which society forces upon all its members."
+      },
+      "SAG-10": {
+        "degree": "9-10 Sagittarius",
+        "symbol": "A theatrical representation of a golden-haired goddess of opportunity",
+        "keynote": "Society's efforts at dramatizing the greatness of what it offers to the ambitious individual."
+      },
+      "SAG-11": {
+        "degree": "10-11 Sagittarius",
+        "symbol": "In the left section of an archaic temple, a lamp burns in a container shaped like a human body",
+        "keynote": "The value of the return to the body advocated by modern thinkers in order to balance the stress on intellectuality and objective consciousness."
+      },
+      "SAG-12": {
+        "degree": "11-12 Sagittarius",
+        "symbol": "A flag turns into an eagle; the eagle into a chanticleer which salutes the dawn",
+        "keynote": "The spiritualization and promotion of great symbols of a New Age by minds sensitive to its incipient manifestations."
+      },
+      "SAG-13": {
+        "degree": "12-13 Sagittarius",
+        "symbol": "A widow's past is brought to light",
+        "keynote": "The karma of past actions as it affects the opportunities presented by a new cycle."
+      },
+      "SAG-14": {
+        "degree": "13-14 Sagittarius",
+        "symbol": "The Great Pyramid and the Sphinx",
+        "keynote": "The enduring power of occult knowledge and of its quasi-divine Custodians, Seed-men of a previous cycle of existence."
+      },
+      "SAG-15": {
+        "degree": "14-15 Sagittarius",
+        "symbol": "The ground hog looking for its shadow on Ground-hog Day",
+        "keynote": "The value of anticipating new turns of events and ascertaining future prospects."
+      },
+      "SAG-16": {
+        "degree": "15-16 Sagittarius",
+        "symbol": "Sea gulls fly around a ship in expectation of food",
+        "keynote": "The dependence of psychic desires upon the stimulation of social circumstances."
+      },
+      "SAG-17": {
+        "degree": "16-17 Sagittarius",
+        "symbol": "An Easter sunrise service draws a large crowd",
+        "keynote": "The culturally stimulated longing for group participation in a process of rebirth."
+      },
+      "SAG-18": {
+        "degree": "17-18 Sagittarius",
+        "symbol": "Children playing on the beach, their heads protected by sunbonnets",
+        "keynote": "The protection society affords to as yet immature individuals as they begin to deal with the powerful energies of their unconscious nature."
+      },
+      "SAG-19": {
+        "degree": "18-19 Sagittarius",
+        "symbol": "Pelicans menaced by the behavior and refuse of men seek safer areas for bringing up their young",
+        "keynote": "The need for people concerned with the future to discover a new way of living and more wholesome surroundings."
+      },
+      "SAG-20": {
+        "degree": "19-20 Sagittarius",
+        "symbol": "In winter people cutting ice from a frozen pond, for use in summer",
+        "keynote": "The foresighted use of natural resources to supply future human needs."
+      },
+      "SAG-21": {
+        "degree": "20-21 Sagittarius",
+        "symbol": "A child and a dog wearing borrowed eyeglasses",
+        "keynote": "The use of imagination and make-believe in anticipating higher stages of development."
+      },
+      "SAG-22": {
+        "degree": "21-22 Sagittarius",
+        "symbol": "A Chinese laundry",
+        "keynote": "Making use of the racial-cultural background in order to survive and prosper in an alien environment."
+      },
+      "SAG-23": {
+        "degree": "22-23 Sagittarius",
+        "symbol": "A group of immigrants as they fulfill the requirements of entrance into the new country",
+        "keynote": "Conscious acceptance of the ways of a new stage of experience, in readiness for the opportunities it will present."
+      },
+      "SAG-24": {
+        "degree": "23-24 Sagittarius",
+        "symbol": "A bluebird perched on the gate of a cottage",
+        "keynote": "The reward which meets every effort at integration into a social environment for the sake of self-development."
+      },
+      "SAG-25": {
+        "degree": "24-25 Sagittarius",
+        "symbol": "A chubby boy on a hobby-horse",
+        "keynote": "The anticipatory enjoyment of powers one can only as yet dream of utilizing."
+      },
+      "SAG-26": {
+        "degree": "25-26 Sagittarius",
+        "symbol": "A flag bearer in a battle",
+        "keynote": "The nobly accepted subservience of the individual to collective values and goals."
+      },
+      "SAG-27": {
+        "degree": "26-27 Sagittarius",
+        "symbol": "A sculptor at his work",
+        "keynote": "The ability to project one's vision upon and to give form to materials."
+      },
+      "SAG-28": {
+        "degree": "27-28 Sagittarius",
+        "symbol": "An old bridge over a beautiful stream is still in constant use",
+        "keynote": "The enduring elements in a society which reveal its ability to significantly link the genius of its individuals to the everyday needs of the collectivity."
+      },
+      "SAG-29": {
+        "degree": "28-29 Sagittarius",
+        "symbol": "A fat boy mowing the lawn of his house on an elegant suburban street",
+        "keynote": "The need to attend to social respectability to which one belongs."
+      },
+      "SAG-30": {
+        "degree": "29-30 Sagittarius",
+        "symbol": "The Pope, blessing the faithful",
+        "keynote": "Paying homage to the glory of collective achievement."
+      },
+      "CAP-1": {
+        "degree": "0-1 Capricorn",
+        "symbol": "An Indian chief claims power from the assembled tribe",
+        "keynote": "The power of an assumed responsibility."
+      },
+      "CAP-2": {
+        "degree": "1-2 Capricorn",
+        "symbol": "Three rose windows in a Gothic church, one damaged by war",
+        "keynote": "The necessary realization by any individual of the vast and destructive power of mass-emotions."
+      },
+      "CAP-3": {
+        "degree": "2-3 Capricorn",
+        "symbol": "A human soul, in its eagerness for new experiences, seeks embodiment",
+        "keynote": "A powerful yearning for whatever will increase the scope and depth of one's contacts with other living beings."
+      },
+      "CAP-4": {
+        "degree": "3-4 Capricorn",
+        "symbol": "A group of people outfitting a large canoe at the start of a journey by water",
+        "keynote": "The ability to use natural resources and basic skills in order to achieve a group-purpose."
+      },
+      "CAP-5": {
+        "degree": "4-5 Capricorn",
+        "symbol": "Indians on the warpath. While some men row a well-filled canoe, others in it perform a war dance",
+        "keynote": "The mobilization of physical and emotional energies in a spirit of conquest."
+      },
+      "CAP-6": {
+        "degree": "5-6 Capricorn",
+        "symbol": "Ten logs lie under an archway leading to darker woods",
+        "keynote": "The need to complete any undertaking before seeking entrance to whatever is to be found beyond."
+      },
+      "CAP-7": {
+        "degree": "6-7 Capricorn",
+        "symbol": "A veiled prophet speaks, seized by the power of a god",
+        "keynote": "The ability to act as a mouthpiece for the revelation of a transcendent will and truth determining future action."
+      },
+      "CAP-8": {
+        "degree": "7-8 Capricorn",
+        "symbol": "In a sun-lit home domesticated birds sing joyously",
+        "keynote": "The wholesome happiness which subservience to the ideals and patterns of a well-established culture brings to those who accept them unreservedly."
+      },
+      "CAP-9": {
+        "degree": "8-9 Capricorn",
+        "symbol": "An angel carrying a harp",
+        "keynote": "The realization of spiritual harmony."
+      },
+      "CAP-10": {
+        "degree": "9-10 Capricorn",
+        "symbol": "An albatross feeding from the hand of a sailor",
+        "keynote": "The overcoming of fear and its rewards."
+      },
+      "CAP-11": {
+        "degree": "10-11 Capricorn",
+        "symbol": "A large group of pheasants on a private estate",
+        "keynote": "The refinement and propagation of aristocratic values by means of which man participates in the evolution of life toward ever more perfect forms of existence."
+      },
+      "CAP-12": {
+        "degree": "11-12 Capricorn",
+        "symbol": "An illustrated lecture on natural science",
+        "keynote": "The revealing of the hidden truth of past experience, and the appraisal of its value."
+      },
+      "CAP-13": {
+        "degree": "12-13 Capricorn",
+        "symbol": "A fire worshiper meditates on the ultimate realities of existence",
+        "keynote": "The subjective quest for ultimate meaning."
+      },
+      "CAP-14": {
+        "degree": "13-14 Capricorn",
+        "symbol": "In an ancient bas-relief carved in granite remains a witness to a long-forgotten culture",
+        "keynote": "The will to unearth, in our culture as well as in any culture, what has permanent value, and to let go of the nonessential."
+      },
+      "CAP-15": {
+        "degree": "14-15 Capricorn",
+        "symbol": "In a hospital, the children's ward is filled with toys",
+        "keynote": "The responsibility of society to ensure the welfare and health of the new generation."
+      },
+      "CAP-16": {
+        "degree": "15-16 Capricorn",
+        "symbol": "School grounds filled with boys and girls in gymnasium suits",
+        "keynote": "The need for physical activity and play, especially in adolescence."
+      },
+      "CAP-17": {
+        "degree": "16-17 Capricorn",
+        "symbol": "A repressed woman finds a psychological release in nudism",
+        "keynote": "The escape from bondage to social inhibitions and a reliance upon the wisdom of the body."
+      },
+      "CAP-18": {
+        "degree": "17-18 Capricorn",
+        "symbol": "The Union Jack flag flies from a British warship",
+        "keynote": "The protection afforded to individuals and groups by powerful institutions in charge of maintaining order."
+      },
+      "CAP-19": {
+        "degree": "18-19 Capricorn",
+        "symbol": "A five-year-old child carrying a bag filled with groceries",
+        "keynote": "Rising to the occasion when asked to assume social responsibilities ahead of one's normal development."
+      },
+      "CAP-20": {
+        "degree": "19-20 Capricorn",
+        "symbol": "A hidden choir is singing during a religious service",
+        "keynote": "The fulfillment of the individual's creative function through his participation in a group performance dedicated to a transcendent realization."
+      },
+      "CAP-21": {
+        "degree": "20-21 Capricorn",
+        "symbol": "A relay race",
+        "keynote": "The value of competition in developing group-consciousness."
+      },
+      "CAP-22": {
+        "degree": "21-22 Capricorn",
+        "symbol": "By accepting defeat gracefully, a general reveals the nobility of his character",
+        "keynote": "The realization that one may grow through defeat as well as, and perhaps more than, through success."
+      },
+      "CAP-23": {
+        "degree": "22-23 Capricorn",
+        "symbol": "A soldier receiving two awards for bravery in combat",
+        "keynote": "The reward offered by society for the fulfillment of individual responsibility."
+      },
+      "CAP-24": {
+        "degree": "23-24 Capricorn",
+        "symbol": "A woman entering a convent",
+        "keynote": "Total commitment to a transcendent goal."
+      },
+      "CAP-25": {
+        "degree": "24-25 Capricorn",
+        "symbol": "A store filled with precious oriental rugs",
+        "keynote": "The use of tradition and culture to enhance living."
+      },
+      "CAP-26": {
+        "degree": "25-26 Capricorn",
+        "symbol": "A nature spirit dancing in the iridescent mist of a waterfall",
+        "keynote": "The ability to perceive the hidden and creative spirit of natural phenomena."
+      },
+      "CAP-27": {
+        "degree": "26-27 Capricorn",
+        "symbol": "Pilgrims climbing the steep steps leading to a mountain shrine",
+        "keynote": "The ascent of the individualized consciousness to the highest realizations reached by the spiritual leaders of its culture."
+      },
+      "CAP-28": {
+        "degree": "27-28 Capricorn",
+        "symbol": "A large aviary",
+        "keynote": "The enjoyment of spiritual values by the soul able to remain open to the inspirations of nature."
+      },
+      "CAP-29": {
+        "degree": "28-29 Capricorn",
+        "symbol": "A woman reading tea leaves",
+        "keynote": "The ability to see the Signature of the Hidden Meaning in every occurrence."
+      },
+      "CAP-30": {
+        "degree": "29-30 Capricorn",
+        "symbol": "A secret meeting of men responsible for executive decisions in world affairs",
+        "keynote": "The power to assume responsibility for crucial choices in the management of human affairs."
+      },
+      "AQU-1": {
+        "degree": "0-1 Aquarius",
+        "symbol": "An old adobe mission in California",
+        "keynote": "The power inherent in all great human works to endure far beyond the short life span of the workers."
+      },
+      "AQU-2": {
+        "degree": "1-2 Aquarius",
+        "symbol": "An unexpected thunderstorm",
+        "keynote": "The need to develop the inner security which will enable us to meet unexpected crises."
+      },
+      "AQU-3": {
+        "degree": "2-3 Aquarius",
+        "symbol": "A deserter from the navy",
+        "keynote": "The individual's self-realization through a crucial repudiation of a collective status which has become unbearable."
+      },
+      "AQU-4": {
+        "degree": "3-4 Aquarius",
+        "symbol": "A Hindu yogi demonstrates his healing powers",
+        "keynote": "The disciplined use of spiritual energies in restoring the natural harmony disturbed by man's inharmonic attempts to transcend nature through mind."
+      },
+      "AQU-5": {
+        "degree": "4-5 Aquarius",
+        "symbol": "A council of ancestors is seen implementing the efforts of a young leader",
+        "keynote": "The reliance upon the past as a guide to the future."
+      },
+      "AQU-6": {
+        "degree": "5-6 Aquarius",
+        "symbol": "A masked figure performs ritualistic acts in a mystery play",
+        "keynote": "The involvement of the individual in long-established patterns of activity aiming at the release of collective power."
+      },
+      "AQU-7": {
+        "degree": "6-7 Aquarius",
+        "symbol": "A child is seen being born out of an egg",
+        "keynote": "The emergence of new mutations according to the great rhythms of the cosmos."
+      },
+      "AQU-8": {
+        "degree": "7-8 Aquarius",
+        "symbol": "Beautifully gowned wax figures on display",
+        "keynote": "The inspiration one may derive from the appearance of Exemplars who present to us the archetypes of a new culture."
+      },
+      "AQU-9": {
+        "degree": "8-9 Aquarius",
+        "symbol": "A flag is seen turning into an eagle",
+        "keynote": "The dynamic incorporation of new social values in individuals who exemplify the potential for excellence and significance."
+      },
+      "AQU-10": {
+        "degree": "9-10 Aquarius",
+        "symbol": "A man who had for a time become the embodiment of a popular ideal is made to realize that as a person he is not this ideal",
+        "keynote": "The need to deal with human beings as persons rather than as screens for the projection of collective dreams and ideals."
+      },
+      "AQU-11": {
+        "degree": "10-11 Aquarius",
+        "symbol": "During a silent hour, a man receives a new inspiration which may change his life",
+        "keynote": "The creative power of the spirit."
+      },
+      "AQU-12": {
+        "degree": "11-12 Aquarius",
+        "symbol": "People on a vast staircase, graduated upwards",
+        "keynote": "The different types and levels of consciousness in humanity."
+      },
+      "AQU-13": {
+        "degree": "12-13 Aquarius",
+        "symbol": "A barometer",
+        "keynote": "The ability to discover basic natural facts that allow us to plan in advance for action."
+      },
+      "AQU-14": {
+        "degree": "13-14 Aquarius",
+        "symbol": "A train entering a tunnel",
+        "keynote": "The ability to shorten the time of travel by smoothing the way, and avoiding obstacles."
+      },
+      "AQU-15": {
+        "degree": "14-15 Aquarius",
+        "symbol": "Two lovebirds sitting on a fence and singing happily",
+        "keynote": "The blessing bestowed on personal achievements by the spiritually oriented soul."
+      },
+      "AQU-16": {
+        "degree": "15-16 Aquarius",
+        "symbol": "A big businessman at his desk",
+        "keynote": "The ability to organize the many aspects of an enterprise involving a large group of human beings."
+      },
+      "AQU-17": {
+        "degree": "16-17 Aquarius",
+        "symbol": "A watchdog standing guard, protecting his master and his possessions",
+        "keynote": "The development of the capacity to protect oneself and to safeguard one's individual rights under complex social pressures."
+      },
+      "AQU-18": {
+        "degree": "17-18 Aquarius",
+        "symbol": "A man's secret motives are being publicly unmasked",
+        "keynote": "The difficulty for the modern individual to keep secret his private past or his deeper motives."
+      },
+      "AQU-19": {
+        "degree": "18-19 Aquarius",
+        "symbol": "A forest fire is being subdued by the use of water, chemicals and sheer muscular energy",
+        "keynote": "The skill and courage necessary to bring under control the destructive potential of karmic visitations."
+      },
+      "AQU-20": {
+        "degree": "19-20 Aquarius",
+        "symbol": "A large white dove bearing a message",
+        "keynote": "The answer of spiritual agencies to thorough, sustained and victorious individual efforts."
+      },
+      "AQU-21": {
+        "degree": "20-21 Aquarius",
+        "symbol": "A disappointed and disillusioned woman courageously faces a seemingly empty life",
+        "keynote": "The capacity to meet emotionally upsetting experiences in human relationships with strength of character and personal integrity."
+      },
+      "AQU-22": {
+        "degree": "21-22 Aquarius",
+        "symbol": "A rug is placed on the floor of a nursery to allow children to play in comfort and warmth",
+        "keynote": "The warmth of understanding which comes to those who, early in life, are open to new possibilities."
+      },
+      "AQU-23": {
+        "degree": "22-23 Aquarius",
+        "symbol": "A big bear sitting down and waving all its paws",
+        "keynote": "The self-discipline which results from an intelligent development of individual faculties and a training of character."
+      },
+      "AQU-24": {
+        "degree": "23-24 Aquarius",
+        "symbol": "A man, having overcome his passions, teaches deep wisdom to his disciples",
+        "keynote": "The constructive use of difficult past experiences as examples for those who are still striving to overcome their passions."
+      },
+      "AQU-25": {
+        "degree": "24-25 Aquarius",
+        "symbol": "A butterfly with the right wing more perfectly formed",
+        "keynote": "The capacity to develop the rational and conscious aspect of the mind ahead of normal evolution."
+      },
+      "AQU-26": {
+        "degree": "25-26 Aquarius",
+        "symbol": "A garage man testing a car's battery with a hydrometer",
+        "keynote": "Skill in applying knowledge of natural laws to the solution of everyday problems resulting from life in our technological society."
+      },
+      "AQU-27": {
+        "degree": "26-27 Aquarius",
+        "symbol": "An ancient pottery bowl filled with fresh violets",
+        "keynote": "The importance of traditional skills and artistic values deep-seated in the collective unconscious as a frame of reference for man's most authentic emotions."
+      },
+      "AQU-28": {
+        "degree": "27-28 Aquarius",
+        "symbol": "A tree felled and sawed to ensure a supply of wood for the winter",
+        "keynote": "The intelligent provision for the future."
+      },
+      "AQU-29": {
+        "degree": "28-29 Aquarius",
+        "symbol": "A butterfly emerging from a chrysalis",
+        "keynote": "The capacity to utterly transform the character of one's consciousness by radically altering the structural patterns of everyday living."
+      },
+      "AQU-30": {
+        "degree": "29-30 Aquarius",
+        "symbol": "Deeply rooted in the past of a very ancient culture, a spiritual brotherhood in which many individual minds are merged into the glowing light of a unanimous consciousness",
+        "keynote": "The ability for the person with an open mind to participate in a Transpersonal Reality."
+      },
+      "PIS-1": {
+        "degree": "0-1 Pisces",
+        "symbol": "In a crowded marketplace farmers and middlemen display a great variety of products",
+        "keynote": "The process of commingling and interchange which at all levels demonstrates the health of a community."
+      },
+      "PIS-2": {
+        "degree": "1-2 Pisces",
+        "symbol": "A squirrel hiding from hunters",
+        "keynote": "The individual's need for both security and independence."
+      },
+      "PIS-3": {
+        "degree": "2-3 Pisces",
+        "symbol": "Petrified trunks of trees lie broken on desert sand",
+        "keynote": "The power to preserve records of their achievements which is inherent in fully matured cultures."
+      },
+      "PIS-4": {
+        "degree": "3-4 Pisces",
+        "symbol": "Heavy car traffic on a narrow isthmus linking two seaside resorts",
+        "keynote": "The mobility of the society-building power of the mind and the need for exchanges between the many and varied aspects of the ego-consciousness."
+      },
+      "PIS-5": {
+        "degree": "4-5 Pisces",
+        "symbol": "A church bazaar",
+        "keynote": "The value of giving a spiritual sanction to exchanges of commodities and to social intercourse."
+      },
+      "PIS-6": {
+        "degree": "5-6 Pisces",
+        "symbol": "A parade of army officers in full dress",
+        "keynote": "The dedication of human beings to the service of their community, and the assurance that it will be effectively protected."
+      },
+      "PIS-7": {
+        "degree": "6-7 Pisces",
+        "symbol": "Illumined by a shaft of light, a large cross lies on rocks surrounded by sea mist",
+        "keynote": "The spiritual blessing which strengthens individuals who, happen what may, stand uncompromisingly for their own truth."
+      },
+      "PIS-8": {
+        "degree": "7-8 Pisces",
+        "symbol": "A girl blowing a bugle",
+        "keynote": "A call to participation in the service of the race, as an evolutionary crisis approaches."
+      },
+      "PIS-9": {
+        "degree": "8-9 Pisces",
+        "symbol": "A jockey spurs his horse, intent on outdistancing his rivals",
+        "keynote": "Intense mobilization of energy and skill in the drive for success in any social performance affected by the competitive spirit."
+      },
+      "PIS-10": {
+        "degree": "9-10 Pisces",
+        "symbol": "An aviator pursues his journey, flying through ground-obscuring clouds",
+        "keynote": "The man of maturity and specialized skill can transcend the limitations of his social and biological environment."
+      },
+      "PIS-11": {
+        "degree": "10-11 Pisces",
+        "symbol": "Men traveling a narrow path, seeking illumination",
+        "keynote": "The capacity inherent in every individual to seek at whatever cost entrance to a transcendent realm of reality."
+      },
+      "PIS-12": {
+        "degree": "11-12 Pisces",
+        "symbol": "In the sanctuary of an occult brotherhood, newly initiated members are being examined and their character tested",
+        "keynote": "The ever-repeated challenge presented to the individual by the group in which he has claimed acceptance."
+      },
+      "PIS-13": {
+        "degree": "12-13 Pisces",
+        "symbol": "An ancient sword, used in many battles, is displayed in a museum",
+        "keynote": "Through the effectual use of his will a consecrated man can become a symbol of courage for all those who follow in his footsteps."
+      },
+      "PIS-14": {
+        "degree": "13-14 Pisces",
+        "symbol": "A lady wrapped in a large stole of fox fur",
+        "keynote": "The use of intelligence and mental subtlety for self-protection."
+      },
+      "PIS-15": {
+        "degree": "14-15 Pisces",
+        "symbol": "An officer instructing his men before a simulated assault under a barrage of live shells",
+        "keynote": "The need for thorough rehearsal before any complex and dangerous social ritual."
+      },
+      "PIS-16": {
+        "degree": "15-16 Pisces",
+        "symbol": "In the quiet of his study a creative individual experiences a flow of inspiration",
+        "keynote": "Reliance upon one's inner source of inspiration and guidance."
+      },
+      "PIS-17": {
+        "degree": "16-17 Pisces",
+        "symbol": "An Easter parade",
+        "keynote": "The capacity inherent in all great sociocultural images to unite the members of a community in a display of excellence."
+      },
+      "PIS-18": {
+        "degree": "17-18 Pisces",
+        "symbol": "In a gigantic tent, villagers witness a spectacular performance",
+        "keynote": "The collective appeal of a well-staged and exciting display of skill and/or oratory."
+      },
+      "PIS-19": {
+        "degree": "18-19 Pisces",
+        "symbol": "A master instructing his disciple",
+        "keynote": "The transfer of power and knowledge which keeps the original spiritual and creative impulse of the cycle active and undeviating."
+      },
+      "PIS-20": {
+        "degree": "19-20 Pisces",
+        "symbol": "A table set for an evening meal",
+        "keynote": "An indication that in the end and at the appointed time the individual's needs will be met among those to whom he is linked by a spiritual or biological mandate."
+      },
+      "PIS-21": {
+        "degree": "20-21 Pisces",
+        "symbol": "Under the watchful and kind eye of a Chinese servant, a girl fondles a little white lamb",
+        "keynote": "Growth in consciousness in an environment which gives an objective understanding of the situation."
+      },
+      "PIS-22": {
+        "degree": "21-22 Pisces",
+        "symbol": "A prophet carrying tablets of the new law is walking down the slopes of Mount Sinai",
+        "keynote": "The need to bring down to the level of everyday existence the clear realizations manifested in a great peak experience."
+      },
+      "PIS-23": {
+        "degree": "22-23 Pisces",
+        "symbol": "A materializing medium giving a seance",
+        "keynote": "The ability to give a living and demonstrable form to one's own desires and feelings."
+      },
+      "PIS-24": {
+        "degree": "23-24 Pisces",
+        "symbol": "On a small island surrounded by the vast expanse of the sea, people are seen living in close interaction",
+        "keynote": "The need to consciously accept one's own personal limitations in order to concentrate one's energies and to live a centered and fulfilled life."
+      },
+      "PIS-25": {
+        "degree": "24-25 Pisces",
+        "symbol": "A religious organization succeeds in overcoming the corrupting influence of perverted practices and materialized ideals",
+        "keynote": "The power of the Soul to intervene in the personal life and to induce necessary catharses."
+      },
+      "PIS-26": {
+        "degree": "25-26 Pisces",
+        "symbol": "Watching the very thin moon crescent appearing at sunset, different people realize that the time has come to proceed with their different projects",
+        "keynote": "The power to act upon the exacting demands of life."
+      },
+      "PIS-27": {
+        "degree": "26-27 Pisces",
+        "symbol": "The harvest moon illumines a clear autumnal sky",
+        "keynote": "The light of fulfillment that blesses work well done."
+      },
+      "PIS-28": {
+        "degree": "27-28 Pisces",
+        "symbol": "A fertile garden under the full moon reveals a variety of full-grown vegetables",
+        "keynote": "The full satisfaction of the individual's basic needs."
+      },
+      "PIS-29": {
+        "degree": "28-29 Pisces",
+        "symbol": "Light breaking into many colors as it passes through a prism",
+        "keynote": "The analytical power of the mind necessary for the formulation of life processes in their many aspects."
+      },
+      "PIS-30": {
+        "degree": "29-30 Pisces",
+        "symbol": "A majestic rock formation resembling a face is idealized by a boy who takes it as his ideal of greatness, and as he grows up, begins to look like it",
+        "keynote": "The power of clearly visualized ideals to mold the life of the visualizer."
+      }
+    }
+  },
+  "profection": {
+    "houses": {
+      "1": "1st House - Self, identity, new beginnings (Aries)",
+      "2": "2nd House - Money, values, resources (Taurus)",
+      "3": "3rd House - Communication, siblings, learning (Gemini)",
+      "4": "4th House - Home, family, roots (Cancer)",
+      "5": "5th House - Creativity, children, romance (Leo)",
+      "6": "6th House - Work, health, service, daily routine (Virgo)",
+      "7": "7th House - Partnerships, marriage, contracts (Libra)",
+      "8": "8th House - Transformation, shared resources (Scorpio)",
+      "9": "9th House - Higher learning, travel, philosophy (Sagittarius)",
+      "10": "10th House - Career, public status, authority (Capricorn)",
+      "11": "11th House - Community, hopes, innovation (Aquarius)",
+      "12": "12th House - Solitude, spirituality, hidden matters (Pisces)"
+    }
+  },
+  "firdaria": {
+    "version": "persian-v1",
+    "day_birth_sequence": [
+      {
+        "planet": "Sun",
+        "start": 0,
+        "end": 10,
+        "years": 10
+      },
+      {
+        "planet": "Venus",
+        "start": 10,
+        "end": 18,
+        "years": 8
+      },
+      {
+        "planet": "Mercury",
+        "start": 18,
+        "end": 31,
+        "years": 13
+      },
+      {
+        "planet": "Moon",
+        "start": 31,
+        "end": 40,
+        "years": 9
+      },
+      {
+        "planet": "Saturn",
+        "start": 40,
+        "end": 51,
+        "years": 11
+      },
+      {
+        "planet": "Jupiter",
+        "start": 51,
+        "end": 63,
+        "years": 12
+      },
+      {
+        "planet": "Mars",
+        "start": 63,
+        "end": 70,
+        "years": 7
+      },
+      {
+        "planet": "North Node",
+        "start": 70,
+        "end": 73,
+        "years": 3,
+        "no_sub": true
+      },
+      {
+        "planet": "South Node",
+        "start": 73,
+        "end": 75,
+        "years": 2,
+        "no_sub": true
+      }
+    ],
+    "night_birth_sequence": [
+      {
+        "planet": "Moon",
+        "start": 0,
+        "end": 9,
+        "years": 9
+      },
+      {
+        "planet": "Saturn",
+        "start": 9,
+        "end": 20,
+        "years": 11
+      },
+      {
+        "planet": "Jupiter",
+        "start": 20,
+        "end": 32,
+        "years": 12
+      },
+      {
+        "planet": "Mars",
+        "start": 32,
+        "end": 39,
+        "years": 7
+      },
+      {
+        "planet": "Sun",
+        "start": 39,
+        "end": 49,
+        "years": 10
+      },
+      {
+        "planet": "Venus",
+        "start": 49,
+        "end": 57,
+        "years": 8
+      },
+      {
+        "planet": "Mercury",
+        "start": 57,
+        "end": 70,
+        "years": 13
+      },
+      {
+        "planet": "North Node",
+        "start": 70,
+        "end": 73,
+        "years": 3,
+        "no_sub": true
+      },
+      {
+        "planet": "South Node",
+        "start": 73,
+        "end": 75,
+        "years": 2,
+        "no_sub": true
+      }
+    ],
+    "chaldean_order": [
+      "Saturn",
+      "Jupiter",
+      "Mars",
+      "Sun",
+      "Venus",
+      "Mercury",
+      "Moon"
+    ]
+  },
+  "temperament": {
+    "version": "classical-v1",
+    "element_mapping": {
+      "Water": {
+        "temperament": "Phlegmatic",
+        "quality": "Cold & Wet",
+        "unani": "Balghami"
+      },
+      "Fire": {
+        "temperament": "Choleric",
+        "quality": "Hot & Dry",
+        "unani": "Safrawi"
+      },
+      "Air": {
+        "temperament": "Sanguine",
+        "quality": "Hot & Wet",
+        "unani": "Damawi"
+      },
+      "Earth": {
+        "temperament": "Melancholic",
+        "quality": "Cold & Dry",
+        "unani": "Saudawi"
+      }
+    }
+  },
+  "bazi_growth": {
+    "version": "12-phases-v1",
+    "source": "Standard BaZi 12 Growth Phase table",
+    "yin_water_gui": {
+      "zi_rat": "Imperial (帝旺)",
+      "chou_ox": "Decline (衰)",
+      "yin_tiger": "Sickness (病)",
+      "mao_rabbit": "Death (死)",
+      "chen_dragon": "Tomb (墓)",
+      "si_snake": "Extinction (绝)",
+      "wu_horse": "Embryo (胎)",
+      "wei_goat": "Nurture (养)",
+      "shen_monkey": "Birth (长生)",
+      "you_rooster": "Bath (沐浴)",
+      "xu_dog": "Crown (冠带)",
+      "hai_pig": "Imperial (帝旺)"
+    },
+    "notes": "Yin Water in Rooster should be Bath/沐浴 not Death. Previous run had an error."
+  },
+  "atbash": {
+    "version": "hebrew-v1",
+    "source": "Standard Hebrew AtBash cipher table",
+    "map": {
+      "aleph": "tav",
+      "bet": "shin",
+      "gimel": "resh",
+      "dalet": "qof",
+      "he": "tsade",
+      "vav": "pe",
+      "zayin": "ayin",
+      "chet": "samekh",
+      "tet": "nun",
+      "yod": "mem",
+      "kaf": "lamed",
+      "lamed": "kaf",
+      "mem": "yod",
+      "nun": "tet",
+      "samekh": "chet",
+      "ayin": "zayin",
+      "pe": "vav",
+      "tsade": "he",
+      "qof": "dalet",
+      "resh": "gimel",
+      "shin": "bet",
+      "tav": "aleph"
+    },
+    "values": {
+      "aleph": 1,
+      "bet": 2,
+      "gimel": 3,
+      "dalet": 4,
+      "he": 5,
+      "vav": 6,
+      "zayin": 7,
+      "chet": 8,
+      "tet": 9,
+      "yod": 10,
+      "kaf": 20,
+      "lamed": 30,
+      "mem": 40,
+      "nun": 50,
+      "samekh": 60,
+      "ayin": 70,
+      "pe": 80,
+      "tsade": 90,
+      "qof": 100,
+      "resh": 200,
+      "shin": 300,
+      "tav": 400
+    }
+  },
+  "albam": {
+    "version": "hebrew-v1",
+    "source": "Standard Hebrew Albam cipher (split-alphabet swap)",
+    "map": {
+      "aleph": "lamed",
+      "bet": "mem",
+      "gimel": "nun",
+      "dalet": "samekh",
+      "he": "pe",
+      "vav": "samekh",
+      "zayin": "ayin",
+      "chet": "pe",
+      "tet": "tsade",
+      "yod": "qof",
+      "kaf": "resh",
+      "lamed": "aleph",
+      "mem": "bet",
+      "nun": "gimel",
+      "samekh": "dalet",
+      "ayin": "he",
+      "pe": "vav",
+      "tsade": "zayin",
+      "qof": "chet",
+      "resh": "tet",
+      "shin": "yod",
+      "tav": "kaf"
+    }
+  },
+  "arabic_letters": {
+    "version": "hurufism-v1",
+    "source": "Classical Ilm al-Huruf tradition, Shams al-Ma'arif reference",
+    "abjad_kabir": {
+      "ا": 1,
+      "ب": 2,
+      "ج": 3,
+      "د": 4,
+      "ه": 5,
+      "و": 6,
+      "ز": 7,
+      "ح": 8,
+      "ط": 9,
+      "ي": 10,
+      "ك": 20,
+      "ل": 30,
+      "م": 40,
+      "ن": 50,
+      "س": 60,
+      "ع": 70,
+      "ف": 80,
+      "ص": 90,
+      "ق": 100,
+      "ر": 200,
+      "ش": 300,
+      "ت": 400,
+      "ث": 500,
+      "خ": 600,
+      "ذ": 700,
+      "ض": 800,
+      "ظ": 900,
+      "غ": 1000,
+      "أ": 1,
+      "إ": 1,
+      "آ": 1
+    },
+    "abjad_maghribi": {
+      "ا": 1,
+      "ب": 2,
+      "ج": 3,
+      "د": 4,
+      "ه": 5,
+      "و": 6,
+      "ز": 7,
+      "ح": 8,
+      "ط": 9,
+      "ي": 10,
+      "ك": 20,
+      "ل": 30,
+      "م": 40,
+      "ن": 50,
+      "س": 300,
+      "ع": 70,
+      "ف": 80,
+      "ص": 60,
+      "ق": 100,
+      "ر": 200,
+      "ش": 1000,
+      "ت": 400,
+      "ث": 500,
+      "خ": 600,
+      "ذ": 700,
+      "ض": 90,
+      "ظ": 800,
+      "غ": 900,
+      "أ": 1,
+      "إ": 1,
+      "آ": 1,
+      "ة": 5,
+      "ى": 10,
+      "ئ": 10,
+      "ؤ": 6
+    },
+    "abjad_saghir": {
+      "ا": 1,
+      "ب": 2,
+      "ج": 3,
+      "د": 4,
+      "ه": 5,
+      "و": 6,
+      "ز": 7,
+      "ح": 8,
+      "ط": 9,
+      "ي": 1,
+      "ك": 2,
+      "ل": 3,
+      "م": 4,
+      "ن": 5,
+      "س": 6,
+      "ع": 7,
+      "ف": 8,
+      "ص": 9,
+      "ق": 1,
+      "ر": 2,
+      "ش": 3,
+      "ت": 4,
+      "ث": 5,
+      "خ": 6,
+      "ذ": 7,
+      "ض": 8,
+      "ظ": 9,
+      "غ": 1,
+      "أ": 1,
+      "إ": 1,
+      "آ": 1
+    },
+    "abjad_wusta": {
+      "ا": 1,
+      "ب": 2,
+      "ج": 3,
+      "د": 4,
+      "ه": 5,
+      "و": 6,
+      "ز": 7,
+      "ح": 8,
+      "ط": 9,
+      "ي": 10,
+      "ك": 11,
+      "ل": 12,
+      "م": 13,
+      "ن": 14,
+      "س": 15,
+      "ع": 16,
+      "ف": 17,
+      "ص": 18,
+      "ق": 19,
+      "ر": 20,
+      "ش": 21,
+      "ت": 22,
+      "ث": 23,
+      "خ": 24,
+      "ذ": 25,
+      "ض": 26,
+      "ظ": 27,
+      "غ": 28,
+      "أ": 1,
+      "إ": 1,
+      "آ": 1
+    },
+    "elemental": {
+      "fire": [
+        "ا",
+        "ه",
+        "ط",
+        "م",
+        "ف",
+        "ش",
+        "ذ",
+        "أ",
+        "إ",
+        "آ"
+      ],
+      "air": [
+        "ب",
+        "و",
+        "ي",
+        "ن",
+        "ص",
+        "ت",
+        "ض"
+      ],
+      "water": [
+        "ج",
+        "ز",
+        "ك",
+        "س",
+        "ق",
+        "ث",
+        "ظ"
+      ],
+      "earth": [
+        "د",
+        "ح",
+        "ل",
+        "ع",
+        "ر",
+        "خ",
+        "غ"
+      ]
+    },
+    "luminous": [
+      "ا",
+      "ل",
+      "م",
+      "ص",
+      "ر",
+      "ك",
+      "ه",
+      "ي",
+      "ع",
+      "ط",
+      "س",
+      "ح",
+      "ق",
+      "ن",
+      "أ",
+      "إ",
+      "آ"
+    ],
+    "dark": [
+      "ب",
+      "ج",
+      "د",
+      "و",
+      "ز",
+      "ث",
+      "خ",
+      "ذ",
+      "ش",
+      "ض",
+      "ظ",
+      "غ",
+      "ت",
+      "ف"
+    ],
+    "solar": [
+      "ت",
+      "ث",
+      "د",
+      "ذ",
+      "ر",
+      "ز",
+      "س",
+      "ش",
+      "ص",
+      "ض",
+      "ط",
+      "ظ",
+      "ل",
+      "ن"
+    ],
+    "lunar": [
+      "ا",
+      "ب",
+      "ج",
+      "ح",
+      "خ",
+      "ع",
+      "غ",
+      "ف",
+      "ق",
+      "ك",
+      "م",
+      "ه",
+      "و",
+      "ي",
+      "أ",
+      "إ",
+      "آ"
+    ]
+  },
+  "synthesis": {
+    "min_systems_for_convergence": 3,
+    "min_traditions_for_convergence": 2,
+    "lockable_certainties": [
+      "COMPUTED_STRICT",
+      "LOOKUP_FIXED"
+    ],
+    "independence_groups": {
+      "arabic_name": [
+        "abjad_kabir",
+        "abjad_saghir",
+        "abjad_wusta",
+        "tartib",
+        "jafr",
+        "solar_lunar"
+      ],
+      "latin_name": [
+        "pythagorean",
+        "chaldean",
+        "hebrew_gematria",
+        "greek_isopsephy"
+      ],
+      "birth_date_digits": [
+        "life_path",
+        "birthday",
+        "pinnacles",
+        "challenges",
+        "personal_year",
+        "tarot_birth",
+        "lo_shu",
+        "attitude"
+      ],
+      "birth_date_calendar": [
+        "hijri",
+        "hebrew_cal",
+        "mayan",
+        "chinese_year",
+        "day_of_week",
+        "solar_degree"
+      ],
+      "birth_date_astronomical": [
+        "nakshatra",
+        "manazil",
+        "moon_phase",
+        "ascendant",
+        "houses"
+      ],
+      "birth_time": [
+        "bazi_hour",
+        "planetary_hour"
+      ]
+    }
+  },
+  "hebrew_gematria": {
+    "version": "1.0",
+    "source": "Standard Hebrew Mispar Gadol (absolute value)",
+    "values": {
+      "aleph": 1,
+      "bet": 2,
+      "gimel": 3,
+      "dalet": 4,
+      "he": 5,
+      "vav": 6,
+      "zayin": 7,
+      "chet": 8,
+      "tet": 9,
+      "yod": 10,
+      "kaf": 20,
+      "lamed": 30,
+      "mem": 40,
+      "nun": 50,
+      "samekh": 60,
+      "ayin": 70,
+      "pe": 80,
+      "tsade": 90,
+      "qof": 100,
+      "resh": 200,
+      "shin": 300,
+      "tav": 400
+    },
+    "arabic_to_hebrew": {
+      "ا": "aleph",
+      "ب": "bet",
+      "ج": "gimel",
+      "د": "dalet",
+      "ه": "he",
+      "و": "vav",
+      "ز": "zayin",
+      "ح": "chet",
+      "ط": "tet",
+      "ي": "yod",
+      "ك": "kaf",
+      "ل": "lamed",
+      "م": "mem",
+      "ن": "nun",
+      "س": "samekh",
+      "ع": "ayin",
+      "ف": "pe",
+      "ص": "tsade",
+      "ق": "qof",
+      "ر": "resh",
+      "ش": "shin",
+      "ت": "tav",
+      "ث": "tav",
+      "خ": "kaf",
+      "ذ": "dalet",
+      "ض": "tsade",
+      "ظ": "tsade",
+      "غ": "ayin",
+      "أ": "aleph",
+      "إ": "aleph",
+      "آ": "aleph"
+    }
+  },
+  "mandaean_gematria": {
+    "version": "1.0",
+    "source": "Mandaean Abathur system — 24-letter Aramaic-derived script (Ginza Rabba tradition)",
+    "values": {
+      "Ab": 1,
+      "Bag": 2,
+      "Gad": 3,
+      "Dad": 4,
+      "Ha": 5,
+      "Waw": 6,
+      "Zin": 7,
+      "Het": 8,
+      "Tet": 9,
+      "Yod": 10,
+      "Kaf": 20,
+      "Lad": 30,
+      "Mim": 40,
+      "Nun": 50,
+      "Sin": 60,
+      "Ein": 70,
+      "Pa": 80,
+      "Sad": 90,
+      "Qof": 100,
+      "Ra": 200,
+      "Shin": 300,
+      "Taw": 400,
+      "Dushenna": 700,
+      "Adu": 1000
+    },
+    "arabic_to_mandaean": {
+      "ا": "Ab",
+      "ب": "Bag",
+      "ج": "Gad",
+      "د": "Dad",
+      "ه": "Ha",
+      "و": "Waw",
+      "ز": "Zin",
+      "ح": "Het",
+      "ط": "Tet",
+      "ي": "Yod",
+      "ك": "Kaf",
+      "ل": "Lad",
+      "م": "Mim",
+      "ن": "Nun",
+      "س": "Sin",
+      "ع": "Ein",
+      "ف": "Pa",
+      "ص": "Sad",
+      "ق": "Qof",
+      "ر": "Ra",
+      "ش": "Shin",
+      "ت": "Taw",
+      "ث": "Taw",
+      "خ": "Het",
+      "ذ": "Dad",
+      "ض": "Dad",
+      "ظ": "Tet",
+      "غ": "Ein",
+      "إ": "Ab",
+      "أ": "Ab",
+      "آ": "Ab",
+      "ة": "Ha",
+      "ى": "Yod",
+      "ئ": "Yod",
+      "ؤ": "Waw"
+    }
+  },
+  "avgad": {
+    "version": "1.0",
+    "source": "Temurah tradition — Avgad (forward shift by 1)",
+    "map": {
+      "aleph": "bet",
+      "bet": "gimel",
+      "gimel": "dalet",
+      "dalet": "he",
+      "he": "vav",
+      "vav": "zayin",
+      "zayin": "chet",
+      "chet": "tet",
+      "tet": "yod",
+      "yod": "kaf",
+      "kaf": "lamed",
+      "lamed": "mem",
+      "mem": "nun",
+      "nun": "samekh",
+      "samekh": "ayin",
+      "ayin": "pe",
+      "pe": "tsade",
+      "tsade": "qof",
+      "qof": "resh",
+      "resh": "shin",
+      "shin": "tav",
+      "tav": "aleph"
+    }
+  },
+  "tree_of_life": {
+    "version": "1.0",
+    "source": "Kabbalistic tradition — standard Sephirotic correspondences",
+    "paths": {
+      "1": {
+        "sephirah": "Keter",
+        "hebrew": "כתר",
+        "meaning": "Crown — divine will, unity with source",
+        "world": "Atzilut"
+      },
+      "2": {
+        "sephirah": "Chokmah",
+        "hebrew": "חכמה",
+        "meaning": "Wisdom — primal creative force, inspiration",
+        "world": "Atzilut"
+      },
+      "3": {
+        "sephirah": "Binah",
+        "hebrew": "בינה",
+        "meaning": "Understanding — structuring intelligence, form-giving",
+        "world": "Atzilut"
+      },
+      "4": {
+        "sephirah": "Chesed",
+        "hebrew": "חסד",
+        "meaning": "Mercy — expansive love, abundance, generosity",
+        "world": "Beriah"
+      },
+      "5": {
+        "sephirah": "Gevurah",
+        "hebrew": "גבורה",
+        "meaning": "Severity — discipline, judgment, boundaries",
+        "world": "Beriah"
+      },
+      "6": {
+        "sephirah": "Tiferet",
+        "hebrew": "תפארת",
+        "meaning": "Beauty — harmony, balance, the heart center",
+        "world": "Beriah"
+      },
+      "7": {
+        "sephirah": "Netzach",
+        "hebrew": "נצח",
+        "meaning": "Victory — endurance, desire, creative drive",
+        "world": "Yetzirah"
+      },
+      "8": {
+        "sephirah": "Hod",
+        "hebrew": "הוד",
+        "meaning": "Splendor — intellect, communication, analysis",
+        "world": "Yetzirah"
+      },
+      "9": {
+        "sephirah": "Yesod",
+        "hebrew": "יסוד",
+        "meaning": "Foundation — connection, psychic sensitivity, dreams",
+        "world": "Yetzirah"
+      },
+      "11": {
+        "sephirah": "Da'at",
+        "hebrew": "דעת",
+        "meaning": "Knowledge — hidden sephirah, integration of opposites",
+        "world": "Beriah/Atzilut"
+      },
+      "22": {
+        "sephirah": "Malkut-Keter Bridge",
+        "hebrew": "מלכות-כתר",
+        "meaning": "Master Builder — grounding the divine in material reality",
+        "world": "Assiyah-Atzilut"
+      },
+      "33": {
+        "sephirah": "Tiferet-Binah Bridge",
+        "hebrew": "תפארת-בינה",
+        "meaning": "Master Teacher — harmonizing wisdom with understanding",
+        "world": "Beriah-Atzilut"
+      }
+    }
+  },
+  "hebrew_calendar": {
+    "version": "1.0",
+    "source": "Traditional Hebrew calendar",
+    "months": {
+      "1": {
+        "name": "Nisan",
+        "hebrew": "ניסן",
+        "meaning": "Miracles, new beginnings, redemption"
+      },
+      "2": {
+        "name": "Iyyar",
+        "hebrew": "אייר",
+        "meaning": "Healing, natural light, introspection"
+      },
+      "3": {
+        "name": "Sivan",
+        "hebrew": "סיון",
+        "meaning": "Revelation, receiving wisdom, Gemini"
+      },
+      "4": {
+        "name": "Tammuz",
+        "hebrew": "תמוז",
+        "meaning": "Vision through darkness, seeing beyond"
+      },
+      "5": {
+        "name": "Av",
+        "hebrew": "אב",
+        "meaning": "Transformation through destruction, rebirth"
+      },
+      "6": {
+        "name": "Elul",
+        "hebrew": "אלול",
+        "meaning": "Return, repentance, preparation"
+      },
+      "7": {
+        "name": "Tishrei",
+        "hebrew": "תשרי",
+        "meaning": "Balance, judgment, new year"
+      },
+      "8": {
+        "name": "Cheshvan",
+        "hebrew": "חשוון",
+        "meaning": "Depth, the month with no holidays, inner work"
+      },
+      "9": {
+        "name": "Kislev",
+        "hebrew": "כסלו",
+        "meaning": "Trust, dreams, hidden light"
+      },
+      "10": {
+        "name": "Tevet",
+        "hebrew": "טבת",
+        "meaning": "Holy anger, righteous indignation"
+      },
+      "11": {
+        "name": "Shevat",
+        "hebrew": "שבט",
+        "meaning": "Tree of life, renewal, eating fruits"
+      },
+      "12": {
+        "name": "Adar",
+        "hebrew": "אדר",
+        "meaning": "Joy, hidden miracles, reversals of fortune"
+      },
+      "13": {
+        "name": "Adar II",
+        "hebrew": "אדר ב׳",
+        "meaning": "Extended joy, leap year doubling"
+      }
+    }
+  },
+  "chinese_zodiac": {
+    "version": "1.0",
+    "source": "Standard Chinese astronomy. Heavenly Stems and Earthly Branches.",
+    "heavenly_stems": [
+      {
+        "index": 0,
+        "chinese": "甲",
+        "pinyin": "Jiǎ",
+        "element": "Wood",
+        "polarity": "Yang"
+      },
+      {
+        "index": 1,
+        "chinese": "乙",
+        "pinyin": "Yǐ",
+        "element": "Wood",
+        "polarity": "Yin"
+      },
+      {
+        "index": 2,
+        "chinese": "丙",
+        "pinyin": "Bǐng",
+        "element": "Fire",
+        "polarity": "Yang"
+      },
+      {
+        "index": 3,
+        "chinese": "丁",
+        "pinyin": "Dīng",
+        "element": "Fire",
+        "polarity": "Yin"
+      },
+      {
+        "index": 4,
+        "chinese": "戊",
+        "pinyin": "Wù",
+        "element": "Earth",
+        "polarity": "Yang"
+      },
+      {
+        "index": 5,
+        "chinese": "己",
+        "pinyin": "Jǐ",
+        "element": "Earth",
+        "polarity": "Yin"
+      },
+      {
+        "index": 6,
+        "chinese": "庚",
+        "pinyin": "Gēng",
+        "element": "Metal",
+        "polarity": "Yang"
+      },
+      {
+        "index": 7,
+        "chinese": "辛",
+        "pinyin": "Xīn",
+        "element": "Metal",
+        "polarity": "Yin"
+      },
+      {
+        "index": 8,
+        "chinese": "壬",
+        "pinyin": "Rén",
+        "element": "Water",
+        "polarity": "Yang"
+      },
+      {
+        "index": 9,
+        "chinese": "癸",
+        "pinyin": "Guǐ",
+        "element": "Water",
+        "polarity": "Yin"
+      }
+    ],
+    "earthly_branches": [
+      {
+        "index": 0,
+        "chinese": "子",
+        "pinyin": "Zǐ",
+        "animal": "Rat",
+        "element": "Water",
+        "hours": "23:00-01:00"
+      },
+      {
+        "index": 1,
+        "chinese": "丑",
+        "pinyin": "Chǒu",
+        "animal": "Ox",
+        "element": "Earth",
+        "hours": "01:00-03:00"
+      },
+      {
+        "index": 2,
+        "chinese": "寅",
+        "pinyin": "Yín",
+        "animal": "Tiger",
+        "element": "Wood",
+        "hours": "03:00-05:00"
+      },
+      {
+        "index": 3,
+        "chinese": "卯",
+        "pinyin": "Mǎo",
+        "animal": "Rabbit",
+        "element": "Wood",
+        "hours": "05:00-07:00"
+      },
+      {
+        "index": 4,
+        "chinese": "辰",
+        "pinyin": "Chén",
+        "animal": "Dragon",
+        "element": "Earth",
+        "hours": "07:00-09:00"
+      },
+      {
+        "index": 5,
+        "chinese": "巳",
+        "pinyin": "Sì",
+        "animal": "Snake",
+        "element": "Fire",
+        "hours": "09:00-11:00"
+      },
+      {
+        "index": 6,
+        "chinese": "午",
+        "pinyin": "Wǔ",
+        "animal": "Horse",
+        "element": "Fire",
+        "hours": "11:00-13:00"
+      },
+      {
+        "index": 7,
+        "chinese": "未",
+        "pinyin": "Wèi",
+        "animal": "Goat",
+        "element": "Earth",
+        "hours": "13:00-15:00"
+      },
+      {
+        "index": 8,
+        "chinese": "申",
+        "pinyin": "Shēn",
+        "animal": "Monkey",
+        "element": "Metal",
+        "hours": "15:00-17:00"
+      },
+      {
+        "index": 9,
+        "chinese": "酉",
+        "pinyin": "Yǒu",
+        "animal": "Rooster",
+        "element": "Metal",
+        "hours": "17:00-19:00"
+      },
+      {
+        "index": 10,
+        "chinese": "戌",
+        "pinyin": "Xū",
+        "animal": "Dog",
+        "element": "Earth",
+        "hours": "19:00-21:00"
+      },
+      {
+        "index": 11,
+        "chinese": "亥",
+        "pinyin": "Hài",
+        "animal": "Pig",
+        "element": "Water",
+        "hours": "21:00-23:00"
+      }
+    ],
+    "notes": "Year calculation uses lunar new year approximation. For dates before Feb 4 (lichun), previous year is used."
+  },
+  "nine_star_ki": {
+    "version": "1.0",
+    "source": "Standard Nine Star Ki / 九星気学. Year star uses reverse Lo Shu cycle.",
+    "stars": {
+      "1": {
+        "name": "1 Water",
+        "chinese": "一白水星",
+        "element": "Water",
+        "trigram": "Kan",
+        "direction": "North"
+      },
+      "2": {
+        "name": "2 Earth",
+        "chinese": "二黒土星",
+        "element": "Earth",
+        "trigram": "Kun",
+        "direction": "Southwest"
+      },
+      "3": {
+        "name": "3 Wood",
+        "chinese": "三碧木星",
+        "element": "Wood",
+        "trigram": "Zhen",
+        "direction": "East"
+      },
+      "4": {
+        "name": "4 Wood",
+        "chinese": "四緑木星",
+        "element": "Wood",
+        "trigram": "Xun",
+        "direction": "Southeast"
+      },
+      "5": {
+        "name": "5 Earth",
+        "chinese": "五黄土星",
+        "element": "Earth",
+        "trigram": "Center",
+        "direction": "Center"
+      },
+      "6": {
+        "name": "6 Metal",
+        "chinese": "六白金星",
+        "element": "Metal",
+        "trigram": "Qian",
+        "direction": "Northwest"
+      },
+      "7": {
+        "name": "7 Metal",
+        "chinese": "七赤金星",
+        "element": "Metal",
+        "trigram": "Dui",
+        "direction": "West"
+      },
+      "8": {
+        "name": "8 Earth",
+        "chinese": "八白土星",
+        "element": "Earth",
+        "trigram": "Gen",
+        "direction": "Northeast"
+      },
+      "9": {
+        "name": "9 Fire",
+        "chinese": "九紫火星",
+        "element": "Fire",
+        "trigram": "Li",
+        "direction": "South"
+      }
+    },
+    "month_star_table": {
+      "1": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3
+      ],
+      "4": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3
+      ],
+      "7": [
+        5,
+        4,
+        3,
+        2,
+        1,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3
+      ],
+      "2": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        9,
+        8,
+        7,
+        6
+      ],
+      "5": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        9,
+        8,
+        7,
+        6
+      ],
+      "8": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        9,
+        8,
+        7,
+        6
+      ],
+      "3": [
+        2,
+        1,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        9
+      ],
+      "6": [
+        2,
+        1,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        9
+      ],
+      "9": [
+        2,
+        1,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        9
+      ]
+    },
+    "notes": "Year star = (11 - (year % 9)) % 9; if 0 then 9. Month star from year-star group table. Month index 0=Feb."
+  },
+  "flying_star": {
+    "version": "1.0",
+    "source": "Xuan Kong Flying Star Feng Shui (玄空飛星). Standard annual star distribution.",
+    "lo_shu_base": [
+      [
+        4,
+        9,
+        2
+      ],
+      [
+        3,
+        5,
+        7
+      ],
+      [
+        8,
+        1,
+        6
+      ]
+    ],
+    "palace_names": [
+      "South",
+      "Northeast",
+      "West",
+      "East",
+      "Center",
+      "Southeast",
+      "Northwest",
+      "North",
+      "Southwest"
+    ],
+    "palace_order": [
+      [
+        4,
+        3,
+        8
+      ],
+      [
+        9,
+        5,
+        1
+      ],
+      [
+        2,
+        7,
+        6
+      ]
+    ],
+    "notes": "Annual star = same formula as Nine Star Ki year star. Stars fly into palaces following Lo Shu path: Center→NW→W→NE→S→N→SW→E→SE."
+  },
+  "bazi_pillars": {
+    "version": "1.0",
+    "source": "Standard BaZi / Four Pillars of Destiny (四柱命理). Ten Thousand Year Calendar method.",
+    "month_branches": [
+      {
+        "month": 1,
+        "branch_idx": 2,
+        "name": "Tiger Month",
+        "solar_term_start": "Lichun (Feb 4)"
+      },
+      {
+        "month": 2,
+        "branch_idx": 3,
+        "name": "Rabbit Month",
+        "solar_term_start": "Jingzhe (Mar 6)"
+      },
+      {
+        "month": 3,
+        "branch_idx": 4,
+        "name": "Dragon Month",
+        "solar_term_start": "Qingming (Apr 5)"
+      },
+      {
+        "month": 4,
+        "branch_idx": 5,
+        "name": "Snake Month",
+        "solar_term_start": "Lixia (May 6)"
+      },
+      {
+        "month": 5,
+        "branch_idx": 6,
+        "name": "Horse Month",
+        "solar_term_start": "Mangzhong (Jun 6)"
+      },
+      {
+        "month": 6,
+        "branch_idx": 7,
+        "name": "Goat Month",
+        "solar_term_start": "Xiaoshu (Jul 7)"
+      },
+      {
+        "month": 7,
+        "branch_idx": 8,
+        "name": "Monkey Month",
+        "solar_term_start": "Liqiu (Aug 7)"
+      },
+      {
+        "month": 8,
+        "branch_idx": 9,
+        "name": "Rooster Month",
+        "solar_term_start": "Bailu (Sep 8)"
+      },
+      {
+        "month": 9,
+        "branch_idx": 10,
+        "name": "Dog Month",
+        "solar_term_start": "Hanlu (Oct 8)"
+      },
+      {
+        "month": 10,
+        "branch_idx": 11,
+        "name": "Pig Month",
+        "solar_term_start": "Lidong (Nov 7)"
+      },
+      {
+        "month": 11,
+        "branch_idx": 0,
+        "name": "Rat Month",
+        "solar_term_start": "Daxue (Dec 7)"
+      },
+      {
+        "month": 12,
+        "branch_idx": 1,
+        "name": "Ox Month",
+        "solar_term_start": "Xiaohan (Jan 6)"
+      }
+    ],
+    "year_stem_to_month_stem_start": {
+      "0": 2,
+      "1": 4,
+      "2": 6,
+      "3": 8,
+      "4": 0,
+      "5": 2,
+      "6": 4,
+      "7": 6,
+      "8": 8,
+      "9": 0
+    },
+    "day_stem_to_hour_stem_start": {
+      "0": 0,
+      "1": 2,
+      "2": 4,
+      "3": 6,
+      "4": 8,
+      "5": 0,
+      "6": 2,
+      "7": 4,
+      "8": 6,
+      "9": 8
+    },
+    "notes": "Day pillar uses JDN-based calculation. Month boundaries approximate solar terms. Hour pillar requires birth time."
+  },
+  "nakshatra": {
+    "entries": {
+      "1": {
+        "name": "Ashwini",
+        "sanskrit": "अश्विनी",
+        "degrees": "0°00' - 13°20' Aries",
+        "ruler": "Ketu",
+        "deity": "Ashwini Kumaras",
+        "symbol": "Horse's head",
+        "element": "Earth",
+        "guna": "Rajas/Rajas/Rajas",
+        "animal": "Male Horse",
+        "quality": "Swift, light"
+      },
+      "2": {
+        "name": "Bharani",
+        "sanskrit": "भरणी",
+        "degrees": "13°20' - 26°40' Aries",
+        "ruler": "Venus",
+        "deity": "Yama",
+        "symbol": "Yoni",
+        "element": "Earth",
+        "guna": "Rajas/Rajas/Tamas",
+        "animal": "Elephant",
+        "quality": "Fierce, severe"
+      },
+      "3": {
+        "name": "Krittika",
+        "sanskrit": "कृत्तिका",
+        "degrees": "26°40' Aries - 10°00' Taurus",
+        "ruler": "Sun",
+        "deity": "Agni",
+        "symbol": "Knife or Razor",
+        "element": "Earth",
+        "guna": "Rajas/Rajas/Sattva",
+        "animal": "Female Sheep",
+        "quality": "Mixed, sharp"
+      },
+      "4": {
+        "name": "Rohini",
+        "sanskrit": "रोहिणी",
+        "degrees": "10°00' - 23°20' Taurus",
+        "ruler": "Moon",
+        "deity": "Brahma",
+        "symbol": "Cart or Chariot",
+        "element": "Earth",
+        "guna": "Rajas/Tamas/Rajas",
+        "animal": "Male Serpent",
+        "quality": "Fixed, permanent"
+      },
+      "5": {
+        "name": "Mrigashira",
+        "sanskrit": "मृगशिरा",
+        "degrees": "23°20' Taurus - 06°40' Gemini",
+        "ruler": "Mars",
+        "deity": "Soma",
+        "symbol": "Deer's head",
+        "element": "Earth",
+        "guna": "Rajas/Tamas/Tamas",
+        "animal": "Female Serpent",
+        "quality": "Soft, mild"
+      },
+      "6": {
+        "name": "Ardra",
+        "sanskrit": "आर्द्रा",
+        "degrees": "06°40' - 20°00' Gemini",
+        "ruler": "Rahu",
+        "deity": "Rudra",
+        "symbol": "Teardrop or Diamond",
+        "element": "Water",
+        "guna": "Rajas/Tamas/Sattva",
+        "animal": "Female Dog",
+        "quality": "Sharp, dreadful"
+      },
+      "7": {
+        "name": "Punarvasu",
+        "sanskrit": "पुनर्वसु",
+        "degrees": "20°00' Gemini - 03°20' Cancer",
+        "ruler": "Jupiter",
+        "deity": "Aditi",
+        "symbol": "Bow and Quiver",
+        "element": "Water",
+        "guna": "Rajas/Sattva/Rajas",
+        "animal": "Female Cat",
+        "quality": "Movable, ephemeral"
+      },
+      "8": {
+        "name": "Pushya",
+        "sanskrit": "पुष्य",
+        "degrees": "03°20' - 16°40' Cancer",
+        "ruler": "Saturn",
+        "deity": "Brihaspati",
+        "symbol": "Wheel or Flower",
+        "element": "Water",
+        "guna": "Rajas/Sattva/Tamas",
+        "animal": "Male Sheep",
+        "quality": "Light, swift"
+      },
+      "9": {
+        "name": "Ashlesha",
+        "sanskrit": "आश्लेषा",
+        "degrees": "16°40' - 30°00' Cancer",
+        "ruler": "Mercury",
+        "deity": "Sarpas (Nagas)",
+        "symbol": "Coiled Serpent",
+        "element": "Water",
+        "guna": "Rajas/Sattva/Sattva",
+        "animal": "Male Cat",
+        "quality": "Sharp, dreadful"
+      },
+      "10": {
+        "name": "Magha",
+        "sanskrit": "मघा",
+        "degrees": "00°00' - 13°20' Leo",
+        "ruler": "Ketu",
+        "deity": "Pitris",
+        "symbol": "Royal Throne",
+        "element": "Water",
+        "guna": "Tamas/Rajas/Rajas",
+        "animal": "Male Rat",
+        "quality": "Fierce, severe"
+      },
+      "11": {
+        "name": "Purva Phalguni",
+        "sanskrit": "पूर्व फाल्गुनी",
+        "degrees": "13°20' - 26°40' Leo",
+        "ruler": "Venus",
+        "deity": "Bhaga",
+        "symbol": "Front legs of bed",
+        "element": "Water",
+        "guna": "Tamas/Rajas/Tamas",
+        "animal": "Female Rat",
+        "quality": "Fierce, severe"
+      },
+      "12": {
+        "name": "Uttara Phalguni",
+        "sanskrit": "उत्तर फाल्गुनी",
+        "degrees": "26°40' Leo - 10°00' Virgo",
+        "ruler": "Sun",
+        "deity": "Aryaman",
+        "symbol": "Back legs of bed",
+        "element": "Fire",
+        "guna": "Tamas/Rajas/Sattva",
+        "animal": "Male Cow",
+        "quality": "Fixed, permanent"
+      },
+      "13": {
+        "name": "Hasta",
+        "sanskrit": "हस्त",
+        "degrees": "10°00' - 23°20' Virgo",
+        "ruler": "Moon",
+        "deity": "Savitr",
+        "symbol": "Hand or Fist",
+        "element": "Fire",
+        "guna": "Tamas/Tamas/Rajas",
+        "animal": "Female Buffalo",
+        "quality": "Light, swift"
+      },
+      "14": {
+        "name": "Chitra",
+        "sanskrit": "चित्रा",
+        "degrees": "23°20' Virgo - 06°40' Libra",
+        "ruler": "Mars",
+        "deity": "Vishvakarma",
+        "symbol": "Pearl or Bright Jewel",
+        "element": "Fire",
+        "guna": "Tamas/Tamas/Tamas",
+        "animal": "Female Tiger",
+        "quality": "Soft, mild"
+      },
+      "15": {
+        "name": "Svati",
+        "sanskrit": "स्वाति",
+        "degrees": "06°40' - 20°00' Libra",
+        "ruler": "Rahu",
+        "deity": "Vayu",
+        "symbol": "Shoot of plant or Sword",
+        "element": "Fire",
+        "guna": "Tamas/Tamas/Sattva",
+        "animal": "Male Buffalo",
+        "quality": "Movable, ephemeral"
+      },
+      "16": {
+        "name": "Vishakha",
+        "sanskrit": "विशाखा",
+        "degrees": "20°00' Libra - 03°20' Scorpio",
+        "ruler": "Jupiter",
+        "deity": "Indra-Agni",
+        "symbol": "Triumphal Arch",
+        "element": "Fire",
+        "guna": "Tamas/Sattva/Rajas",
+        "animal": "Male Tiger",
+        "quality": "Mixed, sharp"
+      },
+      "17": {
+        "name": "Anuradha",
+        "sanskrit": "अनुराधा",
+        "degrees": "03°20' - 16°40' Scorpio",
+        "ruler": "Saturn",
+        "deity": "Mitra",
+        "symbol": "Lotus or Staff",
+        "element": "Fire",
+        "guna": "Tamas/Sattva/Tamas",
+        "animal": "Female Deer",
+        "quality": "Soft, mild"
+      },
+      "18": {
+        "name": "Jyeshtha",
+        "sanskrit": "ज्येष्ठा",
+        "degrees": "16°40' - 30°00' Scorpio",
+        "ruler": "Mercury",
+        "deity": "Indra",
+        "symbol": "Umbrella or Earring",
+        "element": "Air",
+        "guna": "Tamas/Sattva/Sattva",
+        "animal": "Male Deer",
+        "quality": "Sharp, dreadful"
+      },
+      "19": {
+        "name": "Mula",
+        "sanskrit": "मूल",
+        "degrees": "00°00' - 13°20' Sagittarius",
+        "ruler": "Ketu",
+        "deity": "Nirriti",
+        "symbol": "Bunch of roots",
+        "element": "Air",
+        "guna": "Sattva/Rajas/Rajas",
+        "animal": "Male Dog",
+        "quality": "Sharp, dreadful"
+      },
+      "20": {
+        "name": "Purva Ashadha",
+        "sanskrit": "पूर्वाषाढ़ा",
+        "degrees": "13°20' - 26°40' Sagittarius",
+        "ruler": "Venus",
+        "deity": "Apas",
+        "symbol": "Winnowing basket",
+        "element": "Air",
+        "guna": "Sattva/Rajas/Tamas",
+        "animal": "Male Monkey",
+        "quality": "Fierce, severe"
+      },
+      "21": {
+        "name": "Uttara Ashadha",
+        "sanskrit": "उत्तराषाढ़ा",
+        "degrees": "26°40' Sagittarius - 10°00' Capricorn",
+        "ruler": "Sun",
+        "deity": "Vishvedevas",
+        "symbol": "Elephant's tusk",
+        "element": "Air",
+        "guna": "Sattva/Rajas/Sattva",
+        "animal": "Male Mongoose",
+        "quality": "Fixed, permanent"
+      },
+      "22": {
+        "name": "Shravana",
+        "sanskrit": "श्रवण",
+        "degrees": "10°00' - 23°20' Capricorn",
+        "ruler": "Moon",
+        "deity": "Vishnu",
+        "symbol": "Ear or Three footprints",
+        "element": "Air",
+        "guna": "Sattva/Tamas/Rajas",
+        "animal": "Female Monkey",
+        "quality": "Movable, ephemeral"
+      },
+      "23": {
+        "name": "Dhanishta",
+        "sanskrit": "धनिष्ठा",
+        "degrees": "23°20' Capricorn - 06°40' Aquarius",
+        "ruler": "Mars",
+        "deity": "Eight Vasus",
+        "symbol": "Drum or Flute",
+        "element": "Air",
+        "guna": "Sattva/Tamas/Tamas",
+        "animal": "Female Lion",
+        "quality": "Movable, ephemeral"
+      },
+      "24": {
+        "name": "Shatabhisha",
+        "sanskrit": "शतभिषा",
+        "degrees": "06°40' - 20°00' Aquarius",
+        "ruler": "Rahu",
+        "deity": "Varuna",
+        "symbol": "Empty circle or 100 Flowers",
+        "element": "Ether",
+        "guna": "Sattva/Tamas/Sattva",
+        "animal": "Female Horse",
+        "quality": "Movable, ephemeral"
+      },
+      "25": {
+        "name": "Purva Bhadrapada",
+        "sanskrit": "पूर्वभाद्रपदा",
+        "degrees": "20°00' Aquarius - 03°20' Pisces",
+        "ruler": "Jupiter",
+        "deity": "Aja Ekapada",
+        "symbol": "Sword or Front of funeral cot",
+        "element": "Ether",
+        "guna": "Sattva/Sattva/Rajas",
+        "animal": "Male Lion",
+        "quality": "Fierce, severe"
+      },
+      "26": {
+        "name": "Uttara Bhadrapada",
+        "sanskrit": "उत्तरभाद्रपदा",
+        "degrees": "03°20' - 16°40' Pisces",
+        "ruler": "Saturn",
+        "deity": "Ahir Budhanya",
+        "symbol": "Twins or Back of funeral cot",
+        "element": "Ether",
+        "guna": "Sattva/Sattva/Tamas",
+        "animal": "Female Cow",
+        "quality": "Fixed, permanent"
+      },
+      "27": {
+        "name": "Revati",
+        "sanskrit": "रेवती",
+        "degrees": "16°40' - 30°00' Pisces",
+        "ruler": "Mercury",
+        "deity": "Pushan",
+        "symbol": "Fish or Drum",
+        "element": "Ether",
+        "guna": "Sattva/Sattva/Sattva",
+        "animal": "Female Elephant",
+        "quality": "Soft, mild"
+      }
+    },
+    "source": "Standard Jyotish 27-nakshatra system",
+    "span_degrees": 13.3333
+  },
+  "manazil": {
+    "entries": {
+      "1": {
+        "name_arabic": "الشرطين",
+        "name_transliterated": "Al-Sharatain",
+        "name_english": "The Two Signs",
+        "degrees": "0°00' - 12°51' Aries",
+        "element": "Fire",
+        "nature": "Fortunate",
+        "letter": "ا",
+        "meaning": "Beginnings, travel, medicine"
+      },
+      "2": {
+        "name_arabic": "البطين",
+        "name_transliterated": "Al-Butayn",
+        "name_english": "The Little Belly",
+        "degrees": "12°51' - 25°42' Aries",
+        "element": "Fire",
+        "nature": "Fortunate",
+        "letter": "ب",
+        "meaning": "Wealth, agriculture, hidden treasures"
+      },
+      "3": {
+        "name_arabic": "الثريا",
+        "name_transliterated": "Al-Thurayya",
+        "name_english": "The Pleiades",
+        "degrees": "25°42' Aries - 8°34' Taurus",
+        "element": "Fire",
+        "nature": "Fortunate",
+        "letter": "ج",
+        "meaning": "Prosperity, chemistry, mental power"
+      },
+      "4": {
+        "name_arabic": "الدبران",
+        "name_transliterated": "Al-Debaran",
+        "name_english": "The Follower",
+        "degrees": "8°34' - 21°25' Taurus",
+        "element": "Earth",
+        "nature": "Unfortunate",
+        "letter": "د",
+        "meaning": "Conflict, separation, construction"
+      },
+      "5": {
+        "name_arabic": "الهقعة",
+        "name_transliterated": "Al-Haq'ah",
+        "name_english": "The White Spot",
+        "degrees": "21°25' Taurus - 4°17' Gemini",
+        "element": "Earth",
+        "nature": "Fortunate",
+        "letter": "ه",
+        "meaning": "Art, study, return from travel"
+      },
+      "6": {
+        "name_arabic": "الهنعة",
+        "name_transliterated": "Al-Han'ah",
+        "name_english": "The Mark",
+        "degrees": "4°17' - 17°08' Gemini",
+        "element": "Earth",
+        "nature": "Unfortunate",
+        "letter": "و",
+        "meaning": "War, strategic alliances, conquest"
+      },
+      "7": {
+        "name_arabic": "الذراع",
+        "name_transliterated": "Al-Dhira",
+        "name_english": "The Arm",
+        "degrees": "17°08' Gemini - 0°00' Cancer",
+        "element": "Earth",
+        "nature": "Fortunate",
+        "letter": "ز",
+        "meaning": "Love, friendship, abundance"
+      },
+      "8": {
+        "name_arabic": "النثرة",
+        "name_transliterated": "Al-Nathrah",
+        "name_english": "The Nose-gap",
+        "degrees": "0°00' - 12°51' Cancer",
+        "element": "Water",
+        "nature": "Fortunate",
+        "letter": "ح",
+        "meaning": "Victory, spiritual growth, defense"
+      },
+      "9": {
+        "name_arabic": "الطرف",
+        "name_transliterated": "Al-Tarf",
+        "name_english": "The Glance",
+        "degrees": "12°51' - 25°42' Cancer",
+        "element": "Water",
+        "nature": "Unfortunate",
+        "letter": "ط",
+        "meaning": "Deception, protection from enemies"
+      },
+      "10": {
+        "name_arabic": "الجبهة",
+        "name_transliterated": "Al-Jabhah",
+        "name_english": "The Brow",
+        "degrees": "25°42' Cancer - 8°34' Leo",
+        "element": "Water",
+        "nature": "Fortunate",
+        "letter": "ي",
+        "meaning": "Leadership, dignity, health"
+      },
+      "11": {
+        "name_arabic": "الزبرة",
+        "name_transliterated": "Al-Zubrah",
+        "name_english": "The Mane",
+        "degrees": "8°34' - 21°25' Leo",
+        "element": "Fire",
+        "nature": "Fortunate",
+        "letter": "ك",
+        "meaning": "Authority, marital love, commerce"
+      },
+      "12": {
+        "name_arabic": "الصرفة",
+        "name_transliterated": "Al-Sarfah",
+        "name_english": "The Weather-changer",
+        "degrees": "21°25' Leo - 4°17' Virgo",
+        "element": "Fire",
+        "nature": "Unfortunate",
+        "letter": "ل",
+        "meaning": "Harvest, solitude, changing conditions"
+      },
+      "13": {
+        "name_arabic": "العواء",
+        "name_transliterated": "Al-Awwa",
+        "name_english": "The Barker",
+        "degrees": "4°17' - 17°08' Virgo",
+        "element": "Fire",
+        "nature": "Fortunate",
+        "letter": "م",
+        "meaning": "Harvest, benevolence, devotion"
+      },
+      "14": {
+        "name_arabic": "السماك",
+        "name_transliterated": "Al-Simak",
+        "name_english": "The Unarmed",
+        "degrees": "17°08' Virgo - 0°00' Libra",
+        "element": "Fire",
+        "nature": "Unfortunate",
+        "letter": "ن",
+        "meaning": "Separation, travel, recovery"
+      },
+      "15": {
+        "name_arabic": "الغفر",
+        "name_transliterated": "Al-Ghafr",
+        "name_english": "The Covering",
+        "degrees": "0°00' - 12°51' Libra",
+        "element": "Air",
+        "nature": "Fortunate",
+        "letter": "س",
+        "meaning": "Discovery of secrets, peace, health"
+      },
+      "16": {
+        "name_arabic": "الزبانا",
+        "name_transliterated": "Al-Zubana",
+        "name_english": "The Claws",
+        "degrees": "12°51' - 25°42' Libra",
+        "element": "Air",
+        "nature": "Unfortunate",
+        "letter": "ع",
+        "meaning": "Justice, debts, trading"
+      },
+      "17": {
+        "name_arabic": "الإكليل",
+        "name_transliterated": "Al-Iklil",
+        "name_english": "The Crown",
+        "degrees": "25°42' Libra - 8°34' Scorpio",
+        "element": "Air",
+        "nature": "Fortunate",
+        "letter": "ف",
+        "meaning": "Stable friendship, victory over trials"
+      },
+      "18": {
+        "name_arabic": "القلب",
+        "name_transliterated": "Al-Qalb",
+        "name_english": "The Heart",
+        "degrees": "8°34' - 21°25' Scorpio",
+        "element": "Water",
+        "nature": "Fortunate",
+        "letter": "ص",
+        "meaning": "Government, hidden enemies, power"
+      },
+      "19": {
+        "name_arabic": "الشولة",
+        "name_transliterated": "Al-Shaulah",
+        "name_english": "The Tail",
+        "degrees": "21°25' Scorpio - 4°17' Sagittarius",
+        "element": "Water",
+        "nature": "Unfortunate",
+        "letter": "ق",
+        "meaning": "Destruction of obstacles, hunting"
+      },
+      "20": {
+        "name_arabic": "النعائم",
+        "name_transliterated": "Al-Na'aim",
+        "name_english": "The Ostriches",
+        "degrees": "4°17' - 17°08' Sagittarius",
+        "element": "Water",
+        "nature": "Fortunate",
+        "letter": "ر",
+        "meaning": "Speed, travel, success in tasks"
+      },
+      "21": {
+        "name_arabic": "البلدة",
+        "name_transliterated": "Al-Baldah",
+        "name_english": "The City",
+        "degrees": "17°08' Sagittarius - 0°00' Capricorn",
+        "element": "Water",
+        "nature": "Fortunate",
+        "letter": "ش",
+        "meaning": "Architecture, foundations, wealth"
+      },
+      "22": {
+        "name_arabic": "سعد الذابح",
+        "name_transliterated": "Sa'd al-Dhabih",
+        "name_english": "Fortune of the Slaughterer",
+        "degrees": "0°00' - 12°51' Capricorn",
+        "element": "Earth",
+        "nature": "Unfortunate",
+        "letter": "ت",
+        "meaning": "Escape, freedom, hard work"
+      },
+      "23": {
+        "name_arabic": "سعد بلع",
+        "name_transliterated": "Sa'd Bula",
+        "name_english": "Fortune of the Swallower",
+        "degrees": "12°51' - 25°42' Capricorn",
+        "element": "Earth",
+        "nature": "Fortunate",
+        "letter": "ث",
+        "meaning": "Success in healing, water management"
+      },
+      "24": {
+        "name_arabic": "سعد السعود",
+        "name_transliterated": "Sa'd al-Su'ud",
+        "name_english": "Luck of Lucks",
+        "degrees": "25°42' Capricorn - 8°34' Aquarius",
+        "element": "Earth",
+        "nature": "Fortunate",
+        "letter": "خ",
+        "meaning": "Marriage, increase in wealth, fame"
+      },
+      "25": {
+        "name_arabic": "سعد الأخبية",
+        "name_transliterated": "Sa'd al-Akhbiyah",
+        "name_english": "Fortune of the Tents",
+        "degrees": "8°34' - 21°25' Aquarius",
+        "element": "Air",
+        "nature": "Fortunate",
+        "letter": "ذ",
+        "meaning": "Manifesting the hidden, vengeance"
+      },
+      "26": {
+        "name_arabic": "الفرع المقدم",
+        "name_transliterated": "Al-Far' al-Muqaddam",
+        "name_english": "The Former Spout",
+        "degrees": "21°25' Aquarius - 4°17' Pisces",
+        "element": "Air",
+        "nature": "Fortunate",
+        "letter": "ض",
+        "meaning": "Union, community, joint ventures"
+      },
+      "27": {
+        "name_arabic": "الفرع المؤخر",
+        "name_transliterated": "Al-Far' al-Mu'akhkhar",
+        "name_english": "The Latter Spout",
+        "degrees": "4°17' - 17°08' Pisces",
+        "element": "Air",
+        "nature": "Unfortunate",
+        "letter": "ظ",
+        "meaning": "Completion, legal matters, cycles"
+      },
+      "28": {
+        "name_arabic": "الرشاء",
+        "name_transliterated": "Al-Risha",
+        "name_english": "The Cord",
+        "degrees": "17°08' - 30°00' Pisces",
+        "element": "Air",
+        "nature": "Fortunate",
+        "letter": "غ",
+        "meaning": "Security, fish/sea travel, finality"
+      }
+    },
+    "source": "Al-Buni, Shams al-Maarif; Ibn Arabi tradition",
+    "span_degrees": 12.857
+  },
+  "vimshottari": {
+    "dasha_periods": {
+      "Sun": {
+        "years": 6,
+        "order": 1,
+        "nakshatra_start": [
+          "Krittika",
+          "Uttara Phalguni",
+          "Uttara Ashadha"
+        ]
+      },
+      "Moon": {
+        "years": 10,
+        "order": 2,
+        "nakshatra_start": [
+          "Rohini",
+          "Hasta",
+          "Shravana"
+        ]
+      },
+      "Mars": {
+        "years": 7,
+        "order": 3,
+        "nakshatra_start": [
+          "Mrigashira",
+          "Chitra",
+          "Dhanishta"
+        ]
+      },
+      "Rahu": {
+        "years": 18,
+        "order": 4,
+        "nakshatra_start": [
+          "Ardra",
+          "Swati",
+          "Shatabhisha"
+        ]
+      },
+      "Jupiter": {
+        "years": 16,
+        "order": 5,
+        "nakshatra_start": [
+          "Punarvasu",
+          "Vishakha",
+          "Purva Bhadrapada"
+        ]
+      },
+      "Saturn": {
+        "years": 19,
+        "order": 6,
+        "nakshatra_start": [
+          "Pushya",
+          "Anuradha",
+          "Uttara Bhadrapada"
+        ]
+      },
+      "Mercury": {
+        "years": 17,
+        "order": 7,
+        "nakshatra_start": [
+          "Ashlesha",
+          "Jyeshtha",
+          "Revati"
+        ]
+      },
+      "Ketu": {
+        "years": 7,
+        "order": 8,
+        "nakshatra_start": [
+          "Ashwini",
+          "Magha",
+          "Mula"
+        ]
+      },
+      "Venus": {
+        "years": 20,
+        "order": 9,
+        "nakshatra_start": [
+          "Bharani",
+          "Purva Phalguni",
+          "Purva Ashadha"
+        ]
+      }
+    },
+    "total_cycle_years": 120,
+    "source": "Parashara Brihat Hora Shastra"
+  },
+  "global_element_matrix": {
+    "fire": {
+      "western_astrology": "Aries, Leo, Sagittarius",
+      "chinese_wuxing": "Huo (火)",
+      "vedic_tattwa": "Tejas (Agni)",
+      "islamic_anasir": "Nar (نار)",
+      "tarot_suit": "Wands",
+      "hebrew_letter_group": "Shin (ש)",
+      "quality": "Hot + Dry",
+      "direction": "South",
+      "season": "Summer"
+    },
+    "water": {
+      "western_astrology": "Cancer, Scorpio, Pisces",
+      "chinese_wuxing": "Shui (水)",
+      "vedic_tattwa": "Apas (Jala)",
+      "islamic_anasir": "Ma' (ماء)",
+      "tarot_suit": "Cups",
+      "hebrew_letter_group": "Mem (מ)",
+      "quality": "Cold + Wet",
+      "direction": "North",
+      "season": "Winter"
+    },
+    "earth": {
+      "western_astrology": "Taurus, Virgo, Capricorn",
+      "chinese_wuxing": "Tu (土)",
+      "vedic_tattwa": "Prithvi (Bhumi)",
+      "islamic_anasir": "Turab (تراب)",
+      "tarot_suit": "Pentacles",
+      "hebrew_letter_group": "Double Letters",
+      "quality": "Cold + Dry",
+      "direction": "Center / West",
+      "season": "Autumn"
+    },
+    "air": {
+      "western_astrology": "Gemini, Libra, Aquarius",
+      "chinese_wuxing": null,
+      "vedic_tattwa": "Vayu",
+      "islamic_anasir": "Hawa' (هواء)",
+      "tarot_suit": "Swords",
+      "hebrew_letter_group": "Aleph (א)",
+      "quality": "Hot + Wet",
+      "direction": "East",
+      "season": "Spring",
+      "note": "Chinese Wu Xing has no direct Air — closest is Metal (contraction) or Wind trigram (Xun)"
+    },
+    "ether": {
+      "western_astrology": null,
+      "chinese_wuxing": null,
+      "vedic_tattwa": "Akasha",
+      "islamic_anasir": "partial (al-falak / celestial sphere)",
+      "tarot_suit": null,
+      "hebrew_letter_group": null,
+      "quality": "Transcendent",
+      "direction": "Center / Above",
+      "season": null,
+      "note": "Fifth element in Vedic/Aristotelian systems. Not present in Chinese or standard Western astrology."
+    },
+    "wood": {
+      "western_astrology": null,
+      "chinese_wuxing": "Mu (木)",
+      "vedic_tattwa": null,
+      "islamic_anasir": null,
+      "tarot_suit": null,
+      "hebrew_letter_group": null,
+      "quality": "Expansive + Rising",
+      "direction": "East",
+      "season": "Spring",
+      "note": "Chinese-exclusive element. Closest Western analog is Air (spring, expansion). Vedic maps to Vayu partially."
+    },
+    "metal": {
+      "western_astrology": null,
+      "chinese_wuxing": "Jin (金)",
+      "vedic_tattwa": null,
+      "islamic_anasir": null,
+      "tarot_suit": null,
+      "hebrew_letter_group": null,
+      "quality": "Contractive + Descending",
+      "direction": "West",
+      "season": "Autumn",
+      "note": "Chinese-exclusive element. Closest Western analog is Earth (autumn, contraction)."
+    },
+    "_meta": {
+      "version": "1.0",
+      "date": "2026-03-01",
+      "source": "Gemini cross-tradition synthesis",
+      "buckets": 7,
+      "primary_buckets": [
+        "fire",
+        "water",
+        "earth",
+        "air"
+      ],
+      "partial_buckets": [
+        "ether",
+        "wood",
+        "metal"
+      ],
+      "mapping_notes": "4 traditions have full coverage (Western, Vedic, Islamic, Hebrew/Tarot). Chinese Wu Xing uses 5-element system (wood/fire/earth/metal/water) with no direct air mapping. Ether is Vedic/Aristotelian only."
+    }
+  }
+}

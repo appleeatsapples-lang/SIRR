@@ -1,0 +1,131 @@
+{
+  "_meta": {
+    "description": "Maps all 150 compute modules to 9 semantic axes",
+    "version": "1.0",
+    "module_count": 150,
+    "axes": ["digit", "name", "calendar", "sky", "elemental", "archetypal", "cyclic", "derived", "resonance"]
+  },
+  "axes": {
+    "digit": {
+      "label": "Numerological Reduction",
+      "description": "DOB-digit and name-digit root number systems",
+      "modules": [
+        "attitude", "bridges", "challenges", "compound", "enneagram_dob",
+        "essence", "karmic_debt", "life_purpose", "lo_shu_grid", "maturity",
+        "pinnacles"
+      ]
+    },
+    "name": {
+      "label": "Name Cipher",
+      "description": "Letter-value systems across Arabic, Latin, Hebrew, and other scripts",
+      "modules": [
+        "abjad_kabir", "abjad_maghribi", "abjad_saghir", "abjad_wusta",
+        "agrippan", "albam", "armenian_gematria", "ars_magna", "atbash",
+        "avgad", "bast_kasr", "buduh", "chaldean", "coptic_isopsephy",
+        "cornerstone", "elemental_letters", "ethiopian_asmat",
+        "georgian_gematria", "greek_isopsephy", "hebrew_gematria",
+        "hidden_passion", "istikhara_adad", "jafr", "latin_ordinal",
+        "luminous_dark", "malwasha", "mandaean_gematria", "notarikon",
+        "ogham", "persian_abjad", "rose_cross_sigil", "solar_lunar",
+        "subconscious_self", "taksir", "tarot_name", "thelemic_gematria",
+        "trithemius", "zakat_huruf"
+      ]
+    },
+    "calendar": {
+      "label": "Calendar & Cycle Assignment",
+      "description": "DOB-to-symbol via calendar conversion, zodiac mapping, day-of-birth lookup",
+      "modules": [
+        "akan_kra_din", "bazhai", "bazi_pillars", "bazi_shensha",
+        "celtic_tree", "chinese_zodiac", "day_ruler", "decan", "dreamspell",
+        "dwad", "flying_star", "god_of_day", "hebrew_calendar", "hijri",
+        "julian", "mahabote", "manazil", "maramataka", "mayan",
+        "nine_star_ki", "onmyodo", "pawukon", "planetary_hours", "primbon",
+        "sabian", "taiyi", "tibetan_mewa", "tonalpohualli", "vedic_tithi",
+        "vedic_yoga", "weton"
+      ]
+    },
+    "sky": {
+      "label": "Astronomical / Ephemeris",
+      "description": "Natal chart positions, dignities, aspects, house systems",
+      "modules": [
+        "almuten", "antiscia", "arabic_parts", "aspects", "ashtakavarga",
+        "babylonian_horoscope", "bonification", "declinations",
+        "egyptian_decan", "essential_dignities", "fixed_stars",
+        "harmonic_charts", "house_system", "human_design", "kp_system",
+        "midpoints", "nadi_amsa", "nakshatra", "natal_chart",
+        "planetary_joy", "primary_directions", "reception", "sarvatobhadra",
+        "sect", "shadbala", "shodashavarga", "tajika", "tasyir", "uranian",
+        "zi_wei_dou_shu"
+      ]
+    },
+    "elemental": {
+      "label": "Elemental Signature",
+      "description": "Cross-cutting axis — modules whose primary output is element assignment",
+      "modules": [
+        "bazi_daymaster", "nayin", "temperament"
+      ]
+    },
+    "archetypal": {
+      "label": "Archetypal / Divination",
+      "description": "Symbolic oracle systems — tarot, I Ching, Ifa, runes, geomancy, mantic boards",
+      "modules": [
+        "birth_rune", "cardology", "geomancy", "iching", "ifa",
+        "liu_ren", "meihua", "qimen", "tarot_birth"
+      ]
+    },
+    "cyclic": {
+      "label": "Timing & Period",
+      "description": "Dasha periods, planetary timing, progressions, personal cycles",
+      "modules": [
+        "ashtottari_dasha", "bazi_luck_pillars", "biorhythm", "chara_dasha",
+        "dorothean_chronocrators", "firdaria", "kalachakra_dasha",
+        "personal_year", "profection", "progressions", "solar_arc",
+        "solar_return", "steiner_cycles", "sudarshana", "tarot_year",
+        "vimshottari", "yogini_dasha", "zodiacal_releasing"
+      ]
+    },
+    "derived": {
+      "label": "Derived / Composite",
+      "description": "Modules computed from other module outputs or multiple input sources",
+      "modules": [
+        "bazi_combos", "bazi_growth", "bazi_hidden_stems", "bazi_ten_gods",
+        "gd_correspondences", "gene_keys", "planetary_kameas",
+        "tree_of_life", "wafq", "zairja"
+      ]
+    },
+    "resonance": {
+      "label": "Resonance (Meta-Pattern Output)",
+      "description": "No modules — output layer for cross-axis meta-pattern detection",
+      "modules": []
+    }
+  },
+  "multi_axis_modules": {
+    "biorhythm": ["cyclic", "digit"],
+    "personal_year": ["cyclic", "digit"],
+    "tarot_birth": ["archetypal", "digit"],
+    "tarot_name": ["name", "archetypal"],
+    "elemental_letters": ["name", "elemental"],
+    "nakshatra": ["sky", "elemental"],
+    "bazi_daymaster": ["elemental", "calendar"],
+    "nayin": ["elemental", "calendar"],
+    "temperament": ["elemental", "derived"],
+    "chinese_zodiac": ["calendar", "elemental"],
+    "nine_star_ki": ["calendar", "elemental"],
+    "manazil": ["calendar", "sky"],
+    "lo_shu_grid": ["digit", "elemental"],
+    "sabian": ["calendar", "sky"]
+  },
+  "verification": {
+    "digit_count": 11,
+    "name_count": 38,
+    "calendar_count": 31,
+    "sky_count": 30,
+    "elemental_count": 3,
+    "archetypal_count": 9,
+    "cyclic_count": 18,
+    "derived_count": 10,
+    "resonance_count": 0,
+    "total_primary": 150,
+    "multi_axis_count": 14
+  }
+}

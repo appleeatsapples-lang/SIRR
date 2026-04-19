@@ -1,0 +1,105 @@
+{
+  "_meta": {
+    "description": "Semantic profiles for roots 1-9 + master numbers 11, 22, 33",
+    "version": "1.0",
+    "note": "core_tags and shadow_tags authored from SIRR spec TAG DECISIONS — draft v1.0 for future Gemini review"
+  },
+  "roots": {
+    "1": {
+      "label": "The Initiator",
+      "core_tags": ["independence", "initiation", "pioneer", "self-reliance"],
+      "shadow_tags": ["isolation", "aggression", "stubbornness"],
+      "arabic_term": "wahid (واحد)",
+      "qliphah": "Thaumiel — divided will",
+      "bipolar_axis": "independence"
+    },
+    "2": {
+      "label": "The Mediator",
+      "core_tags": ["partnership", "diplomacy", "sensitivity", "duality"],
+      "shadow_tags": ["codependence", "indecision", "passivity"],
+      "arabic_term": "ithnayn (اثنين)",
+      "qliphah": "Ghagiel — hindrance",
+      "bipolar_axis": "dependence"
+    },
+    "3": {
+      "label": "The Expresser",
+      "core_tags": ["expression", "creativity", "communication", "joy"],
+      "shadow_tags": ["superficiality", "scattered_energy", "vanity"],
+      "arabic_term": "thalatha (ثلاثة)",
+      "qliphah": "Sathariel — concealment",
+      "bipolar_axis": "expression"
+    },
+    "4": {
+      "label": "The Builder",
+      "core_tags": ["foundation", "structure", "discipline", "order"],
+      "shadow_tags": ["rigidity", "limitation", "stubbornness"],
+      "arabic_term": "arba'a (أربعة)",
+      "qliphah": "Gha'agsheblah — smiting",
+      "bipolar_axis": "structure"
+    },
+    "5": {
+      "label": "The Liberator",
+      "core_tags": ["freedom", "change", "adventure", "sensuality"],
+      "shadow_tags": ["excess", "restlessness", "irresponsibility"],
+      "arabic_term": "khamsa (خمسة)",
+      "qliphah": "Golachab — burning bodies",
+      "bipolar_axis": "fluidity"
+    },
+    "6": {
+      "label": "The Nurturer",
+      "core_tags": ["responsibility", "harmony", "nurturing", "service"],
+      "shadow_tags": ["martyrdom", "control", "perfectionism"],
+      "arabic_term": "sitta (ستة)",
+      "qliphah": "Thagirion — disputation",
+      "bipolar_axis": "collective"
+    },
+    "7": {
+      "label": "The Seeker",
+      "core_tags": ["analysis", "introspection", "spirituality", "mystery"],
+      "shadow_tags": ["withdrawal", "cynicism", "secrecy"],
+      "arabic_term": "sab'a (سبعة)",
+      "qliphah": "A'arab Zaraq — ravens of dispersion",
+      "bipolar_axis": "reception"
+    },
+    "8": {
+      "label": "The Sovereign",
+      "core_tags": ["power", "authority", "material_mastery", "karma"],
+      "shadow_tags": ["domination", "ruthlessness", "materialism"],
+      "arabic_term": "thamaniya (ثمانية)",
+      "qliphah": "Samael — poison of God",
+      "bipolar_axis": "restriction"
+    },
+    "9": {
+      "label": "The Humanitarian",
+      "core_tags": ["completion", "universality", "wisdom", "humanitarianism"],
+      "shadow_tags": ["martyrdom", "fanaticism", "detachment"],
+      "arabic_term": "tis'a (تسعة)",
+      "qliphah": "Gamaliel — obscenity",
+      "bipolar_axis": "collective"
+    },
+    "11": {
+      "label": "The Illuminator",
+      "core_tags": ["illumination", "intuition", "inspiration", "channel"],
+      "shadow_tags": ["nervous_tension", "impracticality", "self-doubt"],
+      "arabic_term": "ahad 'ashar (أحد عشر)",
+      "qliphah": "Thaumiel amplified — split vision",
+      "bipolar_axis": "expression"
+    },
+    "22": {
+      "label": "The Master Builder",
+      "core_tags": ["large_scale_vision", "practical_idealism", "manifestation", "legacy"],
+      "shadow_tags": ["overwhelm", "tyranny", "destructive_ambition"],
+      "arabic_term": "ithnan wa-'ishrun (اثنان وعشرون)",
+      "qliphah": "Ghagiel amplified — structural collapse",
+      "bipolar_axis": "structure"
+    },
+    "33": {
+      "label": "The Master Teacher",
+      "core_tags": ["selfless_service", "cosmic_consciousness", "healing", "upliftment"],
+      "shadow_tags": ["messianic_complex", "self-sacrifice", "burnout"],
+      "arabic_term": "thalatha wa-thalathun (ثلاثة وثلاثون)",
+      "qliphah": "Sathariel amplified — cosmic concealment",
+      "bipolar_axis": "collective"
+    }
+  }
+}

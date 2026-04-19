@@ -1,0 +1,8 @@
+[
+  {"name_ar":"آدم",    "name_he":"אדם",  "abjad":45,  "gematria":45,  "type":"exact","tag":"EXPECTED_COGNATE_MATCH"},
+  {"name_ar":"لوط",    "name_he":"לוט",  "abjad":45,  "gematria":45,  "type":"exact","tag":"EXPECTED_COGNATE_MATCH"},
+  {"name_ar":"يوسف",   "name_he":"יוסף", "abjad":156, "gematria":156, "type":"exact","tag":"EXPECTED_COGNATE_MATCH"},
+  {"name_ar":"أيوب",   "name_he":"איוב", "abjad":19,  "gematria":19,  "type":"exact","tag":"EXPECTED_COGNATE_MATCH"},
+  {"name_ar":"محمد",   "name_he":"מחמד", "abjad":92,  "gematria":92,  "type":"exact","tag":"CROSS_TRADITION_CONVERGENCE",
+   "note":"NON_TRIVIAL_TEXTUAL_LINK: מחמד in Song of Songs 5:16 — not a cognate spelling, a semantic root match at identical value"}
+]

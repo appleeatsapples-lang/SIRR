@@ -1,0 +1,12 @@
+{
+  "subject": "NIKOLA TESLA",
+  "arabic": "نيكولا تسلا",
+  "variant": "passport_legal",
+  "note": "Serbian-American inventor. Born in Smiljan (then Austrian Empire, now Croatia). DOB confirmed. Birth time midnight (00:00) per birth records.",
+  "dob": "1856-07-10",
+  "today": "2026-03-09",
+  "birth_time_local": "00:00",
+  "timezone": "Europe/Belgrade",
+  "location": "Smiljan, Croatia",
+  "gender": "male"
+}

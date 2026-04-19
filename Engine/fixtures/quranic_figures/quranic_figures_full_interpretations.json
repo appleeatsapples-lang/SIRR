@@ -1,0 +1,390 @@
+{
+  "آدم": {
+    "letter_meanings_en": "Alif (1, divine origin) + Dal (4, stability) + Mim (40, sovereignty). Raw 45, root 9: completion and return.",
+    "letter_meanings_ar": "ألف (١، أصل إلهي) + دال (٤، ثبات) + ميم (٤٠، ملك). المجموع ٤٥، الجذر ٩: اكتمال وعودة.",
+    "structural_reading_en": "Root 9 as first prophet marks the full cycle — the beginning contains the end.",
+    "structural_reading_ar": "الجذر ٩ كأول نبي يمثّل الدورة الكاملة — البداية تحمل النهاية.",
+    "quranic_role_en": "First human and prophet. 25 Quranic mentions. Khilafah on earth (Q 2:30).",
+    "quranic_role_ar": "أول البشر والأنبياء. ٢٥ ذكرًا في القرآن. خلافة في الأرض (البقرة ٣٠)."
+  },
+  "إدريس": {
+    "letter_meanings_en": "Alif (1) + Dal (4) + Ra (200) + Ya (10) + Sin (60). Raw 275, chain 14→5: knowledge and seeking.",
+    "letter_meanings_ar": "ألف (١) + دال (٤) + راء (٢٠٠) + ياء (١٠) + سين (٦٠). المجموع ٢٧٥، السلسلة ١٤→٥: علم وبحث.",
+    "structural_reading_en": "Root 5 signals dynamic exploration — consistent with the tradition of Idris as the first scholar.",
+    "structural_reading_ar": "الجذر ٥ يشير إلى استكشاف ديناميكي — يتسق مع كون إدريس أول من علّم بالقلم.",
+    "quranic_role_en": "Raised to a high station (Q 19:57). Associated with writing and knowledge.",
+    "quranic_role_ar": "رُفع مكانًا عليًا (مريم ٥٧). يُنسب إليه الكتابة والعلم."
+  },
+  "نوح": {
+    "letter_meanings_en": "Nun (50) + Waw (6) + Ha (8). Raw 64, chain 10→1: new beginning after cataclysm.",
+    "letter_meanings_ar": "نون (٥٠) + واو (٦) + حاء (٨). المجموع ٦٤، السلسلة ١٠→١: بداية جديدة بعد الطوفان.",
+    "structural_reading_en": "Root 1 — the reset. Nuh is the second Adam, restarting civilization after the flood.",
+    "structural_reading_ar": "الجذر ١ — إعادة الضبط. نوح هو آدم الثاني، يعيد بناء الحضارة بعد الطوفان.",
+    "quranic_role_en": "950 years of calling. 43 mentions. An entire surah bears his name (Q 71).",
+    "quranic_role_ar": "٩٥٠ سنة من الدعوة. ٤٣ ذكرًا. سورة كاملة تحمل اسمه (نوح)."
+  },
+  "هود": {
+    "letter_meanings_en": "Ha (5) + Waw (6) + Dal (4). Raw 15, root 6: harmony and responsibility.",
+    "letter_meanings_ar": "هاء (٥) + واو (٦) + دال (٤). المجموع ١٥، الجذر ٦: انسجام ومسؤولية.",
+    "structural_reading_en": "Root 6 — balance and custodianship. Hud stands against the excess of 'Ad.",
+    "structural_reading_ar": "الجذر ٦ — توازن وحفظ. هود يقف ضد إسراف عاد.",
+    "quranic_role_en": "Prophet to 'Ad. 7 mentions. A surah bears his name (Q 11).",
+    "quranic_role_ar": "نبي عاد. ٧ ذكرات. سورة تحمل اسمه (هود)."
+  },
+  "صالح": {
+    "letter_meanings_en": "Sad (90) + Alif (1) + Lam (30) + Ha (8). Raw 129, chain 12→3: creative expression.",
+    "letter_meanings_ar": "صاد (٩٠) + ألف (١) + لام (٣٠) + حاء (٨). المجموع ١٢٩، السلسلة ١٢→٣: تعبير إبداعي.",
+    "structural_reading_en": "Root 3 — communication and sign-giving. The she-camel was Salih's manifest sign.",
+    "structural_reading_ar": "الجذر ٣ — تواصل وإعطاء الآية. الناقة كانت آية صالح الظاهرة.",
+    "quranic_role_en": "Prophet to Thamud. 9 mentions. The she-camel miracle (Q 7:73).",
+    "quranic_role_ar": "نبي ثمود. ٩ ذكرات. آية الناقة (الأعراف ٧٣)."
+  },
+  "إبراهيم": {
+    "letter_meanings_en": "Alif (1) + Ba (2) + Ra (200) + Alif (1) + Ha (5) + Ya (10) + Mim (40). Raw 259, chain 16→7: singular spiritual authority.",
+    "letter_meanings_ar": "ألف (١) + باء (٢) + راء (٢٠٠) + ألف (١) + هاء (٥) + ياء (١٠) + ميم (٤٠). المجموع ٢٥٩، السلسلة ١٦→٧: سلطة روحية فريدة.",
+    "structural_reading_en": "Root 7 — unique among all 25 prophets. The grand sum of the entire prophet chain (4327) also reduces to 7.",
+    "structural_reading_ar": "الجذر ٧ — فريد بين الأنبياء الخمسة والعشرين. مجموع سلسلة الأنبياء (٤٣٢٧) يُختزل أيضًا إلى ٧.",
+    "quranic_role_en": "Father of prophets. 69 mentions. Friend of God — Khalilullah (Q 4:125).",
+    "quranic_role_ar": "أبو الأنبياء. ٦٩ ذكرًا. خليل الله (النساء ١٢٥)."
+  },
+  "لوط": {
+    "letter_meanings_en": "Lam (30) + Waw (6) + Ta (9). Raw 45, root 9: same raw value as Adam.",
+    "letter_meanings_ar": "لام (٣٠) + واو (٦) + طاء (٩). المجموع ٤٥، الجذر ٩: نفس القيمة الخام لآدم.",
+    "structural_reading_en": "Root 9 with Adam — the cycle motif. Lut stands for moral clarity in collapse.",
+    "structural_reading_ar": "الجذر ٩ مع آدم — نمط الدورة. لوط يمثل الوضوح الأخلاقي في الانهيار.",
+    "quranic_role_en": "Prophet to the people of Sodom. 27 mentions. Nephew of Ibrahim.",
+    "quranic_role_ar": "نبي قوم سدوم. ٢٧ ذكرًا. ابن أخ إبراهيم."
+  },
+  "إسماعيل": {
+    "letter_meanings_en": "Alif (1) + Sin (60) + Mim (40) + Alif (1) + Ain (70) + Ya (10) + Lam (30). Raw 212, root 5.",
+    "letter_meanings_ar": "ألف (١) + سين (٦٠) + ميم (٤٠) + ألف (١) + عين (٧٠) + ياء (١٠) + لام (٣٠). المجموع ٢١٢، الجذر ٥.",
+    "structural_reading_en": "Root 5 — freedom and sacrifice. The son who consented to the sacrifice (Q 37:102).",
+    "structural_reading_ar": "الجذر ٥ — حرية وتضحية. الابن الذي أسلم للذبح (الصافات ١٠٢).",
+    "quranic_role_en": "Co-builder of the Kaaba. 12 mentions. Father of the Arab prophetic line.",
+    "quranic_role_ar": "شريك بناء الكعبة. ١٢ ذكرًا. أب الخط النبوي العربي."
+  },
+  "إسحاق": {
+    "letter_meanings_en": "Alif (1) + Sin (60) + Ha (8) + Alif (1) + Qaf (100). Raw 170, root 8: Mosaic axis member.",
+    "letter_meanings_ar": "ألف (١) + سين (٦٠) + حاء (٨) + ألف (١) + قاف (١٠٠). المجموع ١٧٠، الجذر ٨: عضو المحور الموسوي.",
+    "structural_reading_en": "Root 8 — shared with Yaqub and Musa. Three independent values converge to 8 across a lineage.",
+    "structural_reading_ar": "الجذر ٨ — مشترك مع يعقوب وموسى. ثلاث قيم مستقلة تتقارب إلى ٨ عبر النسب.",
+    "quranic_role_en": "Son of Ibrahim. 17 mentions. Father of Yaqub and the Israelite line.",
+    "quranic_role_ar": "ابن إبراهيم. ١٧ ذكرًا. أبو يعقوب والخط الإسرائيلي."
+  },
+  "يعقوب": {
+    "letter_meanings_en": "Ya (10) + Ain (70) + Qaf (100) + Waw (6) + Ba (2). Raw 188, chain 17→8.",
+    "letter_meanings_ar": "ياء (١٠) + عين (٧٠) + قاف (١٠٠) + واو (٦) + باء (٢). المجموع ١٨٨، السلسلة ١٧→٨.",
+    "structural_reading_en": "Root 8 — Mosaic axis central link. Father of Yusuf, carrier of the covenant.",
+    "structural_reading_ar": "الجذر ٨ — الحلقة المركزية للمحور الموسوي. أبو يوسف، حامل العهد.",
+    "quranic_role_en": "Israel. 16 mentions. Patriarch of the Twelve Tribes.",
+    "quranic_role_ar": "إسرائيل. ١٦ ذكرًا. جد الأسباط الاثني عشر."
+  },
+  "يوسف": {
+    "letter_meanings_en": "Ya (10) + Waw (6) + Sin (60) + Fa (80). Raw 156, chain 12→3.",
+    "letter_meanings_ar": "ياء (١٠) + واو (٦) + سين (٦٠) + فاء (٨٠). المجموع ١٥٦، السلسلة ١٢→٣.",
+    "structural_reading_en": "Root 3 — creative expression and beauty. The most beautiful of stories (Q 12:3).",
+    "structural_reading_ar": "الجذر ٣ — تعبير إبداعي وجمال. أحسن القصص (يوسف ٣).",
+    "quranic_role_en": "Dreamer and ruler of Egypt. 27 mentions. An entire surah (Q 12).",
+    "quranic_role_ar": "صاحب الرؤى وعزيز مصر. ٢٧ ذكرًا. سورة كاملة (يوسف)."
+  },
+  "شعيب": {
+    "letter_meanings_en": "Shin (300) + Ain (70) + Ya (10) + Ba (2). Raw 382, chain 13→4: structure and justice.",
+    "letter_meanings_ar": "شين (٣٠٠) + عين (٧٠) + ياء (١٠) + باء (٢). المجموع ٣٨٢، السلسلة ١٣→٤: بنية وعدالة.",
+    "structural_reading_en": "Root 4 — order, measure, fair weights. Shuayb's mission was economic justice.",
+    "structural_reading_ar": "الجذر ٤ — نظام وميزان. مهمة شعيب كانت العدل الاقتصادي.",
+    "quranic_role_en": "Prophet to Madyan. 11 mentions. The preacher of fair measure (Q 11:84).",
+    "quranic_role_ar": "نبي مدين. ١١ ذكرًا. داعي الكيل والميزان (هود ٨٤)."
+  },
+  "أيوب": {
+    "letter_meanings_en": "Alif (1) + Ya (10) + Waw (6) + Ba (2). Raw 19, chain 10→1.",
+    "letter_meanings_ar": "ألف (١) + ياء (١٠) + واو (٦) + باء (٢). المجموع ١٩، السلسلة ١٠→١.",
+    "structural_reading_en": "Raw 19 echoes Q 74:30. Root 1 — return to origin after trial. Patience embodied.",
+    "structural_reading_ar": "القيمة ١٩ تتردد مع سورة المدثر ٣٠. الجذر ١ — عودة إلى الأصل بعد الابتلاء.",
+    "quranic_role_en": "Model of patience. 4 mentions. Tested and restored (Q 21:83-84).",
+    "quranic_role_ar": "نموذج الصبر. ٤ ذكرات. ابتُلي ورُدّ (الأنبياء ٨٣-٨٤)."
+  },
+  "موسى": {
+    "letter_meanings_en": "Mim (40) + Waw (6) + Sin (60) + Ya (10). Raw 116, root 8.",
+    "letter_meanings_ar": "ميم (٤٠) + واو (٦) + سين (٦٠) + ياء (١٠). المجموع ١١٦، الجذر ٨.",
+    "structural_reading_en": "Root 8 — Mosaic axis terminus. Most-mentioned prophet. Law and authority.",
+    "structural_reading_ar": "الجذر ٨ — نهاية المحور الموسوي. أكثر الأنبياء ذكرًا. شريعة وسلطة.",
+    "quranic_role_en": "Liberator and lawgiver. 136 mentions — most of any figure. Kalimullah (Q 4:164).",
+    "quranic_role_ar": "محرر ومشرّع. ١٣٦ ذكرًا — الأكثر. كليم الله (النساء ١٦٤)."
+  },
+  "هارون": {
+    "letter_meanings_en": "Ha (5) + Alif (1) + Ra (200) + Waw (6) + Nun (50). Raw 262, chain 10→1.",
+    "letter_meanings_ar": "هاء (٥) + ألف (١) + راء (٢٠٠) + واو (٦) + نون (٥٠). المجموع ٢٦٢، السلسلة ١٠→١.",
+    "structural_reading_en": "Root 1 — deputy and spokesman. Musa's right hand, distinct value.",
+    "structural_reading_ar": "الجذر ١ — نائب ومتحدث. ذراع موسى الأيمن، قيمة مستقلة.",
+    "quranic_role_en": "Brother and co-prophet of Musa. 20 mentions.",
+    "quranic_role_ar": "أخو موسى وشريكه في النبوة. ٢٠ ذكرًا."
+  },
+  "ذو الكفل": {
+    "letter_meanings_en": "Dhal (700) + Waw (6) + Alif (1) + Lam (30) + Kaf (20) + Fa (80) + Lam (30). Raw 867, chain 21→3.",
+    "letter_meanings_ar": "ذال (٧٠٠) + واو (٦) + ألف (١) + لام (٣٠) + كاف (٢٠) + فاء (٨٠) + لام (٣٠). المجموع ٨٦٧، السلسلة ٢١→٣.",
+    "structural_reading_en": "Root 3 — highest raw value among prophets, yet same root as Yusuf and Salih.",
+    "structural_reading_ar": "الجذر ٣ — أعلى قيمة خام بين الأنبياء، لكن نفس جذر يوسف وصالح.",
+    "quranic_role_en": "Man of the portion. 2 mentions. Patient and righteous (Q 21:85).",
+    "quranic_role_ar": "ذو الكفل. ذكران. صابر وصالح (الأنبياء ٨٥)."
+  },
+  "داود": {
+    "letter_meanings_en": "Dal (4) + Alif (1) + Waw (6) + Dal (4). Raw 15, root 6.",
+    "letter_meanings_ar": "دال (٤) + ألف (١) + واو (٦) + دال (٤). المجموع ١٥، الجذر ٦.",
+    "structural_reading_en": "Root 6 — same as Hud and Isa. Harmony, custodianship, the Psalms.",
+    "structural_reading_ar": "الجذر ٦ — مثل هود وعيسى. انسجام ورعاية والزبور.",
+    "quranic_role_en": "King-prophet, given the Zabur. 16 mentions.",
+    "quranic_role_ar": "نبي ملك أُوتي الزبور. ١٦ ذكرًا."
+  },
+  "سليمان": {
+    "letter_meanings_en": "Sin (60) + Lam (30) + Ya (10) + Mim (40) + Alif (1) + Nun (50). Raw 191, chain 11→2.",
+    "letter_meanings_ar": "سين (٦٠) + لام (٣٠) + ياء (١٠) + ميم (٤٠) + ألف (١) + نون (٥٠). المجموع ١٩١، السلسلة ١١→٢.",
+    "structural_reading_en": "Chain 11→2 — Seal cluster member. Master number 11 retained before reduction.",
+    "structural_reading_ar": "السلسلة ١١→٢ — عضو عنقود الختم. العدد الأستاذ ١١ يُحفظ قبل الاختزال.",
+    "quranic_role_en": "King of jinn and men. 17 mentions. Sovereign wisdom (Q 27:16).",
+    "quranic_role_ar": "ملك الجن والإنس. ١٧ ذكرًا. حكمة وملك (النمل ١٦)."
+  },
+  "إلياس": {
+    "letter_meanings_en": "Alif (1) + Lam (30) + Ya (10) + Alif (1) + Sin (60). Raw 102, root 3.",
+    "letter_meanings_ar": "ألف (١) + لام (٣٠) + ياء (١٠) + ألف (١) + سين (٦٠). المجموع ١٠٢، الجذر ٣.",
+    "structural_reading_en": "Root 3 — the communicator. Stood alone against Baal worship.",
+    "structural_reading_ar": "الجذر ٣ — المبلّغ. وقف وحده ضد عبادة بعل.",
+    "quranic_role_en": "Prophet against Baal. 2 mentions (Q 37:123-130).",
+    "quranic_role_ar": "نبي ضد بعل. ذكران (الصافات ١٢٣-١٣٠)."
+  },
+  "اليسع": {
+    "letter_meanings_en": "Alif (1) + Lam (30) + Ya (10) + Sin (60) + Ain (70). Raw 171, root 9.",
+    "letter_meanings_ar": "ألف (١) + لام (٣٠) + ياء (١٠) + سين (٦٠) + عين (٧٠). المجموع ١٧١، الجذر ٩.",
+    "structural_reading_en": "Root 9 — completion, like Adam and Lut. A quiet prophet.",
+    "structural_reading_ar": "الجذر ٩ — اكتمال، مثل آدم ولوط. نبي هادئ.",
+    "quranic_role_en": "Successor of Ilyas. 2 mentions (Q 6:86, 38:48).",
+    "quranic_role_ar": "خليفة إلياس. ذكران (الأنعام ٨٦، ص ٤٨)."
+  },
+  "يونس": {
+    "letter_meanings_en": "Ya (10) + Waw (6) + Nun (50) + Sin (60). Raw 126, root 9.",
+    "letter_meanings_ar": "ياء (١٠) + واو (٦) + نون (٥٠) + سين (٦٠). المجموع ١٢٦، الجذر ٩.",
+    "structural_reading_en": "Root 9 — completion through crisis. Swallowed and returned.",
+    "structural_reading_ar": "الجذر ٩ — اكتمال عبر الأزمة. ابتُلع وأُعيد.",
+    "quranic_role_en": "Prophet of the whale. 4 mentions. A surah bears his name (Q 10).",
+    "quranic_role_ar": "صاحب الحوت. ٤ ذكرات. سورة تحمل اسمه (يونس)."
+  },
+  "زكريا": {
+    "letter_meanings_en": "Zay (7) + Kaf (20) + Ra (200) + Ya (10) + Alif (1). Raw 238, chain 13→4.",
+    "letter_meanings_ar": "زاي (٧) + كاف (٢٠) + راء (٢٠٠) + ياء (١٠) + ألف (١). المجموع ٢٣٨، السلسلة ١٣→٤.",
+    "structural_reading_en": "Root 4 — order and patience. Prayed in old age and was answered.",
+    "structural_reading_ar": "الجذر ٤ — نظام وصبر. دعا في الشيخوخة فاستُجيب.",
+    "quranic_role_en": "Guardian of Maryam, father of Yahya. 7 mentions.",
+    "quranic_role_ar": "كفيل مريم وأبو يحيى. ٧ ذكرات."
+  },
+  "يحيى": {
+    "letter_meanings_en": "Ya (10) + Ha (8) + Ya (10) + Ya (10). Raw 38, chain 11→2.",
+    "letter_meanings_ar": "ياء (١٠) + حاء (٨) + ياء (١٠) + ياء (١٠). المجموع ٣٨، السلسلة ١١→٢.",
+    "structural_reading_en": "Chain 11→2 — Seal cluster member. 'We never gave this name before' (Q 19:7).",
+    "structural_reading_ar": "السلسلة ١١→٢ — عضو عنقود الختم. 'لم نجعل له من قبل سميًا' (مريم ٧).",
+    "quranic_role_en": "Son of Zakariyya. 5 mentions. A unique name bestowed by God.",
+    "quranic_role_ar": "ابن زكريا. ٥ ذكرات. اسم فريد من الله."
+  },
+  "عيسى": {
+    "letter_meanings_en": "Ain (70) + Ya (10) + Sin (60) + Ya (10). Raw 150, root 6.",
+    "letter_meanings_ar": "عين (٧٠) + ياء (١٠) + سين (٦٠) + ياء (١٠). المجموع ١٥٠، الجذر ٦.",
+    "structural_reading_en": "Root 6 — harmony and mercy. 25 mentions, matching Adam exactly (Q 3:59).",
+    "structural_reading_ar": "الجذر ٦ — رحمة وانسجام. ٢٥ ذكرًا، يطابق آدم تمامًا (آل عمران ٥٩).",
+    "quranic_role_en": "The Messiah, Word of God. 25 mentions. Born without father (Q 3:47).",
+    "quranic_role_ar": "المسيح، كلمة الله. ٢٥ ذكرًا. ولد من غير أب (آل عمران ٤٧)."
+  },
+  "محمد": {
+    "letter_meanings_en": "Mim (40) + Ha (8) + Mim (40) + Dal (4). Raw 92, chain 11→2.",
+    "letter_meanings_ar": "ميم (٤٠) + حاء (٨) + ميم (٤٠) + دال (٤). المجموع ٩٢، السلسلة ١١→٢.",
+    "structural_reading_en": "Chain 11→2 — Seal cluster. Master 11 retained. Arabic = Hebrew gematria (92 = מחמד). Last prophet, final=2.",
+    "structural_reading_ar": "السلسلة ١١→٢ — عنقود الختم. العدد الأستاذ ١١ محفوظ. العربية = الجماتريا العبرية (٩٢ = מחמד). خاتم الأنبياء، النهائي ٢.",
+    "quranic_role_en": "Seal of the Prophets. 4 direct mentions by name. Mercy to the worlds (Q 21:107).",
+    "quranic_role_ar": "خاتم النبيين. ٤ ذكرات بالاسم. رحمة للعالمين (الأنبياء ١٠٧)."
+  },
+  "مريم": {
+    "letter_meanings_en": "Mim (40) + Ra (200) + Ya (10) + Mim (40). Raw 290, chain 11→2.",
+    "letter_meanings_ar": "ميم (٤٠) + راء (٢٠٠) + ياء (١٠) + ميم (٤٠). المجموع ٢٩٠، السلسلة ١١→٢.",
+    "structural_reading_en": "Chain 11→2 — joins master 11 cluster. Only woman named in the Quran.",
+    "structural_reading_ar": "السلسلة ١١→٢ — تنضم لعنقود العدد ١١. المرأة الوحيدة المسماة في القرآن.",
+    "quranic_role_en": "Mother of Isa. 34 mentions. Surah 19 bears her name.",
+    "quranic_role_ar": "أم عيسى. ٣٤ ذكرًا. سورة مريم تحمل اسمها."
+  },
+  "لقمان": {
+    "letter_meanings_en": "Lam (30) + Qaf (100) + Mim (40) + Alif (1) + Nun (50). Raw 221, root 5.",
+    "letter_meanings_ar": "لام (٣٠) + قاف (١٠٠) + ميم (٤٠) + ألف (١) + نون (٥٠). المجموع ٢٢١، الجذر ٥.",
+    "structural_reading_en": "Root 5 — wisdom and advice. Not a prophet, but honoured with a surah.",
+    "structural_reading_ar": "الجذر ٥ — حكمة ونصيحة. ليس نبيًا، لكنه شُرّف بسورة.",
+    "quranic_role_en": "The wise advisor. Surah 31 bears his name.",
+    "quranic_role_ar": "الحكيم الناصح. سورة لقمان تحمل اسمه."
+  },
+  "ذو القرنين": {
+    "letter_meanings_en": "Dhal (700) + Waw (6) + Alif (1) + Lam (30) + Qaf (100) + Ra (200) + Nun (50) + Ya (10) + Nun (50). Raw 1147, chain 13→4.",
+    "letter_meanings_ar": "ذال (٧٠٠) + واو (٦) + ألف (١) + لام (٣٠) + قاف (١٠٠) + راء (٢٠٠) + نون (٥٠) + ياء (١٠) + نون (٥٠). المجموع ١١٤٧، السلسلة ١٣→٤.",
+    "structural_reading_en": "Root 4 — structure and containment. Highest raw value in corpus. Builder of the barrier.",
+    "structural_reading_ar": "الجذر ٤ — بنية واحتواء. أعلى قيمة خام في المجموعة. بانى السد.",
+    "quranic_role_en": "Righteous ruler. Builder of the wall against Yajuj and Majuj (Q 18:83-98).",
+    "quranic_role_ar": "حاكم صالح. بانى السد ضد يأجوج ومأجوج (الكهف ٨٣-٩٨)."
+  },
+  "قارون": {
+    "letter_meanings_en": "Qaf (100) + Alif (1) + Ra (200) + Waw (6) + Nun (50). Raw 357, chain 15→6.",
+    "letter_meanings_ar": "قاف (١٠٠) + ألف (١) + راء (٢٠٠) + واو (٦) + نون (٥٠). المجموع ٣٥٧، السلسلة ١٥→٦.",
+    "structural_reading_en": "Root 6 — wealth and imbalance. Opposed Musa (root 8).",
+    "structural_reading_ar": "الجذر ٦ — ثروة واختلال. عارض موسى (الجذر ٨).",
+    "quranic_role_en": "Wealthy antagonist of Musa. Swallowed by the earth (Q 28:76-81).",
+    "quranic_role_ar": "خصم موسى الثري. خُسف به الأرض (القصص ٧٦-٨١).",
+    "contrast_en": "Diverges from Musa (8 vs 6). Structure only — not a moral derivation from number.",
+    "contrast_ar": "يختلف عن موسى (٨ مقابل ٦). بنية فقط — ليس اشتقاقًا أخلاقيًا من العدد."
+  },
+  "هامان": {
+    "letter_meanings_en": "Ha (5) + Alif (1) + Mim (40) + Alif (1) + Nun (50). Raw 97, chain 16→7.",
+    "letter_meanings_ar": "هاء (٥) + ألف (١) + ميم (٤٠) + ألف (١) + نون (٥٠). المجموع ٩٧، السلسلة ١٦→٧.",
+    "structural_reading_en": "Root 7 — same as Ibrahim. Breaks Ibrahim's uniqueness outside prophet chain.",
+    "structural_reading_ar": "الجذر ٧ — مثل إبراهيم. يكسر فرادة إبراهيم خارج سلسلة الأنبياء.",
+    "quranic_role_en": "Pharaoh's minister. Antagonist of Musa (Q 28:6).",
+    "quranic_role_ar": "وزير فرعون. خصم موسى (القصص ٦).",
+    "contrast_en": "Diverges from Musa (8 vs 7). Structure only.",
+    "contrast_ar": "يختلف عن موسى (٨ مقابل ٧). بنية فقط."
+  },
+  "طالوت": {
+    "letter_meanings_en": "Ta (9) + Alif (1) + Lam (30) + Waw (6) + Ta (400). Raw 446, chain 14→5.",
+    "letter_meanings_ar": "طاء (٩) + ألف (١) + لام (٣٠) + واو (٦) + تاء (٤٠٠). المجموع ٤٤٦، السلسلة ١٤→٥.",
+    "structural_reading_en": "Root 5 — appointed leadership. Chosen as king despite humble origins.",
+    "structural_reading_ar": "الجذر ٥ — قيادة معيّنة. اختير ملكًا رغم تواضع الأصل.",
+    "quranic_role_en": "King appointed by God to lead Israel against Jalut (Q 2:247).",
+    "quranic_role_ar": "ملك عيّنه الله لقيادة بني إسرائيل ضد جالوت (البقرة ٢٤٧)."
+  },
+  "جالوت": {
+    "letter_meanings_en": "Jim (3) + Alif (1) + Lam (30) + Waw (6) + Ta (400). Raw 440, root 8.",
+    "letter_meanings_ar": "جيم (٣) + ألف (١) + لام (٣٠) + واو (٦) + تاء (٤٠٠). المجموع ٤٤٠، الجذر ٨.",
+    "structural_reading_en": "Root 8 — power and confrontation. Defeated by Dawud.",
+    "structural_reading_ar": "الجذر ٨ — قوة ومواجهة. هُزم على يد داود.",
+    "quranic_role_en": "Giant warrior defeated by Dawud (Q 2:251).",
+    "quranic_role_ar": "محارب عملاق هُزم بيد داود (البقرة ٢٥١)."
+  },
+  "عزير": {
+    "letter_meanings_en": "Ain (70) + Zay (7) + Ya (10) + Ra (200). Raw 287, chain 17→8.",
+    "letter_meanings_ar": "عين (٧٠) + زاي (٧) + ياء (١٠) + راء (٢٠٠). المجموع ٢٨٧، السلسلة ١٧→٨.",
+    "structural_reading_en": "Root 8 — restoration. Died and was raised after a hundred years (Q 2:259).",
+    "structural_reading_ar": "الجذر ٨ — إحياء. مات وبُعث بعد مائة عام (البقرة ٢٥٩).",
+    "quranic_role_en": "Jewish figure. Disputed status. Some called son of God (Q 9:30).",
+    "quranic_role_ar": "شخصية يهودية. مكانة مختلف فيها. زعم البعض أنه ابن الله (التوبة ٣٠)."
+  },
+  "السامري": {
+    "letter_meanings_en": "Alif (1) + Lam (30) + Sin (60) + Alif (1) + Mim (40) + Ra (200) + Ya (10). Raw 342, root 9.",
+    "letter_meanings_ar": "ألف (١) + لام (٣٠) + سين (٦٠) + ألف (١) + ميم (٤٠) + راء (٢٠٠) + ياء (١٠). المجموع ٣٤٢، الجذر ٩.",
+    "structural_reading_en": "Root 9 — completion of a deviation. Created the golden calf.",
+    "structural_reading_ar": "الجذر ٩ — اكتمال انحراف. صنع العجل الذهبي.",
+    "quranic_role_en": "Creator of the golden calf during Musa's absence (Q 20:85-97).",
+    "quranic_role_ar": "صانع العجل أثناء غياب موسى (طه ٨٥-٩٧).",
+    "contrast_en": "Diverges from Musa (8 vs 9). Structure only.",
+    "contrast_ar": "يختلف عن موسى (٨ مقابل ٩). بنية فقط."
+  },
+  "آزر": {
+    "letter_meanings_en": "Alif (1) + Zay (7) + Ra (200). Raw 208, chain 10→1.",
+    "letter_meanings_ar": "ألف (١) + زاي (٧) + راء (٢٠٠). المجموع ٢٠٨، السلسلة ١٠→١.",
+    "structural_reading_en": "Root 1 — origin point. Father (or uncle) of Ibrahim.",
+    "structural_reading_ar": "الجذر ١ — نقطة الأصل. أب (أو عم) إبراهيم.",
+    "quranic_role_en": "Ibrahim's father/guardian. Idol worshiper (Q 6:74).",
+    "quranic_role_ar": "أب/كفيل إبراهيم. عابد أصنام (الأنعام ٧٤).",
+    "contrast_en": "Diverges from Ibrahim (7 vs 1). Structure only.",
+    "contrast_ar": "يختلف عن إبراهيم (٧ مقابل ١). بنية فقط."
+  },
+  "عمران": {
+    "letter_meanings_en": "Ain (70) + Mim (40) + Ra (200) + Alif (1) + Nun (50). Raw 361, chain 10→1.",
+    "letter_meanings_ar": "عين (٧٠) + ميم (٤٠) + راء (٢٠٠) + ألف (١) + نون (٥٠). المجموع ٣٦١، السلسلة ١٠→١.",
+    "structural_reading_en": "Root 1 — origin of a sacred lineage. Father of Maryam.",
+    "structural_reading_ar": "الجذر ١ — أصل نسب مقدس. أبو مريم.",
+    "quranic_role_en": "Father of Maryam. Surah 3 bears his family name.",
+    "quranic_role_ar": "أبو مريم. سورة آل عمران تحمل اسم عائلته."
+  },
+  "زيد": {
+    "letter_meanings_en": "Zay (7) + Ya (10) + Dal (4). Raw 21, root 3.",
+    "letter_meanings_ar": "زاي (٧) + ياء (١٠) + دال (٤). المجموع ٢١، الجذر ٣.",
+    "structural_reading_en": "Root 3 — the only companion named in the Quran. A small name, a large ruling.",
+    "structural_reading_ar": "الجذر ٣ — الصحابي الوحيد المسمى في القرآن. اسم صغير وحكم كبير.",
+    "quranic_role_en": "Adopted son of Muhammad. Named in Q 33:37 regarding marriage ruling.",
+    "quranic_role_ar": "ابن محمد بالتبني. سُمّي في الأحزاب ٣٧ بشأن حكم الزواج."
+  },
+  "أبو لهب": {
+    "letter_meanings_en": "Alif (1) + Ba (2) + Waw (6) + Lam (30) + Ha (5) + Ba (2). Raw 46, chain 10→1.",
+    "letter_meanings_ar": "ألف (١) + باء (٢) + واو (٦) + لام (٣٠) + هاء (٥) + باء (٢). المجموع ٤٦، السلسلة ١٠→١.",
+    "structural_reading_en": "Root 1 — an origin of opposition. The only antagonist cursed by name in the Quran.",
+    "structural_reading_ar": "الجذر ١ — أصل المعارضة. الخصم الوحيد الملعون بالاسم في القرآن.",
+    "quranic_role_en": "Uncle and antagonist of Muhammad. Cursed in Surah 111.",
+    "quranic_role_ar": "عم محمد وخصمه. ملعون في سورة المسد.",
+    "contrast_en": "Diverges from Muhammad (2 vs 1). Structure only.",
+    "contrast_ar": "يختلف عن محمد (٢ مقابل ١). بنية فقط."
+  },
+  "فرعون": {
+    "letter_meanings_en": "Fa (80) + Ra (200) + Ain (70) + Waw (6) + Nun (50). Raw 406, chain 10→1.",
+    "letter_meanings_ar": "فاء (٨٠) + راء (٢٠٠) + عين (٧٠) + واو (٦) + نون (٥٠). المجموع ٤٠٦، السلسلة ١٠→١.",
+    "structural_reading_en": "Root 1 — TITLE_AS_NAME. 74 occurrences. Third most frequent after Musa and Ibrahim.",
+    "structural_reading_ar": "الجذر ١ — لقب كاسم. ٧٤ مرة. الثالث تكرارًا بعد موسى وإبراهيم.",
+    "quranic_role_en": "Tyrant of Egypt. 74 mentions. Antagonist of Musa (Q 28:4).",
+    "quranic_role_ar": "طاغية مصر. ٧٤ ذكرًا. خصم موسى (القصص ٤).",
+    "contrast_en": "Diverges from Musa (8 vs 1). Structure only — not a moral derivation from number.",
+    "contrast_ar": "يختلف عن موسى (٨ مقابل ١). بنية فقط — ليس اشتقاقًا أخلاقيًا من العدد."
+  },
+  "جبريل": {
+    "letter_meanings_en": "Jim (3) + Ba (2) + Ra (200) + Ya (10) + Lam (30). Raw 245, chain 11→2.",
+    "letter_meanings_ar": "جيم (٣) + باء (٢) + راء (٢٠٠) + ياء (١٠) + لام (٣٠). المجموع ٢٤٥، السلسلة ١١→٢.",
+    "structural_reading_en": "Chain 11→2 — joins master 11 cluster in full corpus expansion. The messenger angel.",
+    "structural_reading_ar": "السلسلة ١١→٢ — ينضم لعنقود العدد ١١ في التوسع الكامل. ملك الوحي.",
+    "quranic_role_en": "Angel of revelation. Brings the Quran to Muhammad (Q 2:97).",
+    "quranic_role_ar": "ملك الوحي. يُنزل القرآن على محمد (البقرة ٩٧)."
+  },
+  "ميكال": {
+    "letter_meanings_en": "Mim (40) + Ya (10) + Kaf (20) + Alif (1) + Lam (30). Raw 101, root 2.",
+    "letter_meanings_ar": "ميم (٤٠) + ياء (١٠) + كاف (٢٠) + ألف (١) + لام (٣٠). المجموع ١٠١، الجذر ٢.",
+    "structural_reading_en": "Root 2 — duality and provision. Angel of sustenance.",
+    "structural_reading_ar": "الجذر ٢ — ثنائية ورزق. ملك الأرزاق.",
+    "quranic_role_en": "Mentioned once alongside Jibril (Q 2:98).",
+    "quranic_role_ar": "ذُكر مرة مع جبريل (البقرة ٩٨)."
+  },
+  "هاروت": {
+    "letter_meanings_en": "Ha (5) + Alif (1) + Ra (200) + Waw (6) + Ta (400). Raw 612, root 9.",
+    "letter_meanings_ar": "هاء (٥) + ألف (١) + راء (٢٠٠) + واو (٦) + تاء (٤٠٠). المجموع ٦١٢، الجذر ٩.",
+    "structural_reading_en": "Root 9 — diverges from paired Marut (8). Paired names, distinct values.",
+    "structural_reading_ar": "الجذر ٩ — يختلف عن ماروت المقترن (٨). أسماء مزدوجة، قيم مختلفة.",
+    "quranic_role_en": "Angel in Babylon. Taught magic as a test (Q 2:102).",
+    "quranic_role_ar": "ملك في بابل. علّم السحر ابتلاءً (البقرة ١٠٢)."
+  },
+  "ماروت": {
+    "letter_meanings_en": "Mim (40) + Alif (1) + Ra (200) + Waw (6) + Ta (400). Raw 647, chain 17→8.",
+    "letter_meanings_ar": "ميم (٤٠) + ألف (١) + راء (٢٠٠) + واو (٦) + تاء (٤٠٠). المجموع ٦٤٧، السلسلة ١٧→٨.",
+    "structural_reading_en": "Root 8 — diverges from paired Harut (9).",
+    "structural_reading_ar": "الجذر ٨ — يختلف عن هاروت المقترن (٩).",
+    "quranic_role_en": "Angel in Babylon, paired with Harut (Q 2:102).",
+    "quranic_role_ar": "ملك في بابل مقترن بهاروت (البقرة ١٠٢)."
+  },
+  "مالك": {
+    "letter_meanings_en": "Mim (40) + Alif (1) + Lam (30) + Kaf (20). Raw 91, chain 10→1.",
+    "letter_meanings_ar": "ميم (٤٠) + ألف (١) + لام (٣٠) + كاف (٢٠). المجموع ٩١، السلسلة ١٠→١.",
+    "structural_reading_en": "Root 1 — singular authority. Keeper of Hellfire.",
+    "structural_reading_ar": "الجذر ١ — سلطة مطلقة. خازن النار.",
+    "quranic_role_en": "Angel of Hell. Called upon by the damned (Q 43:77).",
+    "quranic_role_ar": "ملك النار. يناديه أهل النار (الزخرف ٧٧)."
+  },
+  "إبليس": {
+    "letter_meanings_en": "Alif (1) + Ba (2) + Lam (30) + Ya (10) + Sin (60). Raw 103, root 4.",
+    "letter_meanings_ar": "ألف (١) + باء (٢) + لام (٣٠) + ياء (١٠) + سين (٦٠). المجموع ١٠٣، الجذر ٤.",
+    "structural_reading_en": "Root 4 — rigid structure. Refused to prostrate. The only jinn named.",
+    "structural_reading_ar": "الجذر ٤ — بنية جامدة. أبى السجود. الجني الوحيد المسمى.",
+    "quranic_role_en": "Chief adversary. Refused to bow to Adam (Q 2:34). Given respite until the Day.",
+    "quranic_role_ar": "العدو الأكبر. أبى السجود لآدم (البقرة ٣٤). أُمهل إلى يوم القيامة."
+  },
+  "يأجوج": {
+    "letter_meanings_en": "Ya (10) + Hamza (1) + Jim (3) + Waw (6) + Jim (3). Raw 23, root 5.",
+    "letter_meanings_ar": "ياء (١٠) + همزة (١) + جيم (٣) + واو (٦) + جيم (٣). المجموع ٢٣، الجذر ٥.",
+    "structural_reading_en": "Root 5 — restlessness. Diverges from Majuj (8). Computed separately per spec.",
+    "structural_reading_ar": "الجذر ٥ — اضطراب. يختلف عن مأجوج (٨). يُحسب منفصلًا وفق المواصفة.",
+    "quranic_role_en": "Destructive people sealed behind the barrier (Q 18:94, Q 21:96).",
+    "quranic_role_ar": "قوم مفسدون حُبسوا وراء السد (الكهف ٩٤، الأنبياء ٩٦)."
+  },
+  "مأجوج": {
+    "letter_meanings_en": "Mim (40) + Hamza (1) + Jim (3) + Waw (6) + Jim (3). Raw 53, root 8.",
+    "letter_meanings_ar": "ميم (٤٠) + همزة (١) + جيم (٣) + واو (٦) + جيم (٣). المجموع ٥٣، الجذر ٨.",
+    "structural_reading_en": "Root 8 — diverges from Yajuj (5). Paired names, distinct final values.",
+    "structural_reading_ar": "الجذر ٨ — يختلف عن يأجوج (٥). أسماء مزدوجة، قيم نهائية مختلفة.",
+    "quranic_role_en": "Paired with Yajuj behind the barrier (Q 18:94, Q 21:96).",
+    "quranic_role_ar": "مقترن بيأجوج وراء السد (الكهف ٩٤، الأنبياء ٩٦)."
+  }
+}

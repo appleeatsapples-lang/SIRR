@@ -1,0 +1,11 @@
+{
+  "Sun": {"years": 6, "order": 1, "nakshatra_start": ["Krittika", "Uttara Phalguni", "Uttara Ashadha"]},
+  "Moon": {"years": 10, "order": 2, "nakshatra_start": ["Rohini", "Hasta", "Shravana"]},
+  "Mars": {"years": 7, "order": 3, "nakshatra_start": ["Mrigashira", "Chitra", "Dhanishta"]},
+  "Rahu": {"years": 18, "order": 4, "nakshatra_start": ["Ardra", "Swati", "Shatabhisha"]},
+  "Jupiter": {"years": 16, "order": 5, "nakshatra_start": ["Punarvasu", "Vishakha", "Purva Bhadrapada"]},
+  "Saturn": {"years": 19, "order": 6, "nakshatra_start": ["Pushya", "Anuradha", "Uttara Bhadrapada"]},
+  "Mercury": {"years": 17, "order": 7, "nakshatra_start": ["Ashlesha", "Jyeshtha", "Revati"]},
+  "Ketu": {"years": 7, "order": 8, "nakshatra_start": ["Ashwini", "Magha", "Mula"]},
+  "Venus": {"years": 20, "order": 9, "nakshatra_start": ["Bharani", "Purva Phalguni", "Purva Ashadha"]}
+}

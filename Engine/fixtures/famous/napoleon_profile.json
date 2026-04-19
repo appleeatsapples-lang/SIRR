@@ -1,0 +1,11 @@
+{
+  "subject": "NAPOLEON BONAPARTE",
+  "arabic": "نابليون بونابرت",
+  "variant": "full_name",
+  "note": "French military leader and emperor. Born Ajaccio, Corsica.",
+  "dob": "1769-08-15",
+  "birth_time_local": "11:30",
+  "timezone": "Europe/Paris",
+  "location": "Ajaccio, Corsica",
+  "gender": "male"
+}

@@ -1,0 +1,11 @@
+{
+  "subject": "FRIEDRICH NIETZSCHE",
+  "arabic": "فريدريش نيتشه",
+  "variant": "full_name",
+  "note": "German philosopher. Born Röcken, Saxony. Birth time documented as approximately 10am.",
+  "dob": "1844-10-15",
+  "birth_time_local": "10:00",
+  "timezone": "Europe/Berlin",
+  "location": "Rocken, Germany",
+  "gender": "male"
+}

@@ -1,0 +1,14 @@
+{
+  "subject": "FATIMA AHMED OMAR ALKATIB",
+  "arabic": "فاطمة أحمد عمر الكاتب",
+  "variant": "full_legal",
+  "note": "Mutation of base synthetic_profile.json with shifted birth_time_local — used for time-sensitivity stress tests.",
+  "dob": "1990-03-15",
+  "birth_time_local": "14:42",
+  "timezone": "Africa/Cairo",
+  "location": "Cairo, Egypt",
+  "gender": "female",
+  "mother_name": "MARYAM SALIM YUSUF HASSAN",
+  "mother_name_ar": "مريم سليم يوسف حسن",
+  "mother_dob": "1962-05-20"
+}

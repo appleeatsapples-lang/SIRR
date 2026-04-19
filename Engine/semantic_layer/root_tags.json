@@ -1,0 +1,106 @@
+{
+  "_meta": {
+    "description": "12 roots × 6 traditions — tag sets for combination engine",
+    "version": "1.0-draft",
+    "traditions": ["western_numerology", "vedic", "chinese", "islamic", "tarot", "kabbalistic"],
+    "note": "Authored from SIRR spec TAG DECISIONS. Draft v1.0 for future Gemini review."
+  },
+  "roots": {
+    "1": {
+      "western_numerology": ["independence", "initiation", "leadership", "originality"],
+      "vedic": ["surya", "atman", "dharma_beginning", "agni_spark"],
+      "chinese": ["yang_origin", "tai_chi_source", "heaven_unity", "singular_will"],
+      "islamic": ["tawhid", "wahid", "alif", "divine_oneness"],
+      "tarot": ["magician", "will", "conscious_creation", "focused_intent"],
+      "kabbalistic": ["kether", "crown", "first_emanation", "unity_point"]
+    },
+    "2": {
+      "western_numerology": ["partnership", "diplomacy", "sensitivity", "receptivity"],
+      "vedic": ["chandra", "manas", "dvandva", "reflection"],
+      "chinese": ["yin_origin", "earth_receptive", "pair_harmony", "dual_nature"],
+      "islamic": ["zawj", "pair", "balance", "mizan"],
+      "tarot": ["high_priestess", "intuition", "hidden_knowledge", "lunar_wisdom"],
+      "kabbalistic": ["chokmah", "wisdom", "supernal_father", "creative_impulse"]
+    },
+    "3": {
+      "western_numerology": ["expression", "creativity", "communication", "joy"],
+      "vedic": ["brihaspati", "guru", "trimurti", "expansion"],
+      "chinese": ["san_cai", "heaven_earth_human", "creative_synthesis", "wood_growth"],
+      "islamic": ["khalq", "creation", "bayan", "eloquence"],
+      "tarot": ["empress", "fertility", "abundance", "creative_matrix"],
+      "kabbalistic": ["binah", "understanding", "supernal_mother", "form_giving"]
+    },
+    "4": {
+      "western_numerology": ["foundation", "structure", "discipline", "stability"],
+      "vedic": ["prithvi", "dharma_pillar", "chatur_varna", "order"],
+      "chinese": ["si_xiang", "four_symbols", "earth_stability", "square_foundation"],
+      "islamic": ["arkan", "four_pillars", "nizam", "divine_order"],
+      "tarot": ["emperor", "authority", "temporal_power", "structured_rule"],
+      "kabbalistic": ["chesed", "mercy", "loving_kindness", "expansive_order"]
+    },
+    "5": {
+      "western_numerology": ["freedom", "change", "adventure", "sensuality"],
+      "vedic": ["budha", "pancha_tattva", "vayu", "movement"],
+      "chinese": ["wu_xing", "five_phases", "change_cycle", "dynamic_balance"],
+      "islamic": ["arkan_islam", "five_pillars", "haraka", "motion"],
+      "tarot": ["hierophant", "tradition", "sacred_law", "bridge_teaching"],
+      "kabbalistic": ["geburah", "severity", "din", "restricting_force"]
+    },
+    "6": {
+      "western_numerology": ["responsibility", "harmony", "nurturing", "beauty"],
+      "vedic": ["shukra", "kama", "shat_chakra", "love_balance"],
+      "chinese": ["liu_he", "six_harmonies", "inner_outer_unity", "completion"],
+      "islamic": ["ihsan", "beauty", "husn", "perfection"],
+      "tarot": ["lovers", "choice", "union", "moral_beauty"],
+      "kabbalistic": ["tiphareth", "beauty", "heart_center", "harmonizing_sun"]
+    },
+    "7": {
+      "western_numerology": ["analysis", "introspection", "spirituality", "mystery"],
+      "vedic": ["ketu", "moksha", "sapta_rishi", "inner_vision"],
+      "chinese": ["qi_xing", "seven_stars", "north_dipper", "celestial_mystery"],
+      "islamic": ["batin", "inner", "sirr", "hidden_knowledge"],
+      "tarot": ["chariot", "mastery", "triumph_through_will", "directed_movement"],
+      "kabbalistic": ["netzach", "victory", "endurance", "emotional_force"]
+    },
+    "8": {
+      "western_numerology": ["power", "authority", "material_mastery", "karma"],
+      "vedic": ["shani", "ashta_siddhi", "karmic_lord", "endurance"],
+      "chinese": ["ba_gua", "eight_trigrams", "cosmic_order", "prosperity"],
+      "islamic": ["qudra", "power", "jannah_gates", "eight_paradises"],
+      "tarot": ["strength", "fortitude", "inner_power", "taming_force"],
+      "kabbalistic": ["hod", "splendor", "mental_force", "form_intellect"]
+    },
+    "9": {
+      "western_numerology": ["completion", "universality", "wisdom", "humanitarianism"],
+      "vedic": ["mangal", "nava_graha", "dharma_completion", "universal_service"],
+      "chinese": ["jiu_gong", "nine_palaces", "heaven_number", "supreme_yang"],
+      "islamic": ["kamal", "perfection", "tamam", "divine_completion"],
+      "tarot": ["hermit", "inner_light", "solitary_wisdom", "lantern_bearer"],
+      "kabbalistic": ["yesod", "foundation", "astral_bridge", "generative_force"]
+    },
+    "11": {
+      "western_numerology": ["illumination", "intuition", "inspiration", "channel"],
+      "vedic": ["ekadashi", "rudra", "transcendent_perception", "shakti_gate"],
+      "chinese": ["tian_di", "heaven_gate", "spiritual_bridge", "yang_overflow"],
+      "islamic": ["ilham", "divine_inspiration", "kashf", "spiritual_unveiling"],
+      "tarot": ["justice_strength", "dual_force", "karmic_mirror", "higher_law"],
+      "kabbalistic": ["da'at", "hidden_sephirah", "abyss_crossing", "knowledge_gate"]
+    },
+    "22": {
+      "western_numerology": ["master_builder", "large_scale_vision", "manifestation", "legacy"],
+      "vedic": ["vishvakarma", "cosmic_architect", "dharma_manifest", "universal_builder"],
+      "chinese": ["tian_gong", "celestial_construction", "mandate_fulfillment", "great_work"],
+      "islamic": ["bani", "builder", "amara", "divine_architecture"],
+      "tarot": ["fool_world", "alpha_omega", "complete_cycle", "cosmic_trust"],
+      "kabbalistic": ["twenty_two_paths", "aleph_to_tav", "complete_tree", "full_emanation"]
+    },
+    "33": {
+      "western_numerology": ["master_teacher", "selfless_service", "cosmic_consciousness", "upliftment"],
+      "vedic": ["avatar", "bodhisattva_path", "cosmic_teacher", "moksha_guide"],
+      "chinese": ["tian_shi", "heavenly_teacher", "sage_wisdom", "universal_compassion"],
+      "islamic": ["murshid", "guide", "rahma", "universal_mercy"],
+      "tarot": ["star_world", "cosmic_healing", "universal_love", "redemptive_light"],
+      "kabbalistic": ["malkuth_kether", "kingdom_crown", "as_above_so_below", "complete_return"]
+    }
+  }
+}

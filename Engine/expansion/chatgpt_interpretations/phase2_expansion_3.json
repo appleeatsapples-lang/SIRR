@@ -1,0 +1,17 @@
+[
+  {
+    "system_id": "chaldean",
+    "interpretation_en": "Your Chaldean-style name numerology total is {total}, reducing to root {root}. This is a modern Western numerological method from the nineteenth- and twentieth-century occult revival; the \"Chaldean\" attribution is a modern label, not evidence of ancient Babylonian practice. The result is best read as a name-number mirror inside that modern system, without treating it as confirmation of any Arabic abjad result.",
+    "interpretation_ar": "مجموع علم الأعداد الاسمي ذي الأسلوب الكلداني هو {total}، وينخفض إلى الجذر {root}. هذه طريقة عددية غربية حديثة من أجواء الإحياء الباطني في القرنين التاسع عشر والعشرين؛ ونسبة \"الكلداني\" هنا تسمية حديثة لا دليلًا على ممارسة بابلية قديمة. تُقرأ النتيجة كمرآة اسمية داخل هذا النظام الحديث، لا كتأكيد لأي نتيجة في الأبجد العربي."
+  },
+  {
+    "system_id": "ifa",
+    "interpretation_en": "Your birth odu is Oyeku Meji — the second-ranked odu in traditional Ifá, with both legs identical (a doubled/meji form considered especially powerful). Oyeku governs completion, the transition between worlds, and the darkness that precedes dawn. All 8 marks are open (0000-0000), representing maximum receptivity and the void from which creation emerges. The Earth element association connects to your Chinese zodiac Fire Rat year's Earth NaYin, creating a cross-civilizational Earth bridge between Yoruba and Chinese systems. As the first African tradition in your profile, Ifá adds a completely independent binary-mathematical axis that shares no computational ancestry with Western, Arabic, or Asian numerology.",
+    "interpretation_ar": "أودو ميلادك هو أويكو ميجي — ثاني أعلى أودو في نظام إيفا التقليدي، بساقين متطابقتين (شكل مزدوج/ميجي يُعتبر قوياً بشكل خاص). أويكو يحكم الاكتمال والانتقال بين العوالم والظلام الذي يسبق الفجر. جميع العلامات الثماني مفتوحة (0000-0000)، تمثل أقصى تقبّل والفراغ الذي ينبثق منه الخلق. ارتباط عنصر الأرض يتصل بنا يين الأرض لسنة الفأر الناري في الزودياك الصيني، مكوّناً جسراً عبر الحضارات بين النظامين اليوروبي والصيني. كأول تقليد أفريقي في ملفك، يضيف إيفا محوراً رياضياً ثنائياً مستقلاً تماماً لا يشارك أي سلف حسابي مع الأنظمة الغربية أو العربية أو الآسيوية."
+  },
+  {
+    "system_id": "egyptian_decan",
+    "interpretation_en": "Your Egyptian decan is {decan_number}, located in {decan_sign} at {decan_degrees}, and associated here with {deity}. The decan system reads the zodiac through narrow sky bands with traditional deity assignments, giving the birth chart a finely grained Egyptian astronomical layer. The result names the decan's own placement and governing image without treating it as confirmation of any calendar, tithi, root, or other module.",
+    "interpretation_ar": "الدكان المصري لديك هو {decan_number}، واقع في {decan_sign} عند {decan_degrees}، ومرتبط هنا بـ {deity}. يقرأ نظام الدكانات دائرة البروج عبر أحزمة سماوية دقيقة مع نسب تقليدية للآلهة، فيمنح خريطة الميلاد طبقة فلكية مصرية أكثر تفصيلًا. النتيجة تسمي موضع الدكان وصورته الحاكمة الخاصة به من غير جعلها تأكيدًا لأي تقويم أو تيثي أو جذر أو وحدة أخرى."
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "description": "7 dialectical pairs for tension/shadow detection",
+    "version": "1.0",
+    "note": "restriction_liberation replaces mastery_harmony — mastery IS harmony in Taoism/Vedic"
+  },
+  "pairs": [
+    {"id": "BP1", "pole_a": "expansion", "pole_b": "contraction", "description": "Growth vs. restraint — Jupiter/Saturn axis"},
+    {"id": "BP2", "pole_a": "expression", "pole_b": "concealment", "description": "Outer manifestation vs. inner withholding"},
+    {"id": "BP3", "pole_a": "independence", "pole_b": "dependence", "description": "Self-sufficiency vs. relational need"},
+    {"id": "BP4", "pole_a": "structure", "pole_b": "fluidity", "description": "Form vs. dissolution — Saturn/Neptune axis"},
+    {"id": "BP5", "pole_a": "action", "pole_b": "reception", "description": "Mars/Moon axis — initiative vs. responsiveness"},
+    {"id": "BP6", "pole_a": "restriction", "pole_b": "liberation", "description": "Binding vs. release — Saturn/Uranus axis"},
+    {"id": "BP7", "pole_a": "individual", "pole_b": "collective", "description": "Personal will vs. group identity"}
+  ]
+}

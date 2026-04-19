@@ -1,0 +1,242 @@
+[
+  {
+    "system_id": "digit_patterns",
+    "version": "v1.0",
+    "interpretation_en": "This module reads the abjad total at the digit level rather than stopping at the headline sum. It studies how the number decomposes into sum, product, factors, repetitions, and mirror behaviors, asking whether the structure is compact, divisible, or internally recursive. A profile with strong regularity here tends to show numerical compression, where much of the signal is carried by a small set of repeating relations. A profile with broken or asymmetric relations tends to distribute meaning across several operations instead of one dominant pattern.",
+    "interpretation_ar": "تقرأ هذه الطبقة المجموع الأبجدي على مستوى الأرقام الجزئية، ولا تقف عند العدد الكلي وحده. فهي تدرس كيف يتفكك العدد إلى مجموع وضرب وعوامل أولية وتكرارات وخصائص مرآتية، لتسأل: هل البنية منضغطة أم قابلة للقسمة أم راجعة إلى نفسها داخلياً؟ حين تظهر فيها انتظامات قوية فذلك يدل على انضغاط عددي، أي إن الإشارة تُحمَل بواسطة عدد قليل من العلاقات المتكررة. أما إذا كانت العلاقات مكسورة أو غير متناظرة فإن المعنى يتوزع على عمليات متعددة بدل أن يتركز في نمط واحد مهيمن."
+  },
+  {
+    "system_id": "lineage_computation",
+    "version": "v1.0",
+    "interpretation_en": "This layer treats the full name-chain as a sequence rather than a single label. It tracks the sums of each word, the intervals between them, and the compound groups that appear when the chain is read as inheritance in motion. A smooth numerical progression suggests continuity between private identity, paternal link, and inherited designation. Large jumps or reversals suggest that different parts of the chain carry different kinds of weight and should not be collapsed into one voice.",
+    "interpretation_ar": "تعامل هذه الطبقة سلسلة الاسم كاملة بوصفها متتالية لا لقباً واحداً. فهي تتتبع مجاميع كل كلمة، والفواصل بينها، والمجموعات المركبة التي تظهر حين تُقرأ السلسلة بوصفها وراثة متحركة. إن التدرج العددي السلس يشير إلى اتصال بين الهوية الخاصة، والرابطة الأبوية، والتعيين الموروث. أما القفزات الكبيرة أو الانعكاسات فتشير إلى أن أجزاء السلسلة تحمل أوزاناً مختلفة، ولا يصح اختزالها في صوت واحد."
+  },
+  {
+    "system_id": "hijri_calendar_encoding",
+    "version": "v1.0",
+    "interpretation_en": "This module re-encodes the birth moment through the Hijri calendar and asks what the lunar frame contributes beyond the civil date. It studies the Hijri year number, its digit sum, factor structure, and the symbolic placement of the birth month within the sacred lunar cycle. Strong coherence here means the lunar calendar is not merely a conversion layer but an active second register of timing. Weak coherence means the Hijri signal is present but functions more as context than as a primary structural carrier.",
+    "interpretation_ar": "تعيد هذه الوحدة ترميز لحظة الميلاد من خلال التقويم الهجري، وتسأل عمّا تضيفه البنية القمرية فوق التاريخ المدني. فهي تدرس رقم السنة الهجرية، وجمع أرقامه، وبنيته العاملية، وموضع شهر الميلاد داخل الدورة القمرية المقدسة. فإذا ظهر هنا انسجام قوي دلّ ذلك على أن التقويم الهجري ليس مجرد طبقة تحويل، بل سجل زمني ثانٍ فعّال. وإذا كان الانسجام أضعف فالإشارة الهجرية موجودة، لكنها تعمل بوصفها سياقاً أكثر من كونها حاملاً رئيسياً للبنية."
+  },
+  {
+    "system_id": "calligraphy_structure",
+    "version": "v1.0",
+    "interpretation_en": "This layer examines the written body of the Arabic name as a visual structure. It counts ascenders, descenders, loops, dots, and connected strokes to see whether the name rises, descends, opens, or knots itself in script. Dense dotted forms usually indicate granularity and interruption, while long connected spans indicate continuity and sweep. The result does not describe aesthetics alone; it measures how the name occupies space and distributes emphasis across the written line.",
+    "interpretation_ar": "تفحص هذه الطبقة الجسد المكتوب للاسم العربي بوصفه بنية بصرية. فهي تعدّ الصواعد والهوابط والحلقات والنقاط والاتصالات الخطية لتعرف هل يرتفع الاسم أو يهبط أو ينفتح أو ينعقد في الرسم. والكثافة النقطية غالباً ما تدل على التفصيل والانقطاع، بينما تشير الامتدادات المتصلة إلى الاستمرار والانسياب. والنتيجة هنا لا تصف الجماليات وحدها، بل تقيس كيف يشغل الاسم الحيز وكيف يوزع مواضع التشديد على السطر المكتوب."
+  },
+  {
+    "system_id": "divine_breath",
+    "version": "v1.0",
+    "interpretation_en": "This module maps the letters of the name by makhraj, treating speech as breath shaped through distinct gates of the mouth and throat. It asks whether the phonetic body is front-loaded, throat-heavy, labial, dental, or widely distributed across the vocal tract. Concentration in one region gives the name a consistent respiratory texture and a clear articulatory signature. Dispersion across many regions produces a more mixed breath pattern, where the name is carried by variation rather than a single phonetic center.",
+    "interpretation_ar": "ترسم هذه الوحدة حروف الاسم بحسب المخارج، فتتعامل مع النطق بوصفه نَفَساً يتشكل عبر أبواب مختلفة في الفم والحلق. وهي تسأل: هل الجسد الصوتي متقدم في الفم، أم حلقي، أم شفوي، أم أسناني، أم موزع على مجرى النطق كله؟ إن التركز في موضع واحد يمنح الاسم نسيجاً تنفسياً متسقاً وبصمة أدائية واضحة. أما التوزع على مواضع كثيرة فينتج عنه نمط نفسٍ مركب، يحمل الاسم فيه التنوع أكثر مما يحمله مركز صوتي واحد."
+  },
+  {
+    "system_id": "letter_position_encoding",
+    "version": "v1.0",
+    "interpretation_en": "This layer weights each letter not only by abjad value but by where it stands in the sequence. It asks whether numerical force is concentrated at the opening, the center, the ending, or around a balancing midpoint. A front-heavy pattern often indicates early declaration, while a center-weighted pattern suggests internal load-bearing structure. An end-weighted pattern places emphasis on closure, resolution, or the last disclosed identity segment.",
+    "interpretation_ar": "تزن هذه الطبقة كل حرف لا بقيمته الأبجدية وحدها، بل بموضعه داخل السلسلة أيضاً. فهي تسأل: هل القوة العددية تتركز في الافتتاح، أم في الوسط، أم في الختام، أم حول نقطة توازن؟ والنمط الثقيل في البداية يدل غالباً على إعلان مبكر للبنية، بينما يشير التمركز في الوسط إلى حمل داخلي للهيكل. أما إذا ثقل الطرف الأخير فإن موضع التشديد يقع على الخاتمة أو الإحكام أو الجزء الأخير الذي يكشف الهوية."
+  },
+  {
+    "system_id": "abjad_visual_architecture",
+    "version": "v1.0",
+    "interpretation_en": "This module combines dot geometry, empty space, and baseline interruptions into a single visual architecture of the written name. It studies where visual weight accumulates, where the script opens voids, and where the line is broken or resumed. A name with balanced dot-to-space ratios tends to hold tension and release in proportion. A name with clustered interruptions or void dominance often carries a more segmented visual logic, where absence is part of the structure rather than an accident of script.",
+    "interpretation_ar": "تجمع هذه الوحدة بين هندسة النقاط والفراغ والانقطاعات الخطية لتبني معماراً بصرياً واحداً للاسم المكتوب. فهي تدرس أين يتكدس الثقل البصري، وأين يفتح الرسم فراغاته، وأين ينقطع الخط أو يستأنف. والاسم الذي تتوازن فيه نسبة النقاط إلى الفراغ يميل إلى حفظ التوتر والانفراج بنسب متعادلة. أما إذا تجمعت الانقطاعات أو غلب الفراغ، فإن المنطق البصري يصبح أكثر تقطيعاً، ويغدو الغياب جزءاً من البنية لا مجرد أثر جانبي للكتابة."
+  },
+  {
+    "system_id": "name_weight",
+    "version": "v1.0",
+    "interpretation_en": "This layer measures heaviness and lightness across the syllabic body of each word and across the full chain. It studies how dense clusters, long vowels, and closure patterns distribute load in speech. When heaviness is concentrated in one segment, that segment behaves like an anchor within the chain. When weight is evenly distributed, the name tends to move with steadier cadence and less local dominance.",
+    "interpretation_ar": "تقيس هذه الطبقة الثقل والخفة عبر الجسد المقطعي لكل كلمة وعبر السلسلة كلها. فهي تدرس كيف توزع التجمعات الكثيفة، والمدود، وأنماط الإغلاق، الحمل داخل النطق. فإذا تركز الثقل في مقطع واحد تصرف ذلك الموضع بوصفه مرساة داخل السلسلة. وإذا توزعت الأوزان بتقارب، تحرك الاسم بإيقاع أكثر استقراراً وأقل خضوعاً لهيمنة موضع بعينه."
+  },
+  {
+    "system_id": "arabic_rhetoric",
+    "version": "v1.0",
+    "interpretation_en": "This module reads the name through the lens of classical Arabic rhetorical texture. It looks for genealogical echo, consonantal recurrence, and forms of sonic resemblance that make separate words answer one another. Strong rhetorical linkage suggests that the chain is not merely additive but internally dialogic. Weak linkage suggests that each word contributes its force more independently, with less ornamental binding across the whole sequence.",
+    "interpretation_ar": "تقرأ هذه الوحدة الاسم من خلال نسيج البلاغة العربية الكلاسيكية. فهي تبحث عن الصدى النسبي، وتكرار الصوامت، وأشكال المشابهة الصوتية التي تجعل الكلمات المنفصلة يجيب بعضها بعضاً. وإذا كانت الروابط البلاغية قوية دلّ ذلك على أن السلسلة ليست مجرد جمعٍ للكلمات، بل حوار داخلي بينها. أما ضعف تلك الروابط فيعني أن كل كلمة تؤدي وزنها باستقلال أكبر، مع قدر أقل من الربط الزخرفي عبر السلسلة كلها."
+  },
+  {
+    "system_id": "sonority_curve",
+    "version": "v1.0",
+    "interpretation_en": "This layer traces the rise and fall of sonority across the name, moving from open vocalic energy toward tighter consonantal closure. It studies whether the profile is wave-like, stepped, front-loaded, or cut by abrupt drops. A smooth sonority curve often indicates acoustic coherence, where the name unfolds in controlled gradients. A broken curve indicates sharper internal contrasts, with the structure advancing by alternation more than by glide.",
+    "interpretation_ar": "ترسم هذه الطبقة صعود الجهارة وهبوطها عبر الاسم، من الانفتاح الصوتي إلى الإغلاق الصامت الأشد إحكاماً. وهي تدرس هل البنية موجية، أم درجية، أم مثقلة بالبداية، أم مقطوعة بهبوطات حادة. والمنحنى السلس في الجهارة يدل غالباً على تماسك سمعي، حيث ينكشف الاسم بتدرجات مضبوطة. أما المنحنى المكسور فيدل على تباينات داخلية أشد، تتقدم فيها البنية بالتعاقب أكثر مما تتقدم بالانسياب."
+  },
+  {
+    "system_id": "larger_awfaq",
+    "version": "v1.0",
+    "interpretation_en": "This module projects the personalized values into larger awfaq structures, asking how the profile behaves when distributed across ordered grids. It examines symmetry, row-column balance, diagonal recurrence, and whether the square stabilizes around a center or disperses its force. A well-balanced square suggests that the signal survives translation into formal order. A distorted or uneven square suggests that the underlying profile resists flattening and carries more tension than grid harmony can absorb.",
+    "interpretation_ar": "تُسقِط هذه الوحدة القيم الشخصية في أوفاق أكبر، لتسأل كيف تتصرف البنية حين تُوزع على جداول منظمة. وهي تفحص التناظر، وتوازن الصفوف والأعمدة، وتكرار الأقطار، وهل يستقر المربع حول مركز أم يبعثر قوته. والمربع المتوازن يدل على أن الإشارة تحتفظ بتماسكها حين تُنقل إلى نظام شكلي صارم. أما المربع المضطرب أو غير المتكافئ فيشير إلى أن البنية الأصلية تقاوم التسطيح، وتحمل من التوتر ما لا تستوعبه هندسة الشبكة بسهولة."
+  },
+  {
+    "system_id": "qibla_as_axis",
+    "version": "v1.0",
+    "interpretation_en": "This layer treats the Qibla from the birth location as a terrestrial axis rather than a devotional statement. It compares local orientation, cardinal bearing, and the body of the chart or name to ask whether the profile aligns cleanly to a directional frame. Strong alignment means place is not neutral in the structure; geography itself enters the symbolic geometry. Weak alignment means the axis is still present, but it functions more as a reference line than as a dominant organizer.",
+    "interpretation_ar": "تتعامل هذه الطبقة مع القبلة من موضع الميلاد بوصفها محوراً أرضياً لا تقريراً تعبدياً. فهي تقارن الاتجاه المحلي، والزاوية الأصلية، بجسد الخريطة أو الاسم لتسأل: هل تنتظم البنية بوضوح داخل إطار جهوي؟ وإذا كان الاصطفاف قوياً فإن المكان لا يكون محايداً في الهيكل، بل تدخل الجغرافيا نفسها في الهندسة الرمزية. وإذا كان الاصطفاف أضعف فالمحور حاضر، لكنه يعمل خطاً مرجعياً أكثر من كونه منظماً مهيمنًا."
+  },
+  {
+    "system_id": "prayer_times_as_timing",
+    "version": "v1.0",
+    "interpretation_en": "This module places the birth moment inside the fivefold rhythm of prayer times and studies which threshold the chart is nearest to. It is interested in transitions between darkness, dawn, noon, decline, sunset, and night as temporal qualities rather than juridical categories. Birth near a boundary often indicates a threshold-pattern structure, where timing is defined by passage rather than by stable middle. Birth deep within a prayer window suggests stronger occupation of a settled temporal band.",
+    "interpretation_ar": "تضع هذه الوحدة لحظة الميلاد داخل الإيقاع الخماسي لمواقيت الصلاة، وتدرس أي عتبة زمنية هي الأقرب إليها. وهي تهتم بالانتقال بين الظلمة والفجر والظهيرة والانحدار والغروب والليل بوصفها كيفيات زمنية، لا أحكاماً فقهية. والميلاد القريب من الحدّ يدل غالباً على بنية عتبية، يتحدد فيها الزمن بالعبور أكثر مما يتحدد بالاستقرار في الوسط. أما الميلاد الواقع في عمق نافذة زمنية معينة فيشير إلى شغل أوضح لحزمة زمنية مستقرة."
+  },
+  {
+    "system_id": "chronobiology",
+    "version": "v1.0",
+    "interpretation_en": "This layer reads birth through seasonal and circadian biology, asking what the environment of light, temperature, and clock phase contributes to structure. It does not medicalize the profile; it measures whether timing reflects morningness, eveningness, equinoctial balance, or seasonal asymmetry. Strong chronobiological coherence suggests that the body-time frame reinforces the symbolic timing systems. Weak coherence suggests the biological clock contributes nuance but does not dominate the overall pattern.",
+    "interpretation_ar": "تقرأ هذه الطبقة الميلاد من خلال البيولوجيا الزمنية الموسمية واليومية، لتسأل عمّا يضيفه محيط الضوء والحرارة وطور الساعة إلى البنية. وهي لا تُحوِّل الملف إلى خطاب طبي، بل تقيس هل يعكس التوقيت صباحيةً أو مسائيةً أو اعتدالاً فصلياً أو لا تناظراً موسمياً. فإذا كان الانسجام الكرونobiولوجي قوياً دلّ ذلك على أن إطار الجسد الزمني يعزز أنظمة التوقيت الرمزية الأخرى. وإذا كان أضعف فإنه يضيف دقةً وتفصيلاً، دون أن يهيمن على المشهد الكلي."
+  },
+  {
+    "system_id": "void_matrix",
+    "version": "v1.0",
+    "interpretation_en": "This module studies absence as a structural fact. It tracks missing Lo Shu digits, absent makhraj zones, empty central positions, and other gaps to determine whether the profile is built by concentration, omission, or both together. A rich void pattern means the missing parts are informative and shape the profile by exclusion. A low-void pattern suggests fuller coverage, where the structure is defined more by what is present than by what is withheld.",
+    "interpretation_ar": "تدرس هذه الوحدة الغياب بوصفه حقيقة بنيوية. فهي تتتبع أرقام اللو شو المفقودة، ومناطق المخارج الغائبة، والمواضع المركزية الفارغة، وغيرها من الفجوات لتحدد هل تتشكل البنية بالامتلاء أو بالحذف أو بهما معاً. وإذا كان نمط الفراغات غنياً دلّ ذلك على أن الأجزاء المفقودة ذات دلالة، وأنها تشكل الملف عن طريق الاستبعاد. أما إذا كان الفراغ قليلاً فإن التغطية تكون أتمّ، وتُعرَّف البنية بما هو حاضر أكثر مما تُعرَّف بما حُجب منها."
+  },
+  {
+    "system_id": "barzakh_coefficient",
+    "version": "v1.0",
+    "interpretation_en": "This layer measures the ratio between fixed vectors, such as name and inherited structure, and kinetic vectors, such as cycles, transits, or timing frameworks. It asks how much of the profile is carried by stable inscription and how much by moving phase. A high fixed-to-kinetic ratio indicates stronger dependence on the durable architecture of naming. A lower ratio indicates greater participation of timing layers, where the profile is read more through unfolding than through static imprint.",
+    "interpretation_ar": "تقيس هذه الطبقة النسبة بين المتجهات الثابتة، كالاسم والبنية الموروثة، والمتجهات الحركية، كالدورات والعبورات وأطر التوقيت. وهي تسأل: كم يحمل الملف من أثر النقش الثابت، وكم يحمل من أثر الطور المتحرك؟ وارتفاع نسبة الثابت إلى الحركي يدل على اعتماد أكبر على المعمار الدائم للتسمية. أما انخفاضها فيشير إلى مشاركة أوضح للطبقات الزمنية، بحيث يُقرأ الملف بالانكشاف أكثر مما يُقرأ بالأثر الساكن."
+  },
+  {
+    "system_id": "hermetic_alignment",
+    "version": "v1.0",
+    "interpretation_en": "This module tests the classic hermetic intuition that different planes may reflect the same order. It compares sky-axis signatures with name-axis signatures to see whether the upper frame and the linguistic frame reinforce, contradict, or ignore one another. Strong agreement suggests cross-domain resonance without collapsing one domain into the other. Strong disagreement is equally informative, showing that the profile is structurally plural rather than uniformly echoed.",
+    "interpretation_ar": "تختبر هذه الوحدة الحدس الهرمسي القديم القائل بإمكان انعكاس النظام نفسه في طبقات متعددة. فهي تقارن إشارات المحور السماوي بإشارات محور الاسم لترى هل يعزز الإطار العلوي والإطار اللغوي أحدهما الآخر أم يتعارضان أم يتجاوران دون التقاء. والاتفاق القوي يدل على رنين عابر للمجالات من غير أن يُختزل مجال في الآخر. أما الاختلاف القوي فله دلالته كذلك، إذ يكشف أن البنية تعددية وليست صدىً موحداً بسيطاً."
+  },
+  {
+    "system_id": "execution_pattern_analysis",
+    "version": "v1.0",
+    "interpretation_en": "This layer studies what happens when inward structure crosses into visible action. It looks at compounding factors around the private-to-public threshold: pressure points, release points, timing gates, and whether the system tends to gather before expression or discharge early. Strong compounding near the threshold suggests that execution is not random but bottlenecked through specific crossings. A looser pattern suggests easier translation from internal structure into outer behavior, with fewer concentrated gates.",
+    "interpretation_ar": "تدرس هذه الطبقة ما يحدث عندما تعبر البنية الداخلية إلى الفعل الظاهر. فهي تنظر في العوامل المتراكبة عند عتبة الخاص إلى العام: مواضع الضغط، ونقاط التفريغ، وبوابات التوقيت، وهل يميل النظام إلى التجمع قبل التعبير أم إلى التفريغ المبكر. وإذا كان التراكم قوياً قرب العتبة دلّ ذلك على أن التنفيذ ليس عشوائياً، بل يمر عبر معابر محددة. أما النمط الأرخى فيشير إلى ترجمة أسهل من الباطن إلى الظاهر، مع عدد أقل من البوابات المركزة."
+  },
+  {
+    "system_id": "minimum_viable_signature",
+    "version": "v1.0",
+    "interpretation_en": "This module compresses the profile to its irreducible minimum. It asks which five structural facts survive if most decorative, secondary, or duplicate information is removed. A strong minimum viable signature means the profile remains legible even under severe compression. A weak one means the identity of the profile depends more on the interaction of many layers than on a few dominant anchors.",
+    "interpretation_ar": "تضغط هذه الوحدة الملف إلى حدّه الأدنى غير القابل للاختزال. فهي تسأل: ما الحقائق الخمس التي تبقى إذا حُذف معظم ما هو زخرفي أو ثانوي أو مكرر؟ وإذا كانت البصمة الدنيا قوية دلّ ذلك على أن الملف يظل مقروءاً حتى تحت ضغط شديد من الاختزال. أما إذا كانت أضعف فإن هوية الملف تعتمد أكثر على تفاعل طبقات كثيرة، لا على عدد قليل من المراسي الغالبة."
+  },
+  {
+    "system_id": "kala_sarpa_check",
+    "version": "v1.0",
+    "interpretation_en": "This module checks the Vedic condition known as Kala Sarpa, asking whether all grahas fall within the arc bounded by Rahu and Ketu. It does not treat the pattern as fate-language; it treats it as a containment geometry within the chart. If present, the chart shows strong nodal enclosure, meaning the planetary field is organized inside one karmic corridor. If absent, the distribution is more open, and the nodal axis shapes the chart without fully enclosing it.",
+    "interpretation_ar": "تتحقق هذه الوحدة من الحالة الفيدية المعروفة باسم كالا ساربا، أي هل تقع جميع الكواكب داخل القوس المحصور بين راهو وكيتو. وهي لا تتعامل مع هذا النمط بوصفه لغة قدر، بل بوصفه هندسة احتواء داخل الخريطة. فإذا كان النمط حاضراً دلّ ذلك على إحاطة عقدية قوية، أي إن الحقل الكوكبي ينتظم داخل ممر واحد مهيمن. وإذا غاب، كان التوزيع أكثر انفتاحاً، وظل محور العقدتين مؤثراً من غير أن يطوّق الخريطة كلّها."
+  },
+  {
+    "system_id": "panchamahabhuta",
+    "version": "v1.0",
+    "interpretation_en": "This layer estimates the five great elements in the Vedic frame by reading planetary placements, signs, houses, and supporting correspondences as a composite field. It asks which elements are overrepresented, which are undernourished, and whether the chart leans toward mobility, heat, cohesion, fluidity, or space. A concentrated distribution suggests a more decisive elemental grammar. A broad distribution suggests versatility, with the chart drawing on several elemental registers rather than one dominant substrate.",
+    "interpretation_ar": "تقدّر هذه الطبقة العناصر الخمسة العظمى في الإطار الفيدي من خلال قراءة مواقع الكواكب والبروج والبيوت والمراسلات المساندة بوصفها حقلاً مركباً. وهي تسأل: أي العناصر حاضر بزيادة، وأيها أقل تغذية، وهل تميل الخريطة إلى الحركة أو الحرارة أو التماسك أو السيولة أو الفضاء؟ والتوزيع المركز يشير إلى نحوٍ عنصري أوضح وأحسم. أما التوزيع الواسع فيشير إلى سعة استعمال، حيث تستمد الخريطة مادتها من سجلات عنصرّية متعددة لا من أساس واحد غالب."
+  },
+  {
+    "system_id": "ayurvedic_constitution",
+    "version": "v1.0",
+    "interpretation_en": "This module derives an astrological dosha profile in a classical Ayurvedic style without claiming medical prakriti or diagnosis. It reads whether Vata, Pitta, or Kapha symbolism is structurally emphasized by the chart. A dominant dosha indicates the chart organizes experience through one regulating principle more strongly than the others. A mixed profile suggests that no single constitutional metaphor is sufficient and that the chart must be read through balance and counterweight.",
+    "interpretation_ar": "تستخرج هذه الوحدة صورةً دستورية على طريقة الأيورفيدا من خلال الرموز الفلكية، من غير ادعاء تشخيص طبي أو تقرير لطبيعة بدنية سريرية. وهي تقرأ هل يغلب فاتا أو بيتا أو كافا على مستوى البنية الرمزية. والدوشا الغالب يدل على أن الخريطة تنظم الخبرة عبر مبدأ واحد منظم بدرجة أوضح من غيره. أما الملف المختلط فيشير إلى أن الاستعارة الدستورية الواحدة لا تكفي، وأن القراءة تحتاج إلى ميزان وتوازنٍ مضاد."
+  },
+  {
+    "system_id": "mantra_seed_syllable",
+    "version": "v1.0",
+    "interpretation_en": "This layer identifies the bija syllable linked to the birth nakshatra and pada, treating it as a vibrational key within the Vedic naming and mantra tradition. It is less interested in devotion than in phonetic fit between birth segment and seed sound. A close match suggests that the chart's lunar segment is readily encoded in a compact sonic unit. A more indirect match suggests that the syllable still belongs to the pattern, but acts more as a gateway marker than as a central acoustic signature.",
+    "interpretation_ar": "تحدد هذه الطبقة البذرة الصوتية المرتبطة بالنكشترة وبادتها عند الميلاد، وتعاملها بوصفها مفتاحاً اهتزازياً داخل تقليد التسمية والمانترا الفيدي. وهي لا تنشغل هنا بالتعبد بقدر انشغالها بمدى التوافق الصوتي بين مقطع الميلاد والصوت البذري. فإذا كان التطابق قريباً دلّ ذلك على أن المقطع القمري في الخريطة يُرمَّز بسهولة داخل وحدة صوتية مكثفة. أما إذا كان التوافق غير مباشر فالمقطع لا يخرج من النمط، لكنه يعمل علامة عبور أكثر من كونه بصمة سمعية مركزية."
+  },
+  {
+    "system_id": "vedic_gem_prescription",
+    "version": "v1.0",
+    "interpretation_en": "This module translates ascendant, Moon, and planetary rulership logic into the classical Navaratna gem framework. It is not offering a commercial remedy; it is reading which planetary lights are treated as supportive, neutral, or cautionary within the tradition's hierarchy. When several indicators converge on the same gem family, the chart shows cleaner planetary prioritization. When the assignments split, the tradition itself is signaling a more conditional or context-bound planetary support structure.",
+    "interpretation_ar": "تترجم هذه الوحدة منطق الطالع والقمر والسيادات الكوكبية إلى إطار الجواهر التسع الكلاسيكي. وهي لا تقدم وصفةً تجارية أو علاجية، بل تقرأ أي الأنوار الكوكبية يُعامل على أنه داعم أو محايد أو موضع تحفّظ داخل مراتب هذا التقليد. فإذا اجتمعت المؤشرات على عائلة حجرية واحدة دلّ ذلك على ترتيب أوضح للأولوية الكوكبية في الخريطة. وإذا انقسمت التعيينات كان التقليد نفسه يلمّح إلى أن الدعم الكوكبي هنا مشروط بالسياق، لا مطلقاً في جميع الأحوال."
+  },
+  {
+    "system_id": "bazi_10_year_forecast",
+    "version": "v1.0",
+    "interpretation_en": "This layer reads the current ten-year BaZi luck pillar as an environmental phase wrapped around the natal structure. It evaluates elemental support, control, drain, and transformation relative to the Day Master rather than narrating events. A supportive pillar means the decade resonates with the native elemental economy. A controlling or draining pillar means the decade presses the structure through challenge, discipline, or rebalancing rather than simple reinforcement.",
+    "interpretation_ar": "تقرأ هذه الطبقة عمود الحظ العشري الحالي في البازي بوصفه طوراً بيئياً يلتف حول البنية الولادية. وهي تقيّم الدعم العنصري أو السيطرة أو الاستنزاف أو التحويل بالنسبة إلى سيّد اليوم، بدلاً من سرد الحوادث. فالعمود الداعم يعني أن العقد يرنّ مع الاقتصاد العنصري الأصلي. أما العمود المسيطر أو المستنزِف فيعني أن العقد يضغط البنية عبر التحدي أو التهذيب أو إعادة التوازن، لا عبر التعزيز السهل المباشر."
+  },
+  {
+    "system_id": "zi_wei_deeper",
+    "version": "v1.0",
+    "interpretation_en": "This module extends Zi Wei Dou Shu analysis through the four transformations—Hua Lu, Hua Quan, Hua Ke, and Hua Ji—derived from the birth year stem. It asks where increase, authority, refinement, and obstruction are symbolically lodged in the chart. When the transformations cluster, the chart concentrates its strategic pressures into fewer houses or themes. When they spread widely, the structure is more distributed and cannot be summarized through a single dominant palace narrative.",
+    "interpretation_ar": "توسع هذه الوحدة قراءة الزي وي دو شو عبر التحولات الأربعة: هوا لو، وهوا تشوان، وهوا كه، وهوا جي، المشتقة من جذع سنة الميلاد. وهي تسأل أين يستقرّ رمز الزيادة، والسلطة، والتنقية، والعائق داخل الخريطة. فإذا تكتلت هذه التحولات في مواضع محدودة دلّ ذلك على أن الضغوط الاستراتيجية تتركز في بيوت أو موضوعات أقل عدداً. وإذا توزعت على نطاق واسع صارت البنية أشد انتشاراً، ولا يمكن تلخيصها بحكاية قصر واحد مهيمن."
+  },
+  {
+    "system_id": "four_pillars_balance",
+    "version": "v1.0",
+    "interpretation_en": "This layer measures elemental and polarity balance across the four pillars of year, month, day, and hour. It compares stems and branches to see whether the chart is coherent, overcorrected, under-resourced, or dynamically tense. Strong balance does not mean blandness; it means the elements can transact without one factor swallowing the whole field. Imbalance, when present, gives the chart sharper character by making one process carry disproportionate structural responsibility.",
+    "interpretation_ar": "تقيس هذه الطبقة توازن العناصر والقطبية عبر الأعمدة الأربعة: السنة والشهر واليوم والساعة. فهي تقارن بين الجذوع والفروع لترى هل الخريطة منسجمة، أم مثقلة بتصحيح زائد، أم قليلة الموارد، أم متوترة على نحو دينامي. والتوازن القوي لا يعني الفتور، بل يعني أن العناصر تستطيع التبادل من غير أن يبتلع عامل واحد الحقل كله. أما عدم التوازن، إذا وُجد، فيمنح الخريطة طابعاً أحدّ، إذ يجعل عملية واحدة تتحمل مسؤولية بنيوية تفوق غيرها."
+  },
+  {
+    "system_id": "gematria_word_matches",
+    "version": "v1.0",
+    "interpretation_en": "This module looks for Hebrew gematria correspondences to the full-name value and then reads those matches through the Hod register when the reduction lands on 8. It is interested in structural analogues, not in claiming secret identity with the matched words. Dense correspondence suggests that the number sits inside a broader lexical family of form, intellect, language, or radiance, depending on the matched field. Sparse correspondence suggests a more isolated value, where the number is still valid but less socially embedded in the Hebrew lexical web.",
+    "interpretation_ar": "تبحث هذه الوحدة عن مراسلات جِمَطرية عبرية لقيمة الاسم الكامل، ثم تقرأ تلك المطابقات عبر سجل الهود إذا انتهى الاختزال إلى الثمانية. وهي تهتم بالنظائر البنيوية، لا بادعاء هوية خفية مع الكلمات المطابقة. فإذا كانت المراسلات كثيفة دلّ ذلك على أن العدد يجلس داخل عائلة لفظية أوسع من الصورة أو العقل أو اللغة أو الإشعاع، بحسب مجال المطابقة. وإذا كانت قليلة كان العدد أشد عزلة، فيبقى صحيحاً من حيث البنية لكنه أقل اندماجاً في الشبكة المعجمية العبرية."
+  },
+  {
+    "system_id": "sephirotic_path_analysis",
+    "version": "v1.0",
+    "interpretation_en": "This layer maps core numbers onto the Tree of Life as a meta-symbolic scaffold. It asks which sephirot are repeatedly activated, whether the pattern rises through balance and mediation, or whether it concentrates in force, beauty, intellect, or receptivity. Repeated activation of one zone suggests thematic pressure in that stratum of the symbolic body. A more distributed map suggests that the profile is best read as a pathing problem between spheres rather than as residence in a single sephirah.",
+    "interpretation_ar": "تسقط هذه الطبقة الأعداد الأساسية على شجرة الحياة بوصفها هيكلاً رمزياً فوقياً. وهي تسأل: أي السِّفِيروت يتكرر تنشيطه، وهل يصعد النمط عبر التوازن والوساطة، أم يتركز في القوة أو الجمال أو العقل أو القبول؟ إن التفعيل المتكرر لمنطقة واحدة يدل على ضغط موضوعي في تلك الطبقة من الجسد الرمزي. أما إذا كانت الخريطة موزعة أكثر، فالأجدر قراءتها بوصفها مساراً بين الدوائر، لا إقامةً داخل سفيرة واحدة بعينها."
+  },
+  {
+    "system_id": "solomonic_correspondences",
+    "version": "v1.0",
+    "interpretation_en": "This module reads the ruling planets through the Solomonic chain of angels, intelligences, and spirits as preserved in ceremonial correspondential systems. It does not literalize entities; it tracks the traditional ecosystem attached to planetary governance. When one planet clearly dominates, the Solomonic field becomes more coherent and easier to summarize. When rulership is divided, the correspondential field becomes composite, and no single planetary household is sufficient to represent the whole pattern.",
+    "interpretation_ar": "تقرأ هذه الوحدة الكواكب الحاكمة عبر السلسلة السليمانية من الملائكة والعقول والأرواح كما حُفظت في أنظمة المراسلات الطقسية. وهي لا تحوّل الكيانات إلى تقرير حرفي، بل تتتبع البيئة التقليدية المرتبطة بحوكمة الكواكب. فإذا غلب كوكب واحد بوضوح صار الحقل السليماني أكثر تماسكاً وأسهل تلخيصاً. أما إذا انقسمت الحاكميات، أصبح الحقل التركيبي مركباً، ولم تعد أسرة كوكبية واحدة كافية لتمثيل النمط كله."
+  },
+  {
+    "system_id": "african_day_name_extended",
+    "version": "v1.0",
+    "interpretation_en": "This layer extends weekday naming across several African traditions, comparing how the same birth day is personified, socialized, or typologized in different naming cultures. It asks whether the weekday carries a stable character across traditions or whether each tradition frames the day differently. Strong agreement suggests that the weekday behaves like a portable archetypal carrier. Strong divergence suggests that weekday identity is real but culturally refracted, and should be read through multiple lenses rather than a single ethnic template.",
+    "interpretation_ar": "توسع هذه الطبقة تقاليد التسمية بأيام الأسبوع عبر عدة تقاليد إفريقية، وتقارن كيف يُشخَّص يوم الميلاد نفسه أو يُؤنسن أو يُنمذج في ثقافات تسمية مختلفة. وهي تسأل: هل يحمل اليوم طابعاً ثابتاً عبر التقاليد، أم إن كل تقليد يعيد صياغته على نحو مختلف؟ والاتفاق القوي يدل على أن يوم الأسبوع يعمل حاملاً نمطياً قابلاً للانتقال بين البيئات. أما الاختلاف القوي فيعني أن هوية اليوم حقيقية، لكنها منكّسة بالثقافة، فلا تُقرأ بعدسة إثنية واحدة فقط."
+  },
+  {
+    "system_id": "enneagram_deeper",
+    "version": "v1.0",
+    "interpretation_en": "This module deepens the Enneagram frame by adding wings, lines of growth and stress, instinctual emphasis, tritype, and harmonic style. It treats the result as a structural language of regulation and defense rather than a fixed personality slogan. A clear subtype stack produces a sharper internal economy, showing how attention, threat, and compensation are organized. A mixed or ambiguous stack suggests that the profile cannot be reduced to one enneatype story without losing important secondary mechanics.",
+    "interpretation_ar": "تعمّق هذه الوحدة إطار الإنياغرام بإضافة الأجنحة، وخطوط النمو والضغط، وغلبة الغرائز، والترايتيب، والأسلوب التناغمي. وهي تتعامل مع النتيجة بوصفها لغة بنيوية للتنظيم والدفاع، لا شعاراً نفسياً جامداً. فإذا كان ترتيب الأنماط الفرعية واضحاً ظهرت اقتصاديات داخلية أشد تحديداً، تكشف كيف ينتظم الانتباه والتهديد والتعويض. أما إذا كان الترتيب مختلطاً أو ملتبساً فإن الملف لا يُختزل في قصة نمط واحد من غير أن تضيع آليات ثانوية مهمة."
+  },
+  {
+    "system_id": "hermetic_element_balance",
+    "version": "v1.0",
+    "interpretation_en": "This layer aggregates elemental evidence from Western and Hermetic sources—astrology, temperament, correspondences, and symbolic rulerships—into a four-element field. It asks whether fire, earth, air, or water persistently outruns the others across systems. A clear dominant element indicates cross-source reinforcement and a cleaner symbolic metabolism. A contested field means the profile is built from tension between element-languages rather than from a single settled elemental identity.",
+    "interpretation_ar": "تجمع هذه الطبقة الشواهد العنصرية من المصادر الغربية والهرمسية — من الفلك والمزاج والمراسلات والحاكميات الرمزية — داخل حقل رباعي العناصر. وهي تسأل: هل تتفوق النار أو الأرض أو الهواء أو الماء على غيرها باستمرار عبر الأنظمة؟ فالعنصر الغالب بوضوح يدل على تعزيز متبادل بين المصادر وعلى أيض رمزي أكثر صفاء. أما الحقل المتنازع عليه فيعني أن الملف مبني على توتر بين لغات العناصر، لا على هوية عنصرّية واحدة مستقرة."
+  },
+  {
+    "system_id": "circadian_medicine",
+    "version": "v1.0",
+    "interpretation_en": "This module places the birth hour inside the traditional Chinese organ clock and compares it with broader chronotype classification. It is not making a medical claim; it is reading how the hour is symbolically seated within cycles of activation, restoration, and transfer. When the TCM hour and the chronotype logic agree, the timing signal becomes more coherent. When they diverge, the birth hour is still meaningful, but it must be read as a layered rather than singular temporal marker.",
+    "interpretation_ar": "تضع هذه الوحدة ساعة الميلاد داخل ساعة الأعضاء في الطب الصيني التقليدي، ثم تقارنها بتصنيف النمط الزمني الأوسع. وهي لا تقدم دعوى طبية، بل تقرأ كيف تستقر الساعة رمزياً داخل دورات التنشيط والاستعادة والنقل. فإذا اتفقت ساعة الأعضاء مع منطق النمط الزمني صار الإيقاع أوضح وأكثر تماسكاً. وإذا اختلفا بقيت ساعة الميلاد ذات معنى، لكن ينبغي قراءتها علامةً زمنية طبقية لا مؤشراً واحداً بسيطاً."
+  },
+  {
+    "system_id": "seasonal_psychology",
+    "version": "v1.0",
+    "interpretation_en": "This layer reviews research-based birth-season correlations and asks whether the profile's season contributes any modest background weighting. It keeps the claim intentionally narrow: seasonal effects, where present, are population-level tendencies and not identity verdicts. A season that echoes other timing layers adds environmental reinforcement at low intensity. A season that does not echo them is still valid as chronology, but it should not be over-read beyond its statistical subtlety.",
+    "interpretation_ar": "تراجع هذه الطبقة الارتباطات البحثية المتعلقة بموسم الميلاد، وتسأل هل يضيف الفصل وزناً خلفياً متواضعاً إلى الملف. وهي تُبقي الدعوى هنا ضيقة عمداً: فآثار المواسم، إن وُجدت، هي ميول سكانية عامة لا أحكام هوية قاطعة. فإذا وافق الفصل طبقات التوقيت الأخرى أضاف تعزيزاً بيئياً خفيفاً. وإذا لم يوافقها فهو يبقى صحيحاً من حيث التسلسل الزمني، لكن لا ينبغي تحميله أكثر مما تسمح به دقته الإحصائية المحدودة."
+  },
+  {
+    "system_id": "element_consensus",
+    "version": "v1.0",
+    "interpretation_en": "This module compares element outputs across multiple independent traditions and asks whether the profile is being named in the same elemental language from different civilizational directions. It distinguishes consensus, plurality, and dissent rather than forcing one system to absorb the others. Strong consensus means several traditions converge on a shared material metaphor. Weak consensus with structured dissent means the profile is not elementless; it is being seen through different elemental abstractions that each capture a real part of the whole.",
+    "interpretation_ar": "تقارن هذه الوحدة مخرجات العناصر عبر تقاليد مستقلة متعددة، وتسأل هل يُسمّى الملف باللغة العنصرية نفسها من جهات حضارية مختلفة. وهي تميّز بين الإجماع والتعدد والاختلاف، ولا تُكره نظاماً واحداً على ابتلاع سائر الأنظمة. فإذا كان الإجماع قوياً دلّ ذلك على أن عدة تقاليد تتقارب على استعارة مادية مشتركة. وإذا كان الإجماع أضعف مع اختلاف منظم، فالمعنى ليس غياب العنصر، بل إن الملف يُرى عبر تجريدات عنصرّية متعددة يلتقط كل واحد منها جزءاً حقيقياً من الكل."
+  },
+  {
+    "system_id": "timing_consensus",
+    "version": "v1.0",
+    "interpretation_en": "This layer compares active timing systems to ask whether the present phase is jointly read as expansive, contractive, inward, outward, supported, or tested. It does not require identical vocabularies; it looks for directional agreement beneath different symbolic languages. Strong consensus suggests that multiple clocks are pointing in the same qualitative direction. Split consensus suggests a mixed phase, where one layer may open while another compresses, making timing intelligible only as a compound condition.",
+    "interpretation_ar": "تقارن هذه الطبقة بين أنظمة التوقيت الفاعلة لتسأل هل يُقرأ الطور الحاضر على نحو مشترك بوصفه توسعاً أو انقباضاً أو توجهاً إلى الداخل أو إلى الخارج أو دعماً أو اختباراً. وهي لا تشترط تماثل الألفاظ، بل تبحث عن الاتفاق الاتجاهي تحت لغات رمزية مختلفة. فإذا كان الإجماع قوياً دلّ ذلك على أن ساعات متعددة تشير إلى الوجهة النوعية نفسها. أما إذا انقسم الإجماع فذلك يعني طوراً مركباً، قد تنفتح فيه طبقة بينما تنضغط أخرى، فلا يُفهم الزمن إلا بصفته حالةً مؤلفة."
+  },
+  {
+    "system_id": "planetary_ruler_consensus",
+    "version": "v1.0",
+    "interpretation_en": "This module asks whether multiple traditions independently nominate the same planet as ruler, governor, dispositor, or symbolic center. Agreement across systems strengthens confidence that one planetary logic is structurally load-bearing. Disagreement does not cancel meaning; it reveals that different traditions are indexing different layers of rulership—identity, timing, mind, body, or fate-framework. The result therefore measures not only dominance but also the architecture of how dominance is assigned.",
+    "interpretation_ar": "تسأل هذه الوحدة هل ترشّح تقاليد متعددة الكوكب نفسه بوصفه حاكماً أو مدبّراً أو صاحب تصريف أو مركزاً رمزياً. والاتفاق عبر الأنظمة يقوّي الثقة بأن منطقاً كوكبياً بعينه يحمل حملاً بنيوياً فعلياً. أما الاختلاف فلا يُبطل المعنى، بل يكشف أن كل تقليد يفهرس طبقة مختلفة من الحاكمية: الهوية، أو التوقيت، أو الذهن، أو الجسد، أو إطار المصير الرمزي. ومن ثمّ فالنتيجة لا تقيس الغلبة فقط، بل تقيس معمار توزيع الغلبة نفسها."
+  },
+  {
+    "system_id": "archetype_consensus",
+    "version": "v1.0",
+    "interpretation_en": "This layer compares independent archetype systems—mythic, typological, psychological, and symbolic—to see whether they keep returning to the same pattern family. It cares less about label identity than about structural recurrence: mediator, builder, challenger, witness, ruler, seeker, and so on. Strong archetypal convergence suggests that the profile presents a stable form across different symbolic grammars. Weak convergence suggests that the profile is multidimensional and cannot be captured by a single archetype without flattening important tensions.",
+    "interpretation_ar": "تقارن هذه الطبقة بين أنظمة نمطية مستقلة — أسطورية، وتصنيفية، ونفسية، ورمزية — لترى هل تعود باستمرار إلى العائلة النمطية نفسها. وهي لا تهتم بتطابق الملصقات بقدر اهتمامها بتكرار البنية: الوسيط، والباني، والمجابه، والشاهد، والحاكم، والساعي، ونحو ذلك. فإذا كان التقارب النمطي قوياً دلّ ذلك على أن الملف يعرض شكلاً مستقراً عبر قواعد رمزية مختلفة. وإذا كان أضعف فإن الملف متعدد الأبعاد، ولا يُقبض عليه بنمط واحد من غير تسطيح لتوتراته المهمة."
+  },
+  {
+    "system_id": "arabic_letter_nature",
+    "version": "v1.0",
+    "interpretation_en": "This module reads the Arabic name letter by letter through al-Buni's classifications of element, planet, sign, and temperament. It asks whether the name's internal composition leans toward one elemental climate, one planetary family, or one humoral quality more than the others. Strong repetition across letters suggests that the name is internally self-confirming within the hurufi worldview. A mixed pattern suggests that the name is composed from several natures at once, making synthesis depend on proportion rather than on a single dominant essence.",
+    "interpretation_ar": "تقرأ هذه الوحدة الاسم العربي حرفاً حرفاً من خلال تصنيفات البوني للعناصر والكواكب والبروج والطبائع. وهي تسأل هل يميل التركيب الداخلي للاسم إلى مناخ عنصري واحد، أو إلى أسرة كوكبية واحدة، أو إلى كيفية مزاجية تتكرر أكثر من غيرها. وإذا تكرر الوصف نفسه عبر الحروف دلّ ذلك على أن الاسم يؤكد نفسه داخلياً داخل الرؤية الحروفية. أما إذا كان النمط مختلطاً فإن الاسم مؤلف من طبائع متعددة في آنٍ واحد، ويعتمد تركيبه على النِّسَب لا على جوهر واحد مهيمن."
+  }
+]

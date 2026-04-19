@@ -1,0 +1,9 @@
+[
+  {"antagonist":"آزر",     "final":1, "prophet":"إبراهيم", "prophet_final":7, "mismatch":true},
+  {"antagonist":"هامان",   "final":7, "prophet":"موسى",    "prophet_final":8, "mismatch":true},
+  {"antagonist":"السامري", "final":9, "prophet":"موسى",    "prophet_final":8, "mismatch":true},
+  {"antagonist":"قارون",   "final":6, "prophet":"موسى",    "prophet_final":8, "mismatch":true},
+  {"antagonist":"فرعون",   "final":1, "prophet":"موسى",    "prophet_final":8, "mismatch":true},
+  {"antagonist":"أبو لهب", "final":1, "prophet":"محمد",    "prophet_final":2, "mismatch":true},
+  {"antagonist":"إبليس",   "final":4, "prophet":"chain",   "prophet_final":null}
+]

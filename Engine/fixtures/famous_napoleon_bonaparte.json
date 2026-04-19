@@ -1,0 +1,12 @@
+{
+  "subject": "NAPOLEON BONAPARTE",
+  "arabic": "نابوليون بونابارت",
+  "variant": "passport_legal",
+  "note": "French military commander and emperor. DOB confirmed. Birth time unknown — time-dependent modules will return NEEDS_INPUT.",
+  "dob": "1769-08-15",
+  "today": "2026-03-09",
+  "birth_time_local": null,
+  "timezone": "Europe/Paris",
+  "location": "Ajaccio, France",
+  "gender": "male"
+}

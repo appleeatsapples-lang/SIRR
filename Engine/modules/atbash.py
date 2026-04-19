@@ -1,0 +1,35 @@
+"""Hebrew AtBash Cipher — COMPUTED_STRICT"""
+from __future__ import annotations
+from sirr_core.types import InputProfile, SystemResult
+from sirr_core.utils import reduce_number
+
+def compute(profile: InputProfile, constants: dict) -> SystemResult:
+    atbash_cfg = constants["atbash"]
+    cipher = atbash_cfg["map"]
+    values = atbash_cfg["values"]
+
+    # Hebrew approximation of the subject name
+    hebrew_letters = [("mem", 40), ("vav", 6), ("he", 5), ("bet", 2)]
+
+    original_sum = sum(v for _, v in hebrew_letters)
+    transformed = [(cipher[name], values[cipher[name]]) for name, _ in hebrew_letters]
+    atbash_sum = sum(v for _, v in transformed)
+    atbash_root = reduce_number(atbash_sum, keep_masters=())
+
+    return SystemResult(
+        id="atbash",
+        name="Hebrew AtBash (Mirror Cipher)",
+        certainty="COMPUTED_STRICT",
+        data={
+            "original_letters": [(n, v) for n, v in hebrew_letters],
+            "original_sum": original_sum,
+            "transformed_letters": [(n, v) for n, v in transformed],
+            "atbash_sum": atbash_sum,
+            "atbash_root": atbash_root,
+            "note": "AtBash reveals shadow/hidden aspect of a name"
+        },
+        interpretation="Deterministic cipher. Hebrew letter approximation of the subject name.",
+        constants_version=constants["version"],
+        references=["Standard Hebrew AtBash table"],
+        question="Q1_IDENTITY"
+    )

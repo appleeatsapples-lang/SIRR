@@ -1,0 +1,32 @@
+[
+  {
+    "system_id": "nayin",
+    "version": "v1.0",
+    "interpretation_en": "Your NaYin is {nayin_name}, carrying the melodic element {nayin_element}. NaYin derives a named elemental tone from the sexagenary pillar, treating the pillar as a patterned sound-image rather than only a stem-and-branch label. This module reads that melodic element on its own terms, without comparing it to other Chinese, calendrical, or elemental modules.",
+    "interpretation_ar": "النايين لديك هو {nayin_name}، ويحمل العنصر اللحني {nayin_element}. يستخرج النايين نغمة عنصرية مسماة من العمود الستيني، فيعامل العمود كصورة صوتية منظمة لا كمجرد ساق وفرع. تقرأ هذه الوحدة ذلك العنصر اللحني بشروطه الخاصة، من غير مقارنته بوحدات صينية أو تقويمية أو عنصرية أخرى."
+  },
+  {
+    "system_id": "iching",
+    "version": "v1.1",
+    "interpretation_en": "Hexagram 33 — Retreat (遯) shows strength expressed through strategic withdrawal rather than confrontation. Heaven above Mountain reflects controlled restraint, aligning with your Yin Water Day Master's adaptive intelligence. The structure protects long-term positioning, yet it risks missed engagement if overused.",
+    "interpretation_ar": "السداسية 33 — الانسحاب (遯) تُظهر قوة تُعبّر عبر تراجع استراتيجي لا مواجهة مباشرة. السماء فوق الجبل تعكس ضبطًا مقصودًا، متماشيًا مع ذكاء سيد اليوم ماء يِن التكيّفي. البنية تحمي الموقع البعيد المدى، لكنها قد تفوّت فرصًا إن أُفرط في استخدامها."
+  },
+  {
+    "system_id": "chinese_zodiac",
+    "version": "v1.0",
+    "interpretation_en": "As a Yang Fire Rat (丙子), initiative overlays calculation, placing you in the Doers trine (Rat, Dragon, Monkey). This Fire stem drives visible action and social projection, yet your Water Day Master creates an internal counter-current requiring calibration between public drive and private processing.",
+    "interpretation_ar": "كونك فأر نار يانغ (丙子) يضيف المبادرة فوق الحساب، ضمن ثلاثية الفاعلين (فأر، تنين، قرد). جذع النار يدفع نحو الفعل الظاهر والإسقاط الاجتماعي، لكن سيد اليوم المائي يخلق تيارًا داخليًا معاكسًا يتطلب موازنة بين الدفع العلني والمعالجة الخاصة."
+  },
+  {
+    "system_id": "nine_star_ki",
+    "version": "v1.0",
+    "interpretation_en": "Nine Star Ki 4.7 — Year 4 Wood (Xun/Wind) over Month 7 Metal (Dui/Lake) creates Wood-Metal tension between growth and precision. This mirrors your Life Path 3 creativity versus Personality 7 analytical restraint. The structure generates productivity through friction, yet it requires deliberate balance to prevent cutting growth short.",
+    "interpretation_ar": "النجوم التسعة 4.7 — سنة 4 خشب (شون/ريح) فوق شهر 7 معدن (دوي/بحيرة) يخلق توتر خشب-معدن بين النمو والدقة. هذا يعكس ديناميكية مسار الحياة 3 الإبداعي مقابل شخصية 8 المنضبطة. البنية تولّد إنتاجية عبر الاحتكاك، لكنها تحتاج توازنًا واعيًا لمنع قطع النمو قبل أوانه."
+  },
+  {
+    "system_id": "bazi_pillars",
+    "version": "v1.0",
+    "interpretation_en": "Your BaZi chart shows Fire in Year, Month, and Hour pillars surrounding a Gui Yin Water Day Master. This Fire-Water configuration produces transformation through pressure — steam as metaphor for output. The structure enables high productivity under demand, yet unmanaged heat can exhaust the Water core.",
+    "interpretation_ar": "مخطط بازي يُظهر نارًا في أعمدة السنة والشهر والساعة تحيط بسيد اليوم غوي ماء يِن. هذا التكوين نار-ماء يُنتج تحولًا عبر الضغط — البخار كاستعارة للإنتاج. البنية تمكّن إنتاجية عالية تحت الطلب، لكن الحرارة غير المنضبطة قد تُرهق جوهر الماء."
+  }
+]

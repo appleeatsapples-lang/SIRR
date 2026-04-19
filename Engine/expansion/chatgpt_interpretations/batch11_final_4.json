@@ -1,0 +1,26 @@
+[
+  {
+    "system_id": "abjad_maghribi",
+    "version": "v2.0",
+    "interpretation_en": "Your Abjad Maghribi total is {total}, reducing to root {root}. This Western-Arab abjad variant changes the value assignments for selected letters, so it reads the same Arabic name through a regional value table rather than a different identity claim. The result should be understood as the Maghribi register of the name: a method-specific numeric mirror, not an amplification of any prior root.",
+    "interpretation_ar": "مجموع الأبجد المغربي للاسم هو {total}، وينخفض إلى الجذر {root}. يغيّر هذا الفرع المغربي من الأبجد قيم بعض الحروف المختارة، فيقرأ الاسم العربي نفسه عبر جدول قيمي إقليمي لا عبر دعوى هوية مختلفة. لذلك تُفهم النتيجة بوصفها السجل المغربي للاسم: مرآة رقمية خاصة بالطريقة، لا تضخيمًا لأي جذر سابق."
+  },
+  {
+    "system_id": "bazi_daymaster",
+    "version": "v2.0",
+    "interpretation_en": "A STRONG Gui (癸) Yin Water Day Master means your core operates like a precise, adaptive current: quiet on the surface, but relentless in penetration, analysis, and timing. Even with more drains (4) than supports (3), the Metal month (Rooster) seasonally produces Water, so the environment \"feeds\" the Day Master and tips the classification to STRONG—context beats raw counts. This mirrors your SIRR pattern: a Water core (Gui) navigating a Fire-heavy letter field; your advantage is control of flow—cooling, steering, and refining intensity into usable output rather than letting it flare uncontrollably.",
+    "interpretation_ar": "كونك «癸» ماء يِن (Gui) قويًّا يعني أن جوهرك يعمل كتيار دقيق ومتكيّف: هادئ ظاهريًا لكنه نافذ ومثابر في التحليل والتوقيت والالتقاط. رغم أن عوامل الاستنزاف (4) أكثر من عوامل الدعم (3)، إلا أن ولادتك في شهر المعدن (الديك) تمنح الماء تغذية موسمية مباشرة لأن المعدن يُنتِج الماء، لذا يحسم السياق لصالح القوة وليس العدّ المجرد. وهذا يوازي نمط SIRR لديك: نواة مائية تواجه حقلًا حرفيًا يغلب عليه عنصر النار؛ ميزتك هي توجيه التدفق وتهذيب الشدة وتحويلها إلى نتائج بدل أن تتحول إلى اندفاع مشتعل."
+  },
+  {
+    "system_id": "bazi_luck_pillars",
+    "version": "v2.0",
+    "interpretation_en": "Your current 25–34 Luck Pillar is 庚子 (Geng-Zi), Metal over Water (Rat): it reinforces the natal Gui Water by adding Metal as a producer while giving Water a clear channel—this is a decade of skill-sharpening, systems thinking, and scaling through technique rather than brute force. At age 29 you're near the midpoint, so the theme is \"compound gains\": what you standardize and instrument now becomes a multiplier, matching the Life Path 3 / Expression 11 pattern of communicating complex structures with clarity and impact. The shift at 35 to 辛丑 (Metal-Earth Ox) brings more Earth: less roaming exploration, more grounding—turning the refined toolkit into durable assets, routines, and authority.",
+    "interpretation_ar": "عمود الحظ الحالي (25–34) هو 庚子 «قنغ-تسي» (معدن فوق ماء/فأر): يعزّز ماءك الأصلي (Gui) لأن المعدن يُنتج الماء ويمنحه قناة واضحة، فتغدو هذه المرحلة عقد «تطوير مهارة وبناء منظومات» عبر التقنية والضبط لا عبر القوة الخام. في عمر 29 أنت قريب من منتصف الدورة، لذا تظهر ثيمة «التراكم المركّب»: كل ما توثّقه وتقيّسه وتحوّله إلى نظام الآن يصبح مضاعِفًا لاحقًا، وهذا ينسجم مع مسار الحياة 3 والتعبير 11 في ترجمة التعقيد إلى وضوح وتأثير. وعند 35 مع 辛丑 (معدن-تراب/ثور) يدخل التراب بقوة: تقلّ الحركة التوسعية ويزيد التثبيت—تحويل الأدوات المصقولة إلى أصول ثابتة وعادات وسلطة مهنية."
+  },
+  {
+    "system_id": "mandaean_gematria",
+    "version": "v2.0",
+    "interpretation_en": "This module gives an Arabic-to-Mandaean cognate sum of {total}, reducing to root {root}. It applies Mandaean letter values to the Arabic name through a cognate mapping, so the result belongs to SIRR's modern synthesis layer rather than to native Mandaic numerology. Any matching value produced by this mapping is structural by design, not independent cross-tradition convergence.",
+    "interpretation_ar": "تعطي هذه الوحدة مجموعًا عربيًا-مندائيًا عبر المطابقة القريبة بين الحروف مقداره {total}، وينخفض إلى الجذر {root}. وهي تطبق قيمًا حرفية مندائية على الاسم العربي عبر خريطة مناظرة، لذلك تنتمي النتيجة إلى طبقة التركيب الحديث في SIRR لا إلى الحساب العددي المندائي الأصيل. وأي تطابق يظهر من هذه الخريطة هو تطابق بنيوي بحكم التصميم، لا تقاربًا مستقلًا بين تقاليد مختلفة."
+  }
+]

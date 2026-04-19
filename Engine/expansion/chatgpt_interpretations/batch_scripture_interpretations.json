@@ -1,0 +1,26 @@
+[
+  {
+    "system_id": "quranic_figures",
+    "version": "v1.0",
+    "interpretation_en": "This layer compares the subject's profile with the numeric signatures of named Quranic figures, not to collapse the person into a single figure, but to identify structural parallels. When a resonance appears, it suggests that a similar pattern of emphasis is being expressed through the subject's name and numbers. The value of the match is descriptive rather than devotional or predictive: it highlights formal likeness, not identity. Read this as a symbolic correspondence within a sacred naming corpus, not as a claim of destiny.",
+    "interpretation_ar": "تقارن هذه الطبقة ملفّ الشخص بالبصمات العددية للشخصيات القرآنية المسمّاة، لا من أجل اختزال الشخص في شخصية واحدة، بل من أجل رصد التوازي البنيوي. وعندما يظهر توافق ما، فإنه يشير إلى أن نمطًا متشابهًا من التركيز يتجلّى عبر الاسم والأعداد الخاصة بالموضوع. وقيمة هذا التطابق وصفية لا نبوئية ولا تعبدية؛ فهو يبرز مشابهة في البنية لا هوية في المقام. لذا تُقرأ هذه النتيجة بوصفها مراسلة رمزية داخل مدوّنة الأسماء المقدسة، لا بوصفها حكمًا على المصير."
+  },
+  {
+    "system_id": "torah_figures",
+    "version": "v1.0",
+    "interpretation_en": "This layer places the subject beside the gematria values of Tanakh figures and looks for recurring numeric likeness across the profile. A match here indicates a shared structural pattern within the language of Hebrew number symbolism, not a biographical or theological equivalence. Some parallels may feel immediate, others more subtle; both matter because they show where form repeats across distinct identities. The result is best understood as a comparative symbolic echo within a long textual tradition.",
+    "interpretation_ar": "تضع هذه الطبقة الشخص إزاء القيم الجِمَطْرِيّة لشخصيات التناخ، وتبحث عن التشابهات العددية المتكرّرة عبر الملفّ. ووجود تطابق هنا يدلّ على نمط بنيوي مشترك داخل لغة الرمزية العددية العبرية، لا على مساواة سِيَرية أو لاهوتية. وقد تكون بعض الموازيات مباشرة، وقد يكون بعضها أدقّ وأخفى؛ وكلاهما مهم لأنه يكشف مواضع تكرار البنية عبر هويات مختلفة. وأفضل ما تُفهم به النتيجة أنها صدى رمزي مقارن داخل تقليد نصّي عريق."
+  },
+  {
+    "system_id": "nt_figures",
+    "version": "v1.0",
+    "interpretation_en": "This layer compares the subject's profile with the isopsephic values of named New Testament figures and notes where numeric form overlaps. The overlap does not imply spiritual succession or personal resemblance in character; it indicates that different names can carry a similar structural imprint within Greek letter-number logic. What matters is the recurrence of pattern across unrelated persons. In that sense, this module reads shared form rather than shared fate.",
+    "interpretation_ar": "تقارن هذه الطبقة ملفّ الشخص بالقيم الإيسوبسيفية لشخصيات العهد الجديد المسمّاة، وترصد المواضع التي تتقاطع فيها البنية العددية. وهذا التقاطع لا يعني وراثة روحية ولا مشابهة شخصية في الطبع، بل يدلّ على أن أسماء مختلفة قد تحمل طابعًا بنيويًا متقاربًا داخل منطق الحروف والأعداد اليوناني. والمهم هنا هو عودة النمط نفسه عبر أشخاص لا رابط مباشر بينهم. ومن هذه الجهة، تقرأ هذه الوحدة اشتراكًا في الصورة لا اشتراكًا في المصير."
+  },
+  {
+    "system_id": "cross_scripture",
+    "version": "v1.0",
+    "interpretation_en": "This layer looks for figures whose numeric signatures meet across Quranic abjad, Hebrew gematria, and Greek isopsephy, making it a map of intersection rather than a reading from one scripture alone. When the same structural value appears across these scriptural languages, the result suggests a pattern that persists through multiple symbolic systems. That persistence does not erase the differences between traditions; it shows that certain formal relationships can survive translation across them. The significance here is comparative breadth: one pattern witnessed in more than one sacred numeric vocabulary.",
+    "interpretation_ar": "تبحث هذه الطبقة عن شخصيات تتلاقى بصماتها العددية عبر الأبجدية القرآنية والجِمَطْرِيّة العبرية والإيسوبسيفية اليونانية، مما يجعلها خريطة تقاطع لا قراءة من كتاب واحد فحسب. وعندما تظهر القيمة البنيوية ذاتها عبر هذه اللغات الكتابية، فإن النتيجة تشير إلى نمط يصمد عبر أنظمة رمزية متعددة. وهذا الصمود لا يمحو الفوارق بين التقاليد، بل يُظهر أن علاقات شكلية بعينها تستطيع اجتياز الترجمة بين تلك التقاليد. والأهمية هنا في اتساع المقارنة: نمط واحد يُشهد عليه في أكثر من قاموس عددي مقدس."
+  }
+]

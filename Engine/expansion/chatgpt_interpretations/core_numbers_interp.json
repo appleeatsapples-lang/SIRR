@@ -1,0 +1,32 @@
+[
+  {
+    "system_id": "life_path",
+    "version": "v1.0",
+    "interpretation_en": "Your Life Path is 3, which structures your behavior around expression, pattern recognition, and verbal synthesis; you tend to externalize thought through speech and systems rather than holding it internally. This 3 pattern supports creativity and adaptive communication, yet it also shows a structural risk of diffusion—scattering focus across multiple channels instead of consolidating output into one disciplined stream.",
+    "interpretation_ar": "رقم مسار حياتك هو 3، وهذا يهيكل سلوكك حول التعبير، واكتشاف الأنماط، والتركيب اللفظي؛ تميل إلى إخراج الفكرة عبر الكلام والأنظمة بدل احتجازها داخليًا. هذا النمط 3 يدعم الإبداع والتواصل المتكيف، لكنه يكشف أيضًا عن قابلية للتشتت—توزيع الجهد على قنوات متعددة بدل تركيزه في مسار منضبط واحد."
+  },
+  {
+    "system_id": "expression",
+    "version": "v1.0",
+    "interpretation_en": "Your Expression number is 11, a master structure that amplifies perception and sensitivity to symbolic frameworks; you are wired to detect layered meaning and build integrative models. This 11 pattern increases intuitive insight and visionary architecture, yet it structurally heightens nervous tension and overextension when your standards exceed your execution bandwidth.",
+    "interpretation_ar": "رقم التعبير لديك هو 11، وهو بنية رئيسية تضخم الإدراك والحساسية تجاه الأطر الرمزية؛ أنت مهيأ لاكتشاف المعاني متعددة الطبقات وبناء نماذج تكاملية. هذا النمط 11 يعزز الحدس وبناء الرؤية، لكنه يرفع أيضًا مستوى التوتر العصبي وإجهاد المعايير عندما تتجاوز توقعاتك قدرتك التنفيذية."
+  },
+  {
+    "system_id": "soul_urge",
+    "version": "v1.0",
+    "interpretation_en": "Your Soul Urge is 4, indicating an internal motivational structure driven by security, order, and systematic foundation-building; fulfillment emerges when you can construct reliable frameworks beneath creative output. This inner 4 supports disciplined persistence and methodical depth, yet it also reveals rigidity patterns when spontaneous adaptation feels threatening to established structures.",
+    "interpretation_ar": "دافع الروح لديك هو 4، ما يشير إلى بنية داخلية مدفوعة بالأمان، والنظام، وبناء أساسات منهجية؛ يتحقق الإشباع عندما تبني أُطراً موثوقة تحت الإخراج الإبداعي. هذا الـ4 الداخلي يدعم المثابرة المنضبطة والعمق المنهجي، لكنه يكشف أيضًا عن نمط جمود عندما يبدو التكيف العفوي تهديداً للهياكل القائمة."
+  },
+  {
+    "system_id": "personality",
+    "version": "v1.0",
+    "interpretation_en": "Your Personality number is 7, structuring your external presence around analytical depth, observation, and intellectual reserve; others register you as perceptive and internally driven. This 7 pattern supports investigative rigor and quality-focused output, yet it can produce social withdrawal or overthinking when trust-building is structurally deferred.",
+    "interpretation_ar": "رقم الشخصية لديك هو 7، ما يهيكل حضورك الخارجي حول العمق التحليلي، والملاحظة، والتحفظ الفكري؛ يراك الآخرون كشخص ثاقب البصيرة ومدفوع داخلياً. هذا النمط 7 يدعم الدقة البحثية والإخراج المركّز على الجودة، لكنه قد يولد انسحاباً اجتماعياً أو إفراطاً في التفكير عندما يتأخر بناء الثقة هيكلياً."
+  },
+  {
+    "system_id": "birthday_number",
+    "version": "v1.0",
+    "interpretation_en": "You were born on the 23rd, which reduces to 5, embedding adaptability, mobility, and rapid cognitive switching into your operational pattern. This 5 structure enhances versatility and situational intelligence, yet it introduces restlessness cycles where stability feels restrictive unless consciously engineered.",
+    "interpretation_ar": "ولدت في يوم 23، والذي يُختزل إلى 5، ما يدمج القابلية للتكيف، والحركة، والتحول المعرفي السريع في نمطك التشغيلي. هذا الهيكل 5 يعزز المرونة والذكاء الظرفي، لكنه يُدخل دورات من القلق أو الضجر حيث تبدو الثباتات مقيدة ما لم يتم تصميمها بوعي."
+  }
+]

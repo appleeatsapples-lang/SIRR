@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ET1",
+    "name": "Expanded master 11 cluster",
+    "description": "Maryam and Jibril join the prophet triad (Sulayman, Yahya, Muhammad) via 11→2 chain",
+    "strength": "LOW",
+    "tags": ["CATEGORY_EXPANSION_METADATA"]
+  },
+  {
+    "id": "ET2",
+    "name": "Adam final = 9 = Liu Zhi's nine grades",
+    "description": "Adam's digital root 9 echoes Liu Zhi's nine grades of being in Chinese Islamic philosophy",
+    "strength": "LOW",
+    "tags": ["EXTENDED_TRADITION_METADATA"]
+  },
+  {
+    "id": "ET3",
+    "name": "Six Great Messengers sum → 6 = Isa's value",
+    "description": "The six Ulu al-Azm prophets' collective sum reduces to 6, matching Isa's final value",
+    "strength": "LOW",
+    "tags": ["EXTENDED_TRADITION_METADATA"]
+  }
+]

@@ -1,0 +1,117 @@
+{
+  "cross_tradition_reduced_matches": [
+    {
+      "figure_en": "Jesus / Isa",
+      "arabic": {"name": "عيسى", "system": "abjad_kabir", "raw": 150, "reduced": 6},
+      "greek":  {"name": "Ἰησοῦς", "system": "isopsephy", "raw": 888, "reduced": 6},
+      "hebrew": {"name": "ישוע", "system": "gematria_standard", "raw": 386, "reduced": 8},
+      "match_type": "CROSS_TRADITION_REDUCED_MATCH",
+      "matching_systems": ["arabic", "greek"],
+      "diverging_systems": ["hebrew"],
+      "confidence": "medium",
+      "note": "Non-cognate names across independent substrates (Arabic != Greek). Hebrew diverges."
+    },
+    {
+      "figure_en": "Moses / Musa",
+      "arabic": {"name": "موسى", "system": "abjad_kabir", "raw": 116, "reduced": 8},
+      "greek":  {"name": "Μωϋσῆς", "system": "isopsephy", "raw": 1448, "reduced": 8},
+      "hebrew": {"name": "משה", "system": "gematria_standard", "raw": 345, "reduced": 3},
+      "match_type": "CROSS_TRADITION_REDUCED_MATCH",
+      "matching_systems": ["arabic", "greek"],
+      "diverging_systems": ["hebrew"],
+      "confidence": "medium",
+      "note": "Non-cognate names across independent substrates. Hebrew diverges."
+    }
+  ],
+  "within_tradition_matches": [
+    {
+      "tradition": "torah_hebrew",
+      "match_type": "WITHIN_TRADITION_MATCH",
+      "figures": ["יוסף", "יחזקאל"],
+      "figures_en": ["Joseph", "Ezekiel"],
+      "shared_value": 156,
+      "source_tier": "A",
+      "source": "Zohar — both connected to Tzion"
+    },
+    {
+      "tradition": "torah_hebrew",
+      "match_type": "WITHIN_TRADITION_MATCH",
+      "figures": ["יצחק", "הגר"],
+      "figures_en": ["Isaac", "Hagar"],
+      "shared_value": 208,
+      "source_tier": "A",
+      "source": "Baal HaTurim — parallel destinies"
+    },
+    {
+      "tradition": "torah_hebrew",
+      "match_type": "WITHIN_TRADITION_MATCH",
+      "figures": ["יהושע", "ציפורה"],
+      "figures_en": ["Joshua", "Zipporah"],
+      "shared_value": 391,
+      "source_tier": "B",
+      "source": null
+    }
+  ],
+  "master_11_cross_tradition": {
+    "match_type": "CROSS_TRADITION_MASTER_CHAIN",
+    "arabic": {
+      "tradition": "quranic_abjad",
+      "figures": [
+        {"name": "سليمان", "raw": 191},
+        {"name": "يحيى", "raw": 38},
+        {"name": "محمد", "raw": 92},
+        {"name": "مريم", "raw": 290},
+        {"name": "جبريل", "raw": 245}
+      ],
+      "count": 5
+    },
+    "hebrew": {
+      "tradition": "torah_gematria",
+      "figures": [
+        {"name_he": "יעקב", "name_en": "Jacob", "raw": 182},
+        {"name_he": "יששכר", "name_en": "Issachar", "raw": 830},
+        {"name_he": "מרים", "name_en": "Miriam", "raw": 290},
+        {"name_he": "גלית", "name_en": "Goliath", "raw": 443},
+        {"name_he": "אביגיל", "name_en": "Abigail", "raw": 56}
+      ],
+      "count": 5
+    },
+    "greek": {
+      "tradition": "nt_isopsephy",
+      "figures": [
+        {"name_gr": "Ζαχαρίας", "name_en": "Zechariah", "raw": 920},
+        {"name_gr": "Τιμόθεος", "name_en": "Timothy", "raw": 704}
+      ],
+      "count": 2
+    },
+    "total_count": 12,
+    "confidence": "high",
+    "note": "Greek entries are genuinely independent (different substrate). Arabic-Hebrew share proto-Semitic substrate but names differ."
+  },
+  "retired_findings": [
+    {
+      "finding": "חוה=19 ↔ أيوب=19",
+      "reason": "GROK_REJECTED — small target, unrelated figures",
+      "tag": "RETIRED"
+    },
+    {
+      "finding": "Any Arabic-Hebrew cognate exact match",
+      "reason": "EXPECTED_COGNATE_MATCH — shared proto-Semitic substrate makes exact matches tautological",
+      "tag": "RETIRED"
+    },
+    {
+      "finding": "Triple reduced match across all three traditions",
+      "reason": "No triple reduced matches exist across shared figures",
+      "tag": "NOT_FOUND"
+    }
+  ],
+  "historically_attested": [
+    {
+      "figure": "Ἰησοῦς",
+      "value": 888,
+      "source": "Sibylline Oracles Book 1:324-331 (1st-3rd cent. CE) + Irenaeus, Adv. Haer. 1.15.5 and 2.24.1 (late 2nd cent.)",
+      "tag": "HISTORICALLY_ATTESTED",
+      "note": "Intra-Greek finding, not cross-tradition claim"
+    }
+  ]
+}

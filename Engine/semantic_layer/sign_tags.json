@@ -1,0 +1,81 @@
+{
+  "_meta": {
+    "description": "12 zodiac signs with element, modality, and semantic tags for combination engine",
+    "version": "1.0-draft",
+    "note": "Authored from SIRR spec TAG DECISIONS. Scorpio tags per spec: concealment, intensity, penetration, crisis, fixity."
+  },
+  "signs": {
+    "aries": {
+      "element": "fire",
+      "modality": "cardinal",
+      "tags": ["initiation", "impulse", "courage", "action", "assertion", "pioneer"],
+      "shadow_tags": ["aggression", "impatience", "recklessness"]
+    },
+    "taurus": {
+      "element": "earth",
+      "modality": "fixed",
+      "tags": ["stability", "endurance", "sensuality", "accumulation", "patience", "rootedness"],
+      "shadow_tags": ["stubbornness", "possessiveness", "stagnation"]
+    },
+    "gemini": {
+      "element": "air",
+      "modality": "mutable",
+      "tags": ["duality", "communication", "curiosity", "adaptability", "intellect", "connection"],
+      "shadow_tags": ["superficiality", "inconsistency", "restlessness"]
+    },
+    "cancer": {
+      "element": "water",
+      "modality": "cardinal",
+      "tags": ["nurturing", "protection", "emotion", "memory", "intuition", "sanctuary"],
+      "shadow_tags": ["clinginess", "moodiness", "defensiveness"]
+    },
+    "leo": {
+      "element": "fire",
+      "modality": "fixed",
+      "tags": ["radiance", "creativity", "authority", "generosity", "performance", "sovereignty"],
+      "shadow_tags": ["arrogance", "vanity", "domination"]
+    },
+    "virgo": {
+      "element": "earth",
+      "modality": "mutable",
+      "tags": ["analysis", "service", "refinement", "discernment", "precision", "healing"],
+      "shadow_tags": ["criticism", "perfectionism", "anxiety"]
+    },
+    "libra": {
+      "element": "air",
+      "modality": "cardinal",
+      "tags": ["balance", "harmony", "diplomacy", "aesthetics", "partnership", "justice"],
+      "shadow_tags": ["indecision", "codependence", "avoidance"]
+    },
+    "scorpio": {
+      "element": "water",
+      "modality": "fixed",
+      "tags": ["concealment", "intensity", "penetration", "crisis", "fixity", "transformation"],
+      "shadow_tags": ["obsession", "manipulation", "destructiveness"]
+    },
+    "sagittarius": {
+      "element": "fire",
+      "modality": "mutable",
+      "tags": ["expansion", "vision", "philosophy", "freedom", "exploration", "teaching"],
+      "shadow_tags": ["excess", "dogmatism", "restlessness"]
+    },
+    "capricorn": {
+      "element": "earth",
+      "modality": "cardinal",
+      "tags": ["structure", "ambition", "discipline", "mastery", "authority", "endurance"],
+      "shadow_tags": ["rigidity", "coldness", "ruthlessness"]
+    },
+    "aquarius": {
+      "element": "air",
+      "modality": "fixed",
+      "tags": ["innovation", "independence", "humanitarianism", "vision", "rebellion", "collective"],
+      "shadow_tags": ["detachment", "eccentricity", "alienation"]
+    },
+    "pisces": {
+      "element": "water",
+      "modality": "mutable",
+      "tags": ["dissolution", "compassion", "transcendence", "imagination", "surrender", "unity"],
+      "shadow_tags": ["escapism", "confusion", "victimhood"]
+    }
+  }
+}

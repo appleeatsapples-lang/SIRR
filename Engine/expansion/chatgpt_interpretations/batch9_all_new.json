@@ -1,0 +1,248 @@
+[
+  {
+    "system_id": "taksir",
+    "version": "v2.0",
+    "interpretation_en": "The Taksir calculation reaches depth {taksir_depth}, with {first_column_letter} appearing as the first-column letter. In Arabic letter science, taksir permutes and reorders the name's letters to reveal how the same written material behaves under recursive arrangement. The reading observes repetition, placement, and internal letter movement within the permutation itself, without borrowing meaning from astrology or other modules.",
+    "interpretation_ar": "يصل حساب التكسير إلى عمق {taksir_depth}، مع ظهور {first_column_letter} كحرف العمود الأول. في علم الحروف العربي، يعيد التكسير ترتيب حروف الاسم ليكشف كيف تتصرف المادة المكتوبة نفسها تحت الترتيب المتكرر. تلاحظ القراءة التكرار والموضع وحركة الحروف الداخلية داخل التبديل نفسه، من غير استعارة المعنى من التنجيم أو من وحدات أخرى."
+  },
+  {
+    "system_id": "bast_kasr",
+    "version": "v2.0",
+    "interpretation_en": "The expansion from 18 to 49 letters (ratio 2.72) shows strong latent amplification potential. Hidden Nun (50, root 5) introduces motion and freedom, directly linking to your Millman 5-3 pathway and Life Path 3 creative output. This suggests your name carries dormant mobility that activates under expansion cycles.",
+    "interpretation_ar": "الانتقال من 18 إلى 49 حرفًا (نسبة 2.72) يدل على قابلية تضخيم كامنة قوية. الحرف الخفي نون (50، جذر 5) يضيف طاقة الحركة والحرية، ويرتبط مباشرة بمسار ميلمان وطريق الحياة 3 الإبداعي."
+  },
+  {
+    "system_id": "istikhara_adad",
+    "version": "v2.0",
+    "interpretation_en": "Fire (mod 4), Venus (mod 7 and 9), and Sagittarius (mod 12) combine passion with aesthetic refinement and expansion. This aligns with the Fire wealth pattern in BaZi and Kenaz (fire rune), yet moderated by Venusian diplomacy (Wind/Xun resonance). The signature favors expressive influence over brute force.",
+    "interpretation_ar": "النار (باقي 4)، الزهرة (باقي 7 و9)، والقوس (باقي 12) تجمع بين الشغف والرقي الجمالي والتوسع. يتناغم ذلك مع نمط الثروة النارية في البازي ورمز كيناز الناري، لكن مع تلطيف فينوسي دبلوماسي."
+  },
+  {
+    "system_id": "zakat_huruf",
+    "version": "v2.0",
+    "interpretation_en": "Your Zakat al-Huruf calculation gives {total}, reducing to root {root}. In Islamic letter-science, zakat al-huruf frames the letters through purification, proportion, and disciplined handling of the name's numeric material. Applied here as a personal module, it shows how the name's letter-value body is gathered and refined within that method, without claiming agreement with other systems.",
+    "interpretation_ar": "يعطي حساب زكاة الحروف قيمة {total}، وتنخفض إلى الجذر {root}. في علم الحروف الإسلامي، تؤطر زكاة الحروف الحروف من خلال معنى التطهير والتناسب وحسن التعامل مع المادة العددية للاسم. وعند تطبيقها هنا كوحدة شخصية، فهي تُظهر كيف تُجمع بنية القيم الحرفية للاسم وتُصفّى ضمن هذه الطريقة، من غير ادعاء اتفاق مع أنظمة أخرى."
+  },
+  {
+    "system_id": "jafr",
+    "version": "v2.0",
+    "interpretation_en": "A 28x28 matrix connects your identity to the full Arabic alphabet cycle. The anti-diagonal Lam (840) emphasizes structure and law — resonant with Justice (XI) in Tarot Name and Master 11 axis. Lam symbolism suggests authority through alignment, not dominance.",
+    "interpretation_ar": "مصفوفة 28×28 تربط هويتك بدورة الحروف العربية كاملة. القطر العكسي من لام (840) يبرز القانون والبنية، متناغمًا مع بطاقة العدالة ومحور الماستر 11."
+  },
+  {
+    "system_id": "buduh",
+    "version": "v2.0",
+    "interpretation_en": "Your personal Buduh matrix is built from the name's letter values, with a source total of {total} and a reduced root of {root}. The matrix translates the name into a wafq-style arrangement so the reading can observe balance, placement, and internal distribution. If surfaced, the matrix constant is {magic_constant}; it should be read as a property of this constructed square, not as a bridge to another module.",
+    "interpretation_ar": "تُبنى مصفوفة بدوح الشخصية من قيم حروف الاسم، بمجموع مصدره {total} وجذر مختزل هو {root}. تحوّل المصفوفة الاسم إلى ترتيب على هيئة وفق كي تلاحظ القراءة التوازن والموضع والتوزيع الداخلي. وإذا أُظهِر ثابت المصفوفة فهو {magic_constant}؛ ويُقرأ كخاصية لهذا المربع المصنوع، لا كجسر إلى وحدة أخرى."
+  },
+  {
+    "system_id": "cornerstone",
+    "version": "v2.0",
+    "interpretation_en": "M cornerstone = steady, strategic approach to problems. U as first vowel shows emotional depth driving ambition. B capstone indicates pragmatic execution. This balances Enneagram 3 achievement drive with Water-based receptivity.",
+    "interpretation_ar": "حرف M كأساس يدل على نهج ثابت واستراتيجي للمشكلات. الحرف U كأول صوت عِلّي يكشف عمقًا عاطفيًا يحرك الطموح. حرف B كختام يشير إلى تنفيذ عملي."
+  },
+  {
+    "system_id": "life_purpose",
+    "version": "v2.0",
+    "interpretation_en": "This Birth Day Number reading starts from birth day {birth_day}, routes through compound {millman_compound}, and resolves to final pattern {millman_final}. In the Millman-style modern numerological frame, the sequence is a compact way to observe how the birth date is reduced into a symbolic pathway. Read it as a structural mirror of the calculation, not as a destiny statement or a confirmation of any other module.",
+    "interpretation_ar": "تبدأ قراءة رقم يوم الميلاد من يوم الميلاد {birth_day}، وتمر عبر المركب {millman_compound}، وتستقر في النمط النهائي {millman_final}. في إطار ميلمان العددي الحديث، هذا التسلسل طريقة مكثفة لملاحظة كيف يُختزل تاريخ الميلاد إلى مسار رمزي. اقرأه كمرآة بنيوية للحساب، لا كعبارة قدرية ولا كتأكيد لأي وحدة أخرى."
+  },
+  {
+    "system_id": "steiner_cycles",
+    "version": "v2.0",
+    "interpretation_en": "Cycle 5 (Intellectual Soul) at age 29 signals structured career consolidation. This matches your real-world engineering foundation and current system-building phase. Expect meaning-crisis refinement rather than collapse.",
+    "interpretation_ar": "الدورة 5 (الروح العقلية) في سن 29 تشير إلى ترسيخ مهني منظم. يتطابق ذلك مع أساسك الهندسي وبناء الأنظمة الحالي."
+  },
+  {
+    "system_id": "enneagram_dob",
+    "version": "v2.0",
+    "interpretation_en": "This DOB-derived Enneagram application returns type {enneagram_type}, named {type_name}. The module uses a modern numerological reduction of the birth date to map into Enneagram language; it is not classical Enneagram teaching and not a validated Enneagram assessment. Read the result as a symbolic type label produced by this calculation alone, without comparing it to life-path, root, or gematria outputs.",
+    "interpretation_ar": "يعطي تطبيق الإنياغرام المستخرج من تاريخ الميلاد النوع {enneagram_type}، واسمه {type_name}. تستخدم هذه الوحدة اختزالًا عدديًا حديثًا لتاريخ الميلاد كي تربطه بلغة الإنياغرام؛ وليست تعليمًا كلاسيكيًا للإنياغرام ولا اختبارًا معتمدًا له. اقرأ النتيجة كتسمية رمزية أنتجها هذا الحساب وحده، من غير مقارنتها بمخرجات مسار الحياة أو الجذور أو الجيماتريا."
+  },
+  {
+    "system_id": "tarot_year",
+    "version": "v2.0",
+    "interpretation_en": "2026 = The Lovers (6): alignment choices. This year tests integration between Fire ambition and Water essence. Partnerships amplify creative output if values remain coherent.",
+    "interpretation_ar": "عام 2026 = العشاق (6): اختيارات توافقية. يختبر العام انسجام الطموح الناري مع الجوهر المائي."
+  },
+  {
+    "system_id": "tarot_name",
+    "version": "v2.0",
+    "interpretation_en": "Justice (XI) + Emperor (IV) = ethical authority. Master 11 axis appears again (Latin Ordinal root 11). Your expression demands fairness; leadership emerges through structured integrity.",
+    "interpretation_ar": "العدالة (XI) + الإمبراطور (IV) = سلطة أخلاقية. يظهر محور 11 الماستر مجددًا. تعبيرك يتطلب إنصافًا؛ القيادة تنبثق من النزاهة المنظمة."
+  },
+  {
+    "system_id": "latin_ordinal",
+    "version": "v2.0",
+    "interpretation_en": "Master 11 confirms high-voltage perception and responsibility. Reverse root 7 adds introspection. This creates tension between public brilliance and private analysis.",
+    "interpretation_ar": "الجذر 11 الماستر يؤكد إدراكًا عالي الجهد ومسؤولية. الجذر العكسي 7 يضيف تأملًا داخليًا."
+  },
+  {
+    "system_id": "greek_isopsephy",
+    "version": "v2.0",
+    "interpretation_en": "Your Greek isopsephy total is {total}, reducing to root {root}. Isopsephy is the classical Greek practice of assigning numeric values to letters and reading a word or name through the sum those letters produce. This module reports the Greek value register of the name; the root is a compact symbolic index, not a hardcoded statement about a specific theme.",
+    "interpretation_ar": "مجموع الإيزوبسيفيا اليونانية للاسم هو {total}، وينخفض إلى الجذر {root}. الإيزوبسيفيا هي الممارسة اليونانية الكلاسيكية التي تمنح الحروف قيمًا عددية وتقرأ الكلمة أو الاسم من خلال مجموع تلك الحروف. تعرض هذه الوحدة السجل القيمي اليوناني للاسم؛ والجذر مؤشر رمزي مختصر، لا عبارة ثابتة عن معنى محدد."
+  },
+  {
+    "system_id": "coptic_isopsephy",
+    "version": "v2.0",
+    "interpretation_en": "Confirms the Greek 1484-8 result within same independence group. Reinforces authority/structure theme but does not increase cross-tradition weight.",
+    "interpretation_ar": "يؤكد نتيجة اليوناني 1484→8 ضمن نفس مجموعة الاستقلال. يعزز موضوع السلطة والبنية دون زيادة وزن التقاطع الثقافي."
+  },
+  {
+    "system_id": "armenian_gematria",
+    "version": "v2.0",
+    "interpretation_en": "Independent script confirming Root 3. This strengthens the creative-expression axis beyond Arabic and Western numerology — genuine cross-family convergence.",
+    "interpretation_ar": "خط مستقل يؤكد الجذر 3. يعزز محور الإبداع والتعبير عبر عائلة مختلفة حقًا، تقاطع ثقافي أصيل."
+  },
+  {
+    "system_id": "georgian_gematria",
+    "version": "v2.0",
+    "interpretation_en": "Again 3 from independent Caucasian script. This saturation suggests Root 3 is structural identity, not coincidence.",
+    "interpretation_ar": "الجذر 3 مجددًا من خط قوقازي مستقل. هذا التشبع يدل أن الجذر 3 بنيوي في هويتك لا مصادفة."
+  },
+  {
+    "system_id": "agrippan",
+    "version": "v2.0",
+    "interpretation_en": "Your Agrippan cipher total is {total}, reducing to root {root}. This module draws on Renaissance Western occult letter-number practice associated with Agrippa's De Occulta Philosophia and later revival frameworks. The result is a cipher-register reading of the name inside that Western esoteric lineage, not a diagnosis of a single life theme.",
+    "interpretation_ar": "مجموع الشفرة الأغريبّية للاسم هو {total}، وينخفض إلى الجذر {root}. تستند هذه الوحدة إلى ممارسة غربية نهضوية في ربط الحروف بالأعداد مرتبطة بعمل أغريبا في الفلسفة الخفية وبأطر الإحياء اللاحقة. النتيجة قراءة للاسم في سجل شفري داخل هذا النسب الباطني الغربي، لا تشخيصًا لموضوع حياتي واحد."
+  },
+  {
+    "system_id": "thelemic_gematria",
+    "version": "v2.0",
+    "interpretation_en": "Your Thelemic ALW cipher total is {total}, reducing to root {root}. This is a modern Thelemic letter-value system associated with Crowley's Liber AL vel Legis reception history and later cipher work. The module shows how the name resolves inside that specific modern cipher, without asserting that any particular root carries a fixed Thelemic meaning.",
+    "interpretation_ar": "مجموع شفرة ALW الثيليمية للاسم هو {total}، وينخفض إلى الجذر {root}. هذا نظام حديث لقيم الحروف في السياق الثيليمي، مرتبط بتاريخ تلقي كراولي لكتاب Liber AL vel Legis وبأعمال الشفرات اللاحقة. تُظهر الوحدة كيف يستقر الاسم داخل هذه الشفرة الحديثة المحددة، من غير ادعاء أن جذرًا بعينه يحمل معنى ثيليميًا ثابتًا."
+  },
+  {
+    "system_id": "trithemius",
+    "version": "v2.0",
+    "interpretation_en": "Your Trithemius cipher total is {total}, reducing to root {root}. This module reads the name through a Renaissance steganographic and letter-transposition framework associated with Trithemius and the Polygraphia tradition. The output is a cipher-based numeric register of the name, useful as a formal comparison layer without assigning a predetermined meaning to the root.",
+    "interpretation_ar": "مجموع شفرة تريثيميوس للاسم هو {total}، وينخفض إلى الجذر {root}. تقرأ هذه الوحدة الاسم عبر إطار نهضوي للإخفاء الكتابي وتحويل الحروف مرتبط بتريثيميوس وتقليد Polygraphia. المخرج سجل عددي شفري للاسم، نافع كطبقة مقارنة شكلية من غير إسناد معنى مسبق إلى الجذر."
+  },
+  {
+    "system_id": "planetary_hours",
+    "version": "v2.0",
+    "interpretation_en": "Moon day + Sun hour: receptive core, radiant projection. This mirrors Yin Water essence with Fire wealth overlay.",
+    "interpretation_ar": "يوم القمر + ساعة الشمس: جوهر مستقبِل وإسقاط مشرق. يعكس ماء الين مع طبقة ثروة نارية."
+  },
+  {
+    "system_id": "god_of_day",
+    "version": "v2.0",
+    "interpretation_en": "Bes as protector converges with Suryal (Ethiopian) and Tian Yi Gui Ren (BaZi). Protection triad theme: assistance appears during risk phases.",
+    "interpretation_ar": "الإله بس يتقاطع مع سوريال الإثيوبي وتيان يي غوي رن في البازي. ثلاثية الحماية: يظهر الدعم في مراحل المخاطرة."
+  },
+  {
+    "system_id": "celtic_tree",
+    "version": "v2.0",
+    "interpretation_en": "Vine (Muin) = harvest and ripening. Strong convergence with Ogham Muin. Symbolizes creative yield after disciplined cultivation.",
+    "interpretation_ar": "الكرمة (موين) = الحصاد والنضج. تقاطع قوي مع أوغام موين. ترمز إلى ثمرة الإبداع بعد الزراعة المنضبطة."
+  },
+  {
+    "system_id": "ogham",
+    "version": "v2.0",
+    "interpretation_en": "Primary Muin confirms Vine axis. Dominant Pine/Fir adds endurance. Blend of creativity and resilience.",
+    "interpretation_ar": "موين يؤكد محور الكرمة. سيادة الصنوبر تضيف الصمود. مزيج من الإبداع والمرونة."
+  },
+  {
+    "system_id": "birth_rune",
+    "version": "v2.0",
+    "interpretation_en": "Kenaz (fire torch) aligns with Fire wealth and Sagittarius signature. Knowledge must be actively transmitted.",
+    "interpretation_ar": "كيناز (مشعل النار) ينسجم مع نمط الثروة النارية وتوقيع القوس. المعرفة يجب أن تُنقل فعليًا."
+  },
+  {
+    "system_id": "bazi_hidden_stems",
+    "version": "v2.0",
+    "interpretation_en": "Water core with balanced metal support. Fire present but not dominant internally — ambition is strategic, not impulsive.",
+    "interpretation_ar": "نواة مائية مع دعم معدني متوازن. النار موجودة لكن غير مسيطرة داخليًا — الطموح استراتيجي لا اندفاعي."
+  },
+  {
+    "system_id": "bazi_ten_gods",
+    "version": "v2.0",
+    "interpretation_en": "Triple wealth structure emphasizes material productivity. Fire wealth over Yin Water self mirrors creative output under pressure.",
+    "interpretation_ar": "هيكل ثروة ثلاثي يبرز الإنتاجية المادية. ثروة النار فوق ماء الين تعكس إبداعًا تحت الضغط."
+  },
+  {
+    "system_id": "bazi_combos",
+    "version": "v2.0",
+    "interpretation_en": "Day-hour clash signals tension between identity and expression timing. Productive friction rather than destruction.",
+    "interpretation_ar": "تصادم اليوم والساعة يشير إلى توتر بين الهوية وتوقيت التعبير. احتكاك منتج لا هدام."
+  },
+  {
+    "system_id": "bazi_shensha",
+    "version": "v2.0",
+    "interpretation_en": "Tian Yi Gui Ren confirms noble assistance. Tao Hua adds charisma. Protection + attraction dual theme.",
+    "interpretation_ar": "تيان يي غوي رن يؤكد دعم النبلاء. تاو هوا يضيف جاذبية. ثنائية الحماية والجاذبية."
+  },
+  {
+    "system_id": "bazhai",
+    "version": "v2.0",
+    "interpretation_en": "Gua 4 Xun (Wind) matches Tibetan Parkha Zon — independent cross-cultural Wind confirmation. Wind archetype = strategy, influence, adaptability.",
+    "interpretation_ar": "غوا 4 خون (الريح) يتطابق مع بارخا زون التبتي — تأكيد مستقل لمحور الرياح."
+  },
+  {
+    "system_id": "meihua",
+    "version": "v2.0",
+    "interpretation_en": "Thunder over Heaven indicates bold initiative guided by principle. Moving line 6 suggests culmination phase.",
+    "interpretation_ar": "الرعد فوق السماء يدل على مبادرة جريئة موجهة بمبدأ. الخط المتحرك 6 يشير إلى مرحلة اكتمال."
+  },
+  {
+    "system_id": "pawukon",
+    "version": "v2.0",
+    "interpretation_en": "Pujut wuku emphasizes purification and consolidation cycles. Monday Soma maintains lunar foundation.",
+    "interpretation_ar": "أسبوع بوجوت يبرز دورات التطهير والتثبيت. يوم سوما يحافظ على الأساس القمري."
+  },
+  {
+    "system_id": "primbon",
+    "version": "v2.0",
+    "interpretation_en": "Senin Legi with Neptu 9 signals generosity and peak single-digit vitality. Nine reinforces Buduh magic constant 9 and completion themes.",
+    "interpretation_ar": "سنين ليغي مع نبتو 9 يدل على الكرم وحيوية الرقم الأحادي الأعلى. التسعة يعزز ثابت بدوح 9 وموضوعات الاكتمال."
+  },
+  {
+    "system_id": "tibetan_mewa",
+    "version": "v2.0",
+    "interpretation_en": "Mewa 4 Wood + Parkha Wind mirrors Ba Zhai Xun. Diplomacy and persuasive mobility define strategic advantage.",
+    "interpretation_ar": "مِوا 4 خشب + بارخا ريح يعكسان خون في البازي. الدبلوماسية والحركة المقنعة تمثل ميزة استراتيجية."
+  },
+  {
+    "system_id": "dreamspell",
+    "version": "v2.0",
+    "interpretation_en": "Resonant White Wizard (Tone 7) emphasizes attunement and subtle influence. Tone 7 mirrors introspective 7 from reverse Latin root.",
+    "interpretation_ar": "الساحر الأبيض الرنان (النغمة 7) يبرز الضبط والتأثير الخفي. النغمة 7 تعكس الجذر 7 العكسي اللاتيني."
+  },
+  {
+    "system_id": "tonalpohualli",
+    "version": "v2.0",
+    "interpretation_en": "12 Deer (Mazatl) symbolizes grace and sensitivity within strength. Forest archetype parallels Vine and Pine themes.",
+    "interpretation_ar": "12 غزال (مازاتل) يرمز إلى الرشاقة والحساسية داخل القوة. أرشيف الغابة يوازي الكرمة والصنوبر."
+  },
+  {
+    "system_id": "ethiopian_asmat",
+    "version": "v2.0",
+    "interpretation_en": "This module gives an Arabic-to-Ethiopian cognate sum of {total}, reducing to root {root}. It reads the Arabic name through an Ethiopian Asmat-inspired cognate mapping, so the result is a modern comparative layer rather than a native Ethiopian calculation on its own script. The value describes how the chosen mapping handles the name; it does not establish a protection triad or cross-tradition confirmation.",
+    "interpretation_ar": "تعطي هذه الوحدة مجموعًا عربيًا-إثيوبيًا عبر المطابقة القريبة بين الحروف مقداره {total}، وينخفض إلى الجذر {root}. وهي تقرأ الاسم العربي من خلال خريطة مناظرة مستلهمة من أسماء الأسماء الإثيوبية، لذلك فالنتيجة طبقة مقارنة حديثة وليست حسابًا إثيوبيًا أصيلًا على نصه الخاص. القيمة تصف طريقة تعامل الخريطة المختارة مع الاسم؛ ولا تثبت مثلث حماية أو تأكيدًا عابرًا للتقاليد."
+  },
+  {
+    "system_id": "rose_cross_sigil",
+    "version": "v2.0",
+    "interpretation_en": "Moderate dispersion (46.2%) suggests balanced energetic spread — neither obsessive concentration nor fragmentation. 12 petals echo zodiacal completeness.",
+    "interpretation_ar": "انتشار معتدل (46.2%) يدل على توزيع طاقي متوازن — لا تركيز مفرط ولا تشتت. 12 بتلة تعكس اكتمالًا دائريًا."
+  },
+  {
+    "system_id": "planetary_kameas",
+    "version": "v2.0",
+    "interpretation_en": "Moon kamea (9x9) reinforces lunar identity. Position 21 adds communicative influence.",
+    "interpretation_ar": "كاميّا القمر (9×9) تعزز الهوية القمرية. الموضع 21 يضيف تأثيرًا تواصليًا."
+  },
+  {
+    "system_id": "ars_magna",
+    "version": "v2.0",
+    "interpretation_en": "Dominant Bonitas indicates ethical orientation. Gloria and Potestas support visibility and authority — aligned with Justice card.",
+    "interpretation_ar": "غلبة صفة الخير تشير إلى توجه أخلاقي. المجد والقدرة يدعمان الظهور والسلطة — متناسق مع بطاقة العدالة."
+  },
+  {
+    "system_id": "gd_correspondences",
+    "version": "v2.0",
+    "interpretation_en": "Life Path 3 mapped to Empress/Binah (Water matrix) and Expression 11 to Justice/Uranus synthesizes creative fertility with structural law. Golden Dawn system integrates your core axes: 3 creativity, 11 ethical voltage, Water essence, Air intellect.",
+    "interpretation_ar": "طريق الحياة 3 المرتبط بالإمبراطورة/بينة (مصفوفة الماء) والتعبير 11 المرتبط بالعدالة/أورانوس يدمج الخصوبة الإبداعية مع القانون البنيوي."
+  }
+]

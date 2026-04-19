@@ -1,0 +1,37 @@
+{
+  "profile": {
+    "subject": "FATIMA AHMED OMAR ALKATIB",
+    "dob": "1990-03-15",
+    "core_numbers": {
+      "life_path": 1,
+      "expression": 4,
+      "soul_urge": 8,
+      "personality": 5,
+      "birthday": 6,
+      "abjad_first": 130
+    }
+  },
+  "coherence": {
+    "score": 44,
+    "tier": "low",
+    "label": "Divergent",
+    "components": {
+      "tier_weighted_significance": 40.0,
+      "core_number_alignment": 40.6,
+      "resonance_density": 67.2,
+      "significant_count": 0,
+      "resonance_count": 16
+    }
+  },
+  "tension": {
+    "headline": null,
+    "items": null
+  },
+  "domain_counts": {
+    "numerology": 28,
+    "astro_timing": 34,
+    "name_intelligence": 39,
+    "convergence": 7
+  },
+  "module_count": 108
+}
