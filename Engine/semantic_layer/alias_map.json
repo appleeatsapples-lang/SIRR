@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "description": "Maps spec/phantom IDs in SYSTEM_TO_GROUP to actual module filenames",
+    "version": "1.0",
+    "note": "14 aliases from convergence detection that don't correspond to module files"
+  },
+  "aliases": {
+    "birthday": "life_purpose",
+    "life_path": "life_purpose",
+    "lo_shu": "lo_shu_grid",
+    "pythagorean": "hidden_passion",
+    "chinese_year": "chinese_zodiac",
+    "day_of_week": "day_ruler",
+    "solar_degree": "decan",
+    "ascendant": "natal_chart",
+    "moon_phase": "natal_chart",
+    "bazi_hour": "bazi_pillars",
+    "planetary_hour": "planetary_hours",
+    "tartib": "taksir",
+    "notarikon_ar": "notarikon",
+    "notarikon_la": "notarikon"
+  }
+}

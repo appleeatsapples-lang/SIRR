@@ -1,0 +1,280 @@
+{
+  "source": "Gemini (Scholar) — Round 4 academic delivery",
+  "version": "1.0",
+  "tradition": "Hebrew / Kabbalistic / Solomonic",
+  "references": [
+    "Sepher Yetzirah",
+    "Etz Chaim (Chaim Vital / Luria)",
+    "Agrippa: Three Books of Occult Philosophy",
+    "Clavicula Salomonis (Key of Solomon)"
+  ],
+  "sephirot_numbers": {
+    "1": {
+      "name": "Keter",
+      "english": "Crown",
+      "soul_level": "Yechidah"
+    },
+    "2": {
+      "name": "Chokhmah",
+      "english": "Wisdom",
+      "soul_level": "Chayah"
+    },
+    "3": {
+      "name": "Binah",
+      "english": "Understanding",
+      "soul_level": "Neshamah"
+    },
+    "4": {
+      "name": "Chesed",
+      "english": "Mercy/Loving-kindness",
+      "soul_level": "Ruach (upper)"
+    },
+    "5": {
+      "name": "Gevurah",
+      "english": "Severity/Judgment",
+      "soul_level": "Ruach"
+    },
+    "6": {
+      "name": "Tiferet",
+      "english": "Beauty/Balance",
+      "soul_level": "Ruach (center)"
+    },
+    "7": {
+      "name": "Netzach",
+      "english": "Victory/Eternity",
+      "soul_level": "Ruach (lower)"
+    },
+    "8": {
+      "name": "Hod",
+      "english": "Glory/Splendor",
+      "soul_level": "Nefesh (upper)"
+    },
+    "9": {
+      "name": "Yesod",
+      "english": "Foundation",
+      "soul_level": "Nefesh"
+    },
+    "10": {
+      "name": "Malkuth",
+      "english": "Kingdom",
+      "soul_level": "Nefesh (manifest)"
+    },
+    "11": {
+      "name": "Daat",
+      "english": "Knowledge (Hidden/Pseudo-sephirah)",
+      "soul_level": "bridge: Yechidah-Chayah"
+    },
+    "note": "Soul levels follow Etz Chaim (Vital). Routing: number → sephirah → soul level."
+  },
+  "hebrew_letters_standard_gematria": {
+    "aleph": 1,
+    "bet": 2,
+    "gimel": 3,
+    "dalet": 4,
+    "he": 5,
+    "vav": 6,
+    "zayin": 7,
+    "chet": 8,
+    "tet": 9,
+    "yod": 10,
+    "kaf": 20,
+    "lamed": 30,
+    "mem": 40,
+    "nun": 50,
+    "samekh": 60,
+    "ayin": 70,
+    "pe": 80,
+    "tzadi": 90,
+    "qof": 100,
+    "resh": 200,
+    "shin": 300,
+    "tav": 400
+  },
+  "arabic_to_hebrew_semitic_bridge": {
+    "alef": {
+      "arabic_val": 1,
+      "hebrew_equiv": "aleph",
+      "hebrew_val": 1
+    },
+    "ba": {
+      "arabic_val": 2,
+      "hebrew_equiv": "bet",
+      "hebrew_val": 2
+    },
+    "jim": {
+      "arabic_val": 3,
+      "hebrew_equiv": "gimel",
+      "hebrew_val": 3
+    },
+    "dal": {
+      "arabic_val": 4,
+      "hebrew_equiv": "dalet",
+      "hebrew_val": 4
+    },
+    "ha": {
+      "arabic_val": 5,
+      "hebrew_equiv": "he",
+      "hebrew_val": 5
+    },
+    "waw": {
+      "arabic_val": 6,
+      "hebrew_equiv": "vav",
+      "hebrew_val": 6
+    },
+    "zayn": {
+      "arabic_val": 7,
+      "hebrew_equiv": "zayin",
+      "hebrew_val": 7
+    },
+    "ha_heavy": {
+      "arabic_val": 8,
+      "hebrew_equiv": "chet",
+      "hebrew_val": 8
+    },
+    "ta": {
+      "arabic_val": 9,
+      "hebrew_equiv": "tet",
+      "hebrew_val": 9
+    },
+    "ya": {
+      "arabic_val": 10,
+      "hebrew_equiv": "yod",
+      "hebrew_val": 10
+    },
+    "kaf": {
+      "arabic_val": 20,
+      "hebrew_equiv": "kaf",
+      "hebrew_val": 20
+    },
+    "lam": {
+      "arabic_val": 30,
+      "hebrew_equiv": "lamed",
+      "hebrew_val": 30
+    },
+    "mim": {
+      "arabic_val": 40,
+      "hebrew_equiv": "mem",
+      "hebrew_val": 40
+    },
+    "nun": {
+      "arabic_val": 50,
+      "hebrew_equiv": "nun",
+      "hebrew_val": 50
+    },
+    "sin": {
+      "arabic_val": 60,
+      "hebrew_equiv": "samekh",
+      "hebrew_val": 60
+    },
+    "ayin": {
+      "arabic_val": 70,
+      "hebrew_equiv": "ayin",
+      "hebrew_val": 70
+    },
+    "fa": {
+      "arabic_val": 80,
+      "hebrew_equiv": "pe",
+      "hebrew_val": 80
+    },
+    "sad": {
+      "arabic_val": 90,
+      "hebrew_equiv": "tzadi",
+      "hebrew_val": 90
+    },
+    "qaf": {
+      "arabic_val": 100,
+      "hebrew_equiv": "qof",
+      "hebrew_val": 100
+    },
+    "ra": {
+      "arabic_val": 200,
+      "hebrew_equiv": "resh",
+      "hebrew_val": 200
+    },
+    "shin": {
+      "arabic_val": 300,
+      "hebrew_equiv": "shin",
+      "hebrew_val": 300
+    },
+    "ta_heavy": {
+      "arabic_val": 400,
+      "hebrew_equiv": "tav",
+      "hebrew_val": 400
+    },
+    "note": "First 22 letters share identical positional values — same Phoenician/Semitic origin."
+  },
+  "solomonic_planetary_table": {
+    "saturn": {
+      "angel": "Cassiel",
+      "intelligence": "Agiel",
+      "spirit": "Zazel",
+      "metal": "Lead",
+      "day": "Saturday",
+      "color": "Black",
+      "number": 3,
+      "magic_square_constant": 15,
+      "stone": "Onyx"
+    },
+    "jupiter": {
+      "angel": "Sachiel",
+      "intelligence": "Iophiel",
+      "spirit": "Hismael",
+      "metal": "Tin",
+      "day": "Thursday",
+      "color": "Blue",
+      "number": 4,
+      "magic_square_constant": 34
+    },
+    "mars": {
+      "angel": "Samael",
+      "intelligence": "Graphiel",
+      "spirit": "Bartzabel",
+      "metal": "Iron",
+      "day": "Tuesday",
+      "color": "Red",
+      "number": 5,
+      "magic_square_constant": 65
+    },
+    "sun": {
+      "angel": "Michael",
+      "intelligence": "Nakhiel",
+      "spirit": "Sorath",
+      "metal": "Gold",
+      "day": "Sunday",
+      "color": "Yellow/Gold",
+      "number": 6,
+      "magic_square_constant": 111
+    },
+    "venus": {
+      "angel": "Anael",
+      "intelligence": "Hagiel",
+      "spirit": "Kedemel",
+      "metal": "Copper",
+      "day": "Friday",
+      "color": "Green",
+      "number": 7,
+      "magic_square_constant": 175
+    },
+    "mercury": {
+      "angel": "Raphael",
+      "intelligence": "Tiriel",
+      "spirit": "Taphthartharath",
+      "metal": "Mercury (quicksilver)",
+      "day": "Wednesday",
+      "color": "Orange",
+      "number": 8,
+      "magic_square_constant": 260
+    },
+    "moon": {
+      "angel": "Gabriel",
+      "intelligence": "Malkah be-Tarshishim",
+      "spirit": "Chasmodai",
+      "metal": "Silver",
+      "day": "Monday",
+      "color": "Silver/White",
+      "number": 9,
+      "magic_square_constant": 369
+    }
+  },
+  "gematria_anomaly_note": "Composite Arabic-derived sums above 400/900 are structurally anomalous for single Hebrew words (alphabet caps with final forms). Use root reduction for sephiroth mapping."
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "system_id": "natal_chart",
+    "version": "v1.0",
+    "interpretation_en": "Libra Sun at 0° with Sagittarius Rising and Aquarius Moon establishes an identity structured around principled expansion, relational calibration, and abstract systems thinking. The early-degree Sun emphasizes initiation energy in social intelligence, aligning with Life Path 3 expression through communication and conceptual synthesis. Aquarius Moon reinforces analytical detachment and network awareness, resonating with Personality 7's observational depth and Expression 11's visionary framing. Virgo Midheaven adds procedural precision, anchoring Soul Urge 4's need for structural integrity beneath visible creativity.",
+    "interpretation_ar": "الشمس في الدرجة الأولى من الميزان مع طالع القوس وقمر الدلو تؤسس لهوية تقوم على التوسع المبدئي، ومعايرة العلاقات، والتفكير المنظومي المجرد. وجود الشمس في درجة افتتاحية يعزز طاقة المبادرة في الذكاء الاجتماعي، متقاطعًا مع مسار الحياة 3 في التعبير والتوليف المفاهيمي. قمر الدلو يدعم الانفصال التحليلي ووعي الشبكات، منسجمًا مع عمق الملاحظة في الشخصية 7 ورؤية التعبير 11. أما منتصف السماء في العذراء فيضيف دقة إجرائية تثبت حاجة الرغبة الداخلية 4 إلى البنية والانضباط خلف الإبداع الظاهر."
+  },
+  {
+    "system_id": "house_system",
+    "version": "v1.0",
+    "interpretation_en": "The whole-sign house system places {first_house_sign} as the first house and assigns each following sign to a complete house. This classical house method reads planets by sign-based topics rather than by quadrant cusps, giving a clean topical map of where chart factors fall. The interpretation should stay within the house placements themselves and avoid importing numerology or other profile layers.",
+    "interpretation_ar": "يضع نظام البيوت بالعلامات الكاملة {first_house_sign} بوصفه البيت الأول، ثم يمنح كل علامة تالية بيتًا كاملًا. تقرأ هذه الطريقة الكلاسيكية الكواكب عبر موضوعات العلامات لا عبر رؤوس البيوت الربعية، فتنتج خريطة موضوعية واضحة لمواضع عوامل الخريطة. ينبغي أن يبقى التأويل داخل مواضع البيوت نفسها وألا يستورد علم الأعداد أو طبقات أخرى من الملف."
+  },
+  {
+    "system_id": "aspects",
+    "version": "v1.0",
+    "interpretation_en": "A chart dominated by trines and sextiles (15 harmonious aspects) indicates efficient energy flow and pattern integration capacity. The nearly exact Mars–North Node sextile (0.01° orb) suggests precise alignment between initiative and developmental trajectory, amplifying Expression 11's directed intensity. The presence of oppositions and squares introduces necessary friction, preventing complacency often associated with high trine density. This blend supports Life Path 3 adaptability while requiring Soul Urge 4 discipline to channel surplus momentum.",
+    "interpretation_ar": "هيمنة التثليثات والتسديسات (15 اتصالًا منسجمًا) تشير إلى تدفق طاقي كفء وقدرة على دمج الأنماط. التسديس شبه التام بين المريخ والعقدة الشمالية (فارق 0.01°) يدل على محاذاة دقيقة بين المبادرة والمسار التطوري، مما يعزز كثافة التعبير 11 الموجهة. وجود مقابلات وتربيعات يضيف احتكاكًا ضروريًا يمنع الركود المرتبط بكثرة الاتصالات المنسجمة. هذا المزيج يدعم مرونة مسار الحياة 3 مع حاجة واضحة إلى انضباط الرغبة 4 لتوجيه الزخم الفائض."
+  },
+  {
+    "system_id": "essential_dignities",
+    "version": "v1.0",
+    "interpretation_en": "The essential dignities module gives a total dignity score of {total_dignity_score}. In classical astrology, dignity assesses how planets stand in their signs through rulership, exaltation, triplicity, term, face, and debility conditions. The score is a compact summary of planetary condition inside this astrological framework, not a personality-number comparison.",
+    "interpretation_ar": "تعطي وحدة الكرامات الجوهرية مجموع كرامة قدره {total_dignity_score}. في التنجيم الكلاسيكي، تقيس الكرامة حال الكواكب في علاماتها من خلال السيادة والشرف والمثلثة والحد والوجه وحالات الضعف. الدرجة ملخص مكثف لحالة الكواكب داخل هذا الإطار التنجيمي، لا مقارنة مع أرقام الشخصية."
+  },
+  {
+    "system_id": "sect",
+    "version": "v1.0",
+    "interpretation_en": "This chart is classified as {sect_type}. In Hellenistic astrology, sect distinguishes day and night charts, identifying which planetary team is more naturally supported in the chart's light condition. Here the benefic of sect is {benefic_of_sect} and the malefic of sect is {malefic_of_sect}; the reading describes that sect structure on its own astrological terms.",
+    "interpretation_ar": "تُصنَّف هذه الخريطة على أنها {sect_type}. في التنجيم الهلنستي، يميز مبدأ الطائفة بين خرائط النهار والليل، ويحدد أي فريق كوكبي يكون أكثر ملاءمة لحالة الضوء في الخريطة. هنا السعد الموافق للطائفة هو {benefic_of_sect}، والنحس الموافق للطائفة هو {malefic_of_sect}؛ وتصف القراءة هذه البنية الطائفية بشروطها التنجيمية الخاصة."
+  },
+  {
+    "system_id": "arabic_parts",
+    "version": "v1.0",
+    "interpretation_en": "Lot of Fortune in Aries in the 5th house links material flow to initiative, creativity, and calculated risk-taking. This placement supports Life Path 3's expressive drive but requires strategic focus to avoid dispersion. The Lot of Spirit in the 8th house indicates intentional development through deep research, transformation, and systemic penetration, resonating with Personality 7 depth. The diurnal framework conditions these lots toward conscious authorship rather than reactive fluctuation.",
+    "interpretation_ar": "سهم السعادة في الحمل في البيت الخامس يربط التدفق المادي بالمبادرة والإبداع والمخاطرة المحسوبة. هذا الموضع يدعم دافع التعبير في مسار الحياة 3 لكنه يتطلب تركيزًا استراتيجيًا لتجنب التشتت. سهم الروح في البيت الثامن يشير إلى تطور مقصود عبر البحث العميق والتحول والنفاذ إلى البنى الخفية، منسجمًا مع عمق الشخصية 7. الإطار النهاري يوجه هذه الأسهم نحو الفعل الواعي بدل التقلب التفاعلي."
+  },
+  {
+    "system_id": "solar_return",
+    "version": "v1.0",
+    "interpretation_en": "The 2026 solar return with Pisces rising shifts the annual tone toward strategic withdrawal, reflection, and boundary recalibration. The Moon returning to Aquarius amplifies cognitive continuity, reinforcing analytical patterns rather than emotional volatility. Solar return Sun in the 8th house emphasizes resource restructuring, joint ventures, and structural reassessment. This year favors Expression 11's strategic insight supported by Soul Urge 4's disciplined restructuring.",
+    "interpretation_ar": "عودة الشمس لعام 2026 مع طالع الحوت تنقل النبرة السنوية نحو الانسحاب الاستراتيجي والتأمل وإعادة ضبط الحدود. عودة القمر إلى الدلو تعزز الاستمرارية الذهنية وتدعم الأنماط التحليلية بدل التقلب العاطفي. وجود شمس العودة في البيت الثامن يركز على إعادة هيكلة الموارد والشراكات والمراجعة البنيوية. هذه السنة تفضل بصيرة التعبير 11 مدعومة بإعادة التنظيم المنضبطة للرغبة 4."
+  },
+  {
+    "system_id": "progressions",
+    "version": "v1.0",
+    "interpretation_en": "The progressed Sun at 29° Libra indicates a critical threshold phase, completing a 30-year identity cycle before sign transition. This liminal degree heightens evaluation of relational strategies and authority style. The progressed Moon in Pisces marks a shift from analytical detachment to integrative sensitivity, expanding emotional bandwidth. This transition phase requires Life Path 3 adaptability and Soul Urge 4 structural grounding to stabilize the coming directional shift.",
+    "interpretation_ar": "الشمس المتقدمة عند 29° من الميزان تشير إلى مرحلة عتبية حرجة تُنهي دورة هوية تقارب ثلاثين عامًا قبل انتقال البرج. هذه الدرجة الحدّية تكثف مراجعة استراتيجيات العلاقات وأسلوب ممارسة السلطة. القمر المتقدم في الحوت يمثل انتقالًا من الانفصال التحليلي إلى حساسية تكاملية أوسع. تتطلب هذه المرحلة مرونة مسار الحياة 3 وتثبيتًا بنيويًا من الرغبة 4 لاستقرار التحول القادم."
+  },
+  {
+    "system_id": "fixed_stars",
+    "version": "v1.0",
+    "interpretation_en": "The fixed-star scan finds {conjunction_count} conjunctions to the configured Behenian and Royal star set. Fixed-star analysis checks whether natal planets or angles sit close enough to named stars for the tradition to treat them as emphasized. The count reports the presence or absence of those stellar contacts inside the chart, without comparing that absence or presence to numerology modules.",
+    "interpretation_ar": "يجد فحص النجوم الثابتة {conjunction_count} اقترانات مع مجموعة النجوم البهينية والملكية المحددة. يفحص تحليل النجوم الثابتة ما إذا كانت الكواكب أو الزوايا المولدية قريبة بما يكفي من نجوم مسماة كي يعاملها التقليد كمواضع بارزة. يصف العدد وجود تلك الاتصالات النجمية أو غيابها داخل الخريطة، من غير مقارنة ذلك بوحدات عددية."
+  }
+]

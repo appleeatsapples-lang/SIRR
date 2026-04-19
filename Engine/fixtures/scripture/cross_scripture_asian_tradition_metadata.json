@@ -1,0 +1,104 @@
+{
+  "source": "Kimi extended research — Chinese and Asian reception of Torah and NT figures",
+  "confidence": "low",
+  "tag": "EXTENDED_TRADITION_METADATA",
+  "note": "Supplemental layer only. No core findings depend on this data.",
+
+  "chinese_islamic_hui": {
+    "finding": "Torah figures appear only through Quranic mediation in Han Kitab texts",
+    "scholars": ["Liu Zhi (刘智, c.1660-1730)"],
+    "key_texts": ["Tianfang Dianli (天方典礼)", "Tianfang Xingli (天方性理)"],
+    "documented": [
+      {"figure": "Moses", "transliteration": "穆萨 (Mùsā)", "context": "Quranic"},
+      {"figure": "Abraham", "transliteration": "易卜拉欣 (Yìbùlāxīn)", "context": "Quranic"},
+      {"figure": "Solomon", "transliteration": "素莱曼 (Sùláimàn)", "context": "Quranic"},
+      {"figure": "Jesus", "transliteration": "尔撒 (Ěrsā)", "context": "Quranic, not NT"}
+    ],
+    "gap": "No Torah-specific engagement documented. No NT figures in Han Kitab texts. All biblical figures presented exclusively through Quranic reception.",
+    "academic_source": "Frankel, James. Rectifying God's Name. University of Hawai'i Press, 2011."
+  },
+
+  "nestorian_christian_tang": {
+    "finding": "Documented NT figures in Nestorian Stele (781 CE) and Dunhuang manuscripts",
+    "primary_sources": [
+      "Nestorian Stele (大秦景教流行中国碑), 781 CE",
+      "Zunjing (尊經) Diptychs, early 10th century CE",
+      "Dunhuang manuscripts (discovered by Pelliot, 1908)"
+    ],
+    "documented_figures": [
+      {"figure": "God",          "transliteration": "阿羅訶 (Āluóhē)",        "origin": "Syriac Alāhā",  "source": "Nestorian Stele"},
+      {"figure": "Messiah",      "transliteration": "彌施訶 (Míshīhē)",        "origin": "Syriac Mšīḥā", "source": "Nestorian Stele"},
+      {"figure": "Jesus",        "transliteration": "景尊 (Jǐngzūn)",          "meaning": "Luminous Lord","source": "Nestorian Stele"},
+      {"figure": "Virgin Mary",  "transliteration": "室女 (Shìnǚ)",             "meaning": "Chamber Maiden","source": "Nestorian Stele"},
+      {"figure": "Satan",        "transliteration": "娑殫 (Suōdān)",            "origin": "Syriac Sāṭānā","source": "Nestorian Stele"},
+      {"figure": "David",        "transliteration": "大衛 (Dàwèi)",            "source": "Zunjing Diptychs"},
+      {"figure": "Zechariah",    "transliteration": "刪河律 (Shānhélǜ)",        "source": "Zunjing Diptychs"},
+      {"figure": "Peter",        "transliteration": "彼得 (Bǐdé)",             "source": "Zunjing Diptychs"},
+      {"figure": "Paul",         "transliteration": "保羅 (Bǎoluó)",            "source": "Zunjing Diptychs"},
+      {"figure": "Moses",        "transliteration": "牟世 (Móushì)",            "source": "Zunjing title only"}
+    ],
+    "numerical_note": "Stele mentions '27 scriptures' (二十七部) — possibly corresponding to 27 NT books though disputed (Church of the East canonized only 22). Number 365 appears as 'forms of error'. No systematic isopsephy or figure-level numerical treatment documented.",
+    "gap": "No complete biblical texts survive from Tang Nestorian period. Only titles and fragments.",
+    "academic_source": "Saeki, P.Y. The Nestorian Documents and Relics in China. 2nd ed. Tokyo Academy of Oriental Culture, 1951."
+  },
+
+  "kaifeng_jewish": {
+    "finding": "Four stelae (1489-1679 CE) document Torah figure transliterations and genealogical numerology",
+    "primary_sources": [
+      "Kaifeng synagogue stele 1489 CE",
+      "Kaifeng synagogue stele 1512 CE",
+      "Kaifeng synagogue stele 1663 CE",
+      "Kaifeng synagogue stele 1679 CE",
+      "Memorial Book of the Dead, mid-17th century CE"
+    ],
+    "documented_figures": [
+      {"figure": "Adam",     "transliteration": "阿耽 (Ādān)",           "stelae": "1489, 1512, 1663, 1679"},
+      {"figure": "Noah",     "transliteration": "努瓦 (Nǔwǎ)",           "stelae": "1512, 1663, 1679"},
+      {"figure": "Abraham",  "transliteration": "阿無羅漢 (Āwúluóhàn)",  "stelae": "1489, 1512, 1663"},
+      {"figure": "Isaac",    "transliteration": "易思臥闊 (Yìsīwòkuò)",  "stelae": "1512"},
+      {"figure": "Moses",    "transliteration": "乜攝 (Mièshè)",          "stelae": "1489, 1512, 1663"},
+      {"figure": "Aaron",    "transliteration": "阿呵蘭 (Āhēlán)",        "stelae": "1512"},
+      {"figure": "Jacob",    "transliteration": "也古 (Yěgǔ)",            "source": "Memorial Book"},
+      {"figure": "David",    "transliteration": "大衛 (Dàwèi)",           "source": "Memorial Book"},
+      {"figure": "Solomon",  "transliteration": "所羅門 (Suǒluómén)",     "source": "Memorial Book"},
+      {"figure": "Ezra",     "transliteration": "阿子喇 (Āzǐlǎ)",        "stelae": "1489"}
+    ],
+    "notable_findings": [
+      {
+        "finding": "Adam identified with Pan Gu (盘古)",
+        "source": "1489 stele",
+        "note": "Documented syncretic identification of Adam with Chinese creation myth progenitor",
+        "tag": "EXTENDED_TRADITION_METADATA",
+        "sirr_note": "Two independent traditions independently placing the first human at the origin of all humanity"
+      },
+      {
+        "finding": "Abraham = 19th generation after Adam",
+        "source": "1489 stele",
+        "value": 19,
+        "note": "Kaifeng community independently arrived at 19 as generational distance from Adam to Abraham",
+        "tag": "EXTENDED_TRADITION_METADATA",
+        "sirr_note": "19 appears independently in: أيوب Abjad raw value (19), Q 74:30 (nineteen), Ἰούδας isopsephy chain (685→19→10→1). Record only. No causal claim."
+      },
+      {
+        "finding": "Moses dated to 613th year of Zhou dynasty",
+        "source": "Kaifeng stelae",
+        "value": 613,
+        "note": "Community deliberately encoded 613 mitzvot into the chronological placement of the lawgiver",
+        "tag": "EXTENDED_TRADITION_METADATA",
+        "sirr_note": "Intentional internal numerology by the community itself — not an external structural finding"
+      }
+    ],
+    "gap": "No theological writings survive. No Chinese translation of Torah. No systematic symbolic treatment of individual figures beyond genealogical placement.",
+    "academic_sources": [
+      "Leslie, Donald D. The Survival of the Chinese Jews: The Jewish Community of Kaifeng. Leiden: Brill, 1972.",
+      "Leslie, Donald D. The Chinese-Hebrew Memorial Book of the Jewish Community of Kaifeng. Belconnen, 1984."
+    ]
+  },
+
+  "summary": {
+    "chinese_islamic": "No Torah/NT engagement — all biblical figures through Quranic mediation only",
+    "nestorian": "NT figures documented in Tang dynasty stele and Dunhuang fragments — no systematic numerical treatment",
+    "kaifeng": "Torah figures documented with transliterations and genealogical numerology — Adam=Pan Gu, Abraham=19th generation, Moses=613th year",
+    "overall_confidence": "LOW — supplemental metadata only. No core scripture module findings depend on this layer."
+  }
+}

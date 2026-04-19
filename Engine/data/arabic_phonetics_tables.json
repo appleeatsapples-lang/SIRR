@@ -1,0 +1,33 @@
+{
+  "source": "Gemini Round 3 — Al-Khalil ibn Ahmad / Sibawayh",
+  "letter_articulation": {
+    "ا": {"makhraj": "deepest_throat", "category": "حلقي", "category_en": "guttural", "sifat": ["voiced", "fricative"]},
+    "ه": {"makhraj": "deepest_throat", "category": "حلقي", "category_en": "guttural", "sifat": ["voiceless", "soft"]},
+    "ع": {"makhraj": "middle_throat", "category": "حلقي", "category_en": "guttural", "sifat": ["voiced", "intermediate"]},
+    "ح": {"makhraj": "middle_throat", "category": "حلقي", "category_en": "guttural", "sifat": ["voiceless", "soft"]},
+    "غ": {"makhraj": "top_throat", "category": "حلقي", "category_en": "guttural", "sifat": ["voiced", "soft"]},
+    "خ": {"makhraj": "top_throat", "category": "حلقي", "category_en": "guttural", "sifat": ["voiceless", "soft"]},
+    "ق": {"makhraj": "deep_tongue_root", "category": "لساني أقصى", "category_en": "velar", "sifat": ["voiced", "plosive", "elevated"]},
+    "ك": {"makhraj": "deep_tongue_root", "category": "لساني أقصى", "category_en": "velar", "sifat": ["voiceless", "plosive"]},
+    "ج": {"makhraj": "middle_tongue", "category": "لساني وسط", "category_en": "palatal", "sifat": ["voiced", "plosive"]},
+    "ش": {"makhraj": "middle_tongue", "category": "لساني وسط", "category_en": "palatal", "sifat": ["voiceless", "soft", "spreading"]},
+    "ي": {"makhraj": "middle_tongue", "category": "لساني وسط", "category_en": "palatal", "sifat": ["voiced", "soft"]},
+    "ض": {"makhraj": "tongue_edges", "category": "لساني حافة", "category_en": "lateral", "sifat": ["voiced", "soft", "elongated"]},
+    "ل": {"makhraj": "anterior_edges", "category": "لساني حافة", "category_en": "lateral", "sifat": ["voiced", "intermediate"]},
+    "ن": {"makhraj": "tongue_tip", "category": "لساني طرف", "category_en": "alveolar", "sifat": ["voiced", "intermediate", "nasal"]},
+    "ر": {"makhraj": "tongue_tip", "category": "لساني طرف", "category_en": "alveolar", "sifat": ["voiced", "intermediate", "trill"]},
+    "ط": {"makhraj": "tongue_tip_roots", "category": "لساني نطع", "category_en": "dental", "sifat": ["voiced", "plosive", "elevated", "enclosed"]},
+    "د": {"makhraj": "tongue_tip_roots", "category": "لساني نطع", "category_en": "dental", "sifat": ["voiced", "plosive"]},
+    "ت": {"makhraj": "tongue_tip_roots", "category": "لساني نطع", "category_en": "dental", "sifat": ["voiceless", "plosive"]},
+    "ص": {"makhraj": "tongue_tip_plates", "category": "لساني أسل", "category_en": "sibilant", "sifat": ["voiceless", "soft", "elevated", "whistle"]},
+    "س": {"makhraj": "tongue_tip_plates", "category": "لساني أسل", "category_en": "sibilant", "sifat": ["voiceless", "soft", "whistle"]},
+    "ز": {"makhraj": "tongue_tip_plates", "category": "لساني أسل", "category_en": "sibilant", "sifat": ["voiced", "soft", "whistle"]},
+    "ظ": {"makhraj": "tongue_tip_edges", "category": "لساني لثوي", "category_en": "interdental", "sifat": ["voiced", "soft", "elevated", "enclosed"]},
+    "ذ": {"makhraj": "tongue_tip_edges", "category": "لساني لثوي", "category_en": "interdental", "sifat": ["voiced", "soft"]},
+    "ث": {"makhraj": "tongue_tip_edges", "category": "لساني لثوي", "category_en": "interdental", "sifat": ["voiceless", "soft"]},
+    "ف": {"makhraj": "lower_lip_teeth", "category": "شفوي", "category_en": "labio-dental", "sifat": ["voiceless", "soft"]},
+    "ب": {"makhraj": "lips_closed", "category": "شفوي", "category_en": "bilabial", "sifat": ["voiced", "plosive"]},
+    "م": {"makhraj": "lips_closed", "category": "شفوي", "category_en": "bilabial", "sifat": ["voiced", "intermediate", "nasal"]},
+    "و": {"makhraj": "lips_rounded", "category": "شفوي", "category_en": "bilabial", "sifat": ["voiced", "soft"]}
+  }
+}

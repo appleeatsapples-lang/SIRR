@@ -1,0 +1,3232 @@
+[
+  [
+    {
+      "name_gr": "Ἰησοῦς",
+      "name_en": "Jesus",
+      "name_ar": "عيسى",
+      "isopsephy_breakdown": [
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "η",
+          "value": 8
+        },
+        {
+          "char": "σ",
+          "value": 200
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "υ",
+          "value": 400
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 888,
+      "reduction_chain": "888 → 24 → 6",
+      "final_value": 6,
+      "nt_role": "central figure of the Gospels",
+      "ot_cognate": {
+        "name_he": "ישוע",
+        "gematria": 386
+      },
+      "quran_cognate": {
+        "name_ar": "عيسى",
+        "abjad": 150
+      },
+      "letter_meanings": {
+        "ar": "الخلاص / النجاة",
+        "en": "salvation / deliverance"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى الخلاص / النجاة؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds salvation / deliverance; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "تحفظ اليونانية والعبرية والعربية الشخصية نفسها عبر أبجديات مختلفة؛ والاستمرار هنا دلالي وسردي لا اشتراطَ فيه لتطابق المجاميع.",
+        "en": "Greek, Hebrew, and Arabic preserve the same figure through different scripts; the continuity is semantic and narrative, not a demand for identical totals."
+      }
+    },
+    {
+      "name_gr": "Μαρία",
+      "name_en": "Mary (mother of Jesus)",
+      "name_ar": "مريم",
+      "isopsephy_breakdown": [
+        {
+          "char": "μ",
+          "value": 40
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ρ",
+          "value": 100
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "α",
+          "value": 1
+        }
+      ],
+      "isopsephy_total": 152,
+      "reduction_chain": "152 → 8",
+      "final_value": 8,
+      "nt_role": "mother of Jesus",
+      "ot_cognate": {
+        "name_he": "מרים",
+        "gematria": 290
+      },
+      "quran_cognate": {
+        "name_ar": "مريم",
+        "abjad": 290
+      },
+      "letter_meanings": {
+        "ar": "اسم مريمي يُقرأ عبر الرفعة والتوتر والقوة",
+        "en": "Miriam-line name read through elevation, tension, and strength"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى اسم مريمي يُقرأ عبر الرفعة والتوتر والقوة؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds Miriam-line name read through elevation, tension, and strength; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "تحفظ اليونانية والعبرية والعربية الشخصية نفسها عبر أبجديات مختلفة؛ والاستمرار هنا دلالي وسردي لا اشتراطَ فيه لتطابق المجاميع.",
+        "en": "Greek, Hebrew, and Arabic preserve the same figure through different scripts; the continuity is semantic and narrative, not a demand for identical totals."
+      }
+    },
+    {
+      "name_gr": "Ἰωσήφ",
+      "name_en": "Joseph",
+      "name_ar": "يوسف",
+      "isopsephy_breakdown": [
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "ω",
+          "value": 800
+        },
+        {
+          "char": "σ",
+          "value": 200
+        },
+        {
+          "char": "η",
+          "value": 8
+        },
+        {
+          "char": "φ",
+          "value": 500
+        }
+      ],
+      "isopsephy_total": 1518,
+      "reduction_chain": "1518 → 15 → 6",
+      "final_value": 6,
+      "nt_role": "legal father of Jesus",
+      "ot_cognate": {
+        "name_he": "יוסף",
+        "gematria": 156
+      },
+      "quran_cognate": {
+        "name_ar": "يوسف",
+        "abjad": 156
+      },
+      "letter_meanings": {
+        "ar": "الزيادة / النماء المضاف",
+        "en": "increase / added growth"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى الزيادة / النماء المضاف؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds increase / added growth; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "تحفظ اليونانية والعبرية والعربية الشخصية نفسها عبر أبجديات مختلفة؛ والاستمرار هنا دلالي وسردي لا اشتراطَ فيه لتطابق المجاميع.",
+        "en": "Greek, Hebrew, and Arabic preserve the same figure through different scripts; the continuity is semantic and narrative, not a demand for identical totals."
+      }
+    },
+    {
+      "name_gr": "Ἰωάννης",
+      "name_en": "John the Baptist",
+      "name_ar": "يوحنا المعمدان",
+      "isopsephy_breakdown": [
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "ω",
+          "value": 800
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ν",
+          "value": 50
+        },
+        {
+          "char": "ν",
+          "value": 50
+        },
+        {
+          "char": "η",
+          "value": 8
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 1119,
+      "reduction_chain": "1119 → 12 → 3",
+      "final_value": 3,
+      "nt_role": "forerunner and baptizer",
+      "ot_cognate": {
+        "name_he": "יוחנן",
+        "gematria": 124
+      },
+      "quran_cognate": {
+        "name_ar": "يحيى",
+        "abjad": 38
+      },
+      "letter_meanings": {
+        "ar": "النعمة الإلهية / الرب متحنّن",
+        "en": "YHWH is gracious"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى النعمة الإلهية / الرب متحنّن؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds YHWH is gracious; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "تحفظ اليونانية والعبرية والعربية الشخصية نفسها عبر أبجديات مختلفة؛ والاستمرار هنا دلالي وسردي لا اشتراطَ فيه لتطابق المجاميع.",
+        "en": "Greek, Hebrew, and Arabic preserve the same figure through different scripts; the continuity is semantic and narrative, not a demand for identical totals."
+      }
+    },
+    {
+      "name_gr": "Πέτρος",
+      "name_en": "Peter",
+      "name_ar": "بطرس",
+      "isopsephy_breakdown": [
+        {
+          "char": "π",
+          "value": 80
+        },
+        {
+          "char": "ε",
+          "value": 5
+        },
+        {
+          "char": "τ",
+          "value": 300
+        },
+        {
+          "char": "ρ",
+          "value": 100
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 755,
+      "reduction_chain": "755 → 17 → 8",
+      "final_value": 8,
+      "nt_role": "leading apostle",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "الصخرة / الحجر",
+        "en": "rock / stone"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى الصخرة / الحجر؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds rock / stone; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Παῦλος",
+      "name_en": "Paul",
+      "name_ar": "بولس",
+      "isopsephy_breakdown": [
+        {
+          "char": "π",
+          "value": 80
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "υ",
+          "value": 400
+        },
+        {
+          "char": "λ",
+          "value": 30
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 781,
+      "reduction_chain": "781 → 16 → 7",
+      "final_value": 7,
+      "nt_role": "apostle to the nations",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "الصِّغَر / التواضع",
+        "en": "smallness / humility"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى الصِّغَر / التواضع؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds smallness / humility; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Μαρία ἡ Μαγδαληνή",
+      "name_en": "Mary Magdalene",
+      "name_ar": "مريم المجدلية",
+      "isopsephy_breakdown": [
+        {
+          "char": "μ",
+          "value": 40
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ρ",
+          "value": 100
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "η",
+          "value": 8
+        },
+        {
+          "char": "μ",
+          "value": 40
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "γ",
+          "value": 3
+        },
+        {
+          "char": "δ",
+          "value": 4
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "λ",
+          "value": 30
+        },
+        {
+          "char": "η",
+          "value": 8
+        },
+        {
+          "char": "ν",
+          "value": 50
+        },
+        {
+          "char": "η",
+          "value": 8
+        }
+      ],
+      "isopsephy_total": 305,
+      "reduction_chain": "305 → 8",
+      "final_value": 8,
+      "nt_role": "disciple and resurrection witness",
+      "ot_cognate": {
+        "name_he": "מרים",
+        "gematria": 290
+      },
+      "quran_cognate": {
+        "name_ar": "مريم",
+        "abjad": 290
+      },
+      "letter_meanings": {
+        "ar": "مريم المرتبطة بالمجدلة؛ دلالة الموضع والعلو",
+        "en": "Mary of Magdala; tower-place association"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى مريم المرتبطة بالمجدلة؛ دلالة الموضع والعلو؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds Mary of Magdala; tower-place association; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "تحفظ اليونانية والعبرية والعربية الشخصية نفسها عبر أبجديات مختلفة؛ والاستمرار هنا دلالي وسردي لا اشتراطَ فيه لتطابق المجاميع.",
+        "en": "Greek, Hebrew, and Arabic preserve the same figure through different scripts; the continuity is semantic and narrative, not a demand for identical totals."
+      }
+    },
+    {
+      "name_gr": "Λάζαρος",
+      "name_en": "Lazarus",
+      "name_ar": "لعازر",
+      "isopsephy_breakdown": [
+        {
+          "char": "λ",
+          "value": 30
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ζ",
+          "value": 7
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ρ",
+          "value": 100
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 409,
+      "reduction_chain": "409 → 13 → 4",
+      "final_value": 4,
+      "nt_role": "friend of Jesus at Bethany",
+      "ot_cognate": {
+        "name_he": "אלעזר",
+        "gematria": 308
+      },
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "الله أعان",
+        "en": "God has helped"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى الله أعان؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds God has helped; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "تعلو الصيغة اليونانية على خط اسمي عبري أقدم؛ والجسر هنا نسبي ودلالي لا تطابق حسابياً.",
+        "en": "The Greek form overlays an older Hebrew name-line; the bridge is genealogical and semantic rather than arithmetically identical."
+      }
+    },
+    {
+      "name_gr": "Ἄνδρεας",
+      "name_en": "Andrew",
+      "name_ar": "أندراوس",
+      "isopsephy_breakdown": [
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ν",
+          "value": 50
+        },
+        {
+          "char": "δ",
+          "value": 4
+        },
+        {
+          "char": "ρ",
+          "value": 100
+        },
+        {
+          "char": "ε",
+          "value": 5
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 361,
+      "reduction_chain": "361 → 10 → 1",
+      "final_value": 1,
+      "nt_role": "apostle, brother of Peter",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "الرجولة / الجرأة",
+        "en": "manly courage"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى الرجولة / الجرأة؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds manly courage; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Ἰάκωβος",
+      "name_en": "James",
+      "name_ar": "يعقوب",
+      "isopsephy_breakdown": [
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "κ",
+          "value": 20
+        },
+        {
+          "char": "ω",
+          "value": 800
+        },
+        {
+          "char": "β",
+          "value": 2
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 1103,
+      "reduction_chain": "1103 → 5",
+      "final_value": 5,
+      "nt_role": "apostle",
+      "ot_cognate": {
+        "name_he": "יעקב",
+        "gematria": 182
+      },
+      "quran_cognate": {
+        "name_ar": "يعقوب",
+        "abjad": 188
+      },
+      "letter_meanings": {
+        "ar": "اسم يعقوبي: العَقِب والتعاقب والإزاحة",
+        "en": "Jacob-line name: heel, succession, displacement"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى اسم يعقوبي: العَقِب والتعاقب والإزاحة؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds Jacob-line name: heel, succession, displacement; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "تحفظ اليونانية والعبرية والعربية الشخصية نفسها عبر أبجديات مختلفة؛ والاستمرار هنا دلالي وسردي لا اشتراطَ فيه لتطابق المجاميع.",
+        "en": "Greek, Hebrew, and Arabic preserve the same figure through different scripts; the continuity is semantic and narrative, not a demand for identical totals."
+      }
+    },
+    {
+      "name_gr": "Ἰωάννης",
+      "name_en": "John (apostle)",
+      "name_ar": "يوحنا",
+      "isopsephy_breakdown": [
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "ω",
+          "value": 800
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ν",
+          "value": 50
+        },
+        {
+          "char": "ν",
+          "value": 50
+        },
+        {
+          "char": "η",
+          "value": 8
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 1119,
+      "reduction_chain": "1119 → 12 → 3",
+      "final_value": 3,
+      "nt_role": "apostle and witness",
+      "ot_cognate": {
+        "name_he": "יוחנן",
+        "gematria": 124
+      },
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "النعمة الإلهية / الرب متحنّن",
+        "en": "YHWH is gracious"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى النعمة الإلهية / الرب متحنّن؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds YHWH is gracious; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "تعلو الصيغة اليونانية على خط اسمي عبري أقدم؛ والجسر هنا نسبي ودلالي لا تطابق حسابياً.",
+        "en": "The Greek form overlays an older Hebrew name-line; the bridge is genealogical and semantic rather than arithmetically identical."
+      }
+    },
+    {
+      "name_gr": "Φίλιππος",
+      "name_en": "Philip",
+      "name_ar": "فيلبس",
+      "isopsephy_breakdown": [
+        {
+          "char": "φ",
+          "value": 500
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "λ",
+          "value": 30
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "π",
+          "value": 80
+        },
+        {
+          "char": "π",
+          "value": 80
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 980,
+      "reduction_chain": "980 → 17 → 8",
+      "final_value": 8,
+      "nt_role": "apostle",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "محبّ الخيل",
+        "en": "lover of horses"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى محبّ الخيل؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds lover of horses; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Βαρθολομαῖος",
+      "name_en": "Bartholomew",
+      "name_ar": "برثولماوس",
+      "isopsephy_breakdown": [
+        {
+          "char": "β",
+          "value": 2
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ρ",
+          "value": 100
+        },
+        {
+          "char": "θ",
+          "value": 9
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "λ",
+          "value": 30
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "μ",
+          "value": 40
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 603,
+      "reduction_chain": "603 → 9",
+      "final_value": 9,
+      "nt_role": "apostle",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "ابن تلماي",
+        "en": "son of Talmai"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى ابن تلماي؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds son of Talmai; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Ματθαῖος",
+      "name_en": "Matthew",
+      "name_ar": "متى",
+      "isopsephy_breakdown": [
+        {
+          "char": "μ",
+          "value": 40
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "τ",
+          "value": 300
+        },
+        {
+          "char": "θ",
+          "value": 9
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 631,
+      "reduction_chain": "631 → 10 → 1",
+      "final_value": 1,
+      "nt_role": "apostle and evangelist",
+      "ot_cognate": {
+        "name_he": "מתתיהו",
+        "gematria": 859
+      },
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "هبة الرب",
+        "en": "gift of YHWH"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى هبة الرب؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds gift of YHWH; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "تعلو الصيغة اليونانية على خط اسمي عبري أقدم؛ والجسر هنا نسبي ودلالي لا تطابق حسابياً.",
+        "en": "The Greek form overlays an older Hebrew name-line; the bridge is genealogical and semantic rather than arithmetically identical."
+      }
+    },
+    {
+      "name_gr": "Θωμᾶς",
+      "name_en": "Thomas",
+      "name_ar": "توما",
+      "isopsephy_breakdown": [
+        {
+          "char": "θ",
+          "value": 9
+        },
+        {
+          "char": "ω",
+          "value": 800
+        },
+        {
+          "char": "μ",
+          "value": 40
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 1050,
+      "reduction_chain": "1050 → 6",
+      "final_value": 6,
+      "nt_role": "apostle",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "التوأم",
+        "en": "twin"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى التوأم؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds twin; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Σίμων",
+      "name_en": "Simon the Zealot",
+      "name_ar": "سمعان",
+      "isopsephy_breakdown": [
+        {
+          "char": "σ",
+          "value": 200
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "μ",
+          "value": 40
+        },
+        {
+          "char": "ω",
+          "value": 800
+        },
+        {
+          "char": "ν",
+          "value": 50
+        }
+      ],
+      "isopsephy_total": 1100,
+      "reduction_chain": "1100 → 2",
+      "final_value": 2,
+      "nt_role": "apostle",
+      "ot_cognate": {
+        "name_he": "שמעון",
+        "gematria": 466
+      },
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "السماع / الاستجابة المتنبّهة",
+        "en": "hearing / attentive response"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى السماع / الاستجابة المتنبّهة؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds hearing / attentive response; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "تعلو الصيغة اليونانية على خط اسمي عبري أقدم؛ والجسر هنا نسبي ودلالي لا تطابق حسابياً.",
+        "en": "The Greek form overlays an older Hebrew name-line; the bridge is genealogical and semantic rather than arithmetically identical."
+      }
+    },
+    {
+      "name_gr": "Θαδδαῖος",
+      "name_en": "Thaddaeus",
+      "name_ar": "تداوس",
+      "isopsephy_breakdown": [
+        {
+          "char": "θ",
+          "value": 9
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "δ",
+          "value": 4
+        },
+        {
+          "char": "δ",
+          "value": 4
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 299,
+      "reduction_chain": "299 → 20 → 2",
+      "final_value": 2,
+      "nt_role": "apostle",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "القلب / الجرأة؛ والأصل اللغوي غير محسوم",
+        "en": "heart / courage; etymology uncertain"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى القلب / الجرأة؛ والأصل اللغوي غير محسوم؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds heart / courage; etymology uncertain; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Ἰούδας Ἰσκαριώτης",
+      "name_en": "Judas Iscariot",
+      "name_ar": "يهوذا الإسخريوطي",
+      "isopsephy_breakdown": [
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "υ",
+          "value": 400
+        },
+        {
+          "char": "δ",
+          "value": 4
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ς",
+          "value": 200
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "σ",
+          "value": 200
+        },
+        {
+          "char": "κ",
+          "value": 20
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ρ",
+          "value": 100
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "ω",
+          "value": 800
+        },
+        {
+          "char": "τ",
+          "value": 300
+        },
+        {
+          "char": "η",
+          "value": 8
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 2334,
+      "reduction_chain": "2334 → 12 → 3",
+      "final_value": 3,
+      "nt_role": "disciple who betrays Jesus",
+      "ot_cognate": {
+        "name_he": "יהודה",
+        "gematria": 30
+      },
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "اسم يهوذي مقرون بعلامة موضع",
+        "en": "Judah-line name joined to a place-marker"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى اسم يهوذي مقرون بعلامة موضع؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds Judah-line name joined to a place-marker; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "تعلو الصيغة اليونانية على خط اسمي عبري أقدم؛ والجسر هنا نسبي ودلالي لا تطابق حسابياً.",
+        "en": "The Greek form overlays an older Hebrew name-line; the bridge is genealogical and semantic rather than arithmetically identical."
+      }
+    },
+    {
+      "name_gr": "Νικόδημος",
+      "name_en": "Nicodemus",
+      "name_ar": "نيقوديموس",
+      "isopsephy_breakdown": [
+        {
+          "char": "ν",
+          "value": 50
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "κ",
+          "value": 20
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "δ",
+          "value": 4
+        },
+        {
+          "char": "η",
+          "value": 8
+        },
+        {
+          "char": "μ",
+          "value": 40
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 472,
+      "reduction_chain": "472 → 13 → 4",
+      "final_value": 4,
+      "nt_role": "Pharisee who visits Jesus",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "غلبة الشعب",
+        "en": "victory of the people"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى غلبة الشعب؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds victory of the people; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Μάρθα",
+      "name_en": "Martha",
+      "name_ar": "مرثا",
+      "isopsephy_breakdown": [
+        {
+          "char": "μ",
+          "value": 40
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ρ",
+          "value": 100
+        },
+        {
+          "char": "θ",
+          "value": 9
+        },
+        {
+          "char": "α",
+          "value": 1
+        }
+      ],
+      "isopsephy_total": 151,
+      "reduction_chain": "151 → 7",
+      "final_value": 7,
+      "nt_role": "sister of Mary and Lazarus",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "السيدة / ربّة البيت",
+        "en": "lady / household mistress"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى السيدة / ربّة البيت؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds lady / household mistress; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Σαλώμη",
+      "name_en": "Salome",
+      "name_ar": "سالومة",
+      "isopsephy_breakdown": [
+        {
+          "char": "σ",
+          "value": 200
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "λ",
+          "value": 30
+        },
+        {
+          "char": "ω",
+          "value": 800
+        },
+        {
+          "char": "μ",
+          "value": 40
+        },
+        {
+          "char": "η",
+          "value": 8
+        }
+      ],
+      "isopsephy_total": 1079,
+      "reduction_chain": "1079 → 17 → 8",
+      "final_value": 8,
+      "nt_role": "female follower in Gospel tradition",
+      "ot_cognate": {
+        "name_he": "שלומית",
+        "gematria": 786
+      },
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "السلام / التمام",
+        "en": "peace / wholeness"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى السلام / التمام؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds peace / wholeness; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "تعلو الصيغة اليونانية على خط اسمي عبري أقدم؛ والجسر هنا نسبي ودلالي لا تطابق حسابياً.",
+        "en": "The Greek form overlays an older Hebrew name-line; the bridge is genealogical and semantic rather than arithmetically identical."
+      }
+    },
+    {
+      "name_gr": "Ζαχαρίας",
+      "name_en": "Zechariah",
+      "name_ar": "زكريا",
+      "isopsephy_breakdown": [
+        {
+          "char": "ζ",
+          "value": 7
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "χ",
+          "value": 600
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ρ",
+          "value": 100
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 920,
+      "reduction_chain": "920 → 11 → 2",
+      "final_value": 2,
+      "nt_role": "father of John the Baptist",
+      "ot_cognate": {
+        "name_he": "זכריה",
+        "gematria": 242
+      },
+      "quran_cognate": {
+        "name_ar": "زكريا",
+        "abjad": 238
+      },
+      "letter_meanings": {
+        "ar": "الرب يذكر",
+        "en": "YHWH remembers"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى الرب يذكر؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds YHWH remembers; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "تحفظ اليونانية والعبرية والعربية الشخصية نفسها عبر أبجديات مختلفة؛ والاستمرار هنا دلالي وسردي لا اشتراطَ فيه لتطابق المجاميع.",
+        "en": "Greek, Hebrew, and Arabic preserve the same figure through different scripts; the continuity is semantic and narrative, not a demand for identical totals."
+      }
+    },
+    {
+      "name_gr": "Ἐλισάβετ",
+      "name_en": "Elizabeth",
+      "name_ar": "أليصابات",
+      "isopsephy_breakdown": [
+        {
+          "char": "ε",
+          "value": 5
+        },
+        {
+          "char": "λ",
+          "value": 30
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "σ",
+          "value": 200
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "β",
+          "value": 2
+        },
+        {
+          "char": "ε",
+          "value": 5
+        },
+        {
+          "char": "τ",
+          "value": 300
+        }
+      ],
+      "isopsephy_total": 553,
+      "reduction_chain": "553 → 13 → 4",
+      "final_value": 4,
+      "nt_role": "mother of John the Baptist",
+      "ot_cognate": {
+        "name_he": "אלישבע",
+        "gematria": 413
+      },
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "الله عهد",
+        "en": "God is oath"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى الله عهد؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds God is oath; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "تعلو الصيغة اليونانية على خط اسمي عبري أقدم؛ والجسر هنا نسبي ودلالي لا تطابق حسابياً.",
+        "en": "The Greek form overlays an older Hebrew name-line; the bridge is genealogical and semantic rather than arithmetically identical."
+      }
+    },
+    {
+      "name_gr": "Ἡρῴδης",
+      "name_en": "Herod",
+      "name_ar": "هيرودس",
+      "isopsephy_breakdown": [
+        {
+          "char": "η",
+          "value": 8
+        },
+        {
+          "char": "ρ",
+          "value": 100
+        },
+        {
+          "char": "ω",
+          "value": 800
+        },
+        {
+          "char": "δ",
+          "value": 4
+        },
+        {
+          "char": "η",
+          "value": 8
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 1120,
+      "reduction_chain": "1120 → 4",
+      "final_value": 4,
+      "nt_role": "ruler in Gospel narrative",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "صيغة ملكية سلالية يونانية",
+        "en": "royal-dynastic Greek form"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى صيغة ملكية سلالية يونانية؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds royal-dynastic Greek form; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Πιλᾶτος",
+      "name_en": "Pilate",
+      "name_ar": "بيلاطس",
+      "isopsephy_breakdown": [
+        {
+          "char": "π",
+          "value": 80
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "λ",
+          "value": 30
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "τ",
+          "value": 300
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 691,
+      "reduction_chain": "691 → 16 → 7",
+      "final_value": 7,
+      "nt_role": "Roman governor",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "اسم ذو مسحة عسكرية مرتبط بالرمح",
+        "en": "military / spear-associated name"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى اسم ذو مسحة عسكرية مرتبط بالرمح؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds military / spear-associated name; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Βαραββᾶς",
+      "name_en": "Barabbas",
+      "name_ar": "باراباس",
+      "isopsephy_breakdown": [
+        {
+          "char": "β",
+          "value": 2
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ρ",
+          "value": 100
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "β",
+          "value": 2
+        },
+        {
+          "char": "β",
+          "value": 2
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 309,
+      "reduction_chain": "309 → 12 → 3",
+      "final_value": 3,
+      "nt_role": "prisoner released instead of Jesus",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "ابن الأب",
+        "en": "son of the father"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى ابن الأب؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds son of the father; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Στέφανος",
+      "name_en": "Stephen",
+      "name_ar": "اسطفانوس",
+      "isopsephy_breakdown": [
+        {
+          "char": "σ",
+          "value": 200
+        },
+        {
+          "char": "τ",
+          "value": 300
+        },
+        {
+          "char": "ε",
+          "value": 5
+        },
+        {
+          "char": "φ",
+          "value": 500
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ν",
+          "value": 50
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 1326,
+      "reduction_chain": "1326 → 12 → 3",
+      "final_value": 3,
+      "nt_role": "first martyr in Acts",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "الإكليل / التاج",
+        "en": "crown / wreath"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى الإكليل / التاج؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds crown / wreath; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Τιμόθεος",
+      "name_en": "Timothy",
+      "name_ar": "تيموثاوس",
+      "isopsephy_breakdown": [
+        {
+          "char": "τ",
+          "value": 300
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "μ",
+          "value": 40
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "θ",
+          "value": 9
+        },
+        {
+          "char": "ε",
+          "value": 5
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 704,
+      "reduction_chain": "704 → 11 → 2",
+      "final_value": 2,
+      "nt_role": "coworker of Paul",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "إكرام الله",
+        "en": "honoring God"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى إكرام الله؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds honoring God; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Τίτος",
+      "name_en": "Titus",
+      "name_ar": "تيطس",
+      "isopsephy_breakdown": [
+        {
+          "char": "τ",
+          "value": 300
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "τ",
+          "value": 300
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 880,
+      "reduction_chain": "880 → 16 → 7",
+      "final_value": 7,
+      "nt_role": "coworker of Paul",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "اسم لاتيني ذي صبغة لقبية؛ أصله غير محسوم",
+        "en": "Latin title-name; exact root uncertain"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى اسم لاتيني ذي صبغة لقبية؛ أصله غير محسوم؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds Latin title-name; exact root uncertain; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Βαρναβᾶς",
+      "name_en": "Barnabas",
+      "name_ar": "برنابا",
+      "isopsephy_breakdown": [
+        {
+          "char": "β",
+          "value": 2
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ρ",
+          "value": 100
+        },
+        {
+          "char": "ν",
+          "value": 50
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "β",
+          "value": 2
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 357,
+      "reduction_chain": "357 → 15 → 6",
+      "final_value": 6,
+      "nt_role": "early church envoy",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "ابن التعزية / التشجيع",
+        "en": "son of encouragement"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى ابن التعزية / التشجيع؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds son of encouragement; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Μαρία",
+      "name_en": "Mary of Bethany",
+      "name_ar": "مريم بيت عنيا",
+      "isopsephy_breakdown": [
+        {
+          "char": "μ",
+          "value": 40
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ρ",
+          "value": 100
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "α",
+          "value": 1
+        }
+      ],
+      "isopsephy_total": 152,
+      "reduction_chain": "152 → 8",
+      "final_value": 8,
+      "nt_role": "sister of Martha and Lazarus",
+      "ot_cognate": {
+        "name_he": "מרים",
+        "gematria": 290
+      },
+      "quran_cognate": {
+        "name_ar": "مريم",
+        "abjad": 290
+      },
+      "letter_meanings": {
+        "ar": "اسم مريمي يُقرأ عبر الرفعة والتوتر والقوة",
+        "en": "Miriam-line name read through elevation, tension, and strength"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى اسم مريمي يُقرأ عبر الرفعة والتوتر والقوة؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds Miriam-line name read through elevation, tension, and strength; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "تحفظ اليونانية والعبرية والعربية الشخصية نفسها عبر أبجديات مختلفة؛ والاستمرار هنا دلالي وسردي لا اشتراطَ فيه لتطابق المجاميع.",
+        "en": "Greek, Hebrew, and Arabic preserve the same figure through different scripts; the continuity is semantic and narrative, not a demand for identical totals."
+      }
+    },
+    {
+      "name_gr": "Κλεόπας",
+      "name_en": "Cleopas",
+      "name_ar": "كليوباس",
+      "isopsephy_breakdown": [
+        {
+          "char": "κ",
+          "value": 20
+        },
+        {
+          "char": "λ",
+          "value": 30
+        },
+        {
+          "char": "ε",
+          "value": 5
+        },
+        {
+          "char": "ο",
+          "value": 70
+        },
+        {
+          "char": "π",
+          "value": 80
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 406,
+      "reduction_chain": "406 → 10 → 1",
+      "final_value": 1,
+      "nt_role": "disciple on the Emmaus road",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "مجد الأب",
+        "en": "glory of the father"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى مجد الأب؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds glory of the father; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    },
+    {
+      "name_gr": "Ἀνανίας",
+      "name_en": "Ananias",
+      "name_ar": "حننيا",
+      "isopsephy_breakdown": [
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ν",
+          "value": 50
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ν",
+          "value": 50
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "ς",
+          "value": 200
+        }
+      ],
+      "isopsephy_total": 313,
+      "reduction_chain": "313 → 7",
+      "final_value": 7,
+      "nt_role": "member of the Acts narrative",
+      "ot_cognate": {
+        "name_he": "חנניה",
+        "gematria": 123
+      },
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "الرب متحنّن",
+        "en": "YHWH is gracious"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى الرب متحنّن؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds YHWH is gracious; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "تعلو الصيغة اليونانية على خط اسمي عبري أقدم؛ والجسر هنا نسبي ودلالي لا تطابق حسابياً.",
+        "en": "The Greek form overlays an older Hebrew name-line; the bridge is genealogical and semantic rather than arithmetically identical."
+      }
+    },
+    {
+      "name_gr": "Σαπφείρα",
+      "name_en": "Sapphira",
+      "name_ar": "سفيرة",
+      "isopsephy_breakdown": [
+        {
+          "char": "σ",
+          "value": 200
+        },
+        {
+          "char": "α",
+          "value": 1
+        },
+        {
+          "char": "π",
+          "value": 80
+        },
+        {
+          "char": "φ",
+          "value": 500
+        },
+        {
+          "char": "ε",
+          "value": 5
+        },
+        {
+          "char": "ι",
+          "value": 10
+        },
+        {
+          "char": "ρ",
+          "value": 100
+        },
+        {
+          "char": "α",
+          "value": 1
+        }
+      ],
+      "isopsephy_total": 897,
+      "reduction_chain": "897 → 24 → 6",
+      "final_value": 6,
+      "nt_role": "wife of Ananias in Acts",
+      "ot_cognate": null,
+      "quran_cognate": null,
+      "letter_meanings": {
+        "ar": "الياقوت / الحجر النفيس",
+        "en": "sapphire / precious stone"
+      },
+      "structural_reading": {
+        "ar": "يُبرز الاسم معنى الياقوت / الحجر النفيس؛ وفي السياق الإنجيلي يثبّت هذا المعنى وظيفة الشخصية داخل المشهد من غير تحويله إلى نبوءة.",
+        "en": "The name foregrounds sapphire / precious stone; in the Gospel frame, that meaning stabilizes the figure's role without turning it into destiny language."
+      },
+      "cross_tradition_note": {
+        "ar": "الإشارة هنا يونانية في المقام الأول؛ فالشخصية تُحمَل بالصيغة المحلية أكثر مما تُحمَل بنظير عبري-عربي ثابت.",
+        "en": "The signal is mainly intra-Greek: the figure is carried by the local name-form rather than a stable Hebrew-Arabic cognate."
+      }
+    }
+  ],
+  [
+    {
+      "name_he": "אדם",
+      "letter_meanings": {
+        "ar": "من الأرض / التراب.",
+        "en": "From earth / ground."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: من الأرض / التراب. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: From earth / ground. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في الطبقة البدئية من السرد حيث تتشكل البنية الإنسانية الأولى.",
+        "en": "It stands in the primordial layer where first human structure is being formed."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "يقابله القرآن مباشرة لكنه يعيد تركيز الشخصية من النسب إلى الوظيفة الأخلاقية واللاهوتية.",
+        "en": "The Qur'an preserves the figure directly but shifts emphasis from genealogy to moral and theological function."
+      }
+    },
+    {
+      "name_he": "חוה",
+      "letter_meanings": {
+        "ar": "من الحياة والحيّ.",
+        "en": "From life / living."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: من الحياة والحيّ. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: From life / living. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في الطبقة البدئية من السرد حيث تتشكل البنية الإنسانية الأولى.",
+        "en": "It stands in the primordial layer where first human structure is being formed."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "קין",
+      "letter_meanings": {
+        "ar": "من الاقتناء أو التملك.",
+        "en": "From acquisition or possession."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: من الاقتناء أو التملك. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: From acquisition or possession. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في الطبقة البدئية من السرد حيث تتشكل البنية الإنسانية الأولى.",
+        "en": "It stands in the primordial layer where first human structure is being formed."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "הבל",
+      "letter_meanings": {
+        "ar": "من النفَس أو البخار.",
+        "en": "From breath or vapor."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: من النفَس أو البخار. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: From breath or vapor. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في الطبقة البدئية من السرد حيث تتشكل البنية الإنسانية الأولى.",
+        "en": "It stands in the primordial layer where first human structure is being formed."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "שת",
+      "letter_meanings": {
+        "ar": "من الوضع أو العِوض.",
+        "en": "From placing or replacement."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: من الوضع أو العِوض. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: From placing or replacement. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في الطبقة البدئية من السرد حيث تتشكل البنية الإنسانية الأولى.",
+        "en": "It stands in the primordial layer where first human structure is being formed."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "חנוך",
+      "letter_meanings": {
+        "ar": "من التدشين أو التكريس.",
+        "en": "From dedication or initiation."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: من التدشين أو التكريس. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: From dedication or initiation. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في الطبقة البدئية من السرد حيث تتشكل البنية الإنسانية الأولى.",
+        "en": "It stands in the primordial layer where first human structure is being formed."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "المقابل القرآني هنا غير مطابق اسماً تماماً أو محفوظ في التفسير أكثر من النص المباشر.",
+        "en": "The Qur'anic parallel here is not fully name-identical or survives more in exegesis than in direct text."
+      }
+    },
+    {
+      "name_he": "נח",
+      "letter_meanings": {
+        "ar": "من الراحة والسكون.",
+        "en": "From rest and quiet."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: من الراحة والسكون. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: From rest and quiet. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في الطبقة البدئية من السرد حيث تتشكل البنية الإنسانية الأولى.",
+        "en": "It stands in the primordial layer where first human structure is being formed."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "يقابله القرآن مباشرة لكنه يعيد تركيز الشخصية من النسب إلى الوظيفة الأخلاقية واللاهوتية.",
+        "en": "The Qur'an preserves the figure directly but shifts emphasis from genealogy to moral and theological function."
+      }
+    },
+    {
+      "name_he": "שם",
+      "letter_meanings": {
+        "ar": "الاسم والذكر.",
+        "en": "Name and renown."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الاسم والذكر. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Name and renown. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في الطبقة البدئية من السرد حيث تتشكل البنية الإنسانية الأولى.",
+        "en": "It stands in the primordial layer where first human structure is being formed."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "חם",
+      "letter_meanings": {
+        "ar": "أصل غير محسوم؛ يُسمع مع الحرارة.",
+        "en": "Uncertain root; sometimes heard with heat."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: أصل غير محسوم؛ يُسمع مع الحرارة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Uncertain root; sometimes heard with heat. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في الطبقة البدئية من السرد حيث تتشكل البنية الإنسانية الأولى.",
+        "en": "It stands in the primordial layer where first human structure is being formed."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "יפת",
+      "letter_meanings": {
+        "ar": "من الاتساع أو الجمال.",
+        "en": "From enlargement or beauty."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: من الاتساع أو الجمال. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: From enlargement or beauty. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في الطبقة البدئية من السرد حيث تتشكل البنية الإنسانية الأولى.",
+        "en": "It stands in the primordial layer where first human structure is being formed."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "אברהם",
+      "letter_meanings": {
+        "ar": "أبُ جمهور / كثرة.",
+        "en": "Father of a multitude."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: أبُ جمهور / كثرة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Father of a multitude. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في العقدة الإبراهيمية حيث يتحول البيت إلى خط عهد.",
+        "en": "It belongs to the Abrahamic knot where household becomes covenantal line."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "يقابله القرآن مباشرة لكنه يعيد تركيز الشخصية من النسب إلى الوظيفة الأخلاقية واللاهوتية.",
+        "en": "The Qur'an preserves the figure directly but shifts emphasis from genealogy to moral and theological function."
+      }
+    },
+    {
+      "name_he": "שרה",
+      "letter_meanings": {
+        "ar": "الأميرة / السيادة.",
+        "en": "Princess / rule."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الأميرة / السيادة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Princess / rule. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في العقدة الإبراهيمية حيث يتحول البيت إلى خط عهد.",
+        "en": "It belongs to the Abrahamic knot where household becomes covenantal line."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "הגר",
+      "letter_meanings": {
+        "ar": "اسم أجنبي يُقرأ لاحقاً مع الغربة.",
+        "en": "A foreign name later heard through exile."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: اسم أجنبي يُقرأ لاحقاً مع الغربة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: A foreign name later heard through exile. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في العقدة الإبراهيمية حيث يتحول البيت إلى خط عهد.",
+        "en": "It belongs to the Abrahamic knot where household becomes covenantal line."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "المقابل القرآني هنا غير مطابق اسماً تماماً أو محفوظ في التفسير أكثر من النص المباشر.",
+        "en": "The Qur'anic parallel here is not fully name-identical or survives more in exegesis than in direct text."
+      }
+    },
+    {
+      "name_he": "ישמעאל",
+      "letter_meanings": {
+        "ar": "الله يسمع.",
+        "en": "God hears."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الله يسمع. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: God hears. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في العقدة الإبراهيمية حيث يتحول البيت إلى خط عهد.",
+        "en": "It belongs to the Abrahamic knot where household becomes covenantal line."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "يقابله القرآن مباشرة لكنه يعيد تركيز الشخصية من النسب إلى الوظيفة الأخلاقية واللاهوتية.",
+        "en": "The Qur'an preserves the figure directly but shifts emphasis from genealogy to moral and theological function."
+      }
+    },
+    {
+      "name_he": "יצחק",
+      "letter_meanings": {
+        "ar": "الضحك والفرح المفاجئ.",
+        "en": "Laughter and sudden joy."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الضحك والفرح المفاجئ. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Laughter and sudden joy. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في العقدة الإبراهيمية حيث يتحول البيت إلى خط عهد.",
+        "en": "It belongs to the Abrahamic knot where household becomes covenantal line."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "يقابله القرآن مباشرة لكنه يعيد تركيز الشخصية من النسب إلى الوظيفة الأخلاقية واللاهوتية.",
+        "en": "The Qur'an preserves the figure directly but shifts emphasis from genealogy to moral and theological function."
+      }
+    },
+    {
+      "name_he": "רבקה",
+      "letter_meanings": {
+        "ar": "من الربط أو الوثاق.",
+        "en": "From binding or fastening."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: من الربط أو الوثاق. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: From binding or fastening. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في العقدة الإبراهيمية حيث يتحول البيت إلى خط عهد.",
+        "en": "It belongs to the Abrahamic knot where household becomes covenantal line."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "יעקב",
+      "letter_meanings": {
+        "ar": "العَقِب أو التعاقب.",
+        "en": "Heel or succession."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: العَقِب أو التعاقب. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Heel or succession. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في العقدة الإبراهيمية حيث يتحول البيت إلى خط عهد.",
+        "en": "It belongs to the Abrahamic knot where household becomes covenantal line."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "يقابله القرآن مباشرة لكنه يعيد تركيز الشخصية من النسب إلى الوظيفة الأخلاقية واللاهوتية.",
+        "en": "The Qur'an preserves the figure directly but shifts emphasis from genealogy to moral and theological function."
+      }
+    },
+    {
+      "name_he": "עשו",
+      "letter_meanings": {
+        "ar": "من الصنع أو الاكتمال المبكر.",
+        "en": "Making or early completeness."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: من الصنع أو الاكتمال المبكر. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Making or early completeness. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في العقدة الإبراهيمية حيث يتحول البيت إلى خط عهد.",
+        "en": "It belongs to the Abrahamic knot where household becomes covenantal line."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "רחל",
+      "letter_meanings": {
+        "ar": "النعجة.",
+        "en": "Ewe."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: النعجة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Ewe. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في العقدة الإبراهيمية حيث يتحول البيت إلى خط عهد.",
+        "en": "It belongs to the Abrahamic knot where household becomes covenantal line."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "לאה",
+      "letter_meanings": {
+        "ar": "أصل غير محسوم.",
+        "en": "Uncertain etymology."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: أصل غير محسوم. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Uncertain etymology. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في العقدة الإبراهيمية حيث يتحول البيت إلى خط عهد.",
+        "en": "It belongs to the Abrahamic knot where household becomes covenantal line."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "ראובן",
+      "letter_meanings": {
+        "ar": "انظروا: ابن.",
+        "en": "See, a son."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: انظروا: ابن. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: See, a son. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "שמעון",
+      "letter_meanings": {
+        "ar": "السماع والاستجابة.",
+        "en": "Hearing and response."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: السماع والاستجابة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Hearing and response. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "לוי",
+      "letter_meanings": {
+        "ar": "الالتحام والانضمام.",
+        "en": "Attachment and joining."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الالتحام والانضمام. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Attachment and joining. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "יהודה",
+      "letter_meanings": {
+        "ar": "الحمد والإقرار.",
+        "en": "Praise and acknowledgment."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الحمد والإقرار. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Praise and acknowledgment. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "דן",
+      "letter_meanings": {
+        "ar": "الحكم والقضاء.",
+        "en": "Judgment and decision."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الحكم والقضاء. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Judgment and decision. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "נפתלי",
+      "letter_meanings": {
+        "ar": "المصارعة أو الشدّ.",
+        "en": "Wrestling or tension."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: المصارعة أو الشدّ. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Wrestling or tension. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "גד",
+      "letter_meanings": {
+        "ar": "الحظ أو الجند.",
+        "en": "Fortune or troop."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الحظ أو الجند. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Fortune or troop. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "אשר",
+      "letter_meanings": {
+        "ar": "السعادة والغبطة.",
+        "en": "Happiness and blessedness."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: السعادة والغبطة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Happiness and blessedness. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "יששכר",
+      "letter_meanings": {
+        "ar": "الأجرة أو المكافأة.",
+        "en": "Wage or reward."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الأجرة أو المكافأة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Wage or reward. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "זבולון",
+      "letter_meanings": {
+        "ar": "السكن والمقام.",
+        "en": "Dwelling and habitation."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: السكن والمقام. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Dwelling and habitation. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "דינה",
+      "letter_meanings": {
+        "ar": "الحكم بصيغة أنثوية.",
+        "en": "Judgment in feminine form."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الحكم بصيغة أنثوية. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Judgment in feminine form. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "יוסף",
+      "letter_meanings": {
+        "ar": "الزيادة والإضافة.",
+        "en": "Increase and addition."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الزيادة والإضافة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Increase and addition. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "يقابله القرآن مباشرة لكنه يعيد تركيز الشخصية من النسب إلى الوظيفة الأخلاقية واللاهوتية.",
+        "en": "The Qur'an preserves the figure directly but shifts emphasis from genealogy to moral and theological function."
+      }
+    },
+    {
+      "name_he": "בנימין",
+      "letter_meanings": {
+        "ar": "ابن اليمين / الجنوب.",
+        "en": "Son of the right hand / south."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: ابن اليمين / الجنوب. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Son of the right hand / south. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "תמר",
+      "letter_meanings": {
+        "ar": "النخلة.",
+        "en": "Palm tree."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: النخلة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Palm tree. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "אסנת",
+      "letter_meanings": {
+        "ar": "اسم مصري على الأرجح.",
+        "en": "Likely an Egyptian name."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: اسم مصري على الأرجح. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Likely an Egyptian name. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "מנשה",
+      "letter_meanings": {
+        "ar": "النسيان وتخفيف الألم.",
+        "en": "Forgetting and easing pain."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: النسيان وتخفيف الألم. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Forgetting and easing pain. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "אפרים",
+      "letter_meanings": {
+        "ar": "الخصب والإثمار.",
+        "en": "Fruitfulness and fertility."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الخصب والإثمار. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Fruitfulness and fertility. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة تشكّل الأسباط وتوزيع المواقع داخل البيت.",
+        "en": "It belongs to the tribal formation stage where roles are distributed within the house."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "משה",
+      "letter_meanings": {
+        "ar": "اسم مصري غالباً؛ القراءة العبرية تربطه بالانتشال.",
+        "en": "Likely Egyptian; Hebrew reading links it to drawing out."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: اسم مصري غالباً؛ القراءة العبرية تربطه بالانتشال. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Likely Egyptian; Hebrew reading links it to drawing out. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الخروج والتشريع وإعادة بناء الجماعة.",
+        "en": "It stands in the Exodus layer of release, law, and communal re-formation."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "يقابله القرآن مباشرة لكنه يعيد تركيز الشخصية من النسب إلى الوظيفة الأخلاقية واللاهوتية.",
+        "en": "The Qur'an preserves the figure directly but shifts emphasis from genealogy to moral and theological function."
+      }
+    },
+    {
+      "name_he": "אהרן",
+      "letter_meanings": {
+        "ar": "أصل مختلف فيه؛ يُسمع مع العلو أو الكهنوت.",
+        "en": "Disputed origin; often heard with height or priestly aura."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: أصل مختلف فيه؛ يُسمع مع العلو أو الكهنوت. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Disputed origin; often heard with height or priestly aura. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الخروج والتشريع وإعادة بناء الجماعة.",
+        "en": "It stands in the Exodus layer of release, law, and communal re-formation."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "يقابله القرآن مباشرة لكنه يعيد تركيز الشخصية من النسب إلى الوظيفة الأخلاقية واللاهوتية.",
+        "en": "The Qur'an preserves the figure directly but shifts emphasis from genealogy to moral and theological function."
+      }
+    },
+    {
+      "name_he": "מרים",
+      "letter_meanings": {
+        "ar": "اسم مريمي ذو دلالات توتر ورفعة.",
+        "en": "A Miriam-line name of tension and elevation."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: اسم مريمي ذو دلالات توتر ورفعة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: A Miriam-line name of tension and elevation. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الخروج والتشريع وإعادة بناء الجماعة.",
+        "en": "It stands in the Exodus layer of release, law, and communal re-formation."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "يقابله القرآن مباشرة لكنه يعيد تركيز الشخصية من النسب إلى الوظيفة الأخلاقية واللاهوتية.",
+        "en": "The Qur'an preserves the figure directly but shifts emphasis from genealogy to moral and theological function."
+      }
+    },
+    {
+      "name_he": "יתרו",
+      "letter_meanings": {
+        "ar": "الزيادة أو الفضل.",
+        "en": "Increase or surplus."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الزيادة أو الفضل. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Increase or surplus. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الخروج والتشريع وإعادة بناء الجماعة.",
+        "en": "It stands in the Exodus layer of release, law, and communal re-formation."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "ציפורה",
+      "letter_meanings": {
+        "ar": "الطائر / العصفور.",
+        "en": "Bird."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الطائر / العصفور. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Bird. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الخروج والتشريع وإعادة بناء الجماعة.",
+        "en": "It stands in the Exodus layer of release, law, and communal re-formation."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "בלעם",
+      "letter_meanings": {
+        "ar": "اسم صعب الاشتقاق، يُسمع مع البلع أو الجمع.",
+        "en": "Difficult name, sometimes heard through swallowing or mixture."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: اسم صعب الاشتقاق، يُسمع مع البلع أو الجمع. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Difficult name, sometimes heard through swallowing or mixture. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الخروج والتشريع وإعادة بناء الجماعة.",
+        "en": "It stands in the Exodus layer of release, law, and communal re-formation."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "בלק",
+      "letter_meanings": {
+        "ar": "إفراغ أو تهديم بحسب بعض القراءات.",
+        "en": "Emptying or wasting in some readings."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: إفراغ أو تهديم بحسب بعض القراءات. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Emptying or wasting in some readings. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الخروج والتشريع وإعادة بناء الجماعة.",
+        "en": "It stands in the Exodus layer of release, law, and communal re-formation."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "יהושע",
+      "letter_meanings": {
+        "ar": "الرب يخلّص.",
+        "en": "YHWH saves."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الرب يخلّص. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: YHWH saves. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الخروج والتشريع وإعادة بناء الجماعة.",
+        "en": "It stands in the Exodus layer of release, law, and communal re-formation."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "المقابل القرآني هنا غير مطابق اسماً تماماً أو محفوظ في التفسير أكثر من النص المباشر.",
+        "en": "The Qur'anic parallel here is not fully name-identical or survives more in exegesis than in direct text."
+      }
+    },
+    {
+      "name_he": "דבורה",
+      "letter_meanings": {
+        "ar": "النحلة.",
+        "en": "Bee."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: النحلة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Bee. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة ما قبل الملكية حيث تظهر القيادة في صور متقطعة.",
+        "en": "It belongs to the pre-monarchic stage where leadership appears in discontinuous forms."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "גדעון",
+      "letter_meanings": {
+        "ar": "القطع أو الجذّ.",
+        "en": "Cutting or hewing down."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: القطع أو الجذّ. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Cutting or hewing down. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة ما قبل الملكية حيث تظهر القيادة في صور متقطعة.",
+        "en": "It belongs to the pre-monarchic stage where leadership appears in discontinuous forms."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "שמשון",
+      "letter_meanings": {
+        "ar": "الشمس الصغيرة أو الشمسي.",
+        "en": "Sun-like or little sun."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الشمس الصغيرة أو الشمسي. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Sun-like or little sun. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة ما قبل الملكية حيث تظهر القيادة في صور متقطعة.",
+        "en": "It belongs to the pre-monarchic stage where leadership appears in discontinuous forms."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "דלילה",
+      "letter_meanings": {
+        "ar": "الضعف أو الإرخاء.",
+        "en": "Weakening or loosening."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الضعف أو الإرخاء. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Weakening or loosening. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة ما قبل الملكية حيث تظهر القيادة في صور متقطعة.",
+        "en": "It belongs to the pre-monarchic stage where leadership appears in discontinuous forms."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "יפתח",
+      "letter_meanings": {
+        "ar": "يفتح / يفتح.",
+        "en": "He opens."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: يفتح / يفتح. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: He opens. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة ما قبل الملكية حيث تظهر القيادة في صور متقطعة.",
+        "en": "It belongs to the pre-monarchic stage where leadership appears in discontinuous forms."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "שמואל",
+      "letter_meanings": {
+        "ar": "اسم إلهي يُسمع مع السماع.",
+        "en": "A theophoric name heard through hearing."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: اسم إلهي يُسمع مع السماع. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: A theophoric name heard through hearing. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى مرحلة ما قبل الملكية حيث تظهر القيادة في صور متقطعة.",
+        "en": "It belongs to the pre-monarchic stage where leadership appears in discontinuous forms."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "שאול",
+      "letter_meanings": {
+        "ar": "المطلوب أو المسؤول عنه.",
+        "en": "Asked for / requested."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: المطلوب أو المسؤول عنه. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Asked for / requested. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الملكية وصراع الشرعية والسلطة.",
+        "en": "It stands in the layer of kingship, contested legitimacy, and power."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "المقابل القرآني هنا غير مطابق اسماً تماماً أو محفوظ في التفسير أكثر من النص المباشر.",
+        "en": "The Qur'anic parallel here is not fully name-identical or survives more in exegesis than in direct text."
+      }
+    },
+    {
+      "name_he": "דוד",
+      "letter_meanings": {
+        "ar": "المحبوب.",
+        "en": "Beloved."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: المحبوب. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Beloved. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الملكية وصراع الشرعية والسلطة.",
+        "en": "It stands in the layer of kingship, contested legitimacy, and power."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "يقابله القرآن مباشرة لكنه يعيد تركيز الشخصية من النسب إلى الوظيفة الأخلاقية واللاهوتية.",
+        "en": "The Qur'an preserves the figure directly but shifts emphasis from genealogy to moral and theological function."
+      }
+    },
+    {
+      "name_he": "גלית",
+      "letter_meanings": {
+        "ar": "الجلاء أو الانكشاف.",
+        "en": "Exposure or uncovering."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الجلاء أو الانكشاف. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Exposure or uncovering. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الملكية وصراع الشرعية والسلطة.",
+        "en": "It stands in the layer of kingship, contested legitimacy, and power."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "المقابل القرآني هنا غير مطابق اسماً تماماً أو محفوظ في التفسير أكثر من النص المباشر.",
+        "en": "The Qur'anic parallel here is not fully name-identical or survives more in exegesis than in direct text."
+      }
+    },
+    {
+      "name_he": "יהונתן",
+      "letter_meanings": {
+        "ar": "الرب أعطى.",
+        "en": "YHWH has given."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الرب أعطى. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: YHWH has given. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الملكية وصراع الشرعية والسلطة.",
+        "en": "It stands in the layer of kingship, contested legitimacy, and power."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "אביגיל",
+      "letter_meanings": {
+        "ar": "أبي فرح / بهجة.",
+        "en": "My father is joy."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: أبي فرح / بهجة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: My father is joy. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الملكية وصراع الشرعية والسلطة.",
+        "en": "It stands in the layer of kingship, contested legitimacy, and power."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "בת שבע",
+      "letter_meanings": {
+        "ar": "ابنة السبعة أو الوفرة.",
+        "en": "Daughter of seven / abundance."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: ابنة السبعة أو الوفرة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Daughter of seven / abundance. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الملكية وصراع الشرعية والسلطة.",
+        "en": "It stands in the layer of kingship, contested legitimacy, and power."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "שלמה",
+      "letter_meanings": {
+        "ar": "السلام والكمال.",
+        "en": "Peace and completeness."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: السلام والكمال. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Peace and completeness. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الملكية وصراع الشرعية والسلطة.",
+        "en": "It stands in the layer of kingship, contested legitimacy, and power."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "يقابله القرآن مباشرة لكنه يعيد تركيز الشخصية من النسب إلى الوظيفة الأخلاقية واللاهوتية.",
+        "en": "The Qur'an preserves the figure directly but shifts emphasis from genealogy to moral and theological function."
+      }
+    },
+    {
+      "name_he": "אליהו",
+      "letter_meanings": {
+        "ar": "إلهي هو الرب.",
+        "en": "My God is YHWH."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: إلهي هو الرب. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: My God is YHWH. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى طبقة النبوة أو المنفى أو الحفظ المتأخر للهوية.",
+        "en": "It belongs to the prophetic, exilic, or late-preservation layer of identity."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "يقابله القرآن مباشرة لكنه يعيد تركيز الشخصية من النسب إلى الوظيفة الأخلاقية واللاهوتية.",
+        "en": "The Qur'an preserves the figure directly but shifts emphasis from genealogy to moral and theological function."
+      }
+    },
+    {
+      "name_he": "אלישע",
+      "letter_meanings": {
+        "ar": "إلهي خلاص.",
+        "en": "My God is salvation."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: إلهي خلاص. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: My God is salvation. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى طبقة النبوة أو المنفى أو الحفظ المتأخر للهوية.",
+        "en": "It belongs to the prophetic, exilic, or late-preservation layer of identity."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "يقابله القرآن مباشرة لكنه يعيد تركيز الشخصية من النسب إلى الوظيفة الأخلاقية واللاهوتية.",
+        "en": "The Qur'an preserves the figure directly but shifts emphasis from genealogy to moral and theological function."
+      }
+    },
+    {
+      "name_he": "איזבל",
+      "letter_meanings": {
+        "ar": "اسم أجنبي صار علامة على اختلال الولاء.",
+        "en": "A foreign name that became a marker of distorted allegiance."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: اسم أجنبي صار علامة على اختلال الولاء. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: A foreign name that became a marker of distorted allegiance. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الملكية وصراع الشرعية والسلطة.",
+        "en": "It stands in the layer of kingship, contested legitimacy, and power."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "אחאב",
+      "letter_meanings": {
+        "ar": "الأخ / الأب في صيغة ملكية قديمة.",
+        "en": "Brother/father in an old royal form."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الأخ / الأب في صيغة ملكية قديمة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Brother/father in an old royal form. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "يقع في طبقة الملكية وصراع الشرعية والسلطة.",
+        "en": "It stands in the layer of kingship, contested legitimacy, and power."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "ישעיהו",
+      "letter_meanings": {
+        "ar": "الرب يخلّص.",
+        "en": "YHWH saves."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الرب يخلّص. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: YHWH saves. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى طبقة النبوة أو المنفى أو الحفظ المتأخر للهوية.",
+        "en": "It belongs to the prophetic, exilic, or late-preservation layer of identity."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "ירמיהו",
+      "letter_meanings": {
+        "ar": "اسم نبوي مختلف في اشتقاقه، يدور حول الرفع أو التعيين الإلهي.",
+        "en": "A prophetic name of uncertain derivation, often heard through divine appointing or raising."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: اسم نبوي مختلف في اشتقاقه، يدور حول الرفع أو التعيين الإلهي. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: A prophetic name of uncertain derivation, often heard through divine appointing or raising. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى طبقة النبوة أو المنفى أو الحفظ المتأخر للهوية.",
+        "en": "It belongs to the prophetic, exilic, or late-preservation layer of identity."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "יחזקאל",
+      "letter_meanings": {
+        "ar": "الله يقوّي.",
+        "en": "God strengthens."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الله يقوّي. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: God strengthens. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى طبقة النبوة أو المنفى أو الحفظ المتأخر للهوية.",
+        "en": "It belongs to the prophetic, exilic, or late-preservation layer of identity."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "דניאל",
+      "letter_meanings": {
+        "ar": "الله يقضي / يدين.",
+        "en": "God judges."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الله يقضي / يدين. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: God judges. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى طبقة النبوة أو المنفى أو الحفظ المتأخر للهوية.",
+        "en": "It belongs to the prophetic, exilic, or late-preservation layer of identity."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "רות",
+      "letter_meanings": {
+        "ar": "الصاحبة أو الرفيقة.",
+        "en": "Companion or friend."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الصاحبة أو الرفيقة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Companion or friend. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى طبقة النبوة أو المنفى أو الحفظ المتأخر للهوية.",
+        "en": "It belongs to the prophetic, exilic, or late-preservation layer of identity."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    },
+    {
+      "name_he": "אסתר",
+      "letter_meanings": {
+        "ar": "الستر أو النجمة بحسب القراءة.",
+        "en": "Concealment or star, depending on reading."
+      },
+      "structural_reading": {
+        "ar": "يحافظ الاسم على فكرته الجذرية: الستر أو النجمة بحسب القراءة. وهذا يوجّه قراءة الشخصية بوصفها نمطاً بنيوياً لا حكماً غيبياً.",
+        "en": "The name retains its root idea: Concealment or star, depending on reading. That root steers the figure as a structural pattern rather than destiny language."
+      },
+      "chain_position_note": {
+        "ar": "ينتمي إلى طبقة النبوة أو المنفى أو الحفظ المتأخر للهوية.",
+        "en": "It belongs to the prophetic, exilic, or late-preservation layer of identity."
+      },
+      "contrast_with_quranic_cognate": {
+        "ar": "لا يوجد نظير قرآني مباشر في نص القرآن؛ وقد تحفظه الرواية اللاحقة، لكن المقارنة هنا محدودة.",
+        "en": "No direct Qur'anic cognate in the Qur'anic text; later tradition may preserve the figure, but the comparison is limited."
+      }
+    }
+  ]
+]

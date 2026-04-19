@@ -1,0 +1,26 @@
+[
+  {
+    "system_id": "hebrew_gematria",
+    "version": "v1.1",
+    "interpretation_en": "This module gives an Arabic-to-Hebrew cognate sum of {total}, reducing to root {root}. It maps the Arabic name through cognate Hebrew letter values rather than performing native Hebrew gematria on Hebrew text. The number is therefore a constructed comparison layer: useful as a controlled mirror of the mapping, but not evidence that separate traditions independently agree.",
+    "interpretation_ar": "تعطي هذه الوحدة مجموعًا عربيًا-عبريًا عبر المطابقة القريبة بين الحروف مقداره {total}، وينخفض إلى الجذر {root}. فهي تمرر الاسم العربي عبر قيم حروف عبرية مناظرة، ولا تجري جماتريا عبرية أصلية على نص عبري. لذلك فالعدد طبقة مقارنة مصنوعة: نافعة كمرآة مضبوطة لطريقة المطابقة، لكنه ليس دليلًا على اتفاق مستقل بين تقاليد منفصلة."
+  },
+  {
+    "system_id": "avgad",
+    "version": "v1.1",
+    "interpretation_en": "The Avgad forward-shift cipher transforms your original value from {abjad_alt} to {abjad_shifted}, and the delta of {abjad_delta} defines directional evolution rather than static identity. Both original ({abjad_alt}→3) and shifted ({abjad_shifted}→3) reduce to the same root, indicating that the evolutionary potential encoded in the name preserves the core creative identity. The mechanism supports adaptive restructuring while maintaining expressive consistency.",
+    "interpretation_ar": "تحويل أفغاد (تموراه) بالإزاحة الأمامية يحول القيمة الأصلية من {abjad_alt} إلى {abjad_shifted}، والفارق {abjad_delta} يحدد اتجاهًا تطوريًا لا هوية ثابتة. الأصل ({abjad_alt}→3) والتحويل ({abjad_shifted}→3) يُختزلان إلى نفس الجذر، ما يدل أن الطاقة التطورية المشفرة في الاسم تحافظ على الهوية الإبداعية الجوهرية. الآلية تدعم إعادة الهيكلة التكيفية مع الحفاظ على اتساق التعبير."
+  },
+  {
+    "system_id": "tree_of_life",
+    "version": "v1.0",
+    "interpretation_en": "Your primary sephirah aligns with Binah (Understanding) through Life Path 3, indicating structured cognition applied to expression rather than spontaneous communication. The secondary linkage to Da'at (Hidden Knowledge) through Expression 11 adds a layer of pattern synthesis and conceptual integration. Together this forms a knowledge-processing architecture that clarifies complexity, yet it can intensify mental overprocessing when emotional integration lags.",
+    "interpretation_ar": "السِّفِيراه الأساسية لديك هي بيناه (الفهم) عبر مسار الحياة 3، ما يدل على إدراك منظم يُطبَّق على التعبير بدل العفوية التواصلية. الارتباط الثانوي بدَعَت (المعرفة الخفية) عبر رقم التعبير 11 يضيف طبقة تركيب أنماط ودمج مفاهيمي. هذا يشكّل بنية معالجة معرفية توضح التعقيد، لكنه قد يزيد فرط المعالجة الذهنية إذا تأخر التكامل العاطفي."
+  },
+  {
+    "system_id": "hebrew_calendar",
+    "version": "v1.1",
+    "interpretation_en": "The Hebrew calendar places the birth date on {hebrew_day} {hebrew_month} {hebrew_year}. This module converts the civil birth date into the Hebrew lunisolar calendar and records the date within that tradition's own month and year structure. If a recognized holiday is present, the calendar marker is {holiday_if_any}; otherwise the date stands as a calendrical placement without added festival framing.",
+    "interpretation_ar": "يضع التقويم العبري تاريخ الميلاد في {hebrew_day} {hebrew_month} {hebrew_year}. تحوّل هذه الوحدة التاريخ المدني إلى التقويم العبري القمري الشمسي، وتسجل موضعه داخل بنية الشهر والسنة الخاصة بذلك التقليد. إذا وُجد عيد معترف به فوسم التقويم هو {holiday_if_any}؛ وإلا يبقى التاريخ موضعًا تقويميًا بلا إضافة احتفالية."
+  }
+]

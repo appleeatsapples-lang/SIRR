@@ -1,0 +1,94 @@
+{
+  "global_element_matrix": {
+    "fire": {
+      "western_astrology": "Aries, Leo, Sagittarius",
+      "chinese_wuxing": "Huo (火)",
+      "vedic_tattwa": "Tejas (Agni)",
+      "islamic_anasir": "Nar (نار)",
+      "tarot_suit": "Wands",
+      "hebrew_letter_group": "Shin (ש)",
+      "quality": "Hot + Dry",
+      "direction": "South",
+      "season": "Summer"
+    },
+    "water": {
+      "western_astrology": "Cancer, Scorpio, Pisces",
+      "chinese_wuxing": "Shui (水)",
+      "vedic_tattwa": "Apas (Jala)",
+      "islamic_anasir": "Ma' (ماء)",
+      "tarot_suit": "Cups",
+      "hebrew_letter_group": "Mem (מ)",
+      "quality": "Cold + Wet",
+      "direction": "North",
+      "season": "Winter"
+    },
+    "earth": {
+      "western_astrology": "Taurus, Virgo, Capricorn",
+      "chinese_wuxing": "Tu (土)",
+      "vedic_tattwa": "Prithvi (Bhumi)",
+      "islamic_anasir": "Turab (تراب)",
+      "tarot_suit": "Pentacles",
+      "hebrew_letter_group": "Double Letters",
+      "quality": "Cold + Dry",
+      "direction": "Center / West",
+      "season": "Autumn"
+    },
+    "air": {
+      "western_astrology": "Gemini, Libra, Aquarius",
+      "chinese_wuxing": null,
+      "vedic_tattwa": "Vayu",
+      "islamic_anasir": "Hawa' (هواء)",
+      "tarot_suit": "Swords",
+      "hebrew_letter_group": "Aleph (א)",
+      "quality": "Hot + Wet",
+      "direction": "East",
+      "season": "Spring",
+      "note": "Chinese Wu Xing has no direct Air — closest is Metal (contraction) or Wind trigram (Xun)"
+    },
+    "ether": {
+      "western_astrology": null,
+      "chinese_wuxing": null,
+      "vedic_tattwa": "Akasha",
+      "islamic_anasir": "partial (al-falak / celestial sphere)",
+      "tarot_suit": null,
+      "hebrew_letter_group": null,
+      "quality": "Transcendent",
+      "direction": "Center / Above",
+      "season": null,
+      "note": "Fifth element in Vedic/Aristotelian systems. Not present in Chinese or standard Western astrology."
+    },
+    "wood": {
+      "western_astrology": null,
+      "chinese_wuxing": "Mu (木)",
+      "vedic_tattwa": null,
+      "islamic_anasir": null,
+      "tarot_suit": null,
+      "hebrew_letter_group": null,
+      "quality": "Expansive + Rising",
+      "direction": "East",
+      "season": "Spring",
+      "note": "Chinese-exclusive element. Closest Western analog is Air (spring, expansion). Vedic maps to Vayu partially."
+    },
+    "metal": {
+      "western_astrology": null,
+      "chinese_wuxing": "Jin (金)",
+      "vedic_tattwa": null,
+      "islamic_anasir": null,
+      "tarot_suit": null,
+      "hebrew_letter_group": null,
+      "quality": "Contractive + Descending",
+      "direction": "West",
+      "season": "Autumn",
+      "note": "Chinese-exclusive element. Closest Western analog is Earth (autumn, contraction)."
+    },
+    "_meta": {
+      "version": "1.0",
+      "date": "2026-03-01",
+      "source": "Gemini cross-tradition synthesis",
+      "buckets": 7,
+      "primary_buckets": ["fire", "water", "earth", "air"],
+      "partial_buckets": ["ether", "wood", "metal"],
+      "mapping_notes": "4 traditions have full coverage (Western, Vedic, Islamic, Hebrew/Tarot). Chinese Wu Xing uses 5-element system (wood/fire/earth/metal/water) with no direct air mapping. Ether is Vedic/Aristotelian only."
+    }
+  }
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "A",
+    "name": "Prophet chain grand sum",
+    "description": "4327 → 7 = Ibrahim's unique final value",
+    "tags": ["GRAND_SUM_CONVERGENCE", "UNIQUE_POSITION", "PROPHET_CHAIN_ONLY", "ADVERSARIAL_REVIEW_SURVIVED"],
+    "strength": "HIGH",
+    "scope": "prophet_chain"
+  },
+  {
+    "id": "B",
+    "name": "Ibrahim unique at 7",
+    "description": "Ibrahim is the only prophet whose final digital root is 7",
+    "tags": ["UNIQUE_POSITION", "PROPHET_CHAIN_ONLY", "ADVERSARIAL_REVIEW_SURVIVED"],
+    "strength": "HIGH",
+    "scope": "prophet_chain",
+    "caveat": "Haman = 7 breaks uniqueness in full corpus"
+  },
+  {
+    "id": "C",
+    "name": "Mosaic axis",
+    "description": "Ishaq (170→8) → Yaqub (188→8) → Musa (116→8): three independent raw values, same final, lineage-coherent",
+    "tags": ["STRUCTURAL_CLUSTER", "LINEAGE_COHERENT", "PROPHET_CHAIN_ONLY", "ADVERSARIAL_REVIEW_SURVIVED"],
+    "strength": "HIGH",
+    "scope": "prophet_chain"
+  },
+  {
+    "id": "D",
+    "name": "Seal cluster",
+    "description": "Sulayman (191→11→2), Yahya (38→11→2), Muhammad (92→11→2): identical two-step chains",
+    "tags": ["MASTER_CHAIN_MATCH", "STRUCTURAL_CLUSTER", "PROPHET_CHAIN_ONLY", "ADVERSARIAL_REVIEW_SURVIVED"],
+    "strength": "MEDIUM",
+    "scope": "prophet_chain"
+  },
+  {
+    "id": "E",
+    "name": "Chain endpoints",
+    "description": "Adam (first prophet, final=9) + Muhammad (last prophet, final=2) = 11 = Muhammad's master number",
+    "tags": ["CHAIN_ENDPOINT_PATTERN", "MASTER_CHAIN_MATCH", "PROPHET_CHAIN_ONLY", "ADVERSARIAL_REVIEW_SURVIVED"],
+    "strength": "HIGH",
+    "scope": "prophet_chain"
+  },
+  {
+    "id": "F",
+    "name": "Adam = Isa frequency 25",
+    "description": "Both Adam and Isa appear exactly 25 times in the Quran. Q 3:59 draws the parallel explicitly.",
+    "tags": ["QURAN_FREQUENCY_ECHO", "ADVERSARIAL_REVIEW_SURVIVED"],
+    "strength": "HIGH",
+    "scope": "full_corpus"
+  },
+  {
+    "id": "G",
+    "name": "Ayyub raw value = 19",
+    "description": "Ayyub = 19 unreduced. Q 74:30 'Over it are nineteen.'",
+    "tags": ["WITHIN_SYSTEM_SYMBOLIC_ECHO", "ADVERSARIAL_REVIEW_SURVIVED"],
+    "strength": "MEDIUM",
+    "scope": "full_corpus"
+  },
+  {
+    "id": "H",
+    "name": "Muhammad / מחמד cross-match",
+    "description": "Arabic Abjad: محمد = 92, Hebrew Gematria: מחמד = 92. Song of Songs 5:16. Non-cognate, non-trivial.",
+    "tags": ["CROSS_TRADITION_CONVERGENCE", "NON_TRIVIAL_TEXTUAL_LINK", "ADVERSARIAL_REVIEW_SURVIVED"],
+    "strength": "HIGH",
+    "scope": "full_corpus"
+  }
+]

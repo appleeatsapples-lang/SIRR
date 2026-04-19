@@ -1,0 +1,13 @@
+{
+  "prophet_triad": {
+    "members": ["سليمان", "يحيى", "محمد"],
+    "status": "CORE",
+    "tags": ["MASTER_CHAIN_MATCH", "STRUCTURAL_CLUSTER", "PROPHET_CHAIN_ONLY", "ADVERSARIAL_REVIEW_SURVIVED"]
+  },
+  "full_corpus_expansion": {
+    "additional_members": ["مريم", "جبريل"],
+    "status": "METADATA_ONLY",
+    "tags": ["CATEGORY_EXPANSION_METADATA", "ADVERSARIAL_REVIEW_WEAKENED"],
+    "note": "Diluted by full-corpus expansion. Do not claim strong convergence."
+  }
+}

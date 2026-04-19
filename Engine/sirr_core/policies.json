@@ -1,0 +1,578 @@
+{
+  "_meta": {
+    "description": "SIRR infrastructure policy locks. Codified rules for boundary handling, variant registry, fixture templates, source tiers, computability gates, and evidence requirements.",
+    "version": "1.0",
+    "date": "2026-02-20",
+    "sources": "Consolidated from Gemini (Tasks 1-5, 7-12), ChatGPT (Tasks 1-6), Grok (3 rounds)"
+  },
+  "BOUNDARY_ROUNDING": {
+    "policy_lock_id": "BOUNDARY_ROUNDING",
+    "version": "1.0",
+    "rules": {
+      "degree_binning": {
+        "rule": "ordinal = floor(raw_degree) + 1",
+        "precision": "Use float64; never round before bin selection",
+        "epsilon": "No epsilon snapping for bin selection. Epsilon (1e-10) only for display rounding",
+        "applies_to": [
+          "sabian",
+          "decan",
+          "dwad",
+          "egyptian_decan",
+          "manazil",
+          "nakshatra"
+        ]
+      },
+      "date_rollover": {
+        "rule": "Use birth_date as provided in local time. Convert to UTC only for ephemeris calls",
+        "midnight": "00:00:00 local = start of new day",
+        "no_birth_time": "Default to 12:00:00 local (noon). Flag certainty as APPROX_NOON"
+      },
+      "calendar": {
+        "rule": "Assume Gregorian for all dates after 1582-10-15",
+        "pre_gregorian": "Flag as CALENDAR_UNCERTAIN if DOB before regional Gregorian adoption",
+        "leap_day": "Feb 29 births use Feb 29. Never auto-shift to Feb 28 or Mar 1"
+      },
+      "name_normalization": {
+        "arabic": {
+          "hamza_alif": "إ أ آ → value of ا (1 for Abjad)",
+          "ta_marbuta": "ة → value of ه (5 for Abjad)",
+          "alif_maqsura": "ى → value of ي (10 for Abjad)",
+          "al_prefix": "ال is counted (both alif and lam have values)",
+          "diacritics": "Stripped (fatha, kasra, damma, shadda, sukun removed before computation)"
+        },
+        "latin": {
+          "hyphens": "Stripped (Mary-Jane → MaryJane)",
+          "apostrophes": "Stripped (O'Brien → OBrien)",
+          "diacritics": "Normalized to base letter (é→e, ñ→n, ü→u)",
+          "case": "Uppercased before lookup",
+          "spaces": "Each space-separated token is a separate name part"
+        }
+      }
+    }
+  },
+  "VARIANT_REGISTRY": {
+    "policy_lock_id": "VARIANT_REGISTRY",
+    "version": "1.0",
+    "description": "Each module with known legitimate variants stores them explicitly. Engine uses DEFAULT variant unless user toggles.",
+    "schema": {
+      "system_id": "string (module_id)",
+      "default_variant": "string (variant_id)",
+      "variants": [
+        {
+          "variant_id": "string",
+          "label": "string (human readable)",
+          "params": {},
+          "source": "string (citation)",
+          "source_tier": "A|B|C"
+        }
+      ]
+    },
+    "registered_variants": {
+      "tarot_birth": {
+        "default": "GREER_22",
+        "variants": [
+          {
+            "variant_id": "GREER_22",
+            "label": "Greer (Fool=22, digit-sum)",
+            "params": {
+              "fool": 22,
+              "reduction": "digit_sum",
+              "chain": true
+            },
+            "source": "Mary K. Greer, Tarot for Your Self",
+            "source_tier": "B"
+          },
+          {
+            "variant_id": "GREER_0",
+            "label": "Greer (Fool=0, digit-sum)",
+            "params": {
+              "fool": 0,
+              "reduction": "digit_sum",
+              "chain": true
+            },
+            "source": "Mary K. Greer variant",
+            "source_tier": "B"
+          },
+          {
+            "variant_id": "ARRIEN",
+            "label": "Arrien (single card)",
+            "params": {
+              "fool": 22,
+              "reduction": "digit_sum",
+              "chain": false
+            },
+            "source": "Angeles Arrien, The Tarot Handbook",
+            "source_tier": "B"
+          }
+        ]
+      },
+      "chaldean": {
+        "default": "CHEIRO",
+        "variants": [
+          {
+            "variant_id": "CHEIRO",
+            "label": "Cheiro Book of Numbers (1-8, no 9)",
+            "params": {
+              "table": "cheiro_1926"
+            },
+            "source": "Cheiro, Book of Numbers (1926)",
+            "source_tier": "A"
+          },
+          {
+            "variant_id": "SEPHARIAL",
+            "label": "Sepharial variant",
+            "params": {
+              "table": "sepharial"
+            },
+            "source": "Sepharial",
+            "source_tier": "C"
+          }
+        ]
+      },
+      "abjad": {
+        "default": "MASHRIQI",
+        "variants": [
+          {
+            "variant_id": "MASHRIQI",
+            "label": "Eastern (Mashriqi) standard",
+            "params": {
+              "table": "abjad_kabir"
+            },
+            "source": "Standard Mashriqi abjad order",
+            "source_tier": "A"
+          },
+          {
+            "variant_id": "MAGHRIBI",
+            "label": "Western (Maghribi) North African",
+            "params": {
+              "table": "abjad_maghribi"
+            },
+            "source": "Ibn Khaldun, Muqaddimah Ch. VI",
+            "source_tier": "A"
+          }
+        ]
+      },
+      "firdaria": {
+        "default": "DAY_BIRTH",
+        "variants": [
+          {
+            "variant_id": "DAY_BIRTH",
+            "label": "Diurnal (starts Sun)",
+            "params": {
+              "sequence": "day"
+            },
+            "source": "Abu Ma'shar + Bonatti",
+            "source_tier": "A"
+          },
+          {
+            "variant_id": "NIGHT_BIRTH",
+            "label": "Nocturnal (starts Moon)",
+            "params": {
+              "sequence": "night"
+            },
+            "source": "Abu Ma'shar + Bonatti",
+            "source_tier": "A"
+          }
+        ]
+      },
+      "nine_star_ki": {
+        "default": "SOLAR_TERM",
+        "variants": [
+          {
+            "variant_id": "SOLAR_TERM",
+            "label": "Risshun cutoff (Feb 3-5)",
+            "params": {
+              "year_start": "solar_term"
+            },
+            "source": "Traditional Japanese Ki method",
+            "source_tier": "B"
+          },
+          {
+            "variant_id": "CNY",
+            "label": "Chinese New Year cutoff",
+            "params": {
+              "year_start": "lunar_new_year"
+            },
+            "source": "Chinese Lo Shu tradition",
+            "source_tier": "B"
+          }
+        ]
+      },
+      "personal_year": {
+        "default": "JAN_1",
+        "variants": [
+          {
+            "variant_id": "JAN_1",
+            "label": "Cycle starts January 1",
+            "params": {
+              "start": "calendar_year"
+            },
+            "source": "Hans Decoz, worldnumerology.com",
+            "source_tier": "B"
+          },
+          {
+            "variant_id": "BIRTHDAY",
+            "label": "Cycle starts on birthday",
+            "params": {
+              "start": "birthday"
+            },
+            "source": "Alternative numerology schools",
+            "source_tier": "C"
+          }
+        ]
+      }
+    }
+  },
+  "GOLDEN_FIXTURES": {
+    "policy_lock_id": "GOLDEN_FIXTURES",
+    "version": "1.0",
+    "description": "Edge-case fixtures for boundary verification. Reference for future test expansion.",
+    "fixture_sets": {
+      "SABIAN_BOUNDARIES": {
+        "module": "sabian",
+        "cases": [
+          {
+            "input": {
+              "deg_in_sign": 0.0
+            },
+            "expected": {
+              "ordinal": 1,
+              "label": "Aries 1"
+            }
+          },
+          {
+            "input": {
+              "deg_in_sign": 0.0001
+            },
+            "expected": {
+              "ordinal": 1
+            }
+          },
+          {
+            "input": {
+              "deg_in_sign": 15.7
+            },
+            "expected": {
+              "ordinal": 16
+            }
+          },
+          {
+            "input": {
+              "deg_in_sign": 29.0
+            },
+            "expected": {
+              "ordinal": 30
+            }
+          },
+          {
+            "input": {
+              "deg_in_sign": 29.9999
+            },
+            "expected": {
+              "ordinal": 30
+            }
+          }
+        ]
+      },
+      "TAROT_BIRTH_CHAINS": {
+        "module": "tarot_birth",
+        "cases": [
+          {
+            "input": {
+              "dob": "1990-07-19"
+            },
+            "note": "Should produce chain if sum reduces to 19"
+          },
+          {
+            "input": {
+              "dob": "2000-02-20"
+            },
+            "note": "Check for 22/Fool handling"
+          },
+          {
+            "input": {
+              "dob": "1995-11-29"
+            },
+            "note": "High digit sum, verify reduction loop"
+          }
+        ]
+      },
+      "FIRDARIA_DAY_NIGHT": {
+        "module": "firdaria",
+        "cases": [
+          {
+            "input": {
+              "dob": "1997-10-28",
+              "sect": "day"
+            },
+            "expected": {
+              "major_lord": "Sun"
+            }
+          },
+          {
+            "input": {
+              "dob": "1997-10-28",
+              "sect": "night"
+            },
+            "expected": {
+              "major_lord": "Moon"
+            }
+          }
+        ]
+      },
+      "ABJAD_MAGHRIBI_VS_MASHRIQI": {
+        "module": "abjad_maghribi",
+        "cases": [
+          {
+            "input": {
+              "name": "محمد"
+            },
+            "note": "No differing letters — should equal abjad_kabir"
+          },
+          {
+            "input": {
+              "name": "شمس"
+            },
+            "note": "Contains shin — must differ from kabir (1000 vs 300)"
+          }
+        ]
+      }
+    }
+  },
+  "SOURCE_TIERS": {
+    "policy_lock_id": "SOURCE_TIERS",
+    "version": "1.0",
+    "tiers": {
+      "A": {
+        "label": "Primary",
+        "description": "Original texts, scans, academic publications, peer-reviewed",
+        "examples": [
+          "Ibn Khaldun Muqaddimah",
+          "Cheiro Book of Numbers 1926",
+          "Surya Siddhanta",
+          "Neugebauer & Parker"
+        ],
+        "trust": "Lock computation tables from these"
+      },
+      "B": {
+        "label": "Respected Secondary",
+        "description": "Established publishers, professional organizations, respected authors",
+        "examples": [
+          "Rudhyar An Astrological Mandala",
+          "Mary K. Greer Tarot for Your Self",
+          "Joey Yap BaZi texts"
+        ],
+        "trust": "Verify against Tier A if available, otherwise accept"
+      },
+      "C": {
+        "label": "Community/Calculator",
+        "description": "Blogs, apps, forums, online calculators",
+        "examples": [
+          "astro.com",
+          "cafe astrology",
+          "numerology apps"
+        ],
+        "trust": "Allowed as community-usage evidence ONLY. Never lock computation from Tier C alone"
+      }
+    },
+    "enforcement": {
+      "rule": "If a computation table has ONLY Tier C attestation, mark as needs_sources or modern_invention",
+      "variant_creation": "Only create named variants when Tier A or B sources document different calculations"
+    },
+    "geomancy": {
+      "tier": "A",
+      "source": "Al-Zanati, Kitab al-Fasl; Agrippa, De Occulta Philosophia",
+      "note": "SIRR uses JDN mod 16 for determinism. Classical Raml requires random casting of dots (odd/even). This is a declared philosophical deviation — SIRR prioritizes reproducibility over divinatory randomness. The output is deterministic Raml, not traditional Raml.",
+      "gemini_flag": "Feb 2026 — Gemini flagged. Acknowledged. Deviation is intentional and documented.",
+      "recommendation_taken": "DOCUMENT (not REBUILD) — SIRR cannot implement true stochastic divination"
+    },
+    "istikhara_adad": {
+      "tier": "C",
+      "source": "Al-Buni, Shams al-Ma'arif (talismanic timing methods)",
+      "note": "Classical Istikhara is non-computational (prayer). This module computes abjad-date resonance as a folk-numerical analog. Not a primary-text formula. Acknowledged C-tier.",
+      "gemini_flag": "Feb 2026 — Gemini flagged as Community-tier. Correct. Engine treats output accordingly.",
+      "recommendation_taken": "LOWER certainty flag if needed; keep as exploratory module"
+    },
+    "jafr": {
+      "tier": "B",
+      "source": "Al-Buni general principles; Imam Ja'far attribution (pseudepigraphal)",
+      "note": "No single canonical Jafr algorithm exists. SIRR implements one consistent interpretation. Results are deterministic but interpretively bounded.",
+      "gemini_flag": "Feb 2026 — Gemini flagged. Acknowledged fragmented tradition.",
+      "recommendation_taken": "REVIEW — keep current implementation, annotate uncertainty in output"
+    }
+  },
+  "COMPUTABILITY_GATES": {
+    "policy_lock_id": "COMPUTABILITY_GATES",
+    "version": "1.0",
+    "description": "Every module must declare its input requirements. Prevents fake determinism.",
+    "gate_types": {
+      "NAME_DOB": {
+        "inputs": [
+          "full_name",
+          "date_of_birth"
+        ],
+        "certainty": "COMPUTED_STRICT",
+        "modules": [
+          "abjad_kabir",
+          "abjad_saghir",
+          "abjad_wusta",
+          "abjad_maghribi",
+          "chaldean",
+          "life_purpose",
+          "karmic_debt",
+          "challenges",
+          "bridges",
+          "attitude",
+          "hidden_passion",
+          "subconscious_self",
+          "maturity",
+          "compound",
+          "cornerstone",
+          "latin_ordinal",
+          "hebrew_gematria",
+          "greek_isopsephy",
+          "coptic_isopsephy",
+          "armenian_gematria",
+          "georgian_gematria",
+          "agrippan",
+          "thelemic_gematria",
+          "trithemius",
+          "notarikon",
+          "atbash",
+          "albam",
+          "avgad",
+          "tarot_name",
+          "rose_cross_sigil",
+          "ars_magna",
+          "mandaean_gematria",
+          "solar_lunar",
+          "elemental_letters",
+          "luminous_dark",
+          "taksir",
+          "bast_kasr",
+          "istikhara_adad",
+          "zakat_huruf",
+          "jafr",
+          "buduh",
+          "lo_shu_grid",
+          "pinnacles",
+          "personal_year",
+          "essence",
+          "iching",
+          "geomancy",
+          "wafq",
+          "tarot_birth",
+          "enneagram_dob",
+          "steiner_cycles",
+          "tarot_year",
+          "cardology",
+          "profection",
+          "biorhythm",
+          "julian",
+          "hijri",
+          "hebrew_calendar",
+          "mayan",
+          "chinese_zodiac",
+          "nine_star_ki",
+          "nayin",
+          "bazi_pillars",
+          "bazi_growth",
+          "bazi_daymaster",
+          "bazi_luck_pillars",
+          "bazi_hidden_stems",
+          "bazi_ten_gods",
+          "bazi_combos",
+          "bazi_shensha",
+          "decan",
+          "day_ruler",
+          "dwad",
+          "sabian",
+          "celtic_tree",
+          "ogham",
+          "birth_rune",
+          "god_of_day",
+          "dreamspell",
+          "tonalpohualli",
+          "pawukon",
+          "primbon",
+          "tibetan_mewa",
+          "bazhai",
+          "meihua",
+          "ethiopian_asmat",
+          "gd_correspondences",
+          "planetary_kameas",
+          "tree_of_life",
+          "temperament",
+          "ifa"
+        ]
+      },
+      "NAME_DOB_TIME": {
+        "inputs": [
+          "full_name",
+          "date_of_birth",
+          "birth_time"
+        ],
+        "certainty_without_time": "APPROX",
+        "modules": [
+          "planetary_hours",
+          "firdaria"
+        ]
+      },
+      "NAME_DOB_TIME_LOCATION": {
+        "inputs": [
+          "full_name",
+          "date_of_birth",
+          "birth_time",
+          "birth_location"
+        ],
+        "certainty_without_time": "APPROX",
+        "certainty_without_location": "APPROX",
+        "modules": [
+          "flying_star"
+        ]
+      },
+      "NEEDS_EPHEMERIS": {
+        "inputs": [
+          "date_of_birth",
+          "birth_time",
+          "ephemeris_data"
+        ],
+        "certainty_without_ephemeris": "APPROX",
+        "modules": [
+          "manazil",
+          "nakshatra",
+          "vedic_tithi",
+          "vedic_yoga",
+          "egyptian_decan"
+        ]
+      },
+      "NON_COMPUTABLE": {
+        "inputs": [
+          "physical_observation",
+          "casting_tools"
+        ],
+        "certainty": "NOT_DETERMINISTIC",
+        "modules": [
+          "zairja",
+          "ikhtiyarat"
+        ],
+        "note": "These exist in MASTER_REGISTRY but are NOT built as modules"
+      }
+    }
+  },
+  "EVIDENCE_RULE": {
+    "policy_lock_id": "EVIDENCE_RULE",
+    "version": "1.0",
+    "rules": [
+      "Every mapping, table, range, or formula must have either a citation OR an explicit UNCERTAIN_needs_sources marker",
+      "If uncertain, produce a structured placeholder that compiles (use UNCERTAIN as string value, not null)",
+      "Never fabricate a source — if you don't have the reference, say so",
+      "All UNCERTAIN fields must be tracked in a separate NEEDS_VERIFICATION.json for follow-up"
+    ],
+    "placeholder_example": {
+      "value": "UNCERTAIN_needs_sources",
+      "note": "Placeholder — awaiting Tier A/B verification",
+      "fallback": "Use most common community value if engine must run"
+    }
+  }
+}

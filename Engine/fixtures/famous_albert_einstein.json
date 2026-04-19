@@ -1,0 +1,12 @@
+{
+  "subject": "ALBERT EINSTEIN",
+  "arabic": "ألبرت آينشتاين",
+  "variant": "passport_legal",
+  "note": "German-born theoretical physicist. DOB confirmed from birth certificate. Birth time 11:30 LMT per Rodden AA.",
+  "dob": "1879-03-14",
+  "today": "2026-03-09",
+  "birth_time_local": "11:30",
+  "timezone": "Europe/Berlin",
+  "location": "Ulm, Germany",
+  "gender": "male"
+}

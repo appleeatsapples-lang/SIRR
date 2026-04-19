@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "description": "Positional modifiers — how context changes root meaning",
+    "version": "1.0"
+  },
+  "positions": {
+    "life_path": {
+      "label": "Life Path",
+      "modification": "structural_theme",
+      "description": "Dominant frequency — all other positions orbit this root"
+    },
+    "expression": {
+      "label": "Expression",
+      "modification": "output_mode",
+      "description": "How the root manifests in external work"
+    },
+    "soul_urge": {
+      "label": "Soul Urge",
+      "modification": "internal_drive",
+      "description": "The root's pull below conscious choice"
+    },
+    "personality": {
+      "label": "Personality",
+      "modification": "filter",
+      "description": "How others perceive the root"
+    },
+    "birthday": {
+      "label": "Birthday Number",
+      "modification": "pressure_valve",
+      "description": "Immediate behavioral mode under stress"
+    },
+    "abjad_root": {
+      "label": "Abjad Root",
+      "modification": "arabic_axis",
+      "description": "Arabic name frequency — cross-validates or contrasts life_path"
+    }
+  }
+}

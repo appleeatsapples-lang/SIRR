@@ -1,0 +1,8 @@
+{
+  "version": "v1.1",
+  "synthesis_en": "Synthesis text is generated dynamically per-profile by the narrative engine. This batch file is a placeholder for the synthesis interpretation slot; runtime synthesis text comes from analysis modules + reading_composer.py.",
+  "synthesis_ar": "نص التركيب يولّد ديناميكيًا لكل ملف عبر محرك السرد. هذا الملف الدُّفعي ينوب عن خانة تفسير التركيب؛ يأتي نص التركيب وقت التشغيل من وحدات التحليل وreading_composer.py.",
+  "convergence_strength": null,
+  "independent_traditions_counted": null,
+  "cross_tradition_convergences": []
+}

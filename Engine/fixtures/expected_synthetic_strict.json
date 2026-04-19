@@ -1,0 +1,980 @@
+{
+  "_comment": "Golden fixtures for synthetic profile FATIMA AHMED OMAR ALKATIB (full_legal). Generated 2026-04-19 by extracting from synthetic_output.json.",
+  "julian": {
+    "jdn": 2447966
+  },
+  "biorhythm": {
+    "days_alive": 13184
+  },
+  "geomancy": {
+    "index": 14
+  },
+  "challenges": {
+    "challenge_1": 3,
+    "challenge_2": 5,
+    "challenge_3": 2,
+    "challenge_4": 2
+  },
+  "attitude": {
+    "raw": 18,
+    "reduced": 9
+  },
+  "profection": {
+    "age": 36,
+    "house": 1
+  },
+  "notarikon": {
+    "arabic_sum": 151,
+    "arabic_root": 7,
+    "latin_sum": 14,
+    "latin_root": 5
+  },
+  "atbash": {
+    "atbash_sum": 480,
+    "atbash_root": 3
+  },
+  "albam": {
+    "albam_sum": 182,
+    "albam_root": 2
+  },
+  "nayin": {
+    "sexagenary_position": 7,
+    "nayin_english": "Roadside Earth",
+    "nayin_chinese": "路旁土",
+    "element": "Earth"
+  },
+  "iching": {
+    "hexagram_number": 14
+  },
+  "wafq": {
+    "row_sum": 129,
+    "center": 43
+  },
+  "essence": {
+    "age": 36,
+    "letters": "I(9)+E(5)+I(9)",
+    "sum": 23,
+    "reduced": 5
+  },
+  "firdaria": {
+    "major_planet": "Moon",
+    "sub_planet": "Mars",
+    "birth_type": "Day"
+  },
+  "compound": {
+    "abjad_first_name": {
+      "compound": 130,
+      "name": "Unknown"
+    }
+  },
+  "personal_year": {
+    "personal_year": 1,
+    "personal_month": 5
+  },
+  "karmic_debt": {
+    "has_karmic_debt": false,
+    "count": 0
+  },
+  "lo_shu_grid": {
+    "present": [
+      1,
+      3,
+      5,
+      9
+    ],
+    "missing": [
+      2,
+      4,
+      6,
+      7,
+      8
+    ]
+  },
+  "hidden_passion": {
+    "hidden_passion": 1,
+    "frequency": 6
+  },
+  "subconscious_self": {
+    "score": 8
+  },
+  "maturity": {
+    "maturity_number": 5,
+    "raw_sum": 5
+  },
+  "abjad_kabir": {
+    "total": 947,
+    "root": 2
+  },
+  "abjad_saghir": {
+    "total": 65,
+    "root": 2
+  },
+  "abjad_wusta": {
+    "total": 164,
+    "root": 2
+  },
+  "abjad_maghribi": {
+    "total": 952,
+    "root": 7
+  },
+  "hijri": {
+    "birth_year": 1410,
+    "birth_month": 8,
+    "birth_day": 18
+  },
+  "solar_lunar": {
+    "solar_count": 5,
+    "lunar_count": 12,
+    "dominant": "lunar"
+  },
+  "elemental_letters": {
+    "dominant_element": "fire"
+  },
+  "luminous_dark": {
+    "luminous_count": 13,
+    "dark_count": 4,
+    "dominant": "luminous"
+  },
+  "decan": {
+    "sign": "Pisces",
+    "decan": 3,
+    "decan_ruler": "Pluto/Mars"
+  },
+  "day_ruler": {
+    "birth_weekday": "Thursday",
+    "planetary_ruler": "Jupiter"
+  },
+  "tarot_birth": {
+    "raw_sum": 28,
+    "primary_card_number": 10,
+    "primary_card_name": "Wheel of Fortune",
+    "secondary_card_number": 1,
+    "secondary_card_name": "The Magician"
+  },
+  "dwad": {
+    "sun_sign": "Pisces",
+    "dwad_sign": "Sagittarius",
+    "dwad_number": 10
+  },
+  "hebrew_gematria": {
+    "total_gematria": 947,
+    "gematria_root": 2,
+    "letter_count": 17
+  },
+  "mandaean_gematria": {
+    "total_gematria": 952,
+    "gematria_root": 7,
+    "letter_count": 18
+  },
+  "avgad": {
+    "original_sum": 947,
+    "avgad_sum": 726,
+    "original_root": 2,
+    "avgad_root": 6,
+    "delta": -221
+  },
+  "tree_of_life": {
+    "primary_sephirah": "Keter",
+    "secondary_sephirah": "Chesed",
+    "primary_world": "Atzilut"
+  },
+  "hebrew_calendar": {
+    "hebrew_day": 18,
+    "hebrew_month": "אדר",
+    "hebrew_year": 5750,
+    "holiday": null,
+    "hebrew_age": 36
+  },
+  "chinese_zodiac": {
+    "animal": "Horse",
+    "heavenly_stem": "庚",
+    "stem_element": "Metal",
+    "sexagenary_position": 7
+  },
+  "nine_star_ki": {
+    "year_star": 1,
+    "month_star": 4,
+    "ki_string": "1.4"
+  },
+  "flying_star": {
+    "birth_year_star": 1,
+    "birth_chart": {
+      "Center": 1,
+      "NW": 2,
+      "W": 3,
+      "NE": 4,
+      "S": 5,
+      "N": 6,
+      "SW": 7,
+      "E": 8,
+      "SE": 9
+    },
+    "current_year_star": 1,
+    "current_year": 2026,
+    "current_period": 9,
+    "current_chart": {
+      "Center": 1,
+      "NW": 2,
+      "W": 3,
+      "NE": 4,
+      "S": 5,
+      "N": 6,
+      "SW": 7,
+      "E": 8,
+      "SE": 9
+    },
+    "star_timeliness": {
+      "1": "FUTURE_PROSPEROUS",
+      "2": "UNTIMELY",
+      "3": "UNTIMELY",
+      "4": "UNTIMELY",
+      "5": "UNTIMELY",
+      "6": "RETREATING",
+      "7": "UNTIMELY",
+      "8": "RETREATING",
+      "9": "TIMELY"
+    },
+    "star_status_by_sector": {
+      "Center": {
+        "star": 1,
+        "status": "FUTURE_PROSPEROUS"
+      },
+      "NW": {
+        "star": 2,
+        "status": "UNTIMELY"
+      },
+      "W": {
+        "star": 3,
+        "status": "UNTIMELY"
+      },
+      "NE": {
+        "star": 4,
+        "status": "UNTIMELY"
+      },
+      "S": {
+        "star": 5,
+        "status": "UNTIMELY"
+      },
+      "N": {
+        "star": 6,
+        "status": "RETREATING"
+      },
+      "SW": {
+        "star": 7,
+        "status": "UNTIMELY"
+      },
+      "E": {
+        "star": 8,
+        "status": "RETREATING"
+      },
+      "SE": {
+        "star": 9,
+        "status": "TIMELY"
+      }
+    },
+    "auspicious_sectors": {
+      "Center": 1,
+      "SE": 9
+    },
+    "inauspicious_sectors": {
+      "NW": 2,
+      "W": 3,
+      "NE": 4,
+      "S": 5,
+      "SW": 7
+    },
+    "note": "Period 9 (star 9 is TIMELY). Annual flying stars."
+  },
+  "bazi_pillars": {
+    "year_pillar": {
+      "stem": "庚",
+      "stem_pinyin": "Gēng",
+      "stem_element": "Metal",
+      "stem_polarity": "Yang",
+      "branch": "午",
+      "branch_pinyin": "Wǔ",
+      "animal": "Horse",
+      "branch_element": "Fire",
+      "pillar": "庚午",
+      "pillar_pinyin": "Gēng Wǔ",
+      "description": "Yang Metal Horse"
+    },
+    "month_pillar": {
+      "stem": "己",
+      "stem_pinyin": "Jǐ",
+      "stem_element": "Earth",
+      "stem_polarity": "Yin",
+      "branch": "卯",
+      "branch_pinyin": "Mǎo",
+      "animal": "Rabbit",
+      "branch_element": "Wood",
+      "pillar": "己卯",
+      "pillar_pinyin": "Jǐ Mǎo",
+      "description": "Yin Earth Rabbit"
+    },
+    "day_pillar": {
+      "stem": "己",
+      "stem_pinyin": "Jǐ",
+      "stem_element": "Earth",
+      "stem_polarity": "Yin",
+      "branch": "卯",
+      "branch_pinyin": "Mǎo",
+      "animal": "Rabbit",
+      "branch_element": "Wood",
+      "pillar": "己卯",
+      "pillar_pinyin": "Jǐ Mǎo",
+      "description": "Yin Earth Rabbit"
+    },
+    "day_master": "Jǐ (己) Yin Earth",
+    "hour_pillar": {
+      "stem": "辛",
+      "stem_pinyin": "Xīn",
+      "stem_element": "Metal",
+      "stem_polarity": "Yin",
+      "branch": "未",
+      "branch_pinyin": "Wèi",
+      "animal": "Goat",
+      "branch_element": "Earth",
+      "pillar": "辛未",
+      "pillar_pinyin": "Xīn Wèi",
+      "description": "Yin Metal Goat"
+    }
+  },
+  "bazi_daymaster": {
+    "day_master_element": "Earth",
+    "seasonal_strength": "CONSTRAINED",
+    "classification": "WEAK",
+    "support_count": 3,
+    "drain_count": 4
+  },
+  "bazi_luck_pillars": {
+    "direction": "backward",
+    "onset_age": 3,
+    "current_luck_pillar": "乙亥"
+  },
+  "egyptian_decan": {
+    "ptolemaic_decan": 36,
+    "decan_sign": "Pisces",
+    "decan_degrees": "20-30°",
+    "planetary_ruler": "Mars",
+    "deity": "Nun",
+    "theme": "Primordial waters"
+  },
+  "bazi_growth": {
+    "day_master": "Gui (癸) Yin Water",
+    "year_phase": "Imperial (帝旺)",
+    "month_phase": "Bath (沐浴)",
+    "day_phase": "Imperial (帝旺)"
+  },
+  "cardology": {
+    "birth_card": "8 of Diamonds",
+    "solar_value": 34,
+    "rank": "8",
+    "suit": "Diamonds"
+  },
+  "chaldean": {
+    "chaldean_total": 66,
+    "chaldean_root": 3,
+    "pythagorean_total": 85,
+    "pythagorean_root": 4,
+    "agrees_with_pythagorean": false,
+    "letter_count": 22
+  },
+  "ifa": {
+    "combined_odu": "Irete Meji",
+    "odu_index": 34,
+    "is_meji": true
+  },
+  "manazil": {
+    "manzil_number": 18,
+    "name_transliterated": "Al-Qalb",
+    "name_english": "The Heart",
+    "element": "Water"
+  },
+  "mayan": {
+    "total_kin": 1863683,
+    "glord": "G8",
+    "tzolkin": "7 Akbal",
+    "tzolkin_number": 7,
+    "tzolkin_sign": "Akbal",
+    "haab_day": 1,
+    "haab_month": "Kumk'u"
+  },
+  "nakshatra": {
+    "nakshatra_number": 15,
+    "nakshatra_name": "Swati",
+    "ruler": "Rahu",
+    "pada": 3
+  },
+  "sabian": {
+    "solar_sign": "PIS",
+    "solar_degree": 24,
+    "sabian_key": "PIS-25"
+  },
+  "temperament": {
+    "primary_element": "Air",
+    "primary_temperament": "Sanguine"
+  },
+  "vedic_tithi": {
+    "tithi_number": 19,
+    "tithi_name": "Krishna Chaturthi (4th)",
+    "phase": "Krishna",
+    "group": "Rikta"
+  },
+  "vedic_yoga": {
+    "yoga_name": "Vyatipata",
+    "yoga_number": 17,
+    "quality": "Inauspicious"
+  },
+  "vimshottari": {
+    "birth_nakshatra": 15,
+    "birth_nakshatra_name": "Swati",
+    "birth_nakshatra_ruler": "Rahu",
+    "current_maha_dasha": "Saturn",
+    "current_dasha_start_age": 21.8,
+    "current_dasha_end_age": 40.8,
+    "first_dasha_remaining_years": 5.8
+  },
+  "natal_chart": {
+    "sun_sign": "Pisces",
+    "moon_sign": "Scorpio",
+    "rising_sign": "Leo"
+  },
+  "house_system": {
+    "system": "Whole Sign",
+    "ascending_sign": "Leo",
+    "mc_house": 10
+  },
+  "aspects": {
+    "aspect_count": 19
+  },
+  "essential_dignities": {
+    "is_diurnal": true,
+    "total_score": 2,
+    "dignified_count": 3,
+    "debilitated_count": 2
+  },
+  "sect": {
+    "chart_sect": "diurnal",
+    "is_diurnal": true,
+    "mercury_sect": "diurnal",
+    "benefic_of_sect": "Jupiter",
+    "malefic_contrary": "Mars",
+    "in_sect_count": 4,
+    "out_sect_count": 3
+  },
+  "arabic_parts": {
+    "fortune_house": 8,
+    "spirit_house": 5,
+    "lot_count": 7
+  },
+  "solar_return": {
+    "return_year": 2026,
+    "return_date": "2026-03-15",
+    "return_time_local": "07:54",
+    "return_rising": "Taurus",
+    "return_moon_sign": "Aquarius",
+    "sun_house": 11
+  },
+  "progressions": {
+    "age": 36.1,
+    "progressed_sun_sign": "Taurus",
+    "progressed_moon_sign": "Aquarius",
+    "moon_sign_changed": true,
+    "sun_advance_degrees": 35.6
+  },
+  "fixed_stars": {
+    "conjunction_count": 1,
+    "royal_conjunction_count": 0,
+    "orb_used": 1.0
+  },
+  "weton": {
+    "weton": "Kemis Pahing",
+    "pasar": "Pahing",
+    "pasar_neptu": 9,
+    "saptawara": "Kemis",
+    "saptawara_neptu": 8,
+    "day_ruler": "Jupiter",
+    "total_neptu": 17,
+    "neptu_meaning": "Satrio Pinayungan — protected warrior, sheltered strength",
+    "weton_cycle_position": 11
+  },
+  "planetary_joy": {
+    "in_joy": [
+      "Mars",
+      "Jupiter"
+    ],
+    "near_joy": [
+      "Moon",
+      "Venus",
+      "Sun"
+    ],
+    "joy_count": 2,
+    "headline": "Mars, Jupiter in joy."
+  },
+  "malwasha": {
+    "birth_sign": "Pisces",
+    "birth_sign_mandaean": "Nuna-Hira",
+    "birth_sign_value": 12,
+    "birth_hour": 14,
+    "result_sign": "Taurus",
+    "result_sign_mandaean": "Tawra",
+    "result_value": 2,
+    "mother_name": "MARYAM SALIM YUSUF HASSAN",
+    "mother_value": 8,
+    "final_value": 7,
+    "protective_name": "Shum",
+    "full_title": "Shum bint MARYAM SALIM YUSUF HASSAN",
+    "matrilineal_axis": true
+  },
+  "prashna_natal": {
+    "prashna_moon_sign": "Taurus",
+    "prashna_moon_nakshatra": "Krittika",
+    "prashna_root": 3
+  },
+  "rectification": {
+    "base_time": "14:22",
+    "base_ascendant_sign": "Leo",
+    "base_ascendant_degree": 128.1,
+    "base_mc_sign": "Taurus",
+    "base_moon_sign": "Scorpio",
+    "base_sun_house": 8,
+    "ascendant_sign_stable": true,
+    "mc_sign_stable": false,
+    "moon_sign_stable": true,
+    "time_sensitivity": "LOW"
+  },
+  "horary_timing": {
+    "day_of_week": "Sunday",
+    "day_ruler": "Sun",
+    "current_hour_number": 9,
+    "current_hour_ruler": "Venus"
+  },
+  "jaimini_karakas": {
+    "ak_sign": "Sagittarius",
+    "ak_navamsha_sign": "Sagittarius",
+    "karakamsha": "Sagittarius"
+  },
+  "jaimini_argala": {
+    "lagna_sign": "Cancer",
+    "net_argala": "positive",
+    "strong_count": 1,
+    "blocked_count": 0
+  },
+  "jaimini_navamsha": {
+    "d9_ascendant": "Scorpio",
+    "karakamsha": "Sagittarius",
+    "atmakaraka_navamsha": "Sagittarius"
+  },
+  "kp_sublords": {
+    "ascendant_sub_lord": "Rahu",
+    "moon_sub_lord": "Venus",
+    "mercury_sub_lord": "Venus",
+    "jupiter_sub_lord": "Rahu",
+    "saturn_sub_lord": "Rahu"
+  },
+  "draconic_chart": {
+    "draconic_sun_sign": "Taurus",
+    "draconic_moon_sign": "Sagittarius",
+    "draconic_asc_sign": "Virgo",
+    "sun_sign_shift": "Pisces → Taurus (draconic)",
+    "moon_sign_shift": "Scorpio → Sagittarius (draconic)"
+  },
+  "solar_return_deep": {
+    "sr_ascendant_sign": "Taurus",
+    "sr_sun_house": 11,
+    "sr_moon_sign": "Aquarius",
+    "sr_moon_house": 10,
+    "sr_asc_ruler": "Venus",
+    "sr_asc_ruler_house": 12,
+    "activation_count": 1
+  },
+  "electional_windows": {
+    "reference_date": "2026-04-19",
+    "window_horizon_days": 90
+  },
+  "muhurta": {
+    "date": "2026-04-19",
+    "location": "Cairo, Egypt",
+    "day_ruler": "Sun",
+    "sunrise_local": "05:23",
+    "sunset_local": "18:24"
+  },
+  "synastry": {
+    "status": "no second profile provided"
+  },
+  "arabic_roots": {
+    "root_count": 1,
+    "root_abjad_total": 310,
+    "root_abjad_root": 4,
+    "dominant_field": "time_cultivation"
+  },
+  "arabic_morphology": {
+    "dominant_voice": "active",
+    "active_ratio": 0,
+    "passive_ratio": 0
+  },
+  "name_semantics": {
+    "unit_count": 4,
+    "dominant_cluster": "construction",
+    "dominant_cluster_count": 1,
+    "dominant_cluster_ratio": 100.0,
+    "total_classified": 1
+  },
+  "arabic_phonetics": {
+    "total_letters": 16,
+    "dominant_makhraj": "guttural",
+    "voiced_count": 12,
+    "voiceless_count": 4
+  },
+  "arabic_letter_nature": {
+    "total_letters": 16,
+    "dominant_element": "fire",
+    "dominant_planet": "Saturn",
+    "dominant_sign": "Aries",
+    "dominant_temperament": "hot_dry",
+    "luminous_ratio": 75.0,
+    "dominant_color": "red"
+  },
+  "digit_patterns": {
+    "digit_sum": 20,
+    "digit_sum_root": 2,
+    "digit_product": 252,
+    "reverse": 749,
+    "reverse_root": 2,
+    "is_palindrome": false,
+    "unique_primes": [
+      947
+    ],
+    "roots_match": false
+  },
+  "lineage_computation": {
+    "word_count": 4,
+    "sequence": [
+      130,
+      53,
+      310,
+      454
+    ],
+    "compound_groups": [
+      130,
+      53,
+      310,
+      454
+    ],
+    "center_of_weight": 2.15,
+    "root_sequence": [
+      4,
+      8,
+      4,
+      4
+    ]
+  },
+  "hijri_calendar_encoding": {
+    "hijri_year": 1410,
+    "year_digit_root": 6,
+    "is_sacred_month": false,
+    "is_ramadan": false,
+    "is_hajj_season": false,
+    "spiritual_month": "preparatory",
+    "full_digit_root": 5,
+    "combined_root": 5
+  },
+  "calligraphy_structure": {
+    "total_letters": 17,
+    "ascenders": 7,
+    "descenders": 6,
+    "dots_above": 4,
+    "dots_below": 1,
+    "total_dots": 5,
+    "teeth": 2,
+    "loops": 7,
+    "dominant_feature": "ascenders",
+    "dot_density": 0.29
+  },
+  "divine_breath": {
+    "total_letters": 16,
+    "entropy": 2.781,
+    "normalized_entropy": 0.927,
+    "deep_throat_count": 5,
+    "mid_tongue_count": 6,
+    "outer_lips_count": 5,
+    "dominant_zone": "mid_tongue"
+  },
+  "letter_position_encoding": {
+    "total_letters": 17,
+    "total_weight": 11812,
+    "weight_root": 4,
+    "center_of_gravity": 12.47,
+    "skew": 3.97,
+    "peak_position": 17
+  },
+  "abjad_visual_architecture": {
+    "dotted_letters": 4,
+    "undotted_letters": 13,
+    "total_dots": 5,
+    "void_ratio": 76.5,
+    "interruptions": 13,
+    "vertical_balance": 0.077
+  },
+  "name_weight": {
+    "total_syllables": 18,
+    "total_light": 6,
+    "total_heavy": 12,
+    "heavy_ratio": 66.7,
+    "cadence": "mixed"
+  },
+  "arabic_rhetoric": {
+    "has_jinas_tam": false,
+    "has_genealogical_echo": false,
+    "has_tibaq": false,
+    "most_common_letter": "ا",
+    "most_common_letter_count": 3,
+    "total_repetition_score": 0
+  },
+  "sonority_curve": {
+    "mean_sonority": 2.82,
+    "rises": 9,
+    "falls": 6,
+    "contour": "ascending",
+    "dominant_class": "stop"
+  },
+  "larger_awfaq": {
+    "constant_3x3": 945,
+    "constant_4x4": 947,
+    "constant_5x5": 947,
+    "buduh_matches_root": false,
+    "center_5x5": 189.4
+  },
+  "qibla_as_axis": {
+    "qibla_angle": 244.9,
+    "qibla_cardinal": "SW",
+    "perpendicular_angle": 334.9,
+    "distance_to_mecca_km": 1168.0
+  },
+  "prayer_times_as_timing": {
+    "birth_period": "dhuhr",
+    "day_length_hours": 11.94
+  },
+  "chronobiology": {
+    "birth_season": "winter",
+    "seasonal_chronotype": "late",
+    "circadian_phase": "afternoon",
+    "day_of_year": 74,
+    "nearest_cardinal_point": "vernal_equinox",
+    "cardinal_distance_days": 6
+  },
+  "void_matrix": {
+    "lo_shu_missing": [
+      2,
+      4,
+      6,
+      7,
+      8
+    ],
+    "void_center": false,
+    "element_absent": [],
+    "total_voids": 15,
+    "torque": 7
+  },
+  "barzakh_coefficient": {
+    "module_class": "comparative",
+    "fixed_sum": 1103,
+    "fixed_count": 8,
+    "kinetic_sum": 197.60000000000002,
+    "kinetic_count": 7,
+    "coefficient": 0.8481,
+    "classification": "structurally_dominant",
+    "fixed_vectors": {
+      "life_path": 1,
+      "expression": 4,
+      "soul_urge": 8,
+      "personality": 5,
+      "birthday_number": 6,
+      "abjad_first": 130,
+      "abjad_total": 947,
+      "abjad_root": 2
+    },
+    "kinetic_vectors": {
+      "physical_pct": 97.9,
+      "emotional_pct": 78.2,
+      "intellectual_pct": 9.5,
+      "essence": 5,
+      "profection_house": 1,
+      "personal_year": 1,
+      "personal_month": 5
+    }
+  },
+  "hermetic_alignment": {
+    "axis_count": 9,
+    "comparisons": 36,
+    "agreements": 4,
+    "alignment_score": 11.1,
+    "dominant_value": 1,
+    "dominant_count": 3
+  },
+  "execution_pattern_analysis": {
+    "compound_count": 1,
+    "pattern": "minimal"
+  },
+  "minimum_viable_signature": {
+    "fact_count": 5
+  },
+  "balance_number": {
+    "raw_sum": 14,
+    "balance_number": 5
+  },
+  "rational_thought": {
+    "first_name_sum": 23,
+    "birthday_number": 6,
+    "rational_thought": 11
+  },
+  "inclusion_table": {
+    "total_letters": 22,
+    "missing_digits": [
+      7
+    ],
+    "karmic_lesson_count": 1,
+    "dominant_digits": [
+      1
+    ],
+    "dominant_frequency": 6
+  },
+  "special_letters": {
+    "first_vowel_letter": "A",
+    "first_vowel_value": 1,
+    "first_consonant_letter": "F",
+    "first_consonant_value": 6
+  },
+  "period_cycles": {
+    "current_period": 2
+  },
+  "transit_letters": {
+    "transit_sum": 27
+  },
+  "yearly_essence_cycle": {
+    "transit_sum": 27,
+    "essence_number": 9
+  },
+  "tarot_greer_birth_cards": {
+    "personality_card": 10,
+    "soul_card": 1,
+    "constellation_root": 1,
+    "hidden_factor_numbers": [
+      19
+    ]
+  },
+  "greer_zodiac_card": {
+    "sun_sign": "Pisces",
+    "zodiac_card_number": 18,
+    "zodiac_card_name": "The Moon"
+  },
+  "prenatal_syzygy": {
+    "syzygy_type": "full_moon",
+    "syzygy_sign": "Pisces"
+  },
+  "cheiro_extensions": {
+    "chaldean_total": 66,
+    "compound_number": 12,
+    "compound_root": 3,
+    "compound_name": "The Sacrifice",
+    "color_key_number": 1
+  },
+  "roman_chronogram": {
+    "chronogram_total": 3552,
+    "chronogram_root": 6,
+    "roman_letter_count": 7
+  },
+  "hebrew_aiq_beker": {
+    "chamber_sum": 65,
+    "chamber_root": 11,
+    "dominant_chamber": 4,
+    "dominant_count": 5
+  },
+  "tibetan_parkha": {
+    "parkha_name": "Li",
+    "parkha_element": "Fire",
+    "tibetan_age": 37,
+    "parkha_index": 0
+  },
+  "tibetan_elements": {
+    "lo_element": "Iron",
+    "lo_polarity": "Male",
+    "srog_element": "Fire",
+    "srog_animal": "Horse"
+  },
+  "tamil_panchapakshi": {
+    "natal_bird": "Cock",
+    "nakshatra_number": 15,
+    "paksha": "Krishna"
+  },
+  "chinese_jian_chu": {
+    "day_officer": "Man",
+    "day_officer_meaning": "Full",
+    "day_officer_quality": "favorable"
+  },
+  "igbo_market_day": {
+    "market_day": "Afor",
+    "igbo_element": "Earth",
+    "days_from_epoch": 7378
+  },
+  "zoroastrian_day_yazata": {
+    "roj_number": 30,
+    "roj_name": "Aneran",
+    "yazata_name": "Anaghra Raochah",
+    "yazata_element": "Fire"
+  },
+  "vedic_arudha_pada": {
+    "lagna_sign": "Leo",
+    "lagna_lord": "Sun",
+    "lord_sign": "Pisces",
+    "arudha_lagna_sign": "Libra"
+  },
+  "vedic_upapada_lagna": {
+    "twelfth_house_sign": "Cancer",
+    "twelfth_lord": "Moon",
+    "upapada_sign": "Pisces"
+  },
+  "vedic_pushkara_navamsha": {
+    "moon_pushkara": false,
+    "pushkara_status": false
+  },
+  "bazi_san_he_san_hui": {
+    "san_he_count": 0,
+    "san_hui_count": 0
+  },
+  "zwds_si_hua_palace": {
+    "year_stem": "Geng",
+    "lu_star": "Tai Yang",
+    "quan_star": "Wu Qu",
+    "ke_star": "Tai Yin",
+    "ji_star": "Tian Tong"
+  },
+  "hebrew_mispar_variants": {
+    "gadol_total": 947,
+    "gadol_root": 2,
+    "siduri_total": 164,
+    "siduri_root": 11,
+    "boneeh_total": 1461,
+    "boneeh_root": 3,
+    "hakadmi_total": 1267,
+    "hakadmi_root": 7,
+    "letter_count": 17
+  },
+  "planes_of_expression": {
+    "physical_count": 5,
+    "physical_sum": 21,
+    "physical_root": 3,
+    "mental_count": 8,
+    "mental_sum": 17,
+    "mental_root": 8,
+    "emotional_count": 7,
+    "emotional_sum": 39,
+    "emotional_root": 3,
+    "intuitive_count": 2,
+    "intuitive_sum": 8,
+    "intuitive_root": 8,
+    "dominant_plane": "mental",
+    "total_letters": 22
+  }
+}

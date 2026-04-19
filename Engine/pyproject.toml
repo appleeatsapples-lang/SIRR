@@ -1,0 +1,9 @@
+[project]
+name = "sirr-new-systems"
+version = "1.1.0"
+requires-python = ">=3.10"
+description = "SIRR v2 New Systems Discovery - Deterministic Core with Certainty Tagging"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+norecursedirs = ["_deferred", "__pycache__", ".pytest_cache"]

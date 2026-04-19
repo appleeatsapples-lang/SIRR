@@ -1,0 +1,14 @@
+[
+  {
+    "system_id": "akan_kra_din",
+    "version": "v1.0",
+    "interpretation_en": "The Akan Kra Din module gives the soul-day name {kra_din}, from birth day {soul_day}, with associated element {soul_element}. In Akan cosmology, day names place the birth within a culturally specific rhythm of soul, weekday, and naming. The result is read inside that Akan naming frame, without treating it as confirmation of any other day-master, lunar, or elemental system.",
+    "interpretation_ar": "تعطي وحدة أكان كرا دين اسم يوم الروح {kra_din}، من يوم الميلاد {soul_day}، مع العنصر المرتبط {soul_element}. في كوسمولوجيا الأكان، تضع أسماء الأيام الميلاد داخل إيقاع ثقافي خاص يجمع الروح ويوم الأسبوع والتسمية. تُقرأ النتيجة داخل إطار التسمية الأكاني هذا، من غير اعتبارها تأكيدًا لأي نظام آخر لسيد اليوم أو القمر أو العناصر."
+  },
+  {
+    "system_id": "persian_abjad",
+    "version": "v1.0",
+    "interpretation_en": "Your Persian Extended Abjad total is {total}, reducing to root {root}. This historical system extends classical abjad so Persian-exclusive letters can be valued when they appear in a name. For names without Persian-exclusive letters, the calculation returns the standard abjad total; for names that include them, the extension records how those added letters change the numeric body.",
+    "interpretation_ar": "مجموع الأبجد الفارسي الموسّع للاسم هو {total}، وينخفض إلى الجذر {root}. هذا نظام تاريخي يوسّع الأبجد الكلاسيكي كي تُحسب الحروف الخاصة بالفارسية عندما تظهر في الاسم. في الأسماء التي لا تحتوي على حروف فارسية خاصة، يعود الحساب إلى مجموع الأبجد القياسي؛ أما الأسماء التي تحتوي عليها فيسجل الامتداد كيف تغيّر تلك الحروف المضافة الجسد العددي."
+  }
+]

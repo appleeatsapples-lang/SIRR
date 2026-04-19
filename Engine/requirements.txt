@@ -1,0 +1,12 @@
+pyswisseph
+hijri-converter
+pytest
+reportlab
+openpyxl
+stripe
+python-dotenv
+fastapi
+uvicorn
+anthropic
+httpx
+hdate

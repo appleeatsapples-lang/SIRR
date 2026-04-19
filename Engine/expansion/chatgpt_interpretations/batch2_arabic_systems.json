@@ -1,0 +1,62 @@
+[
+  {
+    "system_id": "abjad_kabir",
+    "version": "v1.1",
+    "interpretation_en": "Your Abjad Kabir total is {total}, reducing to root {root}. This is the classical hisab al-jummal reading of the full Arabic name: each letter carries its inherited abjad value, and the full chain is then gathered into a single root for compact symbolic reading. The result is a numeric mirror of the name's written structure, not a forecast or a claim about any other module.",
+    "interpretation_ar": "مجموع الأبجد الكبير للاسم هو {total}، وينخفض إلى الجذر {root}. هذه قراءة حساب الجمل الكلاسيكية للاسم العربي الكامل: كل حرف يحمل قيمته الأبجدية الموروثة، ثم تُجمع السلسلة كاملة في جذر واحد للقراءة الرمزية المكثفة. النتيجة مرآة رقمية لبنية الاسم المكتوبة، لا تنبؤ ولا دعوى ارتباط بأي وحدة أخرى."
+  },
+  {
+    "system_id": "abjad_saghir",
+    "version": "v1.1",
+    "interpretation_en": "Your Abjad Saghir total is {total}, reducing to root {root}. This method uses reduced abjad letter values, compressing the same written name into a lighter numeric register while preserving the discipline of letter-based calculation. The root summarizes that register on its own terms; it does not need agreement with another method to be meaningful.",
+    "interpretation_ar": "مجموع الأبجد الصغير للاسم هو {total}، وينخفض إلى الجذر {root}. تستخدم هذه الطريقة قيمًا أبجدية مختزلة، فتضغط الاسم المكتوب نفسه في سجل عددي أخف مع الحفاظ على منطق الحساب الحرفي. يلخص الجذر هذا السجل بشروطه الخاصة؛ ولا يحتاج إلى الاتفاق مع طريقة أخرى كي تكون له دلالة."
+  },
+  {
+    "system_id": "abjad_wusta",
+    "version": "v1.1",
+    "interpretation_en": "Your Abjad Wusta total is {total}, reducing to root {root}. Wusta uses a middle register of abjad values, sitting between the expanded and reduced forms of the calculation. It shows how the name behaves under that particular value scale, giving a second texture of the same letter material without treating shared input as independent proof.",
+    "interpretation_ar": "مجموع الأبجد الوسطى للاسم هو {total}، وينخفض إلى الجذر {root}. تستخدم الوسطى سجلًا متوسطًا من القيم الأبجدية، واقعًا بين الصورة الموسعة والمختزلة من الحساب. وهي تُظهر كيف يتصرف الاسم تحت هذا المقياس القيمي المحدد، فتمنح مادة الحروف نفسها نسيجًا آخر من غير أن تجعل المدخل المشترك دليلًا مستقلًا."
+  },
+  {
+    "system_id": "notarikon",
+    "version": "v1.1",
+    "interpretation_en": "Your Notarikon initial-letter total is {total}, reducing to root {root}. Notarikon is a classical kabbalistic method of reading through initials and compressed letter forms; here it is applied as a modern reading of Arabic name initials. The result describes the numeric shape of the initial letters within this adapted method, without turning the root into a fixed personality claim.",
+    "interpretation_ar": "مجموع نوتاريكون لحروف البدايات هو {total}، وينخفض إلى الجذر {root}. نوتاريكون طريقة قبلانية كلاسيكية تقرأ من خلال الحروف الأولى والصيغ الحرفية المختصرة؛ وهنا تُطبّق كقراءة حديثة لحروف بدايات الاسم العربي. تصف النتيجة الشكل العددي للحروف الأولى داخل هذه الطريقة المكيّفة، من غير تحويل الجذر إلى حكم ثابت على الشخصية."
+  },
+  {
+    "system_id": "solar_lunar",
+    "version": "v1.1",
+    "interpretation_en": "Your name contains 3 solar letters and 15 lunar letters (83% lunar dominant), structuring temperament toward receptivity, internal processing, and reflective modulation. Lunar dominance supports adaptability and emotional calibration, yet may reduce overt assertion unless consciously activated. The three solar letters (ر، س، ل) provide periodic ignition points within the predominantly lunar field.",
+    "interpretation_ar": "اسمك يحتوي على 3 حروف شمسية و15 حروف قمرية (83% سيادة قمرية)، ما يبني المزاج على التلقي والمعالجة الداخلية والتعديل الانعكاسي. غلبة القمر تدعم التكيّف وتنظيم الشعور، لكنها قد تقلل الحزم الظاهر إن لم يُفعَّل بوعي. الحروف الشمسية الثلاثة (ر، س، ل) توفر نقاط إشعال دورية ضمن الحقل القمري السائد."
+  },
+  {
+    "system_id": "elemental_letters",
+    "version": "v1.1",
+    "interpretation_en": "Elemental distribution in your letters is Fire=9 (50%), Earth=5 (27.8%), Air=2 (11.1%), Water=2 (11.1%), showing structural Fire dominance in the nominal layer. Fire drives initiative, intensity, and projection, yet can overheat systems without grounding. This Fire dominance contrasts with Water-based birth systems, creating a Fire-Water tension between reactive drive and adaptive flow.",
+    "interpretation_ar": "توزيع العناصر في حروف اسمك: نار=9 (50%)، تراب=5 (27.8%)، هواء=2 (11.1%)، ماء=2 (11.1%)، ما يدل على سيادة نارية في الطبقة الاسمية. النار تدفع للمبادرة والحدة والإسقاط، لكنها قد تُفرط في التسخين دون تثبيت أرضي. هذه السيادة النارية تتعارض مع أنظمة الميلاد المائية، ما يخلق توتر نار–ماء بين الاندفاع والتكيّف."
+  },
+  {
+    "system_id": "luminous_dark",
+    "version": "v1.1",
+    "interpretation_en": "Your letters are 16 luminous and 2 dark (89% luminous), aligning strongly with Muqatta'at-type vibrational clarity within Ilm al-Huruf (عِلم الحُروف). Luminous dominance indicates outward articulation and symbolic transparency, yet the 2 dark letters introduce controlled opacity and strategic concealment. The imbalance favors expression but retains selective privacy.",
+    "interpretation_ar": "حروفك 16 نورانية و2 ظلمانية (89% نورانية)، ما يتوافق بقوة مع صفاء اهتزازي من نمط الحروف المقطعة ضمن علم الحروف. غلبة النور تدل على وضوح رمزي وتعبير ظاهر، بينما الحرفان الظلمانيان يضيفان حجبًا محسوبًا وستارًا تكتيكيًا. الاختلال يميل للتعبير مع احتفاظ بخصوصية انتقائية."
+  },
+  {
+    "system_id": "hijri",
+    "version": "v1.0",
+    "interpretation_en": "The Hijri calendar places the birth date on {hijri_day} {hijri_month_name} {hijri_year}, with Hijri age {hijri_age}. This module converts the civil date into the Islamic lunar calendar and records its position within the lunar month and year cycle. The reading is calendrical: it names the lunar placement without importing elemental, numerological, or cross-calendar claims.",
+    "interpretation_ar": "يضع التقويم الهجري تاريخ الميلاد في {hijri_day} {hijri_month_name} {hijri_year}، مع العمر الهجري {hijri_age}. تحوّل هذه الوحدة التاريخ المدني إلى التقويم القمري الإسلامي وتسجل موضعه داخل دورة الشهر والسنة القمرية. القراءة تقويمية: تسمي الموضع القمري من غير إدخال دعاوى عنصرية أو عددية أو عابرة للتقاويم."
+  },
+  {
+    "system_id": "wafq",
+    "version": "v1.0",
+    "interpretation_en": "Your Wafq square shows base 48 with center 16 and row sum 48, indicating symmetrical structural containment. The center 16 reduces to 7, echoing the Abjad root pattern, while 48 reduces to 3, linking structure with expression. This design stabilizes internal order yet requires conscious activation to avoid rigidity.",
+    "interpretation_ar": "وفقك العددي قاعدته 48 ومركزه 16 ومجموع الصف 48، ما يدل على احتواء بنيوي متناظر. المركز 16 يختزل إلى 7، متوافقًا مع جذر الأبحج، بينما 48 يختزل إلى 3 رابطًا البنية بالتعبير. هذا التصميم يثبت النظام الداخلي لكنه يحتاج تفعيلًا واعيًا حتى لا يتحول إلى صلابة."
+  },
+  {
+    "system_id": "geomancy",
+    "version": "v1.0",
+    "interpretation_en": "Your geomantic figure is Caput Draconis (الرأس), representing ascending initiation energy within Ilm al-Raml (عِلم الرمل). This figure structures beginnings, openings, and directional momentum, yet requires disciplined follow-through to avoid cyclical restarts. When combined with Fire-dominant letters and Water-based birth patterns, the ascent pattern must balance impulse with flow.",
+    "interpretation_ar": "هيئة الرمل لديك هي الرأس (Caput Draconis)، وتمثل طاقة بدء وصعود ضمن علم الرمل. هذه الهيئة تبني البدايات والانفتاح والزخم الاتجاهي، لكنها تتطلب استمرارية منضبطة لتجنب إعادة البدء المتكرر. ومع سيادة النار اسميًا والماء ولاديًا، يحتاج نمط الصعود إلى موازنة الاندفاع مع السلاسة."
+  }
+]
