@@ -933,6 +933,18 @@ footer p { font-family:'Outfit',sans-serif; font-size:9px; color:var(--text-f); 
 
         secondary = _extract_secondary(mdata)
         short_interp = _truncate_interp(interp)
+        # Skip cards that would render visually empty — no value, no
+        # secondary info, no interpretation snippet. These normally come
+        # from modules that errored silently or have no meaningful output
+        # for this particular profile. Showing an empty shell looks broken;
+        # omitting it is closer to the intent.
+        is_empty = (
+            (not primary_val or primary_val.strip() in ("—", "-", "")) and
+            not secondary and
+            not short_interp
+        )
+        if is_empty:
+            continue
         all_card_data[mid] = {
             "name": display_name,
             "value": primary_val,
