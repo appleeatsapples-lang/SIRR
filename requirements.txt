@@ -26,6 +26,9 @@ anthropic
 # §16.2 Tier 2 at-rest encryption
 cryptography
 
+# Rate limiting (PR #12) — per-IP limits on abuse-prone endpoints
+slowapi
+
 # Testing (needed in CI; prod containers will load but not use)
 pytest
 pytest-asyncio
