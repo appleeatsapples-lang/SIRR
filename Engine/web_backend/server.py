@@ -40,6 +40,9 @@ from errors import (
 )
 # Centralized data paths — honors SIRR_DATA_DIR for Railway volume mount
 from paths import ORDERS_DIR, READINGS_DIR, DELETION_QUEUE
+# Rate limiting
+from middleware import limiter, rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
 
 stripe.api_key = os.environ.get("STRIPE_SECRET_KEY")
 STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET")
@@ -80,6 +83,12 @@ async def lifespan(_app):
 
 
 app = FastAPI(title="SIRR Engine", version="2.0", lifespan=lifespan)
+
+# Rate limiter wire-in (see middleware.py). Adds limiter to app state
+# and registers the 429 handler that returns styled HTML for browsers
+# and JSON for API callers.
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, rate_limit_exceeded_handler)
 
 
 # ── Router wire-in ────────────────────────────────────────────────────────
@@ -518,7 +527,8 @@ def compute_name_length_tier(name_en: str, name_ar: str = "") -> dict:
 # ── API Endpoints ──
 
 @app.post("/api/analyze")
-def analyze(req: AnalyzeRequest, unified: bool = Query(True, description="Return unified product view (~110 modules) vs full 238")):
+@limiter.limit("30/minute")
+def analyze(request: Request, req: AnalyzeRequest, unified: bool = Query(True, description="Return unified product view (~110 modules) vs full 238")):
     """Analyze any person's name + DOB.
 
     unified=True  (default): returns ~110 product-surface modules + coherence + tension
@@ -618,7 +628,8 @@ def demo(unified: bool = Query(True)):
 
 
 @app.get("/api/transliterate")
-def transliterate(name: str = Query(..., min_length=1)):
+@limiter.limit("60/minute")
+def transliterate(request: Request, name: str = Query(..., min_length=1)):
     """Transliterate an English name to Arabic and Hebrew script."""
     return {
         "arabic": transliterate_to_arabic(name),
@@ -708,7 +719,8 @@ class DeleteRequest(BaseModel):
 
 
 @app.post("/api/delete")
-async def request_deletion(req: DeleteRequest):
+@limiter.limit("5/minute")
+async def request_deletion(request: Request, req: DeleteRequest):
     """Delete a user's Tier 2 record (order + reading files).
 
     Authentication model: possession of a valid signed token OR possession of
@@ -863,7 +875,8 @@ async def unified_demo_page():
 
 
 @app.post("/api/transliterate")
-async def api_transliterate(body: dict):
+@limiter.limit("60/minute")
+async def api_transliterate(request: Request, body: dict):
     name = body.get("name", "")
     arabic = transliterate_to_arabic(name)
     return {"arabic": arabic}
@@ -878,7 +891,8 @@ class CheckoutRequest(BaseModel):
     lang: str = "en"
 
 @app.post("/api/checkout")
-async def create_checkout(req: CheckoutRequest):
+@limiter.limit("10/minute")
+async def create_checkout(request: Request, req: CheckoutRequest):
     order_id = create_order(req.dict())
 
     # ── TEST MODE: skip payment, generate reading immediately ──
