@@ -212,6 +212,8 @@ def test_encryption_failure_marks_order_failed_with_prefix():
 def test_lazy_regen_paths_encrypt_after_write():
     """P2F-PR2 FIX C: lazy regen paths must invoke _encrypt_tier2_outputs
     after writing, otherwise plaintext sits unencrypted indefinitely.
+    Strict-fail: NO try/except: pass wrapper around the call (Codex
+    round 3 confirmation).
 
     Two surfaces are affected:
       - _serve_reading_unified_by_id: regenerates when file is missing
@@ -223,15 +225,29 @@ def test_lazy_regen_paths_encrypt_after_write():
         old code.
     """
     import inspect
+    import re as _re
     from server import _serve_reading_unified_by_id, _serve_reading_merged_by_id
 
     unified_src = inspect.getsource(_serve_reading_unified_by_id)
     merged_src = inspect.getsource(_serve_reading_merged_by_id)
 
+    # Positive: the call must be present in both helpers
     assert "_encrypt_tier2_outputs(order_id)" in unified_src, \
         "unified lazy regen missing post-regen encryption (FIX C)"
     assert "_encrypt_tier2_outputs(order_id)" in merged_src, \
         "merged lazy regen missing post-regen encryption (FIX C)"
+
+    # Negative: the call must NOT be wrapped in try/except: pass.
+    # Strict-fail per Codex round 3 — encryption errors propagate as
+    # 500 so we never serve a reading we couldn't seal.
+    swallow_pattern = _re.compile(
+        r"try:\s*\n\s*_encrypt_tier2_outputs\(order_id\)\s*\n\s*except[^\n]*:\s*\n\s*pass",
+        _re.MULTILINE,
+    )
+    assert not swallow_pattern.search(unified_src), \
+        "unified lazy regen wraps _encrypt_tier2_outputs in try/except: pass (must strict-fail per Codex round 3)"
+    assert not swallow_pattern.search(merged_src), \
+        "merged lazy regen wraps _encrypt_tier2_outputs in try/except: pass (must strict-fail per Codex round 3)"
 
 
 def test_encryption_targets_include_merged_html():

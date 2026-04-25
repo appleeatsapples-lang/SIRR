@@ -915,17 +915,12 @@ async def _serve_reading_unified_by_id(order_id: str):
         if output_json.exists():
             _generate_unified_view(str(output_json), order_id)
             # P2F-PR2 FIX C: lazy regen writes plaintext via write_text();
-            # encrypt before serving. Idempotent — other targets that are
-            # already encrypted are skipped by is_encrypted() check.
+            # encrypt before serving. Idempotent — already-encrypted
+            # targets are skipped. Encryption errors propagate as 500
+            # (strict-fail per Codex round 3): we never serve a reading
+            # we couldn't seal.
             if unified_path.exists():
-                try:
-                    _encrypt_tier2_outputs(order_id)
-                except Exception:
-                    # _encrypt_tier2_outputs already marks the order
-                    # status=failed and logs. Don't double-fail the serve
-                    # path; fall through to the existing not-found / status
-                    # handling below.
-                    pass
+                _encrypt_tier2_outputs(order_id)
 
     if not unified_path.exists():
         # Still not there — either the order never completed or JSON was purged
@@ -981,13 +976,11 @@ async def _serve_reading_merged_by_id(order_id: str):
             # encrypt before serving. Closes the F7.3 mtime-regen
             # plaintext window — without this, every code-update
             # cache-invalidation re-wrote merged.html unencrypted.
+            # Idempotent — already-encrypted targets are skipped.
+            # Encryption errors propagate as 500 (strict-fail per
+            # Codex round 3): we never serve a reading we couldn't seal.
             if merged_path.exists():
-                try:
-                    _encrypt_tier2_outputs(order_id)
-                except Exception:
-                    # See unified-view comment: don't double-fail the
-                    # serve path; the helper already records the failure.
-                    pass
+                _encrypt_tier2_outputs(order_id)
 
     if not merged_path.exists():
         order = get_order(order_id)
