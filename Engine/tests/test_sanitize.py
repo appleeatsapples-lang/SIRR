@@ -209,6 +209,31 @@ def test_encryption_failure_marks_order_failed_with_prefix():
         "error field must use exception class name only (no str(e) leaks)"
 
 
+def test_lazy_regen_paths_encrypt_after_write():
+    """P2F-PR2 FIX C: lazy regen paths must invoke _encrypt_tier2_outputs
+    after writing, otherwise plaintext sits unencrypted indefinitely.
+
+    Two surfaces are affected:
+      - _serve_reading_unified_by_id: regenerates when file is missing
+        (legacy orders pre-unified-view).
+      - _serve_reading_merged_by_id: regenerates when file is missing
+        OR when merged_view.py mtime is newer than the cached HTML
+        (PR #20's F7.3 cache invalidation). The mtime path means EVERY
+        code-update served-after-deploy re-wrote plaintext under the
+        old code.
+    """
+    import inspect
+    from server import _serve_reading_unified_by_id, _serve_reading_merged_by_id
+
+    unified_src = inspect.getsource(_serve_reading_unified_by_id)
+    merged_src = inspect.getsource(_serve_reading_merged_by_id)
+
+    assert "_encrypt_tier2_outputs(order_id)" in unified_src, \
+        "unified lazy regen missing post-regen encryption (FIX C)"
+    assert "_encrypt_tier2_outputs(order_id)" in merged_src, \
+        "merged lazy regen missing post-regen encryption (FIX C)"
+
+
 def test_encryption_targets_include_merged_html():
     """P2F-PR2 FIX B: _encrypt_tier2_outputs must encrypt the canonical
     customer-facing merged view (_merged.html). Without this, the
