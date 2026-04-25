@@ -158,6 +158,176 @@ def test_server_exception_prints_route_through_sanitize_exception():
             )
 
 
+def test_p2e_str_e_sites_sanitized():
+    """P2F-PR2 §E: server.py:611 (/api/analyze 500), :978 (demo render),
+    :1079 (Stripe webhook sig) must not leak str(e). Source-level check."""
+    import re as _re
+    server_path = os.path.join(
+        os.path.dirname(__file__), "..", "web_backend", "server.py"
+    )
+    src = open(server_path).read()
+
+    # /api/analyze must use class-name pattern
+    assert _re.search(
+        r'detail=f"analysis_failed:\{type\(e\)\.__name__\}"', src
+    ), "/api/analyze 500 still leaks str(e) (P2E E.1)"
+    assert "raise HTTPException(500, detail=str(e))" not in src
+
+    # Demo render must use class name
+    assert _re.search(
+        r'Demo render failed:\s*\{type\(e\)\.__name__\}', src
+    ), "demo render still leaks {e} (P2E E.2)"
+    assert 'f"Demo render failed: {e}"' not in src
+
+    # Stripe webhook must return constant
+    assert "raise HTTPException(400, \"invalid_signature\")" in src, \
+        "Stripe webhook still leaks str(e) (P2E E.3)"
+    # And not the old form
+    assert "raise HTTPException(400, str(e))" not in src
+
+
+def test_encryption_failure_marks_order_failed_with_prefix():
+    """P2F-PR2 FIX A: when Tier 2 encryption fails, _encrypt_tier2_outputs
+    must downgrade the order to status='failed' (not a custom string like
+    'encryption_failed') so success.html's failed-status branch fires.
+    The error field carries an 'encryption_failed:' prefix so ops can
+    distinguish encryption failures from engine failures."""
+    import inspect
+    from server import _encrypt_tier2_outputs
+    src = inspect.getsource(_encrypt_tier2_outputs)
+    # Must use status="failed" (the string success.html recognizes)
+    assert 'status="failed"' in src, \
+        "encryption failure must set status='failed' (FIX A)"
+    # Must NOT use the rejected custom status string
+    assert 'status="encryption_failed"' not in src, \
+        "encryption failure still uses custom status string success.html ignores"
+    # Must carry the error prefix for operational distinction
+    assert '"encryption_failed:"' in src, \
+        "error field missing encryption_failed: prefix (FIX A)"
+    # And include the exception class name (not the full message)
+    assert 'type(enc_err).__name__' in src, \
+        "error field must use exception class name only (no str(e) leaks)"
+
+
+def test_lazy_regen_paths_encrypt_after_write():
+    """P2F-PR2 FIX C: lazy regen paths must invoke _encrypt_tier2_outputs
+    after writing, otherwise plaintext sits unencrypted indefinitely.
+    Strict-fail: NO try/except: pass wrapper around the call (Codex
+    round 3 confirmation).
+
+    Two surfaces are affected:
+      - _serve_reading_unified_by_id: regenerates when file is missing
+        (legacy orders pre-unified-view).
+      - _serve_reading_merged_by_id: regenerates when file is missing
+        OR when merged_view.py mtime is newer than the cached HTML
+        (PR #20's F7.3 cache invalidation). The mtime path means EVERY
+        code-update served-after-deploy re-wrote plaintext under the
+        old code.
+    """
+    import inspect
+    import re as _re
+    from server import _serve_reading_unified_by_id, _serve_reading_merged_by_id
+
+    unified_src = inspect.getsource(_serve_reading_unified_by_id)
+    merged_src = inspect.getsource(_serve_reading_merged_by_id)
+
+    # Positive: the call must be present in both helpers
+    assert "_encrypt_tier2_outputs(order_id)" in unified_src, \
+        "unified lazy regen missing post-regen encryption (FIX C)"
+    assert "_encrypt_tier2_outputs(order_id)" in merged_src, \
+        "merged lazy regen missing post-regen encryption (FIX C)"
+
+    # Negative: the call must NOT be wrapped in try/except: pass.
+    # Strict-fail per Codex round 3 — encryption errors propagate as
+    # 500 so we never serve a reading we couldn't seal.
+    swallow_pattern = _re.compile(
+        r"try:\s*\n\s*_encrypt_tier2_outputs\(order_id\)\s*\n\s*except[^\n]*:\s*\n\s*pass",
+        _re.MULTILINE,
+    )
+    assert not swallow_pattern.search(unified_src), \
+        "unified lazy regen wraps _encrypt_tier2_outputs in try/except: pass (must strict-fail per Codex round 3)"
+    assert not swallow_pattern.search(merged_src), \
+        "merged lazy regen wraps _encrypt_tier2_outputs in try/except: pass (must strict-fail per Codex round 3)"
+
+
+def test_encryption_failure_cleans_up_plaintext():
+    """P2F-PR2 FIX E (Codex round 4): on encryption failure,
+    _encrypt_tier2_outputs must delete any remaining plaintext target
+    files. Without this, token-gated serve helpers would later return
+    the leftover plaintext via _serve_tier2_html's FileResponse
+    fallthrough — FIX A's status update is informational; the on-disk
+    state is what serve helpers actually check.
+
+    Source-level inspect over the except block:
+      1. is_encrypted(...) check appears (so we don't delete encrypted
+         orphans by mistake)
+      2. .unlink() appears (the actual delete)
+      3. Cleanup comes AFTER the status update (ordering matters —
+         status must be set even if cleanup fails)
+    """
+    import inspect
+    from server import _encrypt_tier2_outputs
+    src = inspect.getsource(_encrypt_tier2_outputs)
+
+    # Locate the start of the except block
+    except_idx = src.find("except Exception as enc_err:")
+    assert except_idx >= 0, "could not locate except block in _encrypt_tier2_outputs"
+    except_body = src[except_idx:]
+
+    # 1. is_encrypted check (so already-encrypted orphans are left alone)
+    assert "is_encrypted(" in except_body, \
+        "FIX E: cleanup loop missing is_encrypted() guard"
+    # 2. unlink call (the actual delete)
+    assert ".unlink()" in except_body, \
+        "FIX E: cleanup loop missing .unlink() call"
+
+    # 3. Ordering: the status update must occur BEFORE the cleanup loop.
+    #    If cleanup blows up before the update, the customer's poll
+    #    sees stale "ready" and the serve still has plaintext to read.
+    status_update_idx = except_body.find('status="failed"')
+    unlink_idx = except_body.find(".unlink()")
+    assert status_update_idx >= 0, "FIX E: status update missing in except block"
+    assert unlink_idx >= 0
+    assert status_update_idx < unlink_idx, \
+        "FIX E: cleanup must come AFTER status update (ordering matters)"
+
+
+def test_encryption_targets_include_merged_html():
+    """P2F-PR2 FIX B: _encrypt_tier2_outputs must encrypt the canonical
+    customer-facing merged view (_merged.html). Without this, the
+    primary post-checkout reading surface lives unencrypted on disk."""
+    import inspect
+    from server import _encrypt_tier2_outputs
+    src = inspect.getsource(_encrypt_tier2_outputs)
+    # All four expected targets — by suffix-string presence in the source
+    expected_suffixes = [
+        '_output.json',
+        '.html',
+        '_unified.html',
+        '_merged.html',
+    ]
+    for suffix in expected_suffixes:
+        assert suffix in src, \
+            f"_encrypt_tier2_outputs targets list missing {suffix} (FIX B)"
+    # Stronger assertion: the merged.html line must explicitly appear in
+    # the targets list literal (not just elsewhere in the function body)
+    assert 'f"{order_id}_merged.html"' in src, \
+        "_merged.html target literal not in targets list (FIX B)"
+
+
+def test_ls_checkout_error_uses_constant():
+    """P2F-PR2 §F: LS checkout error must surface only a constant to the
+    caller; full provider response stays in stderr only."""
+    server_path = os.path.join(
+        os.path.dirname(__file__), "..", "web_backend", "server.py"
+    )
+    src = open(server_path).read()
+    assert 'raise HTTPException(500, "checkout_provider_error")' in src, \
+        "LS checkout error not using constant (P2F-PR2 §F)"
+    # Old leaky form must be gone
+    assert 'f"Lemon Squeezy error: {resp.text[:200]}"' not in src
+
+
 def test_runner_error_fields_use_type_name_not_str():
     """The 3 error-dict assignments in runner.py (semantic_reading,
     psychological_mirror, psychological_profile) must use
