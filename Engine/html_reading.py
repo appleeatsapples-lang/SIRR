@@ -1144,7 +1144,15 @@ document.querySelectorAll('.mod-card').forEach(card => {{
 </html>'''
 
     Path(html_path).write_text(html, encoding="utf-8")
-    print(f"  Saved: {html_path}")
+    # P2F-PR3 §B.2: html_path embeds order_id ("…/<order_id>.html").
+    # Log a hashed correlation ID instead of the raw path so log
+    # aggregators don't ingest the name+DOB substring. Inlined to avoid
+    # Engine/ → Engine/web_backend/ cross-import path setup; matches
+    # sanitize.hash_oid semantics exactly.
+    import hashlib as _hashlib
+    _oid = Path(html_path).stem
+    _oid_hash = _hashlib.sha256(_oid.encode("utf-8")).hexdigest()[:12] if _oid else "<empty>"
+    print(f"  Saved reading for order {_oid_hash}")
     return html_path
 
 
@@ -1164,13 +1172,17 @@ def main():
             html_path = args[idx + 1]
 
     if not Path(output_json).exists():
+        # P2F-PR3 §B exemption: standalone CLI usage error — operator
+        # console output, not a server runtime log ingested by Railway.
         print(f"  Error: {output_json} not found")
         sys.exit(1)
     if not Path(reading_md).exists():
+        # P2F-PR3 §B exemption: standalone CLI usage error.
         print(f"  Error: {reading_md} not found")
         sys.exit(1)
 
     result = generate_html(output_json, reading_md, html_path)
+    # P2F-PR3 §B exemption: CLI completion message; operator console.
     print(f"  Done. Open: {result}")
 
 

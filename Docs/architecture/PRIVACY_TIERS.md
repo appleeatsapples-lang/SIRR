@@ -30,17 +30,17 @@ Contents:
 
 **Access model:**
 
-- URL tokens are signed, self-contained, and time-bounded (30 days). See `Engine/web_backend/tokens.py`. Token secret is rotated separately from other credentials (`SIRR_TOKEN_SECRET` env var).
-- Reading endpoints (`/r/{token}`, `/r/{token}/unified`) resolve the token to an order ID server-side, never echoing the ID back in URLs.
-- Legacy `/reading/{order_id}` routes remain for grandfathered orders but are deprecated. New checkouts mint tokens only.
+- URL tokens are AES-256-GCM AEAD-encrypted (post-P2F-PR1, 2026-04-19) using `SIRR_ENCRYPTION_KEY` via crypto.py's HKDF-derived per-context key. The payload (order_id + expiry) is opaque to the client — the entire blob is base64url-encoded ciphertext with no readable JSON. See `Engine/web_backend/tokens.py`. The earlier HMAC-signed format (`SIRR_TOKEN_SECRET`) is obsolete; the env var is harmless to leave set, surfaces a deprecation INFO log on startup.
+- Reading endpoints (`/r/{token}`, `/r/{token}/unified`, `/r/{token}/merged`) resolve the token to an order ID server-side, never echoing the ID back in URLs.
+- Legacy `/reading/{order_id}` and `/api/order-status/{order_id}` routes return **410 Gone** (P2D + P2F-PR1) — no grandfather fallback.
 
-**Encryption (planned, not yet enforced):**
+**Encryption (enforced, post-P2F-PR2):**
 
-Per-record envelope encryption using a key derived from `HKDF(master_secret, salt=order_id, info="sirr-tier2-v1")`. At rest, the JSON and HTML files will be AES-256-GCM-encrypted; decryption happens only within the running request that produced or requested them.
+Per-record envelope encryption using a key derived from `HKDF(master_secret, salt=order_id, info="sirr-tier2-v1")`. At rest, the JSON and HTML files (output, legacy, unified, merged) are AES-256-GCM-encrypted; decryption happens only within the running request that produced or requested them. Production deployments **fail-fast** at startup if `SIRR_ENCRYPTION_KEY` is unset (detected via `RAILWAY_DEPLOYMENT_ID`). Encryption failures atomically delete any plaintext residue (P2F-PR2 FIX E) and mark `status="failed"`.
 
 **Deletion flow:**
 
-`POST /api/delete` accepts either a signed token or `(order_id, email)` for authentication. On success it unlinks Tier 2 files, truncates the order row to audit metadata only, and queues the `order_id` for Tier 3 removal.
+`POST /api/delete` accepts either an encrypted token or `(order_id, email)` for authentication. On success it unlinks Tier 2 reading files (engine output, legacy/unified/merged HTML), marks the order row `status="deleted"` (nulling `profile`, `email_hash`, `reading_url`, and `error`), and queues the `order_id` for Tier 3 removal. Note: as of the P2F closure (2026-04-25), the order row still retains `name_latin`, `name_arabic`, `dob`, `birth_time`, and `birth_location` after this flow. That gap is documented in [`SIRR_MASTER_REGISTRY.md`](../engine/SIRR_MASTER_REGISTRY.md) §16.5 deferred surfaces and is in scope for the P2G arc.
 
 ---
 
@@ -94,19 +94,21 @@ This is liability reduction, not just privacy discipline. If the operator cannot
 
 | Control | Status |
 |---|---|
-| Signed URL tokens for reading access | Shipped (`tokens.py`) |
+| Encrypted URL tokens for reading access (AES-256-GCM AEAD) | Shipped — P2F-PR1 (`tokens.py`) |
 | Age gate 18+ at checkout | Shipped |
 | Privacy Policy + Terms of Service | Shipped (`/privacy`, `/terms`) |
 | Right-to-delete endpoint | Shipped (`POST /api/delete`) |
 | Retention purge job (Tier 2) | Shipped as scaffold, awaits cron wire-up |
 | Tier 3 deletion queue | Stub (drains no-op until Tier 3 store lands) |
-| Log hygiene (no PII in stdout) | Verified |
+| Log hygiene (no PII in stdout, hash_oid for correlation) | Shipped — P2F-PR3 |
 | No third-party client-side analytics | Verified |
-| Per-record Tier 2 encryption at rest | Planned — next 2p iteration |
+| Per-record Tier 2 encryption at rest (output / .html / _unified / _merged) | Shipped — P2F-PR2 |
+| Production startup fail-fast on missing SIRR_ENCRYPTION_KEY | Shipped — P2F-PR2 |
+| `order_store.py` plaintext order rows (name + DOB on disk) | Deferred — P2G |
 | Tier 3 aggregate store | Planned — requires DB migration |
 | Differential-privacy noise calibration | Planned — requires real traffic |
 | Zero-knowledge admin UI | Planned |
 
 ---
 
-*Doc version 1.0 — 2026-04-19 — initial publication alongside first 2p release.*
+*Doc version 1.1 — 2026-04-25 — updated for P2F closure (encrypted tokens, encryption-at-rest enforcement, log hygiene). order_store.py plaintext rows explicitly deferred to P2G.*
