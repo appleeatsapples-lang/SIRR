@@ -30,17 +30,17 @@ Contents:
 
 **Access model:**
 
-- URL tokens are signed, self-contained, and time-bounded (30 days). See `Engine/web_backend/tokens.py`. Token secret is rotated separately from other credentials (`SIRR_TOKEN_SECRET` env var).
-- Reading endpoints (`/r/{token}`, `/r/{token}/unified`) resolve the token to an order ID server-side, never echoing the ID back in URLs.
-- Legacy `/reading/{order_id}` routes remain for grandfathered orders but are deprecated. New checkouts mint tokens only.
+- URL tokens are AES-256-GCM AEAD-encrypted (post-P2F-PR1, 2026-04-19) using `SIRR_ENCRYPTION_KEY` via crypto.py's HKDF-derived per-context key. The payload (order_id + expiry) is opaque to the client — the entire blob is base64url-encoded ciphertext with no readable JSON. See `Engine/web_backend/tokens.py`. The earlier HMAC-signed format (`SIRR_TOKEN_SECRET`) is obsolete; the env var is harmless to leave set, surfaces a deprecation INFO log on startup.
+- Reading endpoints (`/r/{token}`, `/r/{token}/unified`, `/r/{token}/merged`) resolve the token to an order ID server-side, never echoing the ID back in URLs.
+- Legacy `/reading/{order_id}` and `/api/order-status/{order_id}` routes return **410 Gone** (P2D + P2F-PR1) — no grandfather fallback.
 
-**Encryption (planned, not yet enforced):**
+**Encryption (enforced, post-P2F-PR2):**
 
-Per-record envelope encryption using a key derived from `HKDF(master_secret, salt=order_id, info="sirr-tier2-v1")`. At rest, the JSON and HTML files will be AES-256-GCM-encrypted; decryption happens only within the running request that produced or requested them.
+Per-record envelope encryption using a key derived from `HKDF(master_secret, salt=order_id, info="sirr-tier2-v1")`. At rest, the JSON and HTML files (output, legacy, unified, merged) are AES-256-GCM-encrypted; decryption happens only within the running request that produced or requested them. Production deployments **fail-fast** at startup if `SIRR_ENCRYPTION_KEY` is unset (detected via `RAILWAY_DEPLOYMENT_ID`). Encryption failures atomically delete any plaintext residue (P2F-PR2 FIX E) and mark `status="failed"`.
 
 **Deletion flow:**
 
-`POST /api/delete` accepts either a signed token or `(order_id, email)` for authentication. On success it unlinks Tier 2 files, truncates the order row to audit metadata only, and queues the `order_id` for Tier 3 removal.
+`POST /api/delete` accepts either an encrypted token or `(order_id, email)` for authentication. On success it unlinks Tier 2 files, truncates the order row to audit metadata only, and queues the `order_id` for Tier 3 removal.
 
 ---
 

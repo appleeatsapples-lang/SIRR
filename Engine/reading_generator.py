@@ -997,7 +997,9 @@ Write the complete reading now. Language: {lang_name}.
     # Call Claude API
     client = anthropic.Anthropic()  # Uses ANTHROPIC_API_KEY env var
 
-    print(f"  Generating {lang_name} reading for {context['subject']}...")
+    # P2F-PR3 §B.1: drop subject (user's name) from log line. Keep
+    # operational signal (language) without the PII tail.
+    print(f"  Generating {lang_name} reading...")
     print(f"  Sending to Claude API...")
 
     response = client.messages.create(
@@ -1046,7 +1048,8 @@ def generate_dashboard_panels(output_path: str, lang: str = "en") -> dict:
 Return ONLY the JSON. Language: {lang_name}.
 """
     client = anthropic.Anthropic()
-    print(f"  Generating dashboard panels for {context['subject']}...")
+    # P2F-PR3 §B.1: drop subject (user's name) from log line.
+    print(f"  Generating dashboard panels...")
 
     response = client.messages.create(
         model="claude-sonnet-4-20250514",

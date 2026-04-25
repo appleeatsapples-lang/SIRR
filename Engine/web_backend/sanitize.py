@@ -15,9 +15,31 @@ clues for debugging; false negatives mean a privacy leak.
 """
 from __future__ import annotations
 
+import hashlib
 import re
 import traceback as _tb_mod
 from typing import Optional
+
+
+def hash_oid(order_id: str) -> str:
+    """Short non-reversible correlation ID for use in operational logs.
+
+    The raw order_id contains name+DOB and must not appear in log lines
+    that may be ingested by Railway, Datadog, or other third-party log
+    aggregators. This helper produces a stable 12-char hex prefix of
+    the SHA-256 digest, which is:
+
+      - Non-reversible (cannot recover order_id from hash)
+      - Stable (same order_id always hashes to same prefix; ops can
+        correlate log lines across requests for the same order)
+      - Short enough to read (12 chars vs full 64)
+
+    Operators with a known order_id can compute its hash via the same
+    function to find log lines for that order.
+    """
+    if not order_id:
+        return "<empty>"
+    return hashlib.sha256(order_id.encode("utf-8")).hexdigest()[:12]
 
 # Strings we recognize as clearly NON-PII and want to preserve verbatim.
 # Exception class names, common Python built-ins, module paths, and

@@ -52,7 +52,10 @@ set_var() {
 
 echo ""
 echo "setting variables:"
-set_var "SIRR_TOKEN_SECRET"    "$T"
+# SIRR_TOKEN_SECRET is OBSOLETE since P2F-PR1 (2026-04-19). Tokens now
+# use SIRR_ENCRYPTION_KEY via crypto.py's AEAD path. New bootstraps
+# should not set SIRR_TOKEN_SECRET; existing deployments may keep it
+# (a runtime [INFO] log will recommend removal on next restart).
 set_var "SIRR_ENCRYPTION_KEY"  "$E"
 set_var "SIRR_INTERNAL_SECRET" "$I"
 

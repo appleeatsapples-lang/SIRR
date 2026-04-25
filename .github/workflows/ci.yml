@@ -72,6 +72,65 @@ jobs:
             echo "✓ $f has --no-access-log"
           done
 
+      - name: Boot uvicorn from railway.toml startCommand (P2F-PR3 §I)
+        # Deepest fix to the access-log incident class: the regex guard
+        # above proves --no-access-log is PRESENT, but a string-presence
+        # check still allows shipping a flag that uvicorn rejects (e.g. a
+        # typo like --no-acces-log). This step parses railway.toml's
+        # actual startCommand, executes it for 5s, and verifies uvicorn
+        # reaches "Application startup complete" without error output.
+        # _is_production() in crypto.py reads RAILWAY_DEPLOYMENT_ID which
+        # is unset in CI, so the production fail-fast doesn't trip — the
+        # SIRR_ENCRYPTION_KEY below is just a safety net.
+        env:
+          SIRR_INTERNAL_SECRET: ci-smoke-secret
+          SIRR_ENCRYPTION_KEY: ci00000000000000000000000000000000000000000000000000000000000000
+          PORT: "8001"
+        run: |
+          STARTCMD=$(python -c "
+          import tomllib
+          with open('railway.toml','rb') as f:
+              cfg = tomllib.load(f)
+          print(cfg.get('deploy', {}).get('startCommand', ''))
+          ")
+          if [ -z "$STARTCMD" ]; then
+            echo "✗ Could not extract startCommand from railway.toml"
+            exit 1
+          fi
+          echo "Booting via railway.toml startCommand: $STARTCMD"
+          # Run in background, give it 5s to come up, then kill cleanly.
+          # Use bash -c so the && / shell substitution in startCommand
+          # is honored exactly as Railway would run it.
+          bash -c "$STARTCMD" > /tmp/boot_railway.log 2>&1 &
+          BOOT_PID=$!
+          for i in $(seq 1 10); do
+            if grep -q "Application startup complete" /tmp/boot_railway.log 2>/dev/null; then
+              break
+            fi
+            if ! kill -0 $BOOT_PID 2>/dev/null; then
+              echo "✗ uvicorn died before reaching startup-complete"
+              cat /tmp/boot_railway.log
+              exit 1
+            fi
+            sleep 0.5
+          done
+          # Tear down cleanly
+          kill $BOOT_PID 2>/dev/null || true
+          wait $BOOT_PID 2>/dev/null || true
+
+          if ! grep -q "Application startup complete" /tmp/boot_railway.log; then
+            echo "✗ uvicorn did not reach startup-complete from railway.toml startCommand"
+            cat /tmp/boot_railway.log
+            exit 1
+          fi
+          # Reject obvious arg-parse failures from the boot log
+          if grep -qE "Got unexpected extra argument|No such option|Error: " /tmp/boot_railway.log; then
+            echo "✗ Error output during boot from railway.toml startCommand"
+            cat /tmp/boot_railway.log
+            exit 1
+          fi
+          echo "✓ uvicorn booted cleanly from railway.toml startCommand"
+
       - name: Boot uvicorn + curl the endpoints a real user hits
         working-directory: Engine/web_backend
         env:

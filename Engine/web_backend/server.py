@@ -27,12 +27,13 @@ from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-# §16.5 — signed URL tokens for reading access (replaces order_id in URLs)
+# §16.5 — encrypted URL tokens for reading access (post-P2F-PR1: AES-GCM,
+# replaces both raw order_id in URLs and the earlier HMAC-signed format)
 from tokens import mint_token, try_verify_token, TokenError
 # §16.2 — Tier 2 at-rest encryption
 from crypto import read_maybe_encrypted, write_encrypted, is_encrypted, DecryptionError
 # §16.5 — traceback sanitization
-from sanitize import sanitize_exception
+from sanitize import hash_oid, sanitize_exception
 # Styled error + status page rendering
 from errors import (
     render_page, render_404, render_401, render_400, render_500,
@@ -388,7 +389,13 @@ def _read_json(path: Path):
 def _serve_tier2_html(path: Path, order_id: str):
     """Return a FileResponse for plaintext files, or an HTMLResponse with
     on-the-fly decrypted content for encrypted files. Preserves backward
-    compatibility for grandfathered plaintext reading files."""
+    compatibility for grandfathered plaintext reading files.
+
+    P2F-PR3 §D: defense-in-depth for FIX E. If encryption failed AND
+    the cleanup unlink also failed (best-effort), a plaintext file
+    survives alongside an order with status="failed". Refuse to serve
+    plaintext for failed orders. The encrypted-content path is unaffected
+    (always safe at rest, regardless of order status)."""
     try:
         raw = path.read_bytes()
     except FileNotFoundError:
@@ -399,6 +406,15 @@ def _serve_tier2_html(path: Path, order_id: str):
         except DecryptionError:
             raise HTTPException(404, "Reading not found")
         return HTMLResponse(content=plaintext)
+
+    # Plaintext fallthrough: only happens for grandfathered legacy files
+    # OR for files where encryption failed and FIX E's cleanup also failed.
+    # In the latter case, the order has status="failed" — refuse to serve.
+    # Defense-in-depth check Codex round 5 named.
+    order = get_order(order_id)
+    if order and order.get("status") == "failed":
+        raise HTTPException(404, "Reading not found")
+
     return FileResponse(str(path), media_type="text/html")
 
 
@@ -451,7 +467,7 @@ def _encrypt_tier2_outputs(order_id: str) -> int:
             encrypted += 1
         except Exception as enc_err:
             print(
-                f"[tier2-encrypt] failed for order {order_id}: "
+                f"[tier2-encrypt] failed for order {hash_oid(order_id)}: "
                 f"{type(enc_err).__name__}",
                 file=sys.stderr,
             )
@@ -748,11 +764,12 @@ WEB_DIR = ENGINE / "web"
 # ── §16.5 — Token-based reading access (preferred; no PII in URLs) ─────────
 
 def _resolve_token_or_order_id(token_or_id: str) -> str:
-    """Verify a signed token and return the embedded order_id.
+    """Verify an encrypted token and return the embedded order_id.
 
     §16.5: raw order IDs are no longer accepted on the /r/ path. Only
-    HMAC-signed tokens minted by tokens.mint_token() are valid. The
-    legacy grandfather fallback was removed in P2D.
+    AES-256-GCM AEAD-encrypted tokens minted by tokens.mint_token()
+    are valid (post-P2F-PR1, 2026-04-19; the prior HMAC-signed format
+    is incompatible). The legacy grandfather fallback was removed in P2D.
 
     Name retained for call-site compatibility; semantics are now
     token-only.
@@ -805,9 +822,10 @@ class DeleteRequest(BaseModel):
 async def request_deletion(request: Request, req: DeleteRequest):
     """Delete a user's Tier 2 record (order + reading files).
 
-    Authentication model: possession of a valid signed token OR possession of
-    the raw order_id AND matching email. The email check prevents a leaked
-    order_id from being used by a third party to delete someone's reading.
+    Authentication model: possession of a valid encrypted token (P2F-PR1
+    AES-GCM) OR possession of the raw order_id AND matching email. The
+    email check prevents a leaked order_id from being used by a third
+    party to delete someone's reading.
 
     Tier 3 (aggregate analytics) removal is handled asynchronously — the
     order_id is added to a deletion queue that the purge job drains within
@@ -1247,7 +1265,7 @@ def _generate_unified_view(output_json_path: str, order_id: str) -> Optional[str
         return f"/reading/{order_id}/unified"
     except Exception as e:
         # Never block the main reading flow on unified-view failure.
-        print(f"[unified_view] failed for order {order_id}: {sanitize_exception(e)}", file=sys.stderr)
+        print(f"[unified_view] failed for order {hash_oid(order_id)}: {sanitize_exception(e)}", file=sys.stderr)
         return None
 
 
@@ -1285,7 +1303,7 @@ def _generate_merged_view(output_json_path: str, order_id: str) -> Optional[str]
         merged_path.write_text(render_merged_html(output), encoding="utf-8")
         return f"/reading/{order_id}/merged"
     except Exception as e:
-        print(f"[merged_view] failed for order {order_id}: {sanitize_exception(e)}", file=sys.stderr)
+        print(f"[merged_view] failed for order {hash_oid(order_id)}: {sanitize_exception(e)}", file=sys.stderr)
         return None
 
 
@@ -1354,9 +1372,24 @@ def _generate_reading_background(order_id: str):
             html_output_path = str(readings_dir / f"{order_id}.html")
             generate_html_reading(output_path, reading_md_path, html_output_path,
                                   panels_data=panels_data)
+
+            # P2F-PR3 §C: _reading.md was always intended to be transient
+            # (see "Save reading md temporarily" comment above) but no
+            # cleanup was wired up. The file contains the full legacy
+            # narrative in plaintext — Tier 2 residue that's not in the
+            # encryption target list and not in the deletion artifact
+            # list. Delete it now that generate_html_reading has consumed it.
+            try:
+                Path(reading_md_path).unlink(missing_ok=True)
+            except Exception:
+                # Best-effort. If unlink fails, retention sweep will catch
+                # it eventually; better to continue serving than to fail
+                # the request over a transient file's cleanup.
+                pass
+
             legacy_reading_url = f"/reading/{order_id}"
         except Exception as e:
-            print(f"[legacy_reading] failed for order {order_id}: {sanitize_exception(e)}", file=sys.stderr)
+            print(f"[legacy_reading] failed for order {hash_oid(order_id)}: {sanitize_exception(e)}", file=sys.stderr)
             # Continue — unified view is the product
 
         # ── Unified product view (pure Python, no API calls) ──
@@ -1376,7 +1409,7 @@ def _generate_reading_background(order_id: str):
         try:
             _encrypt_tier2_outputs(order_id)
         except Exception as enc_err:
-            print(f"[tier2-encrypt] failed for order {order_id}: {type(enc_err).__name__}", file=sys.stderr)
+            print(f"[tier2-encrypt] failed for order {hash_oid(order_id)}: {type(enc_err).__name__}", file=sys.stderr)
 
     except Exception as engine_err:
         # §16.5 — sanitize traceback before storing so no profile content
