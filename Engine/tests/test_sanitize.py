@@ -10,6 +10,7 @@ from sanitize import (  # noqa: E402
     sanitize_traceback,
     sanitize_exception,
     sanitize_exc_now,
+    hash_oid,
 )
 
 
@@ -362,3 +363,144 @@ def test_runner_error_fields_use_type_name_not_str():
         assert "str(e)" not in expr, (
             f"runner.py error field still uses str(e): {expr!r}"
         )
+
+
+# ── P2F-PR3 §A: hash_oid helper ──────────────────────────────────────────
+
+
+def test_hash_oid_stable_and_short():
+    """Same input → same 12-char hex; different inputs → different."""
+    a = hash_oid("muhab-akif-23sep1996-9376")
+    b = hash_oid("muhab-akif-23sep1996-9376")
+    c = hash_oid("other-order-id-1234")
+    assert a == b
+    assert a != c
+    assert len(a) == 12
+    assert all(ch in "0123456789abcdef" for ch in a)
+    # Empty / None handling
+    assert hash_oid("") == "<empty>"
+
+
+def test_hash_oid_does_not_leak_order_id():
+    """Hash must not contain any plaintext fragment of the order_id.
+    This is the entire reason hash_oid exists: log lines downstream
+    must not allow a name+DOB substring to be recovered by grep."""
+    oid = "muhab-akif-23sep1996-9376"
+    h = hash_oid(oid)
+    for fragment in ["muhab", "akif", "1996", "9376"]:
+        assert fragment not in h, f"hash leaks {fragment}"
+
+
+# ── P2F-PR3 §B: log scrubs at named sites ────────────────────────────────
+
+
+def test_named_log_sites_scrub_order_id():
+    """P2F-PR3 §B: named log sites must hash order_id rather than
+    interpolate it raw. Scans each named file for the bad pattern and
+    confirms hash_oid() is used at the appropriate sites.
+
+    This test is intentionally pattern-based (not line-anchored) so it
+    survives line-number drift after future edits."""
+    import re as _re
+    repo_root = os.path.join(os.path.dirname(__file__), "..", "..")
+    targets = [
+        ("Engine/web_backend/server.py", 5),       # 5 known log sites (P2D + P2F)
+        ("Engine/web_backend/retention.py", 5),    # 4 sweep log lines + tier3 queue
+        ("Engine/html_reading.py", 0),             # uses inlined hashlib (cross-import gap)
+    ]
+    for rel, expected_min_uses in targets:
+        path = os.path.join(repo_root, rel)
+        with open(path) as f:
+            content = f.read()
+        # The bad pattern: print/log calls that interpolate {order_id} raw
+        bad_pattern = _re.compile(
+            r'(?:print|_log)\([^)]*\{order_id\}[^)]*\)',
+        )
+        bad_matches = bad_pattern.findall(content)
+        assert not bad_matches, \
+            f"{rel} still has raw {{order_id}} log interpolations: {bad_matches}"
+        # And hash_oid usage should appear at least the expected number of times
+        # (we count helper-call sites in log lines, not just any reference)
+        hash_uses = len(_re.findall(r'hash_oid\(', content))
+        assert hash_uses >= expected_min_uses, (
+            f"{rel} expected ≥{expected_min_uses} hash_oid() uses, "
+            f"found {hash_uses}"
+        )
+
+
+def test_reading_generator_drops_subject_from_logs():
+    """P2F-PR3 §B.1: reading_generator.py logs must not interpolate
+    context['subject'] (the user's name)."""
+    import re as _re
+    repo_root = os.path.join(os.path.dirname(__file__), "..", "..")
+    with open(os.path.join(repo_root, "Engine/reading_generator.py")) as f:
+        content = f.read()
+    # The bad pattern: log lines interpolating context['subject']
+    bad = _re.findall(r'print\([^)]*context\[.subject.\][^)]*\)', content)
+    assert not bad, f"reading_generator.py still logs context['subject']: {bad}"
+
+
+# ── P2F-PR3 §C: _reading.md unlink-after-use ─────────────────────────────
+
+
+def test_reading_md_cleanup_in_finally():
+    """P2F-PR3 §C (round 2): _reading.md cleanup must be in a finally
+    block wrapped around generate_html_reading, so the unlink runs even
+    if generate_html_reading raises. A bare unlink-after-call would
+    leak plaintext on the exceptional path; round-1 was that pattern,
+    Codex round 1 caught it."""
+    import inspect
+    import server
+    src = inspect.getsource(server._generate_reading_background)
+    # The write and the unlink must both still be present
+    assert "_reading.md" in src
+    assert "reading_md_path" in src
+    # generate_html_reading must be inside a try block whose finally
+    # contains the unlink. We check by ordering: try → generate_html
+    # → finally → unlink, all in the same window.
+    try_idx = src.find("try:\n                generate_html_reading(output_path, reading_md_path")
+    if try_idx < 0:
+        # Allow whitespace flexibility
+        import re as _re
+        m = _re.search(
+            r"try:\s*\n\s+generate_html_reading\(output_path, reading_md_path",
+            src,
+        )
+        try_idx = m.start() if m else -1
+    assert try_idx >= 0, \
+        "generate_html_reading must be wrapped in `try:` (P2F-PR3 §C round 2)"
+    finally_idx = src.find("finally:", try_idx)
+    unlink_idx = src.find("Path(reading_md_path).unlink", try_idx)
+    assert finally_idx > try_idx, \
+        "missing `finally:` after the try wrapping generate_html_reading"
+    assert unlink_idx > finally_idx, \
+        "unlink must be inside the finally block (Codex round 1 finding)"
+
+
+# ── P2F-PR3 §D: status-aware serving ─────────────────────────────────────
+
+
+def test_serve_tier2_html_refuses_failed_orders_on_plaintext():
+    """P2F-PR3 §D: when encryption failed AND cleanup also failed, a
+    plaintext file may survive alongside status='failed'. _serve_tier2_html
+    must refuse to serve plaintext for failed orders. Encrypted content
+    paths are unaffected (always safe at rest)."""
+    import inspect
+    import server
+    src = inspect.getsource(server._serve_tier2_html)
+    # The status check must be present
+    status_check_pattern_dq = 'order.get("status") == "failed"'
+    status_check_pattern_sq = "order.get('status') == 'failed'"
+    assert (status_check_pattern_dq in src or status_check_pattern_sq in src), \
+        "_serve_tier2_html missing status='failed' refusal (P2F-PR3 §D)"
+    # And it must come AFTER the is_encrypted branch (encrypted serves
+    # bypass the status check; only plaintext fallthrough is gated).
+    # Compare positions of the actual code patterns, NOT bare "failed"
+    # which would also match the docstring explanation above the function
+    # body.
+    is_enc_idx = src.find("if is_encrypted(raw):")
+    check_idx = src.find(status_check_pattern_dq)
+    if check_idx < 0:
+        check_idx = src.find(status_check_pattern_sq)
+    assert is_enc_idx > 0 and check_idx > is_enc_idx, \
+        "status check must come AFTER is_encrypted branch in code body"

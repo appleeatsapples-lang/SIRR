@@ -49,6 +49,10 @@ from paths import ORDERS_DIR, READINGS_DIR, DELETION_QUEUE
 
 DRY_RUN = os.environ.get("SIRR_RETENTION_DRY_RUN", "").lower() in ("1", "true", "yes")
 
+# P2F-PR3 §B.3: oid-hashed correlation IDs for log lines (replaces raw
+# order_id / file name interpolations).
+from sanitize import hash_oid
+
 
 def _log(msg: str) -> None:
     """Retention log line. Goes to stderr so it shows up in Railway logs
@@ -85,27 +89,38 @@ def sweep_tier2_expired(now: float = None) -> Tuple[int, int]:
     now = now if now is not None else time.time()
     cutoff = now - RETENTION_SECONDS
 
+    # P2F-PR3 §B.3: log oid-hashed correlation IDs instead of raw file
+    # names. path.name is "{order_id}_<suffix>.<ext>" or "{order_id}.<ext>"
+    # — split on the first "_" to recover the oid (order IDs contain
+    # hyphens but no underscores; suffixes like _output, _unified,
+    # _merged, _reading are underscore-prefixed).
+    def _oid_from_path(p: Path) -> str:
+        stem = p.stem
+        return stem.split("_", 1)[0] if "_" in stem else stem
+
     orders_removed = 0
     for path in _iter_expired_files(ORDERS_DIR, cutoff):
-        _log(f"expire-order file={path.name} age_days={(now - path.stat().st_mtime) / 86400:.1f}")
+        oid = _oid_from_path(path)
+        _log(f"expire-order order={hash_oid(oid)} ext={path.suffix} age_days={(now - path.stat().st_mtime) / 86400:.1f}")
         if not DRY_RUN:
             try:
                 path.unlink()
                 orders_removed += 1
             except OSError as e:
-                _log(f"expire-order-failed file={path.name} error={e}")
+                _log(f"expire-order-failed order={hash_oid(oid)} ext={path.suffix} error={type(e).__name__}")
         else:
             orders_removed += 1
 
     readings_removed = 0
     for path in _iter_expired_files(READINGS_DIR, cutoff):
-        _log(f"expire-reading file={path.name} age_days={(now - path.stat().st_mtime) / 86400:.1f}")
+        oid = _oid_from_path(path)
+        _log(f"expire-reading order={hash_oid(oid)} ext={path.suffix} age_days={(now - path.stat().st_mtime) / 86400:.1f}")
         if not DRY_RUN:
             try:
                 path.unlink()
                 readings_removed += 1
             except OSError as e:
-                _log(f"expire-reading-failed file={path.name} error={e}")
+                _log(f"expire-reading-failed order={hash_oid(oid)} ext={path.suffix} error={type(e).__name__}")
         else:
             readings_removed += 1
 
@@ -141,7 +156,7 @@ def drain_tier3_deletion_queue() -> int:
     for order_id in queued:
         # Hook: once Tier 3 store exists, remove pseudonymous row matching
         # this order_id's hash. For now we log-only.
-        _log(f"tier3-delete-queued order_id={order_id} (Tier3 store not yet live — logged only)")
+        _log(f"tier3-delete-queued order={hash_oid(order_id)} (Tier3 store not yet live — logged only)")
         if not DRY_RUN:
             processed += 1
         else:
