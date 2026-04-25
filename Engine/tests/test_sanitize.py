@@ -250,6 +250,48 @@ def test_lazy_regen_paths_encrypt_after_write():
         "merged lazy regen wraps _encrypt_tier2_outputs in try/except: pass (must strict-fail per Codex round 3)"
 
 
+def test_encryption_failure_cleans_up_plaintext():
+    """P2F-PR2 FIX E (Codex round 4): on encryption failure,
+    _encrypt_tier2_outputs must delete any remaining plaintext target
+    files. Without this, token-gated serve helpers would later return
+    the leftover plaintext via _serve_tier2_html's FileResponse
+    fallthrough — FIX A's status update is informational; the on-disk
+    state is what serve helpers actually check.
+
+    Source-level inspect over the except block:
+      1. is_encrypted(...) check appears (so we don't delete encrypted
+         orphans by mistake)
+      2. .unlink() appears (the actual delete)
+      3. Cleanup comes AFTER the status update (ordering matters —
+         status must be set even if cleanup fails)
+    """
+    import inspect
+    from server import _encrypt_tier2_outputs
+    src = inspect.getsource(_encrypt_tier2_outputs)
+
+    # Locate the start of the except block
+    except_idx = src.find("except Exception as enc_err:")
+    assert except_idx >= 0, "could not locate except block in _encrypt_tier2_outputs"
+    except_body = src[except_idx:]
+
+    # 1. is_encrypted check (so already-encrypted orphans are left alone)
+    assert "is_encrypted(" in except_body, \
+        "FIX E: cleanup loop missing is_encrypted() guard"
+    # 2. unlink call (the actual delete)
+    assert ".unlink()" in except_body, \
+        "FIX E: cleanup loop missing .unlink() call"
+
+    # 3. Ordering: the status update must occur BEFORE the cleanup loop.
+    #    If cleanup blows up before the update, the customer's poll
+    #    sees stale "ready" and the serve still has plaintext to read.
+    status_update_idx = except_body.find('status="failed"')
+    unlink_idx = except_body.find(".unlink()")
+    assert status_update_idx >= 0, "FIX E: status update missing in except block"
+    assert unlink_idx >= 0
+    assert status_update_idx < unlink_idx, \
+        "FIX E: cleanup must come AFTER status update (ordering matters)"
+
+
 def test_encryption_targets_include_merged_html():
     """P2F-PR2 FIX B: _encrypt_tier2_outputs must encrypt the canonical
     customer-facing merged view (_merged.html). Without this, the

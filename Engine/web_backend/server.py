@@ -413,8 +413,18 @@ def _encrypt_tier2_outputs(order_id: str) -> int:
          "encryption_failed:<ExcClass>" error prefix. The success page
          polls for status in {"ready","failed"}; using "failed" makes
          the customer see the failure UI instead of polling forever.
-      3. Re-raise so the outer caller can also log and stop further
+      3. Atomically clean up — delete any remaining plaintext target
+         files so the on-disk state matches the status. Without this
+         (P2F-PR2 FIX E / Codex round 4), token-gated serve helpers
+         could later read the leftover plaintext via _serve_tier2_html's
+         FileResponse fallthrough. FIX A's status update is informational;
+         the on-disk state is what serve helpers actually check.
+      4. Re-raise so the outer caller can also log and stop further
          post-encryption work.
+
+    Post-condition: after this function returns or raises, every target
+    on disk is either encrypted or absent. Plaintext does not survive a
+    failed encryption pass.
 
     Targets list (P2F-PR2 FIX B): explicitly includes _merged.html,
     which is the canonical post-checkout view served at /r/{token}/merged.
@@ -460,6 +470,24 @@ def _encrypt_tier2_outputs(order_id: str) -> int:
                 # Order-store failure on top of encryption failure: log
                 # and let the outer raise propagate the original error.
                 pass
+            # FIX E (Codex round 4): atomic plaintext cleanup. Delete any
+            # remaining target file that's still plaintext on disk, so the
+            # token-gated serve helpers (_serve_tier2_html) cannot return
+            # leftover unencrypted bytes via the FileResponse fallthrough.
+            # Encrypted-already files are left alone (they'll be
+            # retention-swept naturally with the failed order). Best-
+            # effort: a delete failure here is logged-then-swallowed
+            # because the original encryption error is what we re-raise.
+            for cleanup_target in targets:
+                if not cleanup_target.exists():
+                    continue
+                try:
+                    raw_now = cleanup_target.read_bytes()
+                    if not is_encrypted(raw_now):
+                        cleanup_target.unlink()
+                except Exception:
+                    # Best-effort — original encryption error has priority
+                    pass
             # Re-raise so the caller knows encryption did not happen.
             raise
     return encrypted
