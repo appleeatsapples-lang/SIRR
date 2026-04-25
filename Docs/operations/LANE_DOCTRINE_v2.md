@@ -62,7 +62,7 @@ gate is sacred — see §5.
 
 ## Worked example: P2F session (2026-04-19 to 2026-04-25)
 
-The session arc was three PRs over six days:
+The session arc grew to four PRs over six days (PR-1 + PR-2 + PR-3 + PR-4):
 
 **P2F-PR1** (2026-04-25T07:16:47+03:00, commit `538ab8d`):
 encrypted tokens + 4 §16.5 surface closures (`/api/order-status/{id}`,
@@ -105,10 +105,20 @@ was 502 for ~45 minutes, reverted via `git revert d3627e4 → 92b95b4`,
 forward-fixed with the correct flag. **The single largest cost in the
 arc was avoidable** — see anti-pattern §3.4 ("spec from memory").
 
-**P2F-PR3** (this PR): operational log scrubs via `hash_oid`,
+**P2F-PR3** (commit `de71a25` squash-merge): operational log scrubs via `hash_oid`,
 `_reading.md` unlink-after-use, status-aware serving (defense-in-depth
 for FIX E cleanup-failure case), stale doctrine cleanup,
 boot-smoke executes `railway.toml` startCommand directly, this doc.
+
+**P2F-PR4** (this PR): customer-facing privacy.html copy accuracy
+(storage claim + deletion claim now match doctrine after PR-3's
+internal precision exposed both as overclaims), plus this doc's §6
+(prescription completeness) and §7 (orchestrator-direct-edit
+exception) appended from this session's lessons. PR-4 itself was a
+worked example: Codex caught a factual self-contradiction in §7
+(round 1) and two stale arc-count references at lines 65 + 108
+(round 2-3) — same convergent doctrine-accuracy class, fixed in
+fold-in commits.
 
 ---
 
@@ -295,3 +305,70 @@ The cycle time per round when everything works: ~20-30 minutes.
 When something doesn't work (P2D access-log, P2F-PR2 round 3
 soft-fail), expect 60-90 minutes of recovery + cleanup. Build the
 cycle for the failure case, not the happy path.
+
+---
+
+## §6 — Prescription completeness
+
+When a brief says "per orchestrator's prescription" or "orchestrator
+has the exact text," the paste-block sent to the executor MUST contain
+the verbatim text inline. Forcing the executor to scroll up and
+reconstruct the prescription from earlier orchestrator messages is
+functionally indistinguishable from telling them to derive it
+themselves, which §3.1 (executor design drift) forbids.
+
+Worked example: P2F-PR3 round 5, 2026-04-25. Orchestrator drafted the
+verbatim text for two doctrine-accuracy fixes in chat, then composed
+an executor instruction that referenced the text by saying
+"orchestrator has the exact text" without inlining it. Executor
+correctly paused and refused to derive doctrine wording independently,
+citing §3.1. Round-trip cost: one extra message exchange. Could have
+been zero with prescription completeness.
+
+Rule: every executor instruction is self-contained. The executor
+should not need any context outside the instruction block to
+implement. If the orchestrator catches itself writing
+"per orchestrator's prescription" or similar, that's the signal to
+inline the text instead.
+
+---
+
+## §7 — Orchestrator-direct-edit exception
+
+The orchestrator's default lane is read-and-brief, never write-to-repo.
+There is one exception: explicit Muhab override for late-session,
+bounded, doc-only changes where the round-trip cost exceeds the value
+of preserving lane separation.
+
+Worked example: P2F-PR3 round 5 commit `aaa6204`, 2026-04-25.
+Orchestrator applied two doctrine-accuracy fixes (one bullet
+addition + one comment swap) directly via Desktop Commander
+git/python heredoc edits after Muhab issued "do it yourself now"
+instruction. Conditions met:
+
+- Explicit Muhab override (not orchestrator self-authorization)
+- Bounded scope (two doc edits, no code-behavior change, +6/-1 lines)
+- Late-session expediency (Muhab racing to field; the round-trip
+  cost would have exceeded the value of maintaining lane purity)
+- All other gates honored: pytest 213/213, 3 mandatory verification
+  checks, CI green. The direct-edit was applied as round 5 of PR-3.
+  Codex round 4 (auditing the post-edit branch) returned PASS on
+  the four PR-3-internal claims and surfaced one new residual
+  (privacy.html customer-copy overclaim) which was routed to PR-4
+  per the round-3 bright line, not folded back into PR-3. The
+  direct-edit and the residual are independent: the edit closed
+  PR-3's internal doctrine, the residual closed customer-facing
+  doctrine, and both gates held.
+
+Rule: this exception is for Muhab to invoke, not for the orchestrator
+to claim. Orchestrator should always offer to draft the executor
+instruction first; only when Muhab explicitly says "do it yourself"
+does the exception apply. Default remains read-and-brief.
+
+**Worked example addendum, 2026-04-25 (PR-4 round 1):** orchestrator
+caught itself about to direct-edit a §7-class fix to this very
+document without explicit Muhab override. Reverted before any
+commit, routed the fix through the executor (this paste). The
+near-violation reinforces §7's narrow scope: "explicit Muhab
+override" means a paste like "do it yourself now," not orchestrator
+inferring expediency from session context. When in doubt, route.
