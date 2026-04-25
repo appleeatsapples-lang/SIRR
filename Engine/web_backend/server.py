@@ -404,13 +404,40 @@ def _serve_tier2_html(path: Path, order_id: str):
 
 def _encrypt_tier2_outputs(order_id: str) -> int:
     """Encrypt an order's Tier 2 output files in place. Idempotent.
-    Called at end of a successful engine job. Returns count encrypted."""
+    Called at end of a successful engine job. Returns count encrypted.
+
+    Failure is FATAL — we must never leave plaintext on disk when
+    encryption was expected (Codex Item 10). On any per-file failure:
+      1. Log the exception class name (no message — could leak paths).
+      2. Downgrade the order from "ready" to status="failed" with an
+         "encryption_failed:<ExcClass>" error prefix. The success page
+         polls for status in {"ready","failed"}; using "failed" makes
+         the customer see the failure UI instead of polling forever.
+      3. Atomically clean up — delete any remaining plaintext target
+         files so the on-disk state matches the status. Without this
+         (P2F-PR2 FIX E / Codex round 4), token-gated serve helpers
+         could later read the leftover plaintext via _serve_tier2_html's
+         FileResponse fallthrough. FIX A's status update is informational;
+         the on-disk state is what serve helpers actually check.
+      4. Re-raise so the outer caller can also log and stop further
+         post-encryption work.
+
+    Post-condition: after this function returns or raises, every target
+    on disk is either encrypted or absent. Plaintext does not survive a
+    failed encryption pass.
+
+    Targets list (P2F-PR2 FIX B): explicitly includes _merged.html,
+    which is the canonical post-checkout view served at /r/{token}/merged.
+    Without this entry, the merged view (which contains the actual
+    customer reading) would be left unencrypted on disk.
+    """
     readings_dir = READINGS_DIR
     orders_dir = ORDERS_DIR
     targets = [
         orders_dir / f"{order_id}_output.json",
         readings_dir / f"{order_id}.html",
         readings_dir / f"{order_id}_unified.html",
+        readings_dir / f"{order_id}_merged.html",
     ]
     encrypted = 0
     for t in targets:
@@ -422,8 +449,47 @@ def _encrypt_tier2_outputs(order_id: str) -> int:
                 continue
             write_encrypted(t, raw, order_id)
             encrypted += 1
-        except Exception:
-            pass
+        except Exception as enc_err:
+            print(
+                f"[tier2-encrypt] failed for order {order_id}: "
+                f"{type(enc_err).__name__}",
+                file=sys.stderr,
+            )
+            # Mark order "failed" (not a custom string) so success.html's
+            # status===failed branch fires and the customer sees the
+            # error UI instead of polling forever. Error field carries
+            # the encryption_failed prefix + exception class name for
+            # ops visibility — message is omitted to avoid path/key leaks.
+            try:
+                update_order(
+                    order_id,
+                    status="failed",
+                    error="encryption_failed:" + type(enc_err).__name__,
+                )
+            except Exception:
+                # Order-store failure on top of encryption failure: log
+                # and let the outer raise propagate the original error.
+                pass
+            # FIX E (Codex round 4): atomic plaintext cleanup. Delete any
+            # remaining target file that's still plaintext on disk, so the
+            # token-gated serve helpers (_serve_tier2_html) cannot return
+            # leftover unencrypted bytes via the FileResponse fallthrough.
+            # Encrypted-already files are left alone (they'll be
+            # retention-swept naturally with the failed order). Best-
+            # effort: a delete failure here is logged-then-swallowed
+            # because the original encryption error is what we re-raise.
+            for cleanup_target in targets:
+                if not cleanup_target.exists():
+                    continue
+                try:
+                    raw_now = cleanup_target.read_bytes()
+                    if not is_encrypted(raw_now):
+                        cleanup_target.unlink()
+                except Exception:
+                    # Best-effort — original encryption error has priority
+                    pass
+            # Re-raise so the caller knows encryption did not happen.
+            raise
     return encrypted
 
 
@@ -608,7 +674,8 @@ def analyze(request: Request, req: AnalyzeRequest, unified: bool = Query(True, d
             output["natal_chart_computed"] = True
         return output
     except Exception as e:
-        raise HTTPException(500, detail=str(e))
+        # str(e) could carry user input from the engine error message
+        raise HTTPException(500, detail=f"analysis_failed:{type(e).__name__}")
     finally:
         tmp.unlink(missing_ok=True)
 
@@ -875,6 +942,13 @@ async def _serve_reading_unified_by_id(order_id: str):
         output_json = ORDERS_DIR / f"{order_id}_output.json"
         if output_json.exists():
             _generate_unified_view(str(output_json), order_id)
+            # P2F-PR2 FIX C: lazy regen writes plaintext via write_text();
+            # encrypt before serving. Idempotent — already-encrypted
+            # targets are skipped. Encryption errors propagate as 500
+            # (strict-fail per Codex round 3): we never serve a reading
+            # we couldn't seal.
+            if unified_path.exists():
+                _encrypt_tier2_outputs(order_id)
 
     if not unified_path.exists():
         # Still not there — either the order never completed or JSON was purged
@@ -926,6 +1000,15 @@ async def _serve_reading_merged_by_id(order_id: str):
         output_json = ORDERS_DIR / f"{order_id}_output.json"
         if output_json.exists():
             _generate_merged_view(str(output_json), order_id)
+            # P2F-PR2 FIX C: lazy regen writes plaintext via write_text();
+            # encrypt before serving. Closes the F7.3 mtime-regen
+            # plaintext window — without this, every code-update
+            # cache-invalidation re-wrote merged.html unencrypted.
+            # Idempotent — already-encrypted targets are skipped.
+            # Encryption errors propagate as 500 (strict-fail per
+            # Codex round 3): we never serve a reading we couldn't seal.
+            if merged_path.exists():
+                _encrypt_tier2_outputs(order_id)
 
     if not merged_path.exists():
         order = get_order(order_id)
@@ -975,7 +1058,8 @@ async def unified_demo_page():
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(500, f"Demo render failed: {e}")
+        # Demo uses synthetic input; class name is sufficient for ops
+        raise HTTPException(500, f"Demo render failed: {type(e).__name__}")
 
 
 @app.post("/api/transliterate")
@@ -1007,7 +1091,7 @@ async def create_checkout(request: Request, req: CheckoutRequest):
             args=(order_id,),
             daemon=True
         ).start()
-        return {"checkout_url": f"{BASE_URL}/success?token={mint_token(order_id)}", "order_id": order_id, "token": mint_token(order_id), "mode": "test"}
+        return {"checkout_url": f"{BASE_URL}/success?token={mint_token(order_id)}", "token": mint_token(order_id), "mode": "test"}
 
     # ── LEMON SQUEEZY MODE ──
     if LS_API_KEY and LS_STORE_ID and LS_VARIANT_ID:
@@ -1038,10 +1122,17 @@ async def create_checkout(request: Request, req: CheckoutRequest):
                 },
             )
         if resp.status_code != 201:
-            raise HTTPException(500, f"Lemon Squeezy error: {resp.text[:200]}")
+            # LS error body could carry untrusted/provider-controlled detail.
+            # Log the full response server-side; surface only a constant to
+            # the caller.
+            print(
+                f"[checkout-ls] HTTP {resp.status_code} from LS",
+                file=sys.stderr,
+            )
+            raise HTTPException(500, "checkout_provider_error")
         checkout_url = resp.json()["data"]["attributes"]["url"]
         update_order(order_id, status="pending")
-        return {"checkout_url": checkout_url, "order_id": order_id, "token": mint_token(order_id), "mode": "lemonsqueezy"}
+        return {"checkout_url": checkout_url, "token": mint_token(order_id), "mode": "lemonsqueezy"}
 
     # ── STRIPE MODE (fallback) ──
     session = stripe.checkout.Session.create(
@@ -1065,7 +1156,7 @@ async def create_checkout(request: Request, req: CheckoutRequest):
     )
 
     update_order(order_id, stripe_session_id=session.id, status="pending")
-    return {"checkout_url": session.url, "order_id": order_id, "token": mint_token(order_id), "mode": "stripe"}
+    return {"checkout_url": session.url, "token": mint_token(order_id), "mode": "stripe"}
 
 
 @app.post("/api/webhook/stripe")
@@ -1075,8 +1166,10 @@ async def stripe_webhook(request: Request):
 
     try:
         event = stripe.Webhook.construct_event(payload, sig_header, STRIPE_WEBHOOK_SECRET)
-    except Exception as e:
-        raise HTTPException(400, str(e))
+    except Exception:
+        # Stripe library exception detail is not user input but the
+        # caller is untrusted; constants only.
+        raise HTTPException(400, "invalid_signature")
 
     if event["type"] == "checkout.session.completed":
         session = event["data"]["object"]
@@ -1292,15 +1385,14 @@ def _generate_reading_background(order_id: str):
 
 
 async def _serve_order_status_by_id(order_id: str):
-    """Internal: serve order status by order_id. Called only via the
-    token-gated /api/r/{token}/status wrapper — never routed directly."""
+    """Internal: serve order status by order_id. Token-gated callers
+    construct reading URLs from their own token; we don't echo the
+    server-side raw URL (which contains order_id) into the response.
+    Codex Finding 1 (P2F-PR2)."""
     order = get_order(order_id)
     if not order:
         raise HTTPException(404)
-    return {
-        "status": order["status"],
-        "reading_url": order.get("reading_url"),
-    }
+    return {"status": order["status"]}
 
 
 @app.get("/api/order-status/{order_id}")
