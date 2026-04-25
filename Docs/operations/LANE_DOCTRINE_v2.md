@@ -1,3 +1,11 @@
+> **SUPERSEDED: 2026-04-25 by [LANE_DOCTRINE_v3.md](LANE_DOCTRINE_v3.md)**
+>
+> v3 carries forward v2's operational rules (§1, §5, §6, §7, §9) and
+> adds the lane structure designed in collaboration with Codex during
+> the 2026-04-25 design exercise (Risk labels R0-R3, Process tiers
+> T1-T7, auto-trigger Codex challenge, classification veto, closure
+> sweep). v2 retained as historical context only.
+
 # Lane Doctrine v2 — Multi-model orchestration for SIRR
 
 **Effective date:** 2026-04-25 (post-P2F merge)
