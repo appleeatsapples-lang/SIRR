@@ -58,7 +58,7 @@ def test_normal_dob_unchanged():
     """Sanity check: a DOB that does not produce master numbers in the natural path.
     Behavior should be identical before/after the fix."""
     import cheiro_extensions
-    profile = _make_profile(1996, 9, 23)
+    profile = _make_profile(1985, 7, 15)
     constants = {"version": "test"}
     result = cheiro_extensions.compute(profile, constants)
     assert result.id == "cheiro_extensions"

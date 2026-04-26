@@ -107,9 +107,9 @@ def test_structural_debug_info_preserved():
 
 def test_path_with_spaces_not_overredacted():
     # Paths with slashes survive even if they're quoted
-    line = 'File "/Users/muhab/my project/code.py"'
+    line = 'File "/Users/jdoe/my project/code.py"'
     out = sanitize_line(line)
-    assert "/Users/muhab/my project/code.py" in out
+    assert "/Users/jdoe/my project/code.py" in out
 
 
 def test_runner_error_field_uses_class_name_only():
@@ -119,12 +119,12 @@ def test_runner_error_field_uses_class_name_only():
     class FakePipelineError(ValueError):
         pass
 
-    err = FakePipelineError("leaked user input: muhab-akif-23sep1996")
+    err = FakePipelineError("leaked user input: acme-jdoe-15jul1985")
     # Simulate the runner.py error-field pattern
     out = {"error": type(err).__name__, "status": "PIPELINE_ERROR"}
     assert out["error"] == "FakePipelineError"
-    assert "muhab-akif" not in out["error"]
-    assert "23sep1996" not in out["error"]
+    assert "acme-jdoe" not in out["error"]
+    assert "15jul1985" not in out["error"]
 
 
 def test_server_exception_prints_route_through_sanitize_exception():
@@ -370,8 +370,8 @@ def test_runner_error_fields_use_type_name_not_str():
 
 def test_hash_oid_stable_and_short():
     """Same input → same 12-char hex; different inputs → different."""
-    a = hash_oid("muhab-akif-23sep1996-9376")
-    b = hash_oid("muhab-akif-23sep1996-9376")
+    a = hash_oid("acme-jdoe-15jul1985-0001")
+    b = hash_oid("acme-jdoe-15jul1985-0001")
     c = hash_oid("other-order-id-1234")
     assert a == b
     assert a != c
@@ -385,9 +385,9 @@ def test_hash_oid_does_not_leak_order_id():
     """Hash must not contain any plaintext fragment of the order_id.
     This is the entire reason hash_oid exists: log lines downstream
     must not allow a name+DOB substring to be recovered by grep."""
-    oid = "muhab-akif-23sep1996-9376"
+    oid = "acme-jdoe-15jul1985-0001"
     h = hash_oid(oid)
-    for fragment in ["muhab", "akif", "1996", "9376"]:
+    for fragment in ["acme", "jdoe", "1985", "0001"]:
         assert fragment not in h, f"hash leaks {fragment}"
 
 
