@@ -1,8 +1,9 @@
 """Arabic Rhetoric — Badi' Pattern Detection — COMPUTED_STRICT
 Detects rhetorical figures in the full Arabic name:
 - صدى نسبي (genealogical echo): same word at different generational positions
-  (عمر at pos 1 = father, عمر at pos 3 = first element of great-grandfather's
-  compound name عمر عاكف). NOT جناس تام — genealogical repetition, not wordplay.
+  in the nasab chain (e.g., a single given-name appearing both as the father
+  and as the first element of a later compound name). NOT جناس تام —
+  genealogical repetition, not wordplay.
 - تكرار (repetition): repeated letters, bigrams, roots
 - طباق (antithesis): active/passive voice contrast within the name
 """
@@ -13,13 +14,13 @@ from sirr_core.types import InputProfile, SystemResult
 # Generational labels for nasab positions (8-word chain)
 _GENERATION_LABELS = [
     "subject",           # 0: first name
-    "father",            # 1: عمر
-    "grandfather",       # 2: إسماعيل
-    "great_grandfather", # 3: عمر (first element of compound عمر عاكف)
-    "great_grandfather", # 4: عاكف (second element of compound عمر عاكف)
-    "great_great_gf",    # 5: محمد (first element of compound محمد وصفي)
-    "great_great_gf",    # 6: وصفي (second element of compound محمد وصفي)
-    "nisba",             # 7: الاجزاجي
+    "father",            # 1
+    "grandfather",       # 2
+    "great_grandfather", # 3 (first element of compound name when present)
+    "great_grandfather", # 4 (second element of compound name when present)
+    "great_great_gf",    # 5 (first element of compound name when present)
+    "great_great_gf",    # 6 (second element of compound name when present)
+    "nisba",             # 7 (family attribution)
 ]
 
 
