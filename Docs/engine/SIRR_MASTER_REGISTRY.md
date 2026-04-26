@@ -56,7 +56,7 @@ The P2G arc will introduce per-order encryption for the `order_store` rows (like
 - Stale HMAC-token doctrine references updated to AEAD reality (`server.py` × 3 sites, `PRIVACY_TIERS.md`, `privacy.html`, `bootstrap_railway_env.sh`)
 - `boot-smoke` CI step now executes `railway.toml`'s `startCommand` directly (deepest fix to the access-log-incident class — string-presence regex is no longer the only guard)
 - `LANE_DOCTRINE_v2.md` codifies the multi-model lessons from this arc
-- `Docs/audits/AUDIT_2026-04-24.md` superseded header
+- Audit doc superseded header (audit relocated to `PRIVATE/Archive/audits/` as part of SCRUB-V2; not retained in public repo)
 
 ### Known plaintext surfaces NOT closed by P2F (deferred to P2G)
 
@@ -77,4 +77,4 @@ The P2G arc will introduce per-order encryption for the `order_store` rows (like
 - `Docs/architecture/PRIVACY_TIERS.md`: tier definitions and rationale
 - `Docs/operations/LANE_DOCTRINE_v3.md`: how multi-model work is gated and verified (supersedes v2; v2 retained as historical context)
 - Brief archive: `MKB/SIRR/PRIVATE/Orchestration/Briefs/P2{D,F}_*.md`
-- Audit history (superseded): `Docs/audits/AUDIT_2026-04-24.md`
+- Audit history (superseded): relocated to `PRIVATE/Archive/audits/` as part of SCRUB-V2; not retained in public repo.

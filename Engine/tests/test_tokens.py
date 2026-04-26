@@ -54,7 +54,7 @@ def test_token_shape():
 def test_token_payload_is_not_clear_text():
     """Privacy: the token must not reveal the order_id when client-side
     decoded. This is the entire point of P2F."""
-    token = mint_token("muhab-akif-23sep1996-9376")
+    token = mint_token("acme-jdoe-15jul1985-0001")
     # Must NOT be possible to recover oid by base64-decode + JSON-parse
     try:
         # Try the OLD format (which we're moving away from)
@@ -72,7 +72,7 @@ def test_token_payload_is_not_clear_text():
     # order_id string in any byte form. Belt-and-suspenders.
     padded_full = token + "=" * (-len(token) % 4)
     raw = base64.urlsafe_b64decode(padded_full)
-    assert b"muhab-akif-23sep1996-9376" not in raw, \
+    assert b"acme-jdoe-15jul1985-0001" not in raw, \
         "PRIVACY FAILURE: order_id appears in raw token bytes"
 
 
