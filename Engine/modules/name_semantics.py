@@ -3,9 +3,10 @@ Map each name to its semantic field and detect thematic clusters.
 Uses pre-classified semantic taxonomy from Round 3 data.
 
 Nasab structure: the name is grouped into generational UNITS, not raw words.
-Compound names (e.g. عمر عاكف = one person) are treated as a single semantic unit.
-An Arabic nasab chain may contain compound names (two words = one generational unit).
-The module detects these and treats them as single semantic entities.
+Compound names (two adjacent words referring to one ancestor) are treated as
+a single semantic unit. An Arabic nasab chain may contain compound names
+(two words = one generational unit). The module detects these via configured
+positions (COMPOUND_POSITIONS) and treats them as single semantic entities.
 """
 from __future__ import annotations
 import json
@@ -16,11 +17,12 @@ _DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "arabic_linguisti
 _TABLES = None
 
 # Compound name registry: multi-word names that form a single generational unit.
-# Keyed by (word, position_in_chain) to avoid false matches —
-# عمر at position 1 (father) is standalone, عمر at position 3 starts compound عمر عاكف.
+# Keyed by position in the nasab chain — same word at different positions has
+# different semantics (a given-name as father is standalone; the same given-name
+# at a compound-position pairs with the next word).
 COMPOUND_POSITIONS = {
-    3: ("عمر", "عاكف"),    # great-grandfather: عمر عاكف
-    5: ("محمد", "وصفي"),   # great-great-grandfather: محمد وصفي
+    3: ("عمر", "عاكف"),    # great-grandfather position
+    5: ("محمد", "وصفي"),   # great-great-grandfather position
 }
 
 # Semantic field taxonomy: which fields belong to which cluster

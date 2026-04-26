@@ -2,8 +2,9 @@
 Analyzes the sequence of per-word abjad sums across the nasab chain:
 palindromic patterns, deltas, positional symmetry.
 
-Also provides compound_groups: the 6-unit generational view where compound
-names (عمر عاكف, محمد وصفي) are summed as single units.
+Also provides compound_groups: the 6-unit generational view where
+configured compound names (see COMPOUND_POSITIONS below) are summed
+as single units.
 """
 from __future__ import annotations
 from sirr_core.types import InputProfile, SystemResult
