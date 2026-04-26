@@ -171,9 +171,9 @@ def _get_lunar_date_swisseph(year: int, month: int, day: int):
 
 # ── Fallback: Known lunar dates for calibration ──
 # Pre-computed via astronomical new moon tables
+# Populated lazily from local config; do not hardcode personal dates here.
 _KNOWN_LUNAR = {
     # (year, month, day) -> (lunar_month, lunar_day)
-    (YYYY,M,D): (8, 11),
 }
 
 
