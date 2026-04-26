@@ -529,6 +529,160 @@ lsof Docs/operations/LANE_DOCTRINE_v*.md Docs/architecture/PRIVACY_TIERS.md Docs
 
 ---
 
+## §13 — V-6 broadening, framing-amend, and history-scope
+
+### §13.1 — V-6 broadened pattern matrix
+
+The narrow V-6 pattern (`MUHAB AKIF|1996-09-23`) used in PR #33 and PR #34 missed compact digit forms, Arabic-script names, integer-tuple DOBs, and generated-artifact files. PR #34's Codex round-1 verdict surfaced 12 public files with `23091996`, ~18 with Arabic-script same-person residues, and 5 module `.py` files with embedded family-name constants — all past V-6.
+
+V-6 is now defined as the union of the patterns below, run against the full repository tree (see §13.2). Each PR's V-6 must match all classes; misses on any class are closure-blocking unless the PR explicitly defers a class with a forward-reference to a later sub-PR.
+
+```bash
+# V-6 broadened — paste into PR verification scripts.
+# Substitute SUBJ_LATIN, SUBJ_AR, SUBJ_FAMILY_AR, DOB_Y/M/D for the personal
+# identifiers being protected. Defaults shown below are for the canonical
+# customer-zero protection set; expand the SUBJ_* lists as new identifiers
+# are added (mother's name, etc.).
+#
+# Implementation notes (these were violated in the v3 §13 round-1 draft):
+#   - Pass `-i` for case-insensitive matching (catches MUHAB AKIF, Muhab Akif).
+#   - Use POSIX `[[:space:]]` for whitespace. `\s` is Perl/PCRE; BSD grep
+#     (macOS default) does NOT recognize it as whitespace.
+#   - Pass `-i` to `git log --grep` as well; default is case-sensitive.
+
+SUBJ_LATIN_RE='muhab[[:space:]._-]?akif|akif[[:space:]._-]?muhab'
+SUBJ_USER_RE='/Users/muhab(/|$)|~muhab(/|$)'
+SUBJ_AR_RE='مهاب|عاكف|الاجزاجي'
+
+DOB_Y=1996; DOB_M=9; DOB_D=23
+DOB_Y2=$(printf "%04d" $DOB_Y); DOB_M2=$(printf "%02d" $DOB_M); DOB_D2=$(printf "%02d" $DOB_D)
+
+# Compact (no separator) forms — all three orderings
+DOB_DDMMYYYY="${DOB_D2}${DOB_M2}${DOB_Y2}"     # 23091996
+DOB_YYYYMMDD="${DOB_Y2}${DOB_M2}${DOB_D2}"     # 19960923
+DOB_MMDDYYYY="${DOB_M2}${DOB_D2}${DOB_Y2}"     # 09231996
+
+# Year-leading separated forms
+DOB_HYPH_Y="${DOB_Y2}-${DOB_M2}-${DOB_D2}"     # 1996-09-23
+DOB_DOT_Y="${DOB_Y2}\.${DOB_M2}\.${DOB_D2}"    # 1996.09.23
+DOB_SLASH_Y="${DOB_Y2}/${DOB_M2}/${DOB_D2}"    # 1996/09/23
+
+# Day-leading separated forms (locale-common in EU/MENA)
+DOB_HYPH_D="${DOB_D2}-${DOB_M2}-${DOB_Y2}"     # 23-09-1996
+DOB_DOT_D="${DOB_D2}\.${DOB_M2}\.${DOB_Y2}"    # 23.09.1996
+DOB_SLASH_D="${DOB_D2}/${DOB_M2}/${DOB_Y2}"    # 23/09/1996
+
+# Named-month variants (sep, sept, september — case-insensitive via -i flag)
+DOB_NAMED="${DOB_D2}[[:space:]_-]?(sep|sept|september)[[:space:]_-]?${DOB_Y2}"
+
+# Integer-tuple form
+DOB_TUPLE="\b${DOB_Y},[[:space:]]*${DOB_M},[[:space:]]*${DOB_D}\b"
+
+DOB_RE="${DOB_DDMMYYYY}|${DOB_YYYYMMDD}|${DOB_MMDDYYYY}|${DOB_HYPH_Y}|${DOB_DOT_Y}|${DOB_SLASH_Y}|${DOB_HYPH_D}|${DOB_DOT_D}|${DOB_SLASH_D}|${DOB_NAMED}|${DOB_TUPLE}"
+
+# Paths excluded from closure-blocking V-6 hits — see "Exclusions" below.
+EXCLUDE_PATHS='Docs/operations/LANE_DOCTRINE_v.*\.md$|Docs/operations/SCRUB_V.*_BRIEF\.md$'
+
+# Tracked files (public-repo concern); excluded paths filtered before grep.
+git ls-files \
+  | grep -vE "$EXCLUDE_PATHS" \
+  | xargs -I{} sh -c '
+      count=$(grep -icE "'"$SUBJ_LATIN_RE|$SUBJ_USER_RE|$SUBJ_AR_RE|$DOB_RE"'" "$1" 2>/dev/null)
+      if [ "$count" -gt "0" ]; then echo "$count $1"; fi
+    ' _ {} 2>/dev/null | sort -rn
+
+# Commit messages on the working branch and main
+git log --all -i --grep="$SUBJ_LATIN_RE" -E --oneline
+git log --all -i --grep="$DOB_HYPH_Y|$DOB_DDMMYYYY" -E --oneline
+```
+
+The DOB matrix above must be regenerated (not hardcoded) whenever the protected DOB changes. Same applies to subject names; do not hardcode them as literals in the doctrine doc — leave them as variables. The literal pattern values shown above (`23091996`, `1996-09-23`, etc.) are illustrative.
+
+**Exclusions.** V-6 hits in the following paths are by-design didactic and do not block PR closure:
+
+- `Docs/operations/LANE_DOCTRINE_v*.md` — this very doc; §13.3's worked example deliberately quotes the literal SCRUB-V2 PII fragment in past tense as the incident description. Per §13.4 (working-tree ≠ git-history scrub), this is an explicit doctrine choice, not a leak.
+- `Docs/operations/SCRUB_V*_BRIEF.md` — orchestrator briefs may quote scrubbed-from PII strings as "old form" examples in find/replace blocks.
+- Any path explicitly enumerated in a PR's brief as a forward-deferred class (e.g., V-3a forward-defers Class A and Class B residuals to V-3b; V-3b's own brief is the closure for those classes — those files are expected hits in V-3a's V-6 run, classified explicitly).
+
+V-6 hits outside the exclusion list are closure-blocking unless the PR's brief explicitly defers the affected class to a named follow-up sub-PR. The bash block above strips the doctrine-doc and brief-doc paths via the `EXCLUDE_PATHS` filter before the `xargs`. Per-PR ad-hoc deferrals are not encoded in `EXCLUDE_PATHS`; they appear as expected hits in the V-6 output and the PR description must classify each.
+
+### §13.2 — V-6 must grep against the full tree, not changed-files-only
+
+PR #33 and PR #34 ran V-6 only against the changed-files diff and the planned-fix list. Both shipped because their narrow scopes did not include files where residuals lived (output_variant_synthetic_*.json, semantic_layer/scalar_field_inventory.json, expansion/chatgpt_interpretations/*.json, module .py files with embedded constants).
+
+V-6 is now defined as full-tree by default. The bash block in §13.1 demonstrates the required pattern: `git ls-files | xargs ... grep` rather than `git diff origin/main..HEAD ... grep`.
+
+If a PR's brief explicitly defers a residual class to a later sub-PR (as PR #34's amended description does for V-3a/b/c), V-6's full-tree run is still mandatory — the deferred classes show up as expected hits, classified explicitly in the PR description, not silently absent from the V-6 run.
+
+### §13.3 — Framing-amend protocol when squash-merging
+
+`gh pr merge --squash --delete-branch` defaults to using the original commit message (the message of the single commit on the PR branch), not the PR title. When a PR title is amended after the commit lands — e.g., to address a Codex framing veto — the amendment is visible on the PR display but is NOT carried into the squash commit on main.
+
+When a framing amendment must land on main (any case where the closure-tier requires the amended language to be the audit-trail-of-record), use ONE of:
+
+**(a) Amend the local commit + force-push the PR branch BEFORE merge:**
+
+```bash
+git commit --amend -m "<full amended message>"
+git push --force-with-lease origin <branch-name>
+gh pr merge <N> --squash --delete-branch
+```
+
+**(b) Override at merge time:**
+
+```bash
+gh pr merge <N> --squash --delete-branch \
+  --subject "<amended title>" \
+  --body-file /tmp/squash_body.md
+```
+
+Verify `gh pr merge --help | grep subject` to confirm the local `gh` version supports the flag. As of `gh 2.87.0`, both `--subject` and `--body-file` are supported.
+
+If neither (a) nor (b) is invoked and the PR title was amended post-Codex, the unamended framing lands on main. **Force-push to a protected branch to retroactively fix the squash commit is doctrine-worse than the partial-amend outcome and is therefore prohibited as a recovery action.** Accept the partial-amend outcome and log the deviation in the merge-decision comment.
+
+**Worked example:** SCRUB-V2 / PR #34 (2026-04-26). Codex round-1 sustained two framing vetoes (`comprehensive sweep`, `privacy closure complete`). PR title and body were amended; merge-decision comment was posted; `gh pr merge --squash --delete-branch` was invoked. The amended framing is visible on the PR display surface, but the squash commit on main retained the original commit message including the literal PII string `muhab-akif-23sep1996-9376` (quoted in the Fix 1 bullet describing what was replaced). Force-push fix was rejected; the deviation was logged in the orchestrator memo and is now codified here as the prevention rule.
+
+### §13.4 — Working-tree scrub ≠ git history scrub (explicit non-goal)
+
+Any PR that scrubs PII from the working tree of files DOES NOT scrub PII from git history. History contains every prior version of every file. Pre-d7e0f2c commits on main retain original PII strings in their tree state, accessible via `git show <pre-d7e0f2c-commit>:<path>`. The squash commit message body of d7e0f2c itself contains literal PII strings (quoted in past-tense as "what was replaced") that are now permanently in the immutable git log on main.
+
+History scrub is fundamentally different work:
+
+- Tooling: BFG repo-cleaner, `git filter-repo`, or `git filter-branch` (deprecated)
+- Mechanism: rewrite all commits SHA-by-SHA, replacing string occurrences in tree contents and commit messages
+- Side effects: every clone of the repository must re-clone; SHA-by-SHA cross-references in PRs and issues become stale; protected-branch force-push required
+- Coordination: requires admin-level git ops, all collaborators notified, all open PRs must be re-based or closed
+
+**Relationship to P2b.** P2b (Phase 2b vault separation) chose Path C — fresh public repo migration — and executed on 2026-04-19. The legacy 2-year history was relocated to `SIRR-archive-v1` (private). The current public repo at `appleeatsapples-lang/SIRR` was born clean post-Path-C. Per `P2B_VAULT_SEPARATION_BRIEF.md` in `SIRR_PRIVATE/Orchestration/Briefs/`, P2b explicitly rejected git-history scrub as a strategy, choosing fresh-repo migration instead. Citing "P2b vault scope" as the place history-scrub work belongs is therefore wrong: P2b's defining choice was *not* to scrub history.
+
+PII accumulating in commit messages on the post-Path-C repo (e.g., PR #34's `d7e0f2c` squash body quoting the scrubbed-from order-id fragment in past tense) is its own concern. There is currently no codified strategy for periodically scrubbing post-Path-C commit messages. If such a strategy is adopted later, it would be either (a) commit-message authoring discipline going forward (preventive), or (b) a one-time `git filter-repo` pass on the post-Path-C history (curative) — both with the side effects above.
+
+**Operational rule until either is codified:** PR briefs and commit messages MUST NOT embed PII strings in commit messages, even in past tense as "old form" examples. Quote the working-tree change without naming the literal old-form string. The §13.3 worked example quotes the SCRUB-V2 PII fragment deliberately as didactic content; that is the only sanctioned exception, and it is covered by the §13.1 exclusion list. PRs that violate this rule (such as `d7e0f2c` itself) are accepted as historical artifacts but the operational rule applies prospectively.
+
+Any PR brief or PR description that uses the phrase "comprehensive PII sweep," "privacy closure complete," or any equivalent must either (i) scope the claim explicitly to the working tree, or (ii) explicitly call out the history non-goal. The original SCRUB-V2 brief did neither; that is the gap §13.4 closes.
+
+### §13.5 — R3 second-handshake firmness
+
+R3 work (per §2 R-label definitions) requires two-handshake protocol: one explicit "go" before the SC-N read-only checks, and a second explicit "go to E-1" (or analogous destructive-op anchor) before any irreversible operation. The second handshake is the deliberate human-in-loop checkpoint that R3's risk class requires.
+
+The second handshake CANNOT be skipped on the basis of:
+
+- "the SC-N results obviously point to go" — Claude Code's reading of "obvious" is exactly the failure mode the second handshake exists to defend against
+- "Muhab's first 'go' implicitly authorized the destructive ops" — it didn't; that's why there are two handshakes
+- "the operation is well-rehearsed and the brief is detailed" — irrelevant; R3 is defined by risk class, not by orchestrator confidence
+
+If the SC-N results raise any unexpected issue (or, in fact, if they raise no issue at all and "obviously" support proceeding), Claude Code halts and posts the SC-N report. The second handshake comes from Muhab in the chat, in plain text, naming the destructive-op anchor (e.g., "go to E-1"). Anything else is a bypass.
+
+**Worked example:** Phase 3 filesystem reorg (2026-04-25). A Claude Code session executed E-1..E-4 (destructive `mv` and `tar` operations) without an explicit "go to E-1" from Muhab; the implicit authorization was inferred from Muhab's earlier "go to SC-1" plus the SC-1..SC-4 results returning clean. The reorg succeeded operationally, but the second-handshake bypass is a doctrine concern logged in the user's session-resume prompt. §13.5 codifies the bypass as not-allowed; future R3 work that elides the second handshake is a stop condition for the orchestrator.
+
+*Evidence note:* the chat-handshake bypass claim is verified via the orchestrator session-resume prompt at the start of the 2026-04-26 session that wrote this section, not from git history. Git records the operational sequence of the E-1..E-4 commits but does not record whether an explicit "go to E-1" handshake preceded them in the chat surface. Future R3 incidents should leave a more durable evidence trail (e.g., a short orchestrator commit prefix or PR-comment naming the handshake before destructive ops) so this kind of after-the-fact verification doesn't depend on session memory.
+
+### §13 closure note
+
+§13 was added in response to the doctrine deficiencies surfaced by PR #33 → PR #34 + the Phase 3 reorg incident. All five sub-rules (§13.1-§13.5) are now mandatory; closure-sweep tier T7-full applies to any PR that touches §13 itself.
+
+---
+
 ## Appendix A — Design exercise summary
 
 This v3 came from a 3-round cross-model design exercise:
