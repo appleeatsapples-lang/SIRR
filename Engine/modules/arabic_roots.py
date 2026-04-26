@@ -2,8 +2,10 @@
 Extract the trilateral root (جذر) from each Arabic name component
 and map to primary meaning and semantic field.
 
-Compound name awareness: عمر عاكف carries both ع-م-ر and ع-ك-ف;
-محمد وصفي carries both ح-م-د and و-ص-ف.
+Compound name awareness: when two adjacent nasab positions form a
+compound generational unit, both component roots are extracted
+independently and credited to the same generation. Compound positions
+are configured in COMPOUND_POSITIONS below.
 Sources: Lane's Lexicon, Lisan al-Arab, Maqayis al-Lugha (Ibn Faris)
 """
 from __future__ import annotations

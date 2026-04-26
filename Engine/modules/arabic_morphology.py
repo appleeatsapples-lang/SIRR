@@ -2,8 +2,10 @@
 Classify each Arabic name word by its morphological pattern (وزن),
 grammatical class, and voice (active/passive).
 
-Compound name awareness: عمر عاكف = proper noun + active participle (qualifier);
-محمد وصفي = passive intensive + relative adjective.
+Compound name awareness: certain nasab positions may pair adjacent
+words into a single generational unit (proper-noun + active-participle
+or passive-intensive + relative-adjective patterns). Compound
+positions are configured in COMPOUND_STRUCTURES below.
 Sources: Sibawayh Al-Kitab, Wright's Arabic Grammar
 """
 from __future__ import annotations

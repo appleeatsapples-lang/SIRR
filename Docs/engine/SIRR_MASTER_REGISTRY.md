@@ -68,8 +68,8 @@ The P2G arc will introduce per-order encryption for the `order_store` rows (like
 ### Other known deferred items
 
 - **Stripe / LS payment metadata still carries raw `order_id`** in their internal dashboards (third-party log surface, not our control). Documented in commit messages; not a runtime leak on our side.
-- **Migration race window during PR-1 deploy**: pre-existing HMAC tokens became invalid the moment the new code went live. Mitigated by minting fresh tokens for the active customer (Muhab's test order) immediately after deploy. Not a concern for new orders post-deploy.
-- **`SIRR_TOKEN_SECRET` env var on Railway**: still set, now obsolete since P2F-PR1. Harmless; deprecation INFO log surfaces on every container restart. Bootstrap script no longer generates it (P2F-PR3 round 2). Will be removed from Railway at Muhab's discretion once the recommendation has been seen enough times.
+- **Migration race window during PR-1 deploy**: pre-existing HMAC tokens became invalid the moment the new code went live. Mitigated by minting fresh tokens for the active customer's test order immediately after deploy. Not a concern for new orders post-deploy.
+- **`SIRR_TOKEN_SECRET` env var on Railway**: still set, now obsolete since P2F-PR1. Harmless; deprecation INFO log surfaces on every container restart. Bootstrap script no longer generates it (P2F-PR3 round 2). Will be removed from Railway at the operator's discretion once the recommendation has been seen enough times.
 
 ### Doctrine sources of truth
 
