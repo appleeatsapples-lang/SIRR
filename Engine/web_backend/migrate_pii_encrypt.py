@@ -18,8 +18,9 @@ Three classes of legacy PII content are handled:
      these decrypt-fail and silently strip to None under fail-closed
      mode, but on disk they still look encrypted to a glob-and-grep.
      Migration validates each prefixed value by attempting decrypt; if
-     decrypt fails, the post-prefix portion is treated as the user's
-     literal plaintext and re-encrypted.
+     decrypt fails, the FULL ORIGINAL LITERAL (including the leading
+     `enc:v1:` bytes) is re-encrypted via `update_order` so no bytes
+     the customer/caller submitted are silently dropped.
   3. **Legacy `status="deleted"` rows with PII still present** —
      pre-P2G `/api/delete` only nulled `profile`/`email_hash`/
      `reading_url`/`error`, so historical deletions retained their
@@ -27,11 +28,19 @@ Three classes of legacy PII content are handled:
      encrypting them; this is what the original delete should have
      done.
 
+The classifier has a third terminal state for files that look like
+partial rows — top-level dict missing `order_id` but carrying any of
+the five PII field keys. Those raise `SuspiciousRowAbort`, the
+migration halts with exit code 3, and the marker is NOT set. The
+operator must triage the file by hand before re-running.
+
 On a clean pass — every row processed without raising — touches
 `DATA_DIR/.pii_encrypted_at_rest_v1` to flip
 `order_store._is_fail_closed()` to True. Per-row errors abort the
 migration and skip the marker so a partial run does not flip the
-system into fail-closed mode against unmigrated rows.
+system into fail-closed mode against unmigrated rows. Exit codes:
+0 = clean pass, 2 = per-row exception, 3 = suspicious file
+quarantined.
 
 Run before flipping the production deploy that ships the §16.5 P2G
 closure:
@@ -69,11 +78,40 @@ from order_store import (  # noqa: E402
 from sanitize import hash_oid  # noqa: E402
 
 
+class SuspiciousRowAbort(Exception):
+    """Raised when `_try_load_row` finds a foreign dict that resembles
+    a partial row — top-level dict missing `order_id` but carrying any
+    of the five PII field keys.
+
+    Carries the path BASENAME only (never row contents, key/value
+    snippets, or the full slug-bearing path beyond the basename), so
+    the operator-facing log line stays PII-clean within this PR's
+    scope. The basename may still encode name+DOB for slug-shaped
+    filenames — that's the §16.5 deferred `_make_slug` surface, out
+    of scope here.
+
+    The migration aborts on this rather than silently skipping because
+    a corrupted real row whose `order_id` was lost would otherwise
+    flow through the `files_skipped_non_row` counter, leave PII
+    residue on disk, and falsely activate fail-closed mode after
+    marker-set. Better to halt and let the operator triage the file
+    by hand.
+    """
+
+
 def _try_load_row(path: Path) -> dict | None:
-    """Return the parsed row dict if `path` looks like an order row;
-    otherwise None. Engine output files (AES-GCM binary blobs) raise on
-    `read_text` or `json.loads`; foreign files lack the `order_id`
-    field. Both cases are skipped silently."""
+    """Three-state classifier:
+
+      - returns dict: genuine order row (caller processes it).
+      - returns None: genuine non-row — engine output AES-GCM blob
+        (raises UnicodeDecodeError on read_text), foreign JSON array
+        or scalar, foreign dict that has neither `order_id` nor any
+        PII field key. Caller skips silently.
+      - raises SuspiciousRowAbort: dict missing `order_id` but
+        carrying at least one of the five PII field keys. Caller
+        aborts the migration without setting the marker (see exception
+        docstring for rationale).
+    """
     try:
         text = path.read_text()
     except (OSError, UnicodeDecodeError):
@@ -82,9 +120,15 @@ def _try_load_row(path: Path) -> dict | None:
         parsed = json.loads(text)
     except json.JSONDecodeError:
         return None
-    if not isinstance(parsed, dict) or "order_id" not in parsed:
+    if not isinstance(parsed, dict):
         return None
-    return parsed
+    if "order_id" in parsed:
+        return parsed
+    # Dict missing order_id. If any PII field key is present, this
+    # looks like a partial row — abort rather than skip.
+    if any(field in parsed for field in _PII_FIELDS):
+        raise SuspiciousRowAbort(path.name)
+    return None
 
 
 def _classify_prefixed_value(value: str, order_id: str) -> tuple[str, str | None]:
@@ -93,12 +137,14 @@ def _classify_prefixed_value(value: str, order_id: str) -> tuple[str, str | None
     Returns ("validated", None) if the ciphertext genuinely decrypts
     (no action needed; row already encrypted).
 
-    Returns ("spoofed", recovered_plaintext) if the prefix is present
-    but the bytes do not decrypt — the caller should re-encrypt
-    `recovered_plaintext` and overwrite the field. The recovered
-    plaintext is the post-prefix portion of the original value, on the
-    interpretation that an attacker or buggy caller submitted a
-    `enc:v1:<arbitrary>` string as plaintext input.
+    Returns ("spoofed", value) — preserving the FULL original literal,
+    including the leading `enc:v1:` bytes — if the prefix is present
+    but the bytes do not decrypt. The caller re-encrypts the literal
+    via `update_order` so no bytes the customer/caller submitted are
+    silently dropped, even bytes that look like a sentinel prefix.
+    Pre-R5 this returned only the post-prefix portion, which corrupted
+    any legitimate input whose actual literal happened to start with
+    `enc:v1:` (Codex R6 V2 catch).
     """
     hex_blob = value[len(_ENC_PREFIX):]
     try:
@@ -106,7 +152,7 @@ def _classify_prefixed_value(value: str, order_id: str) -> tuple[str, str | None
         crypto.decrypt_str(blob, context=order_id)
         return ("validated", None)
     except (crypto.DecryptionError, ValueError):
-        return ("spoofed", hex_blob)
+        return ("spoofed", value)
 
 
 def _migrate_one(path: Path, counters: dict) -> None:
@@ -143,7 +189,9 @@ def _migrate_one(path: Path, counters: dict) -> None:
             if verdict == "validated":
                 counters["prefix_validated"] += 1
             else:
-                re_encrypt_kwargs[field] = recovered or ""
+                # `recovered` is the full original literal (V2 fix);
+                # never None on a "spoofed" verdict.
+                re_encrypt_kwargs[field] = recovered
                 counters["prefix_spoofed_recovered"] += 1
             continue
         # plaintext path
@@ -166,11 +214,27 @@ def main() -> int:
         "prefix_validated": 0,
         "prefix_spoofed_recovered": 0,
         "files_skipped_non_row": 0,
+        "files_quarantined_suspicious": 0,
     }
     paths = list(ORDERS_DIR.glob("*.json"))
     for p in paths:
         try:
             _migrate_one(p, counters)
+        except SuspiciousRowAbort as e:
+            counters["files_quarantined_suspicious"] += 1
+            # e.args[0] is the path BASENAME (never row contents,
+            # never key/value snippets). PII-clean operator surface
+            # within this PR's scope; the basename may still encode
+            # name+DOB for slug-shaped filenames per the deferred
+            # _make_slug §16.5 surface.
+            print(
+                f"[migrate-pii] QUARANTINED suspicious file "
+                f"{e.args[0]} — row-shaped but missing order_id; "
+                f"manual inspection required, marker NOT set, rerun "
+                f"after triage",
+                file=sys.stderr,
+            )
+            return 3
         except Exception as e:
             order_id = p.stem
             print(
