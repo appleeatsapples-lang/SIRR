@@ -51,6 +51,7 @@ Engine/output_local_*.json
 Engine/orders/
 Engine/web_backend/orders/
 Engine/web_backend/readings/
+Engine/web_backend/deletion_queue.txt
 Engine/fixtures/user_profiles/*.json
 !Engine/fixtures/user_profiles/profiles.json
 
