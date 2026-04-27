@@ -79,38 +79,56 @@ from sanitize import hash_oid  # noqa: E402
 
 
 class SuspiciousRowAbort(Exception):
-    """Raised when `_try_load_row` finds a foreign dict that resembles
-    a partial row — top-level dict missing `order_id` but carrying any
-    of the five PII field keys.
+    """Raised when `_try_load_row` finds a foreign dict that
+    resembles a partial or mismatched row.
 
-    Carries the path BASENAME only (never row contents, key/value
-    snippets, or the full slug-bearing path beyond the basename), so
-    the operator-facing log line stays PII-clean within this PR's
-    scope. The basename may still encode name+DOB for slug-shaped
-    filenames — that's the §16.5 deferred `_make_slug` surface, out
-    of scope here.
+    Two trigger conditions, both indicating a file the migration
+    cannot safely auto-resolve:
 
-    The migration aborts on this rather than silently skipping because
-    a corrupted real row whose `order_id` was lost would otherwise
-    flow through the `files_skipped_non_row` counter, leave PII
-    residue on disk, and falsely activate fail-closed mode after
-    marker-set. Better to halt and let the operator triage the file
-    by hand.
+      1. `missing-order_id-with-pii-keys` — top-level dict missing
+         `order_id` but carrying any of the five PII field keys
+         (could be a corrupted real row whose `order_id` was lost).
+
+      2. `order_id-stem-mismatch` — top-level dict has `order_id`
+         but it disagrees with `path.stem`. Processing this row
+         would cause `update_order(row["order_id"], ...)` to write
+         to a *different* file than the one we're reading
+         (since `update_order` targets `ORDERS_DIR/{order_id}.json`),
+         either silently no-op'ing on the wrong target's absence or
+         mutating an unrelated row's data.
+
+    Args: (basename, reason) — basename only, never row contents,
+    key/value snippets, or the full slug-bearing path beyond the
+    basename. The basename may still encode name+DOB for slug-shaped
+    filenames per the §16.5 deferred `_make_slug` surface, out of
+    scope here. The reason tag is a static string drawn from a
+    closed set, so it's audit-surface-safe.
+
+    The migration aborts on either trigger rather than silently
+    skipping or auto-mutating. Silent skip would leave PII residue
+    on disk and falsely activate fail-closed mode after marker-set;
+    auto-mutating could corrupt unrelated rows. Better to halt and
+    let the operator triage the file by hand.
     """
 
 
 def _try_load_row(path: Path) -> dict | None:
     """Three-state classifier:
 
-      - returns dict: genuine order row (caller processes it).
+      - returns dict: genuine order row (caller processes it). The
+        row's `order_id` field matches `path.stem` — required because
+        `update_order` derives its target filename from `order_id`,
+        so a mismatch would cause writes to land in the wrong file.
       - returns None: genuine non-row — engine output AES-GCM blob
         (raises UnicodeDecodeError on read_text), foreign JSON array
         or scalar, foreign dict that has neither `order_id` nor any
         PII field key. Caller skips silently.
-      - raises SuspiciousRowAbort: dict missing `order_id` but
-        carrying at least one of the five PII field keys. Caller
-        aborts the migration without setting the marker (see exception
-        docstring for rationale).
+      - raises SuspiciousRowAbort with one of:
+          * reason="missing-order_id-with-pii-keys" — dict missing
+            `order_id` but carrying at least one PII field key.
+          * reason="order_id-stem-mismatch" — dict has `order_id`
+            but it doesn't match `path.stem`.
+        Caller aborts the migration without setting the marker.
     """
     try:
         text = path.read_text()
@@ -123,11 +141,17 @@ def _try_load_row(path: Path) -> dict | None:
     if not isinstance(parsed, dict):
         return None
     if "order_id" in parsed:
+        # `update_order` derives its target as `ORDERS_DIR/{order_id}.json`;
+        # if the row's self-claim doesn't match the file we read it
+        # from, processing the row would touch the wrong file (or no
+        # file at all). Halt rather than auto-mutate.
+        if parsed["order_id"] != path.stem:
+            raise SuspiciousRowAbort(path.name, "order_id-stem-mismatch")
         return parsed
     # Dict missing order_id. If any PII field key is present, this
     # looks like a partial row — abort rather than skip.
     if any(field in parsed for field in _PII_FIELDS):
-        raise SuspiciousRowAbort(path.name)
+        raise SuspiciousRowAbort(path.name, "missing-order_id-with-pii-keys")
     return None
 
 
@@ -222,16 +246,18 @@ def main() -> int:
             _migrate_one(p, counters)
         except SuspiciousRowAbort as e:
             counters["files_quarantined_suspicious"] += 1
-            # e.args[0] is the path BASENAME (never row contents,
-            # never key/value snippets). PII-clean operator surface
-            # within this PR's scope; the basename may still encode
-            # name+DOB for slug-shaped filenames per the deferred
-            # _make_slug §16.5 surface.
+            # e.args[0] is the path BASENAME, e.args[1] is a static
+            # reason tag from a closed set. Neither carries row
+            # contents, key/value snippets, or PII. The basename may
+            # still encode name+DOB for slug-shaped filenames per the
+            # deferred _make_slug §16.5 surface, out of scope here.
+            basename, reason = e.args[0], e.args[1]
             print(
                 f"[migrate-pii] QUARANTINED suspicious file "
-                f"{e.args[0]} — row-shaped but missing order_id; "
-                f"manual inspection required, marker NOT set, rerun "
-                f"after triage",
+                f"{basename} (reason: {reason}) — manual inspection "
+                f"required, marker NOT set, rerun after triage. "
+                f"files_quarantined_suspicious="
+                f"{counters['files_quarantined_suspicious']}",
                 file=sys.stderr,
             )
             return 3

@@ -640,17 +640,20 @@ def test_atomic_write_tmp_paths_are_unique(tmp_path, monkeypatch):
     """`_atomic_write_json`'s tmp suffix is `.{pid}.{secrets.token_hex(4)}.tmp`
     so two writers cannot race on the same temp filename. Verify by
     monkey-patching `os.replace` to capture the `src` argument on each
-    call, driving 16 `_atomic_write_json` invocations against the same
-    target, and asserting:
+    call AND `os.getpid` to return a sentinel value (Codex R2 C1 catch
+    — without the sentinel, a `\\d+` pid match could equally satisfy
+    a regression that swapped getpid for a monotonic counter), driving
+    16 `_atomic_write_json` invocations, and asserting:
 
       (a) all 16 captures fired — proves the patch is actually
-          installed (R5's version defined `capturing_replace` but never
-          installed it, so the assertion was tautological / R6 C2
-          catch) AND proves the helper actually invokes os.replace;
-      (b) every captured tmp path matches the expected pattern
-          `{stem}.<digits>.<8-hex>.tmp` — proves the helper uses
-          BOTH `os.getpid()` AND `secrets.token_hex(4)`, so a
-          regression that drops either component would be caught;
+          installed (R5's version defined `capturing_replace` but
+          never installed it, R6 C2 catch) AND proves the helper
+          actually invokes os.replace;
+      (b) every captured tmp path matches the regex including the
+          literal sentinel pid `999999` — proves the helper uses
+          BOTH `os.getpid()` (specifically, not just any integer)
+          AND `secrets.token_hex(4)`, so a regression dropping
+          either component would be caught;
       (c) all 16 captures are unique — the actual cross-write
           collision-free guarantee the tmp-suffix design provides.
     """
@@ -665,9 +668,13 @@ def test_atomic_write_tmp_paths_are_unique(tmp_path, monkeypatch):
         return real_replace(src, dst)
 
     monkeypatch.setattr(os, "replace", capturing_replace)
+    monkeypatch.setattr(os, "getpid", lambda: 999999)
 
     target = tmp_path / "fixture-tmp-c2.json"
-    pattern = re.compile(r"fixture-tmp-c2\.json\.\d+\.[0-9a-f]{8}\.tmp$")
+    # Regex includes the literal sentinel pid; a regression that
+    # replaces os.getpid() with anything else (counter, hardcoded
+    # value, time.time(), etc.) fails the match.
+    pattern = re.compile(r"fixture-tmp-c2\.json\.999999\.[0-9a-f]{8}\.tmp$")
 
     for i in range(16):
         os_mod._atomic_write_json(target, {"order_id": "fixture-tmp-c2", "k": i})
@@ -679,8 +686,8 @@ def test_atomic_write_tmp_paths_are_unique(tmp_path, monkeypatch):
     for tmp in seen_tmps:
         assert pattern.search(tmp), (
             f"tmp path {tmp!r} doesn't match expected "
-            f"`{{stem}}.<digits>.<8-hex>.tmp` pattern — "
-            f"helper may have lost pid or secrets.token_hex(4)"
+            f"`{{stem}}.999999.<8-hex>.tmp` pattern — "
+            f"helper may have lost os.getpid() or secrets.token_hex(4)"
         )
     assert len(set(seen_tmps)) == 16, (
         f"tmp paths collided across 16 _atomic_write_json invocations: "
@@ -868,10 +875,18 @@ def test_migration_aborts_on_suspicious_row(tmp_path, monkeypatch, capfd):
     )
     assert "FIXTURE DOB" not in err
     # Positive operator-affordance assertions: the message names the
-    # file (basename) and explains the action.
+    # file (basename), explains the action, names the trigger reason
+    # from the closed reason-tag set, and surfaces the running counter
+    # so dashboards can detect repeated quarantines without re-grepping.
     assert "corrupted-row.json" in err
     assert "QUARANTINED" in err
     assert "marker NOT set" in err
+    assert "missing-order_id-with-pii-keys" in err, (
+        f"V3 abort message missing reason tag: {err!r}"
+    )
+    assert "files_quarantined_suspicious=1" in err, (
+        f"V3 abort message missing counter readout: {err!r}"
+    )
 
 
 # ── 21. V3 migration safely skips foreign dicts without PII keys ─────────
@@ -900,3 +915,80 @@ def test_migration_skips_foreign_dict_without_pii(tmp_path, monkeypatch):
     rc = mig.main()
     assert rc == 0, f"expected clean rc=0, got {rc}"
     assert marker.exists(), "marker not set after a clean foreign-skip pass"
+
+
+# ── 22. V1 (R3): order_id ↔ filename mismatch quarantines ────────────────
+
+def test_migration_aborts_on_id_filename_mismatch(tmp_path, monkeypatch, capfd):
+    """A row whose `order_id` field disagrees with `path.stem` cannot
+    be safely migrated: `update_order` derives its target from
+    `order_id` and would either silently no-op (if no file at the
+    derived path exists) or mutate an UNRELATED row's data.
+
+    Migration must detect the mismatch in `_try_load_row` and abort
+    via SuspiciousRowAbort with reason="order_id-stem-mismatch".
+    Exit code 3, marker unset, files_quarantined_suspicious counter
+    incremented, operator message PII-clean (no row contents, only
+    the basename + reason tag + counter).
+
+    Pre-R3 fix this would silently increment files_skipped_non_row
+    (no — actually pre-R3 it'd flow to update_order with the
+    wrong-id and silently no-op against a missing target file, OR
+    corrupt an unrelated row whose filename matched). Either way
+    the source file would never be touched and the marker would
+    land. Codex R2 V1 catch.
+    """
+    import order_store as os_mod
+    import migrate_pii_encrypt as mig
+
+    isolated = tmp_path / "orders"
+    isolated.mkdir()
+    marker = tmp_path / ".pii_encrypted_at_rest_v1"
+    monkeypatch.setattr(os_mod, "ORDERS_DIR", isolated)
+    monkeypatch.setattr(os_mod, "_FAIL_CLOSED_MARKER", marker)
+    monkeypatch.setattr(mig, "ORDERS_DIR", isolated)
+    monkeypatch.setattr(mig, "_FAIL_CLOSED_MARKER", marker)
+
+    # Filename "mismatched.json" but row claims order_id "wrong-id".
+    # Synthetic placeholders (§13.7): no real PII, no date-shaped
+    # values. The test depends on the IDs differing, not on values.
+    mismatched = {
+        "order_id": "wrong-id",
+        "name_latin": "FIXTURE MISMATCH",
+        "dob": "FIXTURE DOB",
+        "status": "pending",
+    }
+    src_file = isolated / "mismatched.json"
+    src_file.write_text(json.dumps(mismatched, indent=2))
+
+    rc = mig.main()
+    assert rc == 3, f"expected rc=3 for id-mismatch quarantine, got {rc}"
+    assert not marker.exists(), (
+        "marker was set despite id-mismatch abort — fail-closed mode "
+        "would activate against a file that never got written"
+    )
+    # The source file is untouched (no side effects from the failed
+    # auto-mutation). Belt-and-suspenders: confirm the disk state
+    # matches the planted fixture byte-for-byte.
+    assert src_file.exists(), "source file should not have been deleted"
+
+    err = capfd.readouterr().err
+    # PII-clean operator message: planted PII strings MUST NOT appear.
+    assert "FIXTURE MISMATCH" not in err, (
+        f"V1 abort message leaked planted PII: {err!r}"
+    )
+    assert "FIXTURE DOB" not in err
+    assert "wrong-id" not in err, (
+        f"V1 abort message leaked the row's claimed order_id: {err!r}"
+    )
+    # Positive operator-affordance assertions: filename, action,
+    # reason tag, counter readout.
+    assert "mismatched.json" in err
+    assert "QUARANTINED" in err
+    assert "marker NOT set" in err
+    assert "order_id-stem-mismatch" in err, (
+        f"V1 abort message missing reason tag: {err!r}"
+    )
+    assert "files_quarantined_suspicious=1" in err, (
+        f"V1 abort message missing counter readout: {err!r}"
+    )
