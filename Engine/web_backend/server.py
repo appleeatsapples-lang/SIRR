@@ -65,7 +65,13 @@ except ImportError:
     def generate_narrative(output):
         return "(narrative_synthesis module not available)"
 from sirr_core.natal_chart import geocode, compute_chart
-from order_store import create_order, get_order, update_order, get_order_by_stripe_session
+from order_store import (
+    create_order,
+    get_order,
+    update_order,
+    get_order_by_stripe_session,
+    is_row_already_fully_deleted,
+)
 from reading_generator import generate_reading, extract_reading_context, generate_dashboard_panels
 from html_reading import generate_html as generate_html_reading
 from unified_synthesis import compute_unified_synthesis
@@ -849,6 +855,17 @@ async def request_deletion(request: Request, req: DeleteRequest):
         if not req.email or order.get("email", "").strip().lower() != req.email.strip().lower():
             raise HTTPException(401, "email does not match order")
 
+    # Idempotency: if the on-disk row is already deleted AND every PII
+    # field is literally None on disk, return the same shape without
+    # re-running unlink/update/queue. The probe reads the raw row (not
+    # the sanitized get_order view) — under fail-closed mode get_order
+    # strips plaintext PII to None on read, which would mask any
+    # on-disk residue from this check and lock a legacy escapee into a
+    # permanent residue (Codex R6 V1 catch). Falling through on any
+    # read error or shape mismatch is the cautious default.
+    if is_row_already_fully_deleted(order_id):
+        return {"status": "deleted", "files_removed": 0}
+
     # Delete Tier 2 artifacts: reading HTML, unified HTML, output JSON
     readings_dir = READINGS_DIR
     orders_dir = ORDERS_DIR
@@ -866,11 +883,13 @@ async def request_deletion(request: Request, req: DeleteRequest):
             except Exception:
                 pass
 
-    # Mark order record as deleted. Nulls four fields only (profile,
-    # email_hash, reading_url, error). Does NOT null name_latin,
-    # name_arabic, dob, birth_time, or birth_location — those PII fields
-    # remain in the row after this update. Closing that gap is tracked
-    # in SIRR_MASTER_REGISTRY.md §16.5 deferred surfaces (P2G arc).
+    # Mark order record as deleted and null all PII fields. The five
+    # name/dob/birth_* fields are encrypted at rest (§16.5 P2G), but the
+    # right-to-delete contract is "the data is gone", not "the data is
+    # encrypted" — null them out alongside the operational fields.
+    # update_order failures are NOT swallowed: if the row write fails
+    # we'd be returning "deleted" while leaving PII on disk. Surface 500
+    # so the customer can retry; the handler is idempotent.
     try:
         update_order(
             order_id,
@@ -879,15 +898,37 @@ async def request_deletion(request: Request, req: DeleteRequest):
             email_hash=None,
             reading_url=None,
             error=None,
+            name_latin=None,
+            name_arabic=None,
+            dob=None,
+            birth_time=None,
+            birth_location=None,
         )
-    except Exception:
-        pass
+    except Exception as e:
+        print(
+            f"[api-delete] update_order failed for order {hash_oid(order_id)}: "
+            f"{type(e).__name__}",
+            file=sys.stderr,
+        )
+        raise HTTPException(500, "deletion failed; please retry")
 
-    # Queue Tier 3 removal (see retention.py — drained by the purge job)
+    # Queue Tier 3 removal (see retention.py — drained by the purge job).
+    # Tier-2 deletion has succeeded by this point. A queue-write failure
+    # is logged for operator follow-up; Tier 3 retry semantics are
+    # pending Tier 3 going live (the queue's purge job is the only
+    # consumer today, and a row missing from the queue won't be picked
+    # up until the operator notices the WARNING and re-queues by hand).
+    # The /api/delete response stays 200 so the customer's right-to-
+    # delete contract — "the on-our-side data is gone" — isn't held
+    # hostage to an aggregate-store cleanup that isn't running yet.
     try:
         _queue_tier3_deletion(order_id)
-    except Exception:
-        pass
+    except Exception as e:
+        print(
+            f"[api-delete] tier3-queue failed for order {hash_oid(order_id)}: "
+            f"{type(e).__name__}",
+            file=sys.stderr,
+        )
 
     # §16.5 log hygiene: no profile content in response, no email echoed
     return {"status": "deleted", "files_removed": len(deleted_files)}
