@@ -1,62 +1,255 @@
 {
   "source": "Gemini Round 3, April 4 2026",
   "citations": "Lane's Lexicon, Lisan al-Arab, Maqayis al-Lugha (Ibn Faris), Sibawayh Al-Kitab, Al-Buni Shams al-Ma'arif",
-  
-  "name_roots": {
-    "مهاب": {"root": "ه-ي-ب", "root_letters": ["ه","ي","ب"], "primary_meaning": "To hold in awe, fear, reverence, respect", "secondary_meaning": "Fear paired with veneration and greatness", "semantic_field": "veneration_awe", "lane_ref": "Bk 1, p. 2904", "form": "IV", "verb": "أهاب"},
-    "عمر": {"root": "ع-م-ر", "root_letters": ["ع","م","ر"], "primary_meaning": "To live long, inhabit, cultivate, build", "secondary_meaning": "Continuity of life, building, remaining in a place", "semantic_field": "time_cultivation", "lane_ref": "Bk 1, p. 2154"},
-    "إسماعيل": {"root": "س-م-ع", "root_letters": ["س","م","ع"], "primary_meaning": "To hear + God (theophoric)", "secondary_meaning": "Perception of sound; receiving instruction/prayer", "semantic_field": "theophory_audition", "lane_ref": "Foreign loan (Hebrew)", "note": "Arabized back-formation"},
-    "عاكف": {"root": "ع-ك-ف", "root_letters": ["ع","ك","ف"], "primary_meaning": "To cleave to, keep to, reside in devotion", "secondary_meaning": "Turning towards something and remaining strictly with it", "semantic_field": "stillness_devotion", "lane_ref": "Bk 1, p. 2108"},
-    "محمد": {"root": "ح-م-د", "root_letters": ["ح","م","د"], "primary_meaning": "To praise, commend, speak well of", "secondary_meaning": "Opposite of blame; acknowledging excellence", "semantic_field": "praise_recognition", "lane_ref": "Bk 1, p. 638", "form": "II"},
-    "وصفي": {"root": "و-ص-ف", "root_letters": ["و","ص","ف"], "primary_meaning": "To describe, depict, assert an attribute", "secondary_meaning": "Adorning something with an attribute or clarifying its state", "semantic_field": "definition_form", "lane_ref": "Bk 1, p. 2939"},
-    "الاجزاجي": {"root": "ج-ز-أ", "root_letters": ["ج","ز","أ"], "primary_meaning": "To divide into parts, compound elements", "secondary_meaning": "Cutting, portioning, or compounding elements", "semantic_field": "chemistry_synthesis", "note": "Turkish loan (Eczacı), Arabic base أجزاء"}
-  },
-
-  "name_morphology": {
-    "مهاب": {"wazn": "مُفْعَل", "wazn_latin": "mufʿal", "class": "passive_participle", "class_ar": "اسم مفعول", "form": "IV", "voice": "passive", "note": "Surface مَفْعَل, underlying مُفْعَل with assimilated weak middle radical"},
-    "عمر": {"wazn": "فُعَل", "wazn_latin": "fuʿal", "class": "proper_noun_deviated", "class_ar": "معدول", "form": "I", "voice": "n/a", "note": "Deviated from active participle عامر denoting intensity/fixity"},
-    "إسماعيل": {"wazn": "إفْواعِيل", "wazn_latin": "ifwāʿīl", "class": "proper_noun_foreign", "class_ar": "أعجمي", "form": "n/a", "voice": "n/a", "note": "Arabized phonetic mapping, cannot take pure Arabic morphological derivation"},
-    "عاكف": {"wazn": "فَاعِل", "wazn_latin": "fāʿil", "class": "active_participle", "class_ar": "اسم فاعل", "form": "I", "voice": "active", "note": "Standard paradigm for the doer of the action"},
-    "محمد": {"wazn": "مُفَعَّل", "wazn_latin": "mufaʿʿal", "class": "passive_participle", "class_ar": "اسم مفعول", "form": "II", "voice": "passive", "note": "Form II denotes intensity/repetition: one who is praised repeatedly"},
-    "وصفي": {"wazn": "فَعْلِيّ", "wazn_latin": "faʿliyy", "class": "relative_adjective", "class_ar": "اسم منسوب", "form": "n/a", "voice": "n/a", "note": "Verbal noun وصف + nisba suffix ي"},
-    "الاجزاجي": {"wazn": "الأَفْعَالجي", "wazn_latin": "al-afʿāljī", "class": "loanword_compound", "class_ar": "أعجمي مركّب", "form": "n/a", "voice": "n/a", "note": "Arabic plural root أجزاء + Turkish occupational suffix جي"}
-  },
-
+  "name_roots": {},
+  "name_morphology": {},
   "al_buni_letter_table": {
-    "ا": {"abjad": 1, "element": "fire", "temperament": "hot_dry", "quality": "luminous", "planet": "Saturn", "sign": "Aries"},
-    "ب": {"abjad": 2, "element": "earth", "temperament": "cold_dry", "quality": "dark", "planet": "Jupiter", "sign": "Taurus"},
-    "ج": {"abjad": 3, "element": "air", "temperament": "hot_moist", "quality": "dark", "planet": "Mars", "sign": "Gemini"},
-    "د": {"abjad": 4, "element": "water", "temperament": "cold_moist", "quality": "dark", "planet": "Sun", "sign": "Cancer"},
-    "ه": {"abjad": 5, "element": "fire", "temperament": "hot_dry", "quality": "luminous", "planet": "Venus", "sign": "Leo"},
-    "و": {"abjad": 6, "element": "earth", "temperament": "cold_dry", "quality": "dark", "planet": "Mercury", "sign": "Virgo"},
-    "ز": {"abjad": 7, "element": "air", "temperament": "hot_moist", "quality": "dark", "planet": "Moon", "sign": "Libra"},
-    "ح": {"abjad": 8, "element": "water", "temperament": "cold_moist", "quality": "luminous", "planet": "Saturn", "sign": "Scorpio"},
-    "ط": {"abjad": 9, "element": "fire", "temperament": "hot_dry", "quality": "luminous", "planet": "Jupiter", "sign": "Sagittarius"},
-    "ي": {"abjad": 10, "element": "earth", "temperament": "cold_dry", "quality": "luminous", "planet": "Mars", "sign": "Capricorn"},
-    "ك": {"abjad": 20, "element": "air", "temperament": "hot_moist", "quality": "luminous", "planet": "Sun", "sign": "Aquarius"},
-    "ل": {"abjad": 30, "element": "water", "temperament": "cold_moist", "quality": "luminous", "planet": "Venus", "sign": "Pisces"},
-    "م": {"abjad": 40, "element": "fire", "temperament": "hot_dry", "quality": "luminous", "planet": "Mercury", "sign": "Aries"},
-    "ن": {"abjad": 50, "element": "earth", "temperament": "cold_dry", "quality": "luminous", "planet": "Moon", "sign": "Taurus"},
-    "س": {"abjad": 60, "element": "air", "temperament": "hot_moist", "quality": "luminous", "planet": "Saturn", "sign": "Gemini"},
-    "ع": {"abjad": 70, "element": "water", "temperament": "cold_moist", "quality": "luminous", "planet": "Jupiter", "sign": "Cancer"},
-    "ف": {"abjad": 80, "element": "fire", "temperament": "hot_dry", "quality": "dark", "planet": "Mars", "sign": "Leo"},
-    "ص": {"abjad": 90, "element": "earth", "temperament": "cold_dry", "quality": "luminous", "planet": "Sun", "sign": "Virgo"},
-    "ق": {"abjad": 100, "element": "air", "temperament": "hot_moist", "quality": "luminous", "planet": "Venus", "sign": "Libra"},
-    "ر": {"abjad": 200, "element": "water", "temperament": "cold_moist", "quality": "luminous", "planet": "Mercury", "sign": "Scorpio"},
-    "ش": {"abjad": 300, "element": "fire", "temperament": "hot_dry", "quality": "dark", "planet": "Moon", "sign": "Sagittarius"},
-    "ت": {"abjad": 400, "element": "earth", "temperament": "cold_dry", "quality": "dark", "planet": "Saturn", "sign": "Capricorn"},
-    "ث": {"abjad": 500, "element": "air", "temperament": "hot_moist", "quality": "dark", "planet": "Jupiter", "sign": "Aquarius"},
-    "خ": {"abjad": 600, "element": "water", "temperament": "cold_moist", "quality": "dark", "planet": "Mars", "sign": "Pisces"},
-    "ذ": {"abjad": 700, "element": "fire", "temperament": "hot_dry", "quality": "dark", "planet": "Sun", "sign": "Aries"},
-    "ض": {"abjad": 800, "element": "earth", "temperament": "cold_dry", "quality": "dark", "planet": "Venus", "sign": "Taurus"},
-    "ظ": {"abjad": 900, "element": "air", "temperament": "hot_moist", "quality": "dark", "planet": "Mercury", "sign": "Gemini"},
-    "غ": {"abjad": 1000, "element": "water", "temperament": "cold_moist", "quality": "dark", "planet": "Moon", "sign": "Cancer"}
+    "ا": {
+      "abjad": 1,
+      "element": "fire",
+      "temperament": "hot_dry",
+      "quality": "luminous",
+      "planet": "Saturn",
+      "sign": "Aries"
+    },
+    "ب": {
+      "abjad": 2,
+      "element": "earth",
+      "temperament": "cold_dry",
+      "quality": "dark",
+      "planet": "Jupiter",
+      "sign": "Taurus"
+    },
+    "ج": {
+      "abjad": 3,
+      "element": "air",
+      "temperament": "hot_moist",
+      "quality": "dark",
+      "planet": "Mars",
+      "sign": "Gemini"
+    },
+    "د": {
+      "abjad": 4,
+      "element": "water",
+      "temperament": "cold_moist",
+      "quality": "dark",
+      "planet": "Sun",
+      "sign": "Cancer"
+    },
+    "ه": {
+      "abjad": 5,
+      "element": "fire",
+      "temperament": "hot_dry",
+      "quality": "luminous",
+      "planet": "Venus",
+      "sign": "Leo"
+    },
+    "و": {
+      "abjad": 6,
+      "element": "earth",
+      "temperament": "cold_dry",
+      "quality": "dark",
+      "planet": "Mercury",
+      "sign": "Virgo"
+    },
+    "ز": {
+      "abjad": 7,
+      "element": "air",
+      "temperament": "hot_moist",
+      "quality": "dark",
+      "planet": "Moon",
+      "sign": "Libra"
+    },
+    "ح": {
+      "abjad": 8,
+      "element": "water",
+      "temperament": "cold_moist",
+      "quality": "luminous",
+      "planet": "Saturn",
+      "sign": "Scorpio"
+    },
+    "ط": {
+      "abjad": 9,
+      "element": "fire",
+      "temperament": "hot_dry",
+      "quality": "luminous",
+      "planet": "Jupiter",
+      "sign": "Sagittarius"
+    },
+    "ي": {
+      "abjad": 10,
+      "element": "earth",
+      "temperament": "cold_dry",
+      "quality": "luminous",
+      "planet": "Mars",
+      "sign": "Capricorn"
+    },
+    "ك": {
+      "abjad": 20,
+      "element": "air",
+      "temperament": "hot_moist",
+      "quality": "luminous",
+      "planet": "Sun",
+      "sign": "Aquarius"
+    },
+    "ل": {
+      "abjad": 30,
+      "element": "water",
+      "temperament": "cold_moist",
+      "quality": "luminous",
+      "planet": "Venus",
+      "sign": "Pisces"
+    },
+    "م": {
+      "abjad": 40,
+      "element": "fire",
+      "temperament": "hot_dry",
+      "quality": "luminous",
+      "planet": "Mercury",
+      "sign": "Aries"
+    },
+    "ن": {
+      "abjad": 50,
+      "element": "earth",
+      "temperament": "cold_dry",
+      "quality": "luminous",
+      "planet": "Moon",
+      "sign": "Taurus"
+    },
+    "س": {
+      "abjad": 60,
+      "element": "air",
+      "temperament": "hot_moist",
+      "quality": "luminous",
+      "planet": "Saturn",
+      "sign": "Gemini"
+    },
+    "ع": {
+      "abjad": 70,
+      "element": "water",
+      "temperament": "cold_moist",
+      "quality": "luminous",
+      "planet": "Jupiter",
+      "sign": "Cancer"
+    },
+    "ف": {
+      "abjad": 80,
+      "element": "fire",
+      "temperament": "hot_dry",
+      "quality": "dark",
+      "planet": "Mars",
+      "sign": "Leo"
+    },
+    "ص": {
+      "abjad": 90,
+      "element": "earth",
+      "temperament": "cold_dry",
+      "quality": "luminous",
+      "planet": "Sun",
+      "sign": "Virgo"
+    },
+    "ق": {
+      "abjad": 100,
+      "element": "air",
+      "temperament": "hot_moist",
+      "quality": "luminous",
+      "planet": "Venus",
+      "sign": "Libra"
+    },
+    "ر": {
+      "abjad": 200,
+      "element": "water",
+      "temperament": "cold_moist",
+      "quality": "luminous",
+      "planet": "Mercury",
+      "sign": "Scorpio"
+    },
+    "ش": {
+      "abjad": 300,
+      "element": "fire",
+      "temperament": "hot_dry",
+      "quality": "dark",
+      "planet": "Moon",
+      "sign": "Sagittarius"
+    },
+    "ت": {
+      "abjad": 400,
+      "element": "earth",
+      "temperament": "cold_dry",
+      "quality": "dark",
+      "planet": "Saturn",
+      "sign": "Capricorn"
+    },
+    "ث": {
+      "abjad": 500,
+      "element": "air",
+      "temperament": "hot_moist",
+      "quality": "dark",
+      "planet": "Jupiter",
+      "sign": "Aquarius"
+    },
+    "خ": {
+      "abjad": 600,
+      "element": "water",
+      "temperament": "cold_moist",
+      "quality": "dark",
+      "planet": "Mars",
+      "sign": "Pisces"
+    },
+    "ذ": {
+      "abjad": 700,
+      "element": "fire",
+      "temperament": "hot_dry",
+      "quality": "dark",
+      "planet": "Sun",
+      "sign": "Aries"
+    },
+    "ض": {
+      "abjad": 800,
+      "element": "earth",
+      "temperament": "cold_dry",
+      "quality": "dark",
+      "planet": "Venus",
+      "sign": "Taurus"
+    },
+    "ظ": {
+      "abjad": 900,
+      "element": "air",
+      "temperament": "hot_moist",
+      "quality": "dark",
+      "planet": "Mercury",
+      "sign": "Gemini"
+    },
+    "غ": {
+      "abjad": 1000,
+      "element": "water",
+      "temperament": "cold_moist",
+      "quality": "dark",
+      "planet": "Moon",
+      "sign": "Cancer"
+    }
   },
-
   "letter_color_map": {
-    "fire": {"color": "red", "color_ar": "أحمر", "meaning": "Action, heat, expansion, active intellect"},
-    "air": {"color": "yellow", "color_ar": "أصفر", "meaning": "Spirit, breath, transmission, mediating sphere"},
-    "water": {"color": "green", "color_ar": "أخضر", "meaning": "Life-giving force, form generation, fluidity"},
-    "earth": {"color": "black", "color_ar": "أسود", "meaning": "Physical foundation, containment, structure"}
-  }
+    "fire": {
+      "color": "red",
+      "color_ar": "أحمر",
+      "meaning": "Action, heat, expansion, active intellect"
+    },
+    "air": {
+      "color": "yellow",
+      "color_ar": "أصفر",
+      "meaning": "Spirit, breath, transmission, mediating sphere"
+    },
+    "water": {
+      "color": "green",
+      "color_ar": "أخضر",
+      "meaning": "Life-giving force, form generation, fluidity"
+    },
+    "earth": {
+      "color": "black",
+      "color_ar": "أسود",
+      "meaning": "Physical foundation, containment, structure"
+    }
+  },
+  "_v3c_note": "name_roots and name_morphology are loaded from a private overlay (see SIRR_PRIVATE_OVERLAY env var) when available; this public file contains only universal letter tables."
 }

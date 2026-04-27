@@ -3,7 +3,7 @@
     "subject": "FATIMA AHMED OMAR ALKATIB",
     "arabic": "فاطمة أحمد عمر الكاتب",
     "dob": "1990-03-15",
-    "today": "2026-04-26",
+    "today": "2026-04-27",
     "timezone": "Africa/Cairo",
     "location": "Cairo, Egypt",
     "variant": "full_legal",
@@ -45,15 +45,15 @@
       "name": "Daily cycle index (Biorhythm, modern cycle theory)",
       "certainty": "COMPUTED_STRICT",
       "data": {
-        "days_alive": 13191,
-        "physical_pct": -13.6,
-        "physical_level": "NEUTRAL",
-        "emotional_pct": 62.3,
+        "days_alive": 13192,
+        "physical_pct": -39.8,
+        "physical_level": "LOW",
+        "emotional_pct": 78.2,
         "emotional_level": "HIGH",
-        "intellectual_pct": -99.0,
+        "intellectual_pct": -99.9,
         "intellectual_level": "LOW",
-        "cycle_pos": "P:12/23  E:3/28  I:24/33",
-        "period_quality": "mixed",
+        "cycle_pos": "P:13/23  E:4/28  I:25/33",
+        "period_quality": "challenging",
         "scholarship_fidelity": "MODERN_SYNTHESIS",
         "scholarship_note": "Classified MODERN_SYNTHESIS via §4.6 crosswalk classifier (module source did not declare explicitly)."
       },
@@ -734,7 +734,7 @@
         "personal_year": 1,
         "personal_year_raw": 28,
         "personal_month": 5,
-        "personal_day": 4,
+        "personal_day": 5,
         "calendar_year": 2026,
         "birthday_passed": true,
         "note": "In current year cycle",
@@ -1208,7 +1208,7 @@
         "birth_month": 8,
         "birth_month_name": "Sha'ban",
         "birth_day": 18,
-        "today_hijri": "9 Dhu al-Qi'dah 1447 AH",
+        "today_hijri": "10 Dhu al-Qi'dah 1447 AH",
         "hijri_age": 37,
         "born_in_ramadan": false,
         "born_in_dhul_hijjah": false,
@@ -1944,7 +1944,7 @@
         "is_leap_year": false,
         "year_in_metonic_cycle": 12,
         "hebrew_age": 36,
-        "today_hebrew": "9 אייר 5786",
+        "today_hebrew": "10 אייר 5786",
         "note": "Gregorian→Hebrew via hdate library. Holiday detection included.",
         "scholarship_fidelity": "CLASSICAL",
         "scholarship_note": "Classified CLASSICAL via §4.6 crosswalk classifier (module source did not declare explicitly)."
@@ -5185,49 +5185,49 @@
         "sun_advance_degrees": 35.62,
         "planets": {
           "Sun": {
-            "longitude": 30.2856,
+            "longitude": 30.2883,
             "sign": "Taurus",
             "degree": 0,
             "minute": 17,
             "formatted": "0°17' Taurus"
           },
           "Moon": {
-            "longitude": 328.5967,
+            "longitude": 328.6338,
             "sign": "Aquarius",
             "degree": 28,
-            "minute": 35,
-            "formatted": "28°35' Aquarius"
+            "minute": 38,
+            "formatted": "28°38' Aquarius"
           },
           "Mercury": {
-            "longitude": 47.1851,
+            "longitude": 47.1858,
             "sign": "Taurus",
             "degree": 17,
             "minute": 11,
             "formatted": "17°11' Taurus"
           },
           "Venus": {
-            "longitude": 345.085,
+            "longitude": 345.088,
             "sign": "Pisces",
             "degree": 15,
             "minute": 5,
             "formatted": "15°05' Pisces"
           },
           "Mars": {
-            "longitude": 329.7917,
+            "longitude": 329.7938,
             "sign": "Aquarius",
             "degree": 29,
             "minute": 47,
             "formatted": "29°47' Aquarius"
           },
           "Jupiter": {
-            "longitude": 95.291,
+            "longitude": 95.2915,
             "sign": "Cancer",
             "degree": 5,
             "minute": 17,
             "formatted": "5°17' Cancer"
           },
           "Saturn": {
-            "longitude": 295.1711,
+            "longitude": 295.1712,
             "sign": "Capricorn",
             "degree": 25,
             "minute": 10,
@@ -5536,8 +5536,8 @@
         "current_planet": "Venus",
         "current_dasha_start_age": 31.17,
         "current_dasha_end_age": 38.17,
-        "years_into_current": 4.94,
-        "years_remaining": 2.06,
+        "years_into_current": 4.95,
+        "years_remaining": 2.05,
         "cycle_length_years": 36,
         "period_quality": "benefic",
         "timeline": [
@@ -7375,7 +7375,7 @@
         "obliquity": 23.442508,
         "ramc": 34.5963,
         "geo_latitude": 30.0444,
-        "current_age": 36.11,
+        "current_age": 36.12,
         "planet_equatorial": {
           "Sun": {
             "longitude": 354.6688,
@@ -8502,7 +8502,7 @@
         "lagna_sign": "Cancer",
         "lagna_parity": "even",
         "progression_direction": "reverse",
-        "current_age": 36.11,
+        "current_age": 36.12,
         "current_dasha_sign": "Aquarius",
         "current_dasha_lord": "Saturn",
         "total_cycle_years": 77,
@@ -11429,48 +11429,44 @@
       "certainty": "APPROX",
       "data": {
         "horary_mode": "birth_fallback",
-        "question_date": "2026-04-26",
+        "question_date": "2026-04-27",
         "question_time": "12:00",
         "question_time_used": "12:00",
         "question_location": "Cairo, Egypt",
         "time_source": "solar_noon_fallback",
         "prashna_lagna": "Cancer",
-        "prashna_lagna_deg": 19.05,
+        "prashna_lagna_deg": 19.88,
         "prashna_lagna_lord": "Moon",
         "question_asc_sign": "Cancer",
-        "question_asc_degree": 109.05,
+        "question_asc_degree": 109.88,
         "prashna_moon_sign": "Leo",
-        "prashna_moon_deg": 130.6445,
-        "prashna_moon_nakshatra": "Magha",
-        "prashna_moon_nak_lord": "Ketu",
+        "prashna_moon_deg": 143.5695,
+        "prashna_moon_nakshatra": "Purva Phalguni",
+        "prashna_moon_nak_lord": "Venus",
         "natal_moon_nakshatra": "Swati",
-        "tara_count": 23,
-        "tara_name": "Pratyak",
-        "tara_quality": "Unfavorable",
+        "tara_count": 24,
+        "tara_name": "Sadhaka",
+        "tara_quality": "Favorable",
         "ishta_graha": "Sun",
-        "planetary_hour_ruler": "Mars",
-        "moon_last_aspect": {
-          "planet": "Venus",
-          "aspect": "square",
-          "degrees_past": 2.14
-        },
+        "planetary_hour_ruler": "Mercury",
+        "moon_last_aspect": null,
         "moon_next_aspect": {
-          "planet": "Sun",
-          "aspect": "trine",
-          "degrees_to_exact": 1.32
+          "planet": "Jupiter",
+          "aspect": "sextile",
+          "degrees_to_exact": 0.63
         },
         "moon_void_of_course": false,
         "via_combusta": false,
         "radicality": "RADICAL",
         "radicality_notes": [],
         "querent_significator": "Moon",
-        "prashna_verdict": "Question moment rises Cancer (lord: Moon). Prashna Moon in Magha nakshatra, Leo. Tara from natal Moon: Pratyak (Unfavorable).",
+        "prashna_verdict": "Question moment rises Cancer (lord: Moon). Prashna Moon in Purva Phalguni nakshatra, Leo. Tara from natal Moon: Sadhaka (Favorable).",
         "note": "Prashna reads the structural quality of the inquiry moment, not fate.",
-        "prashna_root": 1,
+        "prashna_root": 2,
         "scholarship_fidelity": "CLASSICAL",
         "scholarship_note": "Classified CLASSICAL via §4.6 crosswalk classifier (module source did not declare explicitly)."
       },
-      "interpretation": "The inquiry moment rises Cancer, governed by Moon. The Moon occupies Magha nakshatra in Leo, under Ketu. From the natal Moon, this is the Pratyak tara — unfavorable in quality. Chart radicality: RADICAL. Prashna reads the structural signature of the inquiry moment, not the outcome.",
+      "interpretation": "The inquiry moment rises Cancer, governed by Moon. The Moon occupies Purva Phalguni nakshatra in Leo, under Venus. From the natal Moon, this is the Sadhaka tara — favorable in quality. Chart radicality: RADICAL. Prashna reads the structural signature of the inquiry moment, not the outcome.",
       "constants_version": "sirr-new-systems-v1.2",
       "references": [
         "Prashna Marga (Kerala, ~16th c.) — primary horary text",
@@ -12514,7 +12510,7 @@
       "name": "Electional Timing Windows",
       "certainty": "COMPUTED_STRICT",
       "data": {
-        "reference_date": "2026-04-26",
+        "reference_date": "2026-04-27",
         "window_horizon_days": 90,
         "mercury_retrograde_periods": [
           {
@@ -12532,13 +12528,6 @@
                 "moon_sign": "Gemini",
                 "quality": "excellent",
                 "notes": "New Moon, Sunday"
-              },
-              {
-                "start": "2026-04-26",
-                "end": "2026-04-27",
-                "moon_sign": "Virgo",
-                "quality": "excellent",
-                "notes": "First Quarter, Sunday"
               },
               {
                 "start": "2026-05-10",
@@ -12560,6 +12549,13 @@
                 "moon_sign": "Gemini",
                 "quality": "excellent",
                 "notes": "Waning Crescent, Sunday"
+              },
+              {
+                "start": "2026-06-21",
+                "end": "2026-06-21",
+                "moon_sign": "Virgo",
+                "quality": "excellent",
+                "notes": "Waxing Crescent, Sunday"
               }
             ],
             "avoid_periods": [
@@ -12888,11 +12884,11 @@
           "date": "2026-05-02",
           "sign": "Scorpio"
         },
-        "interpretation": "Electional Windows — 90-day horizon from 2026-04-26\nMercury retrograde: 2026-06-30 to 2026-07-24\nNext New Moon: 2026-05-17 in Gemini\nNext Full Moon: 2026-05-02 in Scorpio\nCommunication & Launch: best window 2026-05-17 (Gemini, excellent)\nCareer & Authority: best window 2026-06-02 (Capricorn, excellent)\nCreative & Relationship: best window 2026-05-15 (Taurus, excellent)\nFinancial & Material: best window 2026-06-29 (Capricorn, excellent)\nSpiritual & Inner Work: best window 2026-05-02 (Scorpio, excellent)",
+        "interpretation": "Electional Windows — 90-day horizon from 2026-04-27\nMercury retrograde: 2026-06-30 to 2026-07-24\nNext New Moon: 2026-05-17 in Gemini\nNext Full Moon: 2026-05-02 in Scorpio\nCommunication & Launch: best window 2026-05-17 (Gemini, excellent)\nCareer & Authority: best window 2026-06-02 (Capricorn, excellent)\nCreative & Relationship: best window 2026-05-15 (Taurus, excellent)\nFinancial & Material: best window 2026-06-29 (Capricorn, excellent)\nSpiritual & Inner Work: best window 2026-05-02 (Scorpio, excellent)",
         "scholarship_fidelity": "CLASSICAL",
         "scholarship_note": "Classified CLASSICAL via §4.6 crosswalk classifier (module source did not declare explicitly)."
       },
-      "interpretation": "Electional Windows — 90-day horizon from 2026-04-26\nMercury retrograde: 2026-06-30 to 2026-07-24\nNext New Moon: 2026-05-17 in Gemini\nNext Full Moon: 2026-05-02 in Scorpio\nCommunication & Launch: best window 2026-05-17 (Gemini, excellent)\nCareer & Authority: best window 2026-06-02 (Capricorn, excellent)\nCreative & Relationship: best window 2026-05-15 (Taurus, excellent)\nFinancial & Material: best window 2026-06-29 (Capricorn, excellent)\nSpiritual & Inner Work: best window 2026-05-02 (Scorpio, excellent)",
+      "interpretation": "Electional Windows — 90-day horizon from 2026-04-27\nMercury retrograde: 2026-06-30 to 2026-07-24\nNext New Moon: 2026-05-17 in Gemini\nNext Full Moon: 2026-05-02 in Scorpio\nCommunication & Launch: best window 2026-05-17 (Gemini, excellent)\nCareer & Authority: best window 2026-06-02 (Capricorn, excellent)\nCreative & Relationship: best window 2026-05-15 (Taurus, excellent)\nFinancial & Material: best window 2026-06-29 (Capricorn, excellent)\nSpiritual & Inner Work: best window 2026-05-02 (Scorpio, excellent)",
       "constants_version": "sirr-new-systems-v1.2",
       "references": [
         "Abu Ma'shar, Kitab al-Ikhtiyarat (Book of Elections)",
@@ -12909,11 +12905,11 @@
       "name": "Muhurta",
       "certainty": "COMPUTED_STRICT",
       "data": {
-        "date": "2026-04-26",
+        "date": "2026-04-27",
         "location": "Cairo, Egypt",
-        "sunrise_local": "05:16",
-        "sunset_local": "18:29",
-        "day_ruler": "Sun",
+        "sunrise_local": "05:15",
+        "sunset_local": "18:30",
+        "day_ruler": "Moon",
         "current_muhurta": {
           "name": "Vidhi",
           "quality": "neutral"
@@ -12923,28 +12919,28 @@
           "end": "12:19"
         },
         "rahu_kalam": {
-          "start": "16:50",
-          "end": "18:29"
+          "start": "06:55",
+          "end": "08:34"
         },
         "gulika_kalam": {
-          "start": "15:11",
-          "end": "16:50"
+          "start": "13:32",
+          "end": "15:11"
         },
         "yamagandam": {
-          "start": "11:53",
-          "end": "13:32"
+          "start": "10:13",
+          "end": "11:52"
         },
         "best_muhurtas_today": [
           {
             "name": "Mitra",
-            "start": "07:02",
-            "end": "07:55",
+            "start": "07:01",
+            "end": "07:54",
             "quality": "auspicious",
             "good_for": "partnerships, agreements, friendship"
           },
           {
             "name": "Vasu",
-            "start": "08:48",
+            "start": "08:47",
             "end": "09:40",
             "quality": "auspicious",
             "good_for": "wealth, acquisitions, foundation laying"
@@ -12965,31 +12961,31 @@
           },
           {
             "name": "Varuna",
-            "start": "15:50",
-            "end": "16:43",
+            "start": "15:51",
+            "end": "16:44",
             "quality": "auspicious",
             "good_for": "water-related, travel, purification"
           },
           {
             "name": "Aryaman",
-            "start": "16:43",
-            "end": "17:36",
+            "start": "16:44",
+            "end": "17:37",
             "quality": "auspicious",
             "good_for": "marriage, relationships, alliances"
           },
           {
             "name": "Bhaga",
-            "start": "17:36",
-            "end": "18:29",
+            "start": "17:37",
+            "end": "18:30",
             "quality": "auspicious",
             "good_for": "prosperity, fortune, celebrations"
           }
         ],
-        "interpretation": "Muhurta — Vedic Auspicious Timing for 2026-04-26\nLocation: Cairo, Egypt (sunrise 05:16, sunset 18:29)\nDay ruler: Sun\nCurrent muhurta (midday): Vidhi (neutral)\nAbhijit muhurta: 11:26-12:19\nRahu Kalam: 16:50-18:29 (avoid)\nBest windows today:\n  Mitra (07:02-07:55): partnerships, agreements, friendship\n  Vasu (08:48-09:40): wealth, acquisitions, foundation laying\n  Vara (09:40-10:33): general auspiciousness, ceremonies",
+        "interpretation": "Muhurta — Vedic Auspicious Timing for 2026-04-27\nLocation: Cairo, Egypt (sunrise 05:15, sunset 18:30)\nDay ruler: Moon\nCurrent muhurta (midday): Vidhi (neutral)\nAbhijit muhurta: 11:26-12:19\nRahu Kalam: 06:55-08:34 (avoid)\nBest windows today:\n  Mitra (07:01-07:54): partnerships, agreements, friendship\n  Vasu (08:47-09:40): wealth, acquisitions, foundation laying\n  Vara (09:40-10:33): general auspiciousness, ceremonies",
         "scholarship_fidelity": "CLASSICAL",
         "scholarship_note": "Classified CLASSICAL via §4.6 crosswalk classifier (module source did not declare explicitly)."
       },
-      "interpretation": "Muhurta — Vedic Auspicious Timing for 2026-04-26\nLocation: Cairo, Egypt (sunrise 05:16, sunset 18:29)\nDay ruler: Sun\nCurrent muhurta (midday): Vidhi (neutral)\nAbhijit muhurta: 11:26-12:19\nRahu Kalam: 16:50-18:29 (avoid)\nBest windows today:\n  Mitra (07:02-07:55): partnerships, agreements, friendship\n  Vasu (08:48-09:40): wealth, acquisitions, foundation laying\n  Vara (09:40-10:33): general auspiciousness, ceremonies",
+      "interpretation": "Muhurta — Vedic Auspicious Timing for 2026-04-27\nLocation: Cairo, Egypt (sunrise 05:15, sunset 18:30)\nDay ruler: Moon\nCurrent muhurta (midday): Vidhi (neutral)\nAbhijit muhurta: 11:26-12:19\nRahu Kalam: 06:55-08:34 (avoid)\nBest windows today:\n  Mitra (07:01-07:54): partnerships, agreements, friendship\n  Vasu (08:47-09:40): wealth, acquisitions, foundation laying\n  Vara (09:40-10:33): general auspiciousness, ceremonies",
       "constants_version": "sirr-new-systems-v1.2",
       "references": [
         "Muhurta Chintamani",
@@ -13089,28 +13085,28 @@
       "name": "Horary Timing (Planetary Hour & Day Ruler)",
       "certainty": "COMPUTED_STRICT",
       "data": {
-        "today": "2026-04-26",
-        "day_of_week": "Sunday",
-        "day_ruler": "Sun",
+        "today": "2026-04-27",
+        "day_of_week": "Monday",
+        "day_ruler": "Moon",
         "current_hour_number": 9,
-        "current_hour_ruler": "Venus",
-        "next_hour_ruler": "Mercury",
+        "current_hour_ruler": "Saturn",
+        "next_hour_ruler": "Jupiter",
         "sunrise_time_local": "06:00",
         "time_used": "14:42",
         "time_source": "birth_time",
         "chaldean_day_hour_sequence": [
-          "Sun",
-          "Venus",
-          "Mercury",
           "Moon",
           "Saturn",
           "Jupiter",
-          "Mars"
+          "Mars",
+          "Sun",
+          "Venus",
+          "Mercury"
         ],
         "scholarship_fidelity": "CLASSICAL",
         "scholarship_note": "Classified CLASSICAL via §4.6 crosswalk classifier (module source did not declare explicitly)."
       },
-      "interpretation": "On Sunday, 2026-04-26, the day is ruled by Sun. At 14:42, the planetary hour belongs to Venus, followed by Mercury. The Chaldean sequence from sunrise: Sun, Venus, Mercury, Moon, Saturn, Jupiter, Mars.",
+      "interpretation": "On Monday, 2026-04-27, the day is ruled by Moon. At 14:42, the planetary hour belongs to Saturn, followed by Jupiter. The Chaldean sequence from sunrise: Moon, Saturn, Jupiter, Mars, Sun, Venus, Mercury.",
       "constants_version": "sirr-new-systems-v1.2",
       "references": [
         "Chaldean planetary hour sequence",
@@ -20051,7 +20047,7 @@
     {
       "id": "arabic_roots",
       "name": "Arabic Root Extraction (علم الاشتقاق)",
-      "certainty": "COMPUTED_STRICT",
+      "certainty": "APPROX",
       "data": {
         "module_class": "primary",
         "arabic_name": "فاطمة أحمد عمر الكاتب",
@@ -20076,16 +20072,12 @@
           },
           {
             "word": "عمر",
-            "root": "ع-م-ر",
-            "root_letters": [
-              "ع",
-              "م",
-              "ر"
-            ],
-            "primary_meaning": "To live long, inhabit, cultivate, build",
-            "semantic_field": "time_cultivation",
-            "form": "I",
-            "lane_ref": "Bk 1, p. 2154"
+            "root": null,
+            "root_letters": [],
+            "primary_meaning": "unclassified",
+            "semantic_field": "unclassified",
+            "form": null,
+            "lane_ref": ""
           },
           {
             "word": "الكاتب",
@@ -20111,9 +20103,7 @@
           {
             "unit": "عمر",
             "is_compound": false,
-            "roots": [
-              "ع-م-ر"
-            ]
+            "roots": []
           },
           {
             "unit": "الكاتب",
@@ -20121,18 +20111,12 @@
             "roots": []
           }
         ],
-        "root_count": 1,
-        "root_abjad_total": 310,
-        "root_abjad_root": 4,
-        "semantic_fields": {
-          "time_cultivation": 1
-        },
-        "dominant_field": "time_cultivation",
-        "all_root_letters": [
-          "ع",
-          "م",
-          "ر"
-        ],
+        "root_count": 0,
+        "root_abjad_total": 0,
+        "root_abjad_root": 0,
+        "semantic_fields": {},
+        "dominant_field": "none",
+        "all_root_letters": [],
         "scholarship_fidelity": "CLASSICAL",
         "scholarship_note": "Classified CLASSICAL via §4.6 crosswalk classifier (module source did not declare explicitly)."
       },
@@ -20151,7 +20135,7 @@
     {
       "id": "arabic_morphology",
       "name": "Arabic Morphology Analysis (علم الصرف)",
-      "certainty": "COMPUTED_STRICT",
+      "certainty": "APPROX",
       "data": {
         "module_class": "primary",
         "arabic_name": "فاطمة أحمد عمر الكاتب",
@@ -20178,13 +20162,13 @@
           },
           {
             "word": "عمر",
-            "wazn": "فُعَل",
-            "wazn_latin": "fuʿal",
-            "class": "proper_noun_deviated",
-            "class_ar": "معدول",
-            "form": "I",
+            "wazn": null,
+            "wazn_latin": null,
+            "class": "unclassified",
+            "class_ar": "",
+            "form": null,
             "voice": "n/a",
-            "note": "Deviated from active participle عامر denoting intensity/fixity"
+            "note": ""
           },
           {
             "word": "الكاتب",
@@ -20206,9 +20190,7 @@
         "dominant_voice": "active",
         "active_ratio": 0,
         "passive_ratio": 0,
-        "class_distribution": {
-          "proper_noun_deviated": 1
-        },
+        "class_distribution": {},
         "scholarship_fidelity": "CLASSICAL",
         "scholarship_note": "Classified CLASSICAL via §4.6 crosswalk classifier (module source did not declare explicitly)."
       },
@@ -20226,7 +20208,7 @@
     {
       "id": "name_semantics",
       "name": "Name Semantics (علم المعاني)",
-      "certainty": "LOOKUP_FIXED",
+      "certainty": "APPROX",
       "data": {
         "module_class": "primary",
         "arabic_name": "فاطمة أحمد عمر الكاتب",
@@ -20266,10 +20248,10 @@
               "عمر"
             ],
             "semantic_fields": [
-              "time_cultivation"
+              "unclassified"
             ],
             "primary_meanings": [
-              "To live long, inhabit, cultivate, build"
+              "unclassified"
             ]
           },
           {
@@ -20298,10 +20280,8 @@
             "id": "construction",
             "label_en": "Construction / Building",
             "label_ar": "البناء / التعمير",
-            "count": 1,
-            "units": [
-              "عمر"
-            ]
+            "count": 0,
+            "units": []
           },
           {
             "id": "observation",
@@ -20311,10 +20291,10 @@
             "units": []
           }
         ],
-        "dominant_cluster": "construction",
-        "dominant_cluster_count": 1,
-        "dominant_cluster_ratio": 100.0,
-        "total_classified": 1,
+        "dominant_cluster": "sacred_devotional",
+        "dominant_cluster_count": 0,
+        "dominant_cluster_ratio": 0,
+        "total_classified": 0,
         "scholarship_fidelity": "CLASSICAL",
         "scholarship_note": "Classified CLASSICAL via §4.6 crosswalk classifier (module source did not declare explicitly)."
       },
@@ -21231,9 +21211,9 @@
         "module_class": "comparative",
         "fixed_sum": 1103,
         "fixed_count": 8,
-        "kinetic_sum": 186.89999999999998,
+        "kinetic_sum": 229.9,
         "kinetic_count": 7,
-        "coefficient": 0.8551,
+        "coefficient": 0.8275,
         "classification": "structurally_dominant",
         "fixed_vectors": {
           "life_path": 1,
@@ -21246,9 +21226,9 @@
           "abjad_root": 2
         },
         "kinetic_vectors": {
-          "physical_pct": 13.6,
-          "emotional_pct": 62.3,
-          "intellectual_pct": 99.0,
+          "physical_pct": 39.8,
+          "emotional_pct": 78.2,
+          "intellectual_pct": 99.9,
           "essence": 5,
           "profection_house": 1,
           "personal_year": 1,
@@ -21276,7 +21256,7 @@
         "module_class": "comparative",
         "axes": {
           "name_abjad": 2,
-          "name_root_abjad": 4,
+          "name_root_abjad": 0,
           "digit_life_path": 1,
           "digit_expression": 4,
           "digit_birthday": 6,
@@ -21287,12 +21267,11 @@
         },
         "axis_count": 9,
         "comparisons": 36,
-        "agreements": 4,
-        "alignment_score": 11.1,
+        "agreements": 3,
+        "alignment_score": 8.3,
         "agreement_pairs": [
           "cyclic_personal_year=digit_life_path=1",
           "cyclic_personal_year=elemental_number=1",
-          "digit_expression=name_root_abjad=4",
           "digit_life_path=elemental_number=1"
         ],
         "dominant_value": 1,
@@ -21380,18 +21359,18 @@
           {
             "rank": 3,
             "fact": "semantic_center",
-            "value": "construction",
-            "ratio": 100.0,
+            "value": "sacred_devotional",
+            "ratio": 0,
             "source": "name_semantics",
-            "statement": "Semantic center: construction (100.0% of name)"
+            "statement": "Semantic center: sacred_devotional (0% of name)"
           },
           {
             "rank": 4,
             "fact": "structural_balance",
             "value": "structurally_dominant",
-            "coefficient": 0.8551,
+            "coefficient": 0.8275,
             "source": "barzakh_coefficient",
-            "statement": "Structural balance: structurally_dominant (coefficient 0.8551)"
+            "statement": "Structural balance: structurally_dominant (coefficient 0.8275)"
           },
           {
             "rank": 5,
@@ -21403,17 +21382,17 @@
           }
         ],
         "fact_count": 5,
-        "signature_string": "Root 1 dominates across 3 axes | Name is structurally active — identity is actively constructed | Semantic center: construction (100.0% of name) | Structural balance: structurally_dominant (coefficient 0.8551) | Void geometry: center present, 15 total voids",
+        "signature_string": "Root 1 dominates across 3 axes | Name is structurally active — identity is actively constructed | Semantic center: sacred_devotional (0% of name) | Structural balance: structurally_dominant (coefficient 0.8275) | Void geometry: center present, 15 total voids",
         "scholarship_fidelity": "MODERN_SYNTHESIS",
         "scholarship_note": "Classified MODERN_SYNTHESIS via §4.6 crosswalk classifier (module source did not declare explicitly)."
       },
-      "interpretation": "The minimum viable signature compresses the report into a small set of product-level signals: dominant root 1, dominant axis count 3, activity mode active, semantic center share 100.0, coefficient 0.8551, matrix void status center present, and void count 15. This is a SIRR summary layer, not a classical tradition. Its role is to show which internal signals remain visible after compression, without turning the summary into a destiny claim or a cross-module convergence argument.",
+      "interpretation": "The minimum viable signature compresses the report into a small set of product-level signals: dominant root 1, dominant axis count 3, activity mode active, semantic center share 0, coefficient 0.8275, matrix void status center present, and void count 15. This is a SIRR summary layer, not a classical tradition. Its role is to show which internal signals remain visible after compression, without turning the summary into a destiny claim or a cross-module convergence argument.",
       "constants_version": "sirr-new-systems-v1.2",
       "references": [
         "Structural distillation — the 5 irreducible facts of a SIRR profile"
       ],
       "question": "Q6_SYNTHESIS",
-      "ar_interpretation": "يختصر التوقيع الأدنى التقرير في مجموعة صغيرة من الإشارات على مستوى المنتج: الجذر المهيمن 1، وعدد المحاور المهيمنة 3، ونمط الفاعلية active، ونسبة المركز الدلالي 100.0، والمعامل 0.8551، وحالة فراغ المصفوفة center present، وعدد الفراغات 15. هذه طبقة تلخيص في SIRR وليست تقليدًا كلاسيكيًا. وظيفتها إظهار الإشارات الداخلية التي تبقى مرئية بعد الضغط، من غير تحويل الملخص إلى دعوى قدرية أو حجة تقارب بين الوحدات.",
+      "ar_interpretation": "يختصر التوقيع الأدنى التقرير في مجموعة صغيرة من الإشارات على مستوى المنتج: الجذر المهيمن 1، وعدد المحاور المهيمنة 3، ونمط الفاعلية active، ونسبة المركز الدلالي 0، والمعامل 0.8275، وحالة فراغ المصفوفة center present، وعدد الفراغات 15. هذه طبقة تلخيص في SIRR وليست تقليدًا كلاسيكيًا. وظيفتها إظهار الإشارات الداخلية التي تبقى مرئية بعد الضغط، من غير تحويل الملخص إلى دعوى قدرية أو حجة تقارب بين الوحدات.",
       "domain": "numerology",
       "tier": "COMPRESSED"
     },
@@ -22079,11 +22058,11 @@
         "pillar_balanced": true,
         "daat_active": false,
         "active_sephirot": [
-          "Hod",
-          "Chokhmah",
-          "Tiferet",
-          "Gevurah",
           "Keter",
+          "Gevurah",
+          "Hod",
+          "Tiferet",
+          "Chokhmah",
           "Chesed"
         ],
         "sephirot_count": 6,
@@ -22123,6 +22102,16 @@
         "dominant_angel": "Michael",
         "dominant_kamea_constant": 111,
         "active_correspondences": {
+          "Mars": {
+            "angel": "Samael",
+            "intelligence": "Graphiel",
+            "spirit": "Bartzabel",
+            "metal": "Iron",
+            "day": "Tuesday",
+            "color": "Red",
+            "kamea_order": 5,
+            "magic_square_constant": 65
+          },
           "Jupiter": {
             "angel": "Sachiel",
             "intelligence": "Iophiel",
@@ -22142,16 +22131,6 @@
             "color": "Yellow/Gold",
             "kamea_order": 6,
             "magic_square_constant": 111
-          },
-          "Mars": {
-            "angel": "Samael",
-            "intelligence": "Graphiel",
-            "spirit": "Bartzabel",
-            "metal": "Iron",
-            "day": "Tuesday",
-            "color": "Red",
-            "kamea_order": 5,
-            "magic_square_constant": 65
           }
         },
         "module_class": "meta",
@@ -22404,17 +22383,17 @@
       "data": {
         "votes": {
           "EXPANSIVE": 1,
-          "CONTRACTIVE": 3,
-          "MIXED": 1
+          "CONTRACTIVE": 4,
+          "MIXED": 0
         },
         "consensus": "CONTRACTIVE",
-        "consensus_count": 3,
+        "consensus_count": 4,
         "total_systems": 5,
-        "agreement_score": 0.6,
+        "agreement_score": 0.8,
         "system_votes": {
           "biorhythm": {
-            "raw": "mixed",
-            "normalized": "MIXED"
+            "raw": "challenging",
+            "normalized": "CONTRACTIVE"
           },
           "firdaria": {
             "raw": "challenging",
@@ -23396,11 +23375,11 @@
         "group_count": 7,
         "groups": [
           "tibetan_calendar",
-          "birth_digits",
           "astronomical",
+          "birth_digits",
           "hellenistic_day",
-          "birth_time",
           "chinese_calendar",
+          "birth_time",
           "latin_name"
         ],
         "systems": [
@@ -23458,13 +23437,13 @@
         "system_count": 18,
         "group_count": 7,
         "groups": [
-          "birth_digits",
           "astronomical",
-          "mayan_calendar",
-          "birth_time",
+          "birth_digits",
+          "arabic_name",
           "african_binary",
+          "birth_time",
           "latin_name",
-          "arabic_name"
+          "mayan_calendar"
         ],
         "systems": [
           "mayan",
@@ -23513,14 +23492,14 @@
         "system_count": 19,
         "group_count": 8,
         "groups": [
-          "birth_digits",
           "astronomical",
+          "birth_digits",
           "hellenistic_day",
-          "mayan_calendar",
-          "chaldean_name",
           "chinese_calendar",
+          "arabic_name",
           "latin_name",
-          "arabic_name"
+          "chaldean_name",
+          "mayan_calendar"
         ],
         "systems": [
           "challenges",
@@ -23568,20 +23547,19 @@
       },
       {
         "number": 4,
-        "system_count": 16,
+        "system_count": 14,
         "group_count": 5,
         "groups": [
-          "birth_digits",
           "astronomical",
+          "birth_digits",
           "chinese_calendar",
-          "latin_name",
-          "arabic_name"
+          "arabic_name",
+          "latin_name"
         ],
         "systems": [
           "compound",
           "bridges",
           "pinnacles",
-          "personal_year",
           "lo_shu_grid",
           "abjad_saghir",
           "luminous_dark",
@@ -23591,7 +23569,6 @@
           "sect",
           "declinations",
           "bonification",
-          "arabic_roots",
           "letter_position_encoding",
           "hebrew_aiq_beker"
         ],
@@ -23599,7 +23576,6 @@
           "compound": "birth_digits",
           "bridges": "birth_digits",
           "pinnacles": "birth_digits",
-          "personal_year": "birth_digits",
           "lo_shu_grid": "birth_digits",
           "abjad_saghir": "arabic_name",
           "luminous_dark": "arabic_name",
@@ -23609,7 +23585,6 @@
           "sect": "astronomical",
           "declinations": "astronomical",
           "bonification": "astronomical",
-          "arabic_roots": "arabic_name",
           "letter_position_encoding": "arabic_name",
           "hebrew_aiq_beker": "arabic_name"
         },
@@ -23620,13 +23595,13 @@
         "system_count": 13,
         "group_count": 7,
         "groups": [
-          "birth_digits",
           "astronomical",
-          "derived",
+          "birth_digits",
           "hellenistic_day",
-          "hijri_calendar",
+          "derived",
+          "arabic_name",
           "latin_name",
-          "arabic_name"
+          "hijri_calendar"
         ],
         "systems": [
           "essence",
@@ -23665,14 +23640,14 @@
         "system_count": 14,
         "group_count": 8,
         "groups": [
+          "astronomical",
           "birth_digits",
           "derived",
-          "astronomical",
-          "hijri_calendar",
-          "birth_time",
+          "arabic_name",
           "african_binary",
+          "birth_time",
           "latin_name",
-          "arabic_name"
+          "hijri_calendar"
         ],
         "systems": [
           "compound",
@@ -23713,13 +23688,13 @@
         "system_count": 13,
         "group_count": 8,
         "groups": [
-          "derived",
           "astronomical",
+          "birth_digits",
+          "derived",
+          "chinese_calendar",
+          "arabic_name",
           "latin_name",
           "mayan_calendar",
-          "chinese_calendar",
-          "birth_digits",
-          "arabic_name",
           "mandaean_name"
         ],
         "systems": [
@@ -23759,13 +23734,13 @@
         "system_count": 9,
         "group_count": 7,
         "groups": [
-          "birth_digits",
           "astronomical",
-          "hijri_calendar",
-          "birth_time",
+          "birth_digits",
           "chinese_calendar",
+          "arabic_name",
+          "birth_time",
           "latin_name",
-          "arabic_name"
+          "hijri_calendar"
         ],
         "systems": [
           "lo_shu_grid",
@@ -23796,9 +23771,9 @@
         "system_count": 5,
         "group_count": 3,
         "groups": [
-          "latin_name",
           "birth_digits",
-          "derived"
+          "derived",
+          "latin_name"
         ],
         "systems": [
           "attitude",
@@ -23822,10 +23797,10 @@
         "group_count": 5,
         "groups": [
           "astronomical",
+          "birth_digits",
           "derived",
-          "mayan_calendar",
           "solar_cycle",
-          "birth_digits"
+          "mayan_calendar"
         ],
         "systems": [
           "compound",
@@ -23850,9 +23825,9 @@
         "system_count": 6,
         "group_count": 4,
         "groups": [
+          "arabic_name",
           "indo_javanese_calendar",
           "latin_name",
-          "arabic_name",
           "astronomical"
         ],
         "systems": [
@@ -23878,9 +23853,9 @@
         "system_count": 3,
         "group_count": 3,
         "groups": [
-          "hebrew_calendar_family",
           "arabic_name",
-          "chaldean_name"
+          "chaldean_name",
+          "hebrew_calendar_family"
         ],
         "systems": [
           "solar_lunar",
@@ -23900,8 +23875,8 @@
         "group_count": 3,
         "groups": [
           "birth_time",
-          "astronomical",
-          "hellenistic_day"
+          "hellenistic_day",
+          "astronomical"
         ],
         "systems": [
           "geomancy",
@@ -23924,8 +23899,8 @@
         "system_count": 3,
         "group_count": 2,
         "groups": [
-          "approx",
-          "indo_javanese_calendar"
+          "indo_javanese_calendar",
+          "approx"
         ],
         "systems": [
           "vedic_yoga",
@@ -23944,10 +23919,10 @@
         "system_count": 5,
         "group_count": 4,
         "groups": [
-          "hijri_calendar",
-          "oceanic_lunar_calendar",
           "astronomical",
-          "hebrew_calendar_family"
+          "hebrew_calendar_family",
+          "oceanic_lunar_calendar",
+          "hijri_calendar"
         ],
         "systems": [
           "hijri",
@@ -23971,8 +23946,8 @@
         "group_count": 4,
         "groups": [
           "birth_digits",
-          "approx",
           "birth_time",
+          "approx",
           "astronomical"
         ],
         "systems": [
@@ -24003,8 +23978,8 @@
           "tibetan_calendar",
           "african_calendar",
           "chinese_calendar",
-          "african_binary",
-          "arabic_name"
+          "arabic_name",
+          "african_binary"
         ],
         "systems": [
           "nayin",
@@ -24025,11 +24000,11 @@
         "group_count": 6,
         "groups": [
           "tibetan_calendar",
-          "derived",
           "astronomical",
           "hellenistic_day",
-          "zoroastrian_calendar",
-          "arabic_name"
+          "derived",
+          "arabic_name",
+          "zoroastrian_calendar"
         ],
         "systems": [
           "elemental_letters",
@@ -24049,11 +24024,11 @@
         "system_count": 10,
         "group_count": 5,
         "groups": [
-          "derived",
           "astronomical",
-          "birth_time",
+          "derived",
           "chinese_calendar",
-          "arabic_name"
+          "arabic_name",
+          "birth_time"
         ],
         "systems": [
           "nine_star_ki",
@@ -24115,21 +24090,6 @@
         ],
         "tier": "TIER_1_RESONANCE",
         "meaning": "Multiple timing systems point to 2"
-      },
-      {
-        "number": 3,
-        "system_count": 2,
-        "group_count": 2,
-        "systems": [
-          "kalachakra_dasha",
-          "timing_consensus"
-        ],
-        "groups": [
-          "astronomical",
-          "derived"
-        ],
-        "tier": "TIER_2_CONVERGENCE",
-        "meaning": "Multiple timing systems point to 3"
       },
       {
         "number": 5,
@@ -24682,15 +24642,15 @@
         },
         {
           "id": "arabic_roots",
-          "certainty": "COMPUTED_STRICT"
+          "certainty": "APPROX"
         },
         {
           "id": "arabic_morphology",
-          "certainty": "COMPUTED_STRICT"
+          "certainty": "APPROX"
         },
         {
           "id": "name_semantics",
-          "certainty": "LOOKUP_FIXED"
+          "certainty": "APPROX"
         },
         {
           "id": "digit_patterns",
@@ -25182,10 +25142,10 @@
     },
     "confidence_summary": {
       "total_systems": 238,
-      "strict_locked": 202,
-      "method_locked": 24,
-      "approximate": 6,
-      "lockable_pct": 95.0
+      "strict_locked": 200,
+      "method_locked": 23,
+      "approximate": 9,
+      "lockable_pct": 93.7
     },
     "baseline": null,
     "resonance_count": 15,
@@ -25194,7 +25154,7 @@
   },
   "narrative": {
     "version": "narrative_v1.0",
-    "generated_at": "2026-04-26T18:34:24",
+    "generated_at": "2026-04-27T05:37:14",
     "profile_ref": {
       "subject": "FATIMA AHMED OMAR ALKATIB",
       "arabic": "فاطمة أحمد عمر الكاتب",
@@ -25226,11 +25186,11 @@
       "dominant_percentile": 0.0,
       "dominant_group_ids": [
         "tibetan_calendar",
-        "birth_digits",
         "astronomical",
+        "birth_digits",
         "hellenistic_day",
-        "birth_time",
         "chinese_calendar",
+        "birth_time",
         "latin_name"
       ],
       "secondary": [
@@ -25248,7 +25208,7 @@
         },
         {
           "root": 4,
-          "systems": 16,
+          "systems": 14,
           "groups": 5,
           "tier": "TIER_1_RESONANCE"
         },
@@ -25390,7 +25350,7 @@
           "reason": "Pythagorean reduction is deterministic; all values COMPUTED_STRICT."
         },
         {
-          "item": "Approximate modules (6 total)",
+          "item": "Approximate modules (9 total)",
           "status": "UNCERTAIN",
           "reason": "These modules use approximate astronomical data or lack birth-time precision."
         },
@@ -25859,7 +25819,7 @@
         "scholarship_note": "Tendency indicator mapped from symbolic inputs to an empirical psych construct. See `reference` for construct provenance. Standing disclaimer: structural tendency, not clinical assessment."
       },
       "conscientiousness": {
-        "score": 0.61,
+        "score": 0.6,
         "label": "Conscientiousness",
         "reference": "Costa & McCrae (1992). NEO-PI-R Professional Manual.",
         "mapping_rationale": "High barzakh coefficient (structural dominance over temporal flux), triple_gate (cross-system coherence), and complete Lo Shu grid (few structural gaps) indicate organized, consistent architecture.",
@@ -25867,7 +25827,7 @@
         "scholarship_note": "Tendency indicator mapped from symbolic inputs to an empirical psych construct. See `reference` for construct provenance. Standing disclaimer: structural tendency, not clinical assessment."
       },
       "extraversion": {
-        "score": 0.38,
+        "score": 0.43,
         "label": "Extraversion",
         "reference": "Costa & McCrae (1992). NEO-PI-R Professional Manual.",
         "mapping_rationale": "Biorhythm energy output, emotional plane expression percentage, timing consensus direction (expansive vs contractive), and cyclic activation state map to outward-directed energy.",
@@ -25900,7 +25860,7 @@
       "scholarship_note": "Tendency indicator mapped from symbolic inputs to an empirical psych construct. See `reference` for construct provenance. Standing disclaimer: structural tendency, not clinical assessment."
     },
     "sensation_seeking": {
-      "score": 0.26,
+      "score": 0.32,
       "label": "Sensation Seeking",
       "reference": "Zuckerman, M. (1994). Behavioral expressions and biosocial bases of sensation seeking. Cambridge University Press.",
       "mapping_rationale": "Rahu dasha (attraction to unfamiliar), biorhythm physical energy, enneagram type approach to novelty, and timing consensus direction map to the SS-V construct of need for novel experience.",
@@ -25908,7 +25868,7 @@
       "scholarship_note": "Tendency indicator mapped from symbolic inputs to an empirical psych construct. See `reference` for construct provenance. Standing disclaimer: structural tendency, not clinical assessment."
     },
     "psychological_flexibility": {
-      "score": 0.57,
+      "score": 0.59,
       "label": "Psychological Flexibility",
       "reference": "Hayes, S.C., Luoma, J.B., Bond, F.W., Masuda, A., & Lillis, J. (2006). Acceptance and Commitment Therapy: Model, processes and outcomes. Behaviour Research and Therapy, 44(1), 1-25.",
       "mapping_rationale": "Triple gate (cross-framework integration), barzakh balance (structural vs temporal flexibility), and dominant current (organizing coherence) indicate capacity to hold complexity while maintaining functional direction.",
@@ -25948,7 +25908,7 @@
     },
     "attachment_tendency": {
       "style": "dismissive-avoidant",
-      "self_model": 0.77,
+      "self_model": 0.76,
       "other_model": 0.5,
       "label": "Attachment Tendency",
       "reference": "Bartholomew, K. & Horowitz, L.M. (1991). Attachment styles among young adults: A test of a four-category model. JPSP, 61(2), 226-244.",
@@ -25967,7 +25927,7 @@
       "level": "predominantly mature"
     },
     "emotional_regulation": {
-      "score": 0.51,
+      "score": 0.47,
       "label": "Emotional Regulation Strategy",
       "reference": "Gross, J.J. (2002). Emotion regulation: Affective, cognitive, and social consequences. Psychophysiology, 39(3), 281-291.",
       "mapping_rationale": "triple_gate/dominant_current→reappraisal, high barzakh→suppression, emotional biorhythm amplitude.",
@@ -26067,7 +26027,7 @@
       "primary_foundation": "fairness"
     },
     "flow_state": {
-      "score": 0.7,
+      "score": 0.75,
       "label": "Flow State Proneness",
       "reference": "Csikszentmihalyi, M. (1990). Flow: The Psychology of Optimal Experience. Harper & Row.",
       "mapping_rationale": "triple_gate→clear goals, dominant_current→focused attention, HD Generator→sustained energy.",
@@ -26093,7 +26053,7 @@
       }
     },
     "resilience": {
-      "score": 0.69,
+      "score": 0.68,
       "label": "Resilience Capacity",
       "reference": "Connor, K.M. & Davidson, J.R.T. (2003). Development of a new resilience scale (CD-RISC). Depression and Anxiety, 18(2), 76-82.",
       "mapping_rationale": "triple_gate→structural coherence, barzakh→solidity, threshold_birth→transition familiarity.",
