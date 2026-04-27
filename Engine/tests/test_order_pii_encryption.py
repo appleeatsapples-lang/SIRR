@@ -492,17 +492,13 @@ def test_migration_skips_non_row_files(tmp_path, monkeypatch):
 def test_migration_recovers_spoofed_prefix(tmp_path, monkeypatch):
     """A row written before R3 could carry name_latin='enc:v1:DEADBEEF'
     as plaintext (the R2-V3 attack vector). Migration must detect that
-    the prefixed value does not actually decrypt, strip the prefix, and
-    re-encrypt the recovered post-prefix portion. The resulting field
-    must round-trip back to the post-prefix string on a subsequent
-    get_order call.
-
-    Known issue (R6 V2, deferred to P2G-followup PR): the recovery is
-    lossy — the original prefix is dropped, so `enc:v1:DEADBEEF` →
-    `DEADBEEF` rather than the literal string the customer submitted.
-    With Railway showing zero production rows, no real data triggers
-    this path before the followup ships. The assertion below pins
-    current (lossy) behavior so the followup PR can flip it cleanly.
+    the prefixed value does not actually decrypt, then re-encrypt the
+    FULL ORIGINAL LITERAL — including the leading `enc:v1:` bytes —
+    so no bytes the customer/caller submitted are silently dropped.
+    The resulting field must round-trip back to the original literal
+    string on a subsequent get_order call (P2G-followup V2 fix; R5
+    pinned the lossy `DEADBEEF`-only round-trip behavior, this PR
+    flips it to preserve the full literal).
     """
     import order_store as os_mod
     import migrate_pii_encrypt as mig
@@ -516,11 +512,12 @@ def test_migration_recovers_spoofed_prefix(tmp_path, monkeypatch):
     monkeypatch.setattr(mig, "_FAIL_CLOSED_MARKER", marker)
 
     spoof = "DEADBEEFCAFEBABE"
+    spoofed_literal = _ENC_PREFIX + spoof
     spoofed_row = {
         "order_id": "fixture-spoofed-1",
         "status": "pending",
         "created_at": "2026-04-25T00:00:00",
-        "name_latin": _ENC_PREFIX + spoof,  # looks encrypted, isn't
+        "name_latin": spoofed_literal,  # looks encrypted, isn't
         "dob": "1999-12-12",
         "lang": "en",
     }
@@ -530,17 +527,20 @@ def test_migration_recovers_spoofed_prefix(tmp_path, monkeypatch):
     assert rc == 0
     assert marker.exists()
 
-    # The field is now genuinely encrypted (different from the spoofed
-    # literal — random nonce per encryption — and round-trips to the
-    # recovered post-prefix portion).
+    # The field is now genuinely encrypted: starts with the prefix and
+    # differs from the spoofed literal byte-for-byte (random nonce per
+    # encryption).
     raw = json.loads((isolated / "fixture-spoofed-1.json").read_text())
     assert raw["name_latin"].startswith(_ENC_PREFIX)
-    assert raw["name_latin"] != spoofed_row["name_latin"], (
-        "migration left the spoofed literal in place"
+    assert raw["name_latin"] != spoofed_literal, (
+        "migration left the spoofed literal in place (no encrypt happened)"
     )
+    # Round-trip preserves the FULL original literal — leading `enc:v1:`
+    # bytes are NOT dropped (V2 lossless invariant).
     row = os_mod.get_order("fixture-spoofed-1")
-    assert row["name_latin"] == spoof, (
-        f"spoofed-recovery did not round-trip: got {row['name_latin']!r}"
+    assert row["name_latin"] == spoofed_literal, (
+        f"V2 lossless invariant broken: got {row['name_latin']!r}, "
+        f"expected the full original literal {spoofed_literal!r}"
     )
 
 
@@ -634,45 +634,65 @@ def test_delete_runs_null_pass_on_legacy_deleted_row_with_pii(monkeypatch):
         )
 
 
-# ── 17. C2 multi-tmp tmp paths don't collide ─────────────────────────────
+# ── 17. C2 _atomic_write_json tmp paths are observed, unique, and patterned
 
-def test_atomic_write_tmp_paths_are_unique():
-    """Two concurrent writers (gunicorn workers) for the same row must
-    not race on the same temp filename. Smoke-test by invoking the
-    helper twice in quick succession with the same target and asserting
-    the temp filenames seen are distinct."""
+def test_atomic_write_tmp_paths_are_unique(tmp_path, monkeypatch):
+    """`_atomic_write_json`'s tmp suffix is `.{pid}.{secrets.token_hex(4)}.tmp`
+    so two writers cannot race on the same temp filename. Verify by
+    monkey-patching `os.replace` to capture the `src` argument on each
+    call AND `os.getpid` to return a sentinel value (Codex R2 C1 catch
+    — without the sentinel, a `\\d+` pid match could equally satisfy
+    a regression that swapped getpid for a monotonic counter), driving
+    16 `_atomic_write_json` invocations, and asserting:
+
+      (a) all 16 captures fired — proves the patch is actually
+          installed (R5's version defined `capturing_replace` but
+          never installed it, R6 C2 catch) AND proves the helper
+          actually invokes os.replace;
+      (b) every captured tmp path matches the regex including the
+          literal sentinel pid `999999` — proves the helper uses
+          BOTH `os.getpid()` (specifically, not just any integer)
+          AND `secrets.token_hex(4)`, so a regression dropping
+          either component would be caught;
+      (c) all 16 captures are unique — the actual cross-write
+          collision-free guarantee the tmp-suffix design provides.
+    """
     import order_store as os_mod
+    import re
 
-    seen = []
+    seen_tmps = []
     real_replace = os.replace
 
     def capturing_replace(src, dst):
-        seen.append(str(src))
-        real_replace(src, dst)
+        seen_tmps.append(str(src))
+        return real_replace(src, dst)
 
-    target = ORDERS_DIR / "fixture-tmp-test.json"
-    try:
-        os_mod.os = os_mod.os  # ensure module attr is the real os
-        with_real = os_mod.os
-        # First write
-        os_mod._atomic_write_json(target, {"order_id": "fixture-tmp-test", "k": 1})
-        # Second write (overwrites)
-        os_mod._atomic_write_json(target, {"order_id": "fixture-tmp-test", "k": 2})
-    finally:
-        if target.exists():
-            target.unlink()
-    # The temp file path includes pid + secrets.token_hex(4); even with
-    # only 2 writes from one process, the random hex must differ.
-    # Inspect the pattern directly: tmp = f"{name}.{pid}.{hex}.tmp"
-    # We can't observe it after the fact (cleaned by os.replace), but
-    # we can run the helper many times and assert the secrets entropy
-    # produces unique names by sampling the construction:
-    import secrets, os as _os
-    samples = {
-        f"{target.name}.{_os.getpid()}.{secrets.token_hex(4)}.tmp"
-        for _ in range(64)
-    }
-    assert len(samples) == 64, "tmp suffixes collided across 64 samples"
+    monkeypatch.setattr(os, "replace", capturing_replace)
+    monkeypatch.setattr(os, "getpid", lambda: 999999)
+
+    target = tmp_path / "fixture-tmp-c2.json"
+    # Regex includes the literal sentinel pid; a regression that
+    # replaces os.getpid() with anything else (counter, hardcoded
+    # value, time.time(), etc.) fails the match.
+    pattern = re.compile(r"fixture-tmp-c2\.json\.999999\.[0-9a-f]{8}\.tmp$")
+
+    for i in range(16):
+        os_mod._atomic_write_json(target, {"order_id": "fixture-tmp-c2", "k": i})
+
+    assert len(seen_tmps) == 16, (
+        f"expected 16 os.replace calls, got {len(seen_tmps)} — "
+        f"monkeypatch may not be installed against the call site"
+    )
+    for tmp in seen_tmps:
+        assert pattern.search(tmp), (
+            f"tmp path {tmp!r} doesn't match expected "
+            f"`{{stem}}.999999.<8-hex>.tmp` pattern — "
+            f"helper may have lost os.getpid() or secrets.token_hex(4)"
+        )
+    assert len(set(seen_tmps)) == 16, (
+        f"tmp paths collided across 16 _atomic_write_json invocations: "
+        f"{[t for t in seen_tmps if seen_tmps.count(t) > 1][:3]}"
+    )
 
 
 # ── 18. R6 V1: idempotent short-circuit reads raw row, not sanitized view ─
@@ -800,3 +820,232 @@ def test_get_order_by_stripe_session_skips_foreign_files(tmp_path, monkeypatch):
     # (still doesn't raise on the foreign files).
     missing = os_mod.get_order_by_stripe_session("cs_test_does_not_exist")
     assert missing is None
+
+
+# ── 20. V3 migration aborts on suspicious foreign dict (looks-like-row) ──
+
+def test_migration_aborts_on_suspicious_row(tmp_path, monkeypatch, capfd):
+    """A foreign dict that contains any of the 5 PII field keys but
+    lacks `order_id` is suspicious — could be a corrupted real row
+    whose `order_id` was lost. Migration MUST abort with a non-zero
+    exit code, NOT set the marker, increment the
+    `files_quarantined_suspicious` counter, and surface a PII-clean
+    operator message identifying the file by basename only.
+
+    Pre-V3 fix this would silently increment `files_skipped_non_row`,
+    leave PII residue on disk, and then set the marker — flipping the
+    system into fail-closed mode against a row that needed encryption.
+    """
+    import order_store as os_mod
+    import migrate_pii_encrypt as mig
+
+    isolated = tmp_path / "orders"
+    isolated.mkdir()
+    marker = tmp_path / ".pii_encrypted_at_rest_v1"
+    monkeypatch.setattr(os_mod, "ORDERS_DIR", isolated)
+    monkeypatch.setattr(os_mod, "_FAIL_CLOSED_MARKER", marker)
+    monkeypatch.setattr(mig, "ORDERS_DIR", isolated)
+    monkeypatch.setattr(mig, "_FAIL_CLOSED_MARKER", marker)
+
+    # Synthetic placeholders (§13.7): no real PII, no date-shaped
+    # values that an audit would flag as PII-adjacent. The test
+    # depends on the PII field KEYS being present, not their values.
+    suspicious = {
+        # No order_id; two PII field keys present → V3 abort trigger
+        "name_latin": "FIXTURE PARTIAL ROW",
+        "dob": "FIXTURE DOB",
+        "status": "pending",
+    }
+    suspicious_file = isolated / "corrupted-row.json"
+    suspicious_file.write_text(json.dumps(suspicious, indent=2))
+
+    # Capture the on-disk source byte-for-byte before main() runs;
+    # the abort path must NOT mutate the file (Codex R4 C1 catch —
+    # the implementation aborts before update_order is reached, but
+    # a future regression that re-orders the validation could mutate
+    # the source on the abort path; assert byte equality to catch it).
+    before = suspicious_file.read_text()
+
+    rc = mig.main()
+    assert rc == 3, f"expected exit code 3 for suspicious quarantine, got {rc}"
+    assert not marker.exists(), (
+        "marker was set despite suspicious-file abort — fail-closed mode "
+        "would activate against an unmigrated row"
+    )
+    assert suspicious_file.read_text() == before, (
+        "abort path mutated the source file — V3 fix regressed"
+    )
+
+    err = capfd.readouterr().err
+    # PII-clean operator message: the planted PII string MUST NOT
+    # appear in stderr — belt-and-suspenders against a future
+    # regression that interpolates row contents into the message.
+    assert "FIXTURE PARTIAL ROW" not in err, (
+        f"V3 abort message leaked planted PII: {err!r}"
+    )
+    assert "FIXTURE DOB" not in err
+    # Positive operator-affordance assertions: the message names the
+    # file (basename), explains the action, names the trigger reason
+    # from the closed `AbortReason` enum set, and surfaces the running
+    # counter so dashboards can detect repeated quarantines without
+    # re-grepping.
+    assert "corrupted-row.json" in err
+    assert "QUARANTINED" in err
+    assert "marker NOT set" in err
+    assert mig.AbortReason.MISSING_ORDER_ID.value in err, (
+        f"V3 abort message missing reason tag "
+        f"{mig.AbortReason.MISSING_ORDER_ID.value!r}: {err!r}"
+    )
+    assert "files_quarantined_suspicious=1" in err, (
+        f"V3 abort message missing counter readout: {err!r}"
+    )
+
+
+# ── 21. V3 migration safely skips foreign dicts without PII keys ─────────
+
+def test_migration_skips_foreign_dict_without_pii(tmp_path, monkeypatch):
+    """A foreign dict that has neither `order_id` nor any PII field
+    key is genuinely non-row content (backup metadata, app config,
+    debug dump). Migration treats it as `files_skipped_non_row`,
+    leaves the suspicious counter at zero, and still sets the marker
+    on a clean pass — proves V3's three-state classifier doesn't
+    over-trigger and quarantine benign files."""
+    import order_store as os_mod
+    import migrate_pii_encrypt as mig
+
+    isolated = tmp_path / "orders"
+    isolated.mkdir()
+    marker = tmp_path / ".pii_encrypted_at_rest_v1"
+    monkeypatch.setattr(os_mod, "ORDERS_DIR", isolated)
+    monkeypatch.setattr(os_mod, "_FAIL_CLOSED_MARKER", marker)
+    monkeypatch.setattr(mig, "ORDERS_DIR", isolated)
+    monkeypatch.setattr(mig, "_FAIL_CLOSED_MARKER", marker)
+
+    foreign = {"hello": "world", "build_id": 42, "app_config": {"mode": "test"}}
+    (isolated / "foreign-config.json").write_text(json.dumps(foreign, indent=2))
+
+    rc = mig.main()
+    assert rc == 0, f"expected clean rc=0, got {rc}"
+    assert marker.exists(), "marker not set after a clean foreign-skip pass"
+
+
+# ── 22. V1 (R3): order_id ↔ filename mismatch quarantines ────────────────
+
+def test_migration_aborts_on_id_filename_mismatch(tmp_path, monkeypatch, capfd):
+    """A row whose `order_id` field disagrees with `path.stem` cannot
+    be safely migrated: `update_order` derives its target from
+    `order_id` and would either silently no-op (if no file at the
+    derived path exists) or mutate an UNRELATED row's data.
+
+    Migration must detect the mismatch in `_try_load_row` and abort
+    via SuspiciousRowAbort with reason="order_id-stem-mismatch".
+    Exit code 3, marker unset, files_quarantined_suspicious counter
+    incremented, operator message PII-clean (no row contents, only
+    the basename + reason tag + counter).
+
+    Pre-R3 fix this would silently increment files_skipped_non_row
+    (no — actually pre-R3 it'd flow to update_order with the
+    wrong-id and silently no-op against a missing target file, OR
+    corrupt an unrelated row whose filename matched). Either way
+    the source file would never be touched and the marker would
+    land. Codex R2 V1 catch.
+    """
+    import order_store as os_mod
+    import migrate_pii_encrypt as mig
+
+    isolated = tmp_path / "orders"
+    isolated.mkdir()
+    marker = tmp_path / ".pii_encrypted_at_rest_v1"
+    monkeypatch.setattr(os_mod, "ORDERS_DIR", isolated)
+    monkeypatch.setattr(os_mod, "_FAIL_CLOSED_MARKER", marker)
+    monkeypatch.setattr(mig, "ORDERS_DIR", isolated)
+    monkeypatch.setattr(mig, "_FAIL_CLOSED_MARKER", marker)
+
+    # Filename "mismatched.json" but row claims order_id "wrong-id".
+    # Synthetic placeholders (§13.7): no real PII, no date-shaped
+    # values. The test depends on the IDs differing, not on values.
+    mismatched = {
+        "order_id": "wrong-id",
+        "name_latin": "FIXTURE MISMATCH",
+        "dob": "FIXTURE DOB",
+        "status": "pending",
+    }
+    src_file = isolated / "mismatched.json"
+    src_file.write_text(json.dumps(mismatched, indent=2))
+
+    # Byte-for-byte snapshot before main() — the abort path must NOT
+    # mutate or unlink the source file (Codex R4 C1 catch).
+    before = src_file.read_text()
+
+    rc = mig.main()
+    assert rc == 3, f"expected rc=3 for id-mismatch quarantine, got {rc}"
+    assert not marker.exists(), (
+        "marker was set despite id-mismatch abort — fail-closed mode "
+        "would activate against a file that never got written"
+    )
+    # The source file is untouched (no side effects from the failed
+    # auto-mutation). Byte equality catches both deletion and any
+    # rewrite-then-restore pattern that .exists() would miss.
+    assert src_file.exists(), "source file should not have been deleted"
+    assert src_file.read_text() == before, (
+        "abort path mutated the source file — V1 fix regressed"
+    )
+
+    err = capfd.readouterr().err
+    # PII-clean operator message: planted PII strings MUST NOT appear.
+    assert "FIXTURE MISMATCH" not in err, (
+        f"V1 abort message leaked planted PII: {err!r}"
+    )
+    assert "FIXTURE DOB" not in err
+    assert "wrong-id" not in err, (
+        f"V1 abort message leaked the row's claimed order_id: {err!r}"
+    )
+    # Positive operator-affordance assertions: filename, action,
+    # reason tag from the closed `AbortReason` enum, counter readout.
+    assert "mismatched.json" in err
+    assert "QUARANTINED" in err
+    assert "marker NOT set" in err
+    assert mig.AbortReason.STEM_MISMATCH.value in err, (
+        f"V1 abort message missing reason tag "
+        f"{mig.AbortReason.STEM_MISMATCH.value!r}: {err!r}"
+    )
+    assert "files_quarantined_suspicious=1" in err, (
+        f"V1 abort message missing counter readout: {err!r}"
+    )
+
+
+# ── 23. R5 C2: AbortReason set is closed (catches silent additions) ──────
+
+def test_abort_reason_set_is_closed():
+    """The `AbortReason` enum codifies the operator-message contract:
+    every quarantine surfaces a reason from a known closed set, so
+    dashboards/alerts/runbooks can rely on the exhaustive list. A
+    future addition that introduces a new reason without updating the
+    operator-message format (or without updating tests #20/#22) would
+    silently bypass the audit surface; this test fails fast on any
+    unexpected addition or removal so the contributor is forced to
+    either extend coverage or strip the new value."""
+    import migrate_pii_encrypt as mig
+
+    expected = {
+        mig.AbortReason.MISSING_ORDER_ID,
+        mig.AbortReason.STEM_MISMATCH,
+    }
+    assert set(mig.AbortReason) == expected, (
+        f"AbortReason membership drifted; expected {expected!r}, "
+        f"got {set(mig.AbortReason)!r} — extend tests #20/#22 or strip "
+        f"the new value"
+    )
+
+    # Wire-format invariant: every member's `.value` is a string and
+    # `member == member.value` (the (str, Enum) inheritance contract).
+    # This is what lets the operator-side f-string on `.value` return
+    # a plain string across Python 3.9+ regardless of the str-Enum
+    # __str__ change in 3.11.
+    for member in mig.AbortReason:
+        assert isinstance(member.value, str), (
+            f"reason {member!r}.value must be str, got {type(member.value)}"
+        )
+        assert member == member.value, (
+            f"(str, Enum) equality contract broken for {member!r}"
+        )
