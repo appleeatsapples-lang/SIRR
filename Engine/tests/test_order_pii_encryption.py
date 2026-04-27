@@ -859,11 +859,21 @@ def test_migration_aborts_on_suspicious_row(tmp_path, monkeypatch, capfd):
     suspicious_file = isolated / "corrupted-row.json"
     suspicious_file.write_text(json.dumps(suspicious, indent=2))
 
+    # Capture the on-disk source byte-for-byte before main() runs;
+    # the abort path must NOT mutate the file (Codex R4 C1 catch —
+    # the implementation aborts before update_order is reached, but
+    # a future regression that re-orders the validation could mutate
+    # the source on the abort path; assert byte equality to catch it).
+    before = suspicious_file.read_text()
+
     rc = mig.main()
     assert rc == 3, f"expected exit code 3 for suspicious quarantine, got {rc}"
     assert not marker.exists(), (
         "marker was set despite suspicious-file abort — fail-closed mode "
         "would activate against an unmigrated row"
+    )
+    assert suspicious_file.read_text() == before, (
+        "abort path mutated the source file — V3 fix regressed"
     )
 
     err = capfd.readouterr().err
@@ -876,13 +886,15 @@ def test_migration_aborts_on_suspicious_row(tmp_path, monkeypatch, capfd):
     assert "FIXTURE DOB" not in err
     # Positive operator-affordance assertions: the message names the
     # file (basename), explains the action, names the trigger reason
-    # from the closed reason-tag set, and surfaces the running counter
-    # so dashboards can detect repeated quarantines without re-grepping.
+    # from the closed `AbortReason` enum set, and surfaces the running
+    # counter so dashboards can detect repeated quarantines without
+    # re-grepping.
     assert "corrupted-row.json" in err
     assert "QUARANTINED" in err
     assert "marker NOT set" in err
-    assert "missing-order_id-with-pii-keys" in err, (
-        f"V3 abort message missing reason tag: {err!r}"
+    assert mig.AbortReason.MISSING_ORDER_ID.value in err, (
+        f"V3 abort message missing reason tag "
+        f"{mig.AbortReason.MISSING_ORDER_ID.value!r}: {err!r}"
     )
     assert "files_quarantined_suspicious=1" in err, (
         f"V3 abort message missing counter readout: {err!r}"
@@ -961,6 +973,10 @@ def test_migration_aborts_on_id_filename_mismatch(tmp_path, monkeypatch, capfd):
     src_file = isolated / "mismatched.json"
     src_file.write_text(json.dumps(mismatched, indent=2))
 
+    # Byte-for-byte snapshot before main() — the abort path must NOT
+    # mutate or unlink the source file (Codex R4 C1 catch).
+    before = src_file.read_text()
+
     rc = mig.main()
     assert rc == 3, f"expected rc=3 for id-mismatch quarantine, got {rc}"
     assert not marker.exists(), (
@@ -968,9 +984,12 @@ def test_migration_aborts_on_id_filename_mismatch(tmp_path, monkeypatch, capfd):
         "would activate against a file that never got written"
     )
     # The source file is untouched (no side effects from the failed
-    # auto-mutation). Belt-and-suspenders: confirm the disk state
-    # matches the planted fixture byte-for-byte.
+    # auto-mutation). Byte equality catches both deletion and any
+    # rewrite-then-restore pattern that .exists() would miss.
     assert src_file.exists(), "source file should not have been deleted"
+    assert src_file.read_text() == before, (
+        "abort path mutated the source file — V1 fix regressed"
+    )
 
     err = capfd.readouterr().err
     # PII-clean operator message: planted PII strings MUST NOT appear.
@@ -982,13 +1001,51 @@ def test_migration_aborts_on_id_filename_mismatch(tmp_path, monkeypatch, capfd):
         f"V1 abort message leaked the row's claimed order_id: {err!r}"
     )
     # Positive operator-affordance assertions: filename, action,
-    # reason tag, counter readout.
+    # reason tag from the closed `AbortReason` enum, counter readout.
     assert "mismatched.json" in err
     assert "QUARANTINED" in err
     assert "marker NOT set" in err
-    assert "order_id-stem-mismatch" in err, (
-        f"V1 abort message missing reason tag: {err!r}"
+    assert mig.AbortReason.STEM_MISMATCH.value in err, (
+        f"V1 abort message missing reason tag "
+        f"{mig.AbortReason.STEM_MISMATCH.value!r}: {err!r}"
     )
     assert "files_quarantined_suspicious=1" in err, (
         f"V1 abort message missing counter readout: {err!r}"
     )
+
+
+# ── 23. R5 C2: AbortReason set is closed (catches silent additions) ──────
+
+def test_abort_reason_set_is_closed():
+    """The `AbortReason` enum codifies the operator-message contract:
+    every quarantine surfaces a reason from a known closed set, so
+    dashboards/alerts/runbooks can rely on the exhaustive list. A
+    future addition that introduces a new reason without updating the
+    operator-message format (or without updating tests #20/#22) would
+    silently bypass the audit surface; this test fails fast on any
+    unexpected addition or removal so the contributor is forced to
+    either extend coverage or strip the new value."""
+    import migrate_pii_encrypt as mig
+
+    expected = {
+        mig.AbortReason.MISSING_ORDER_ID,
+        mig.AbortReason.STEM_MISMATCH,
+    }
+    assert set(mig.AbortReason) == expected, (
+        f"AbortReason membership drifted; expected {expected!r}, "
+        f"got {set(mig.AbortReason)!r} — extend tests #20/#22 or strip "
+        f"the new value"
+    )
+
+    # Wire-format invariant: every member's `.value` is a string and
+    # `member == member.value` (the (str, Enum) inheritance contract).
+    # This is what lets the operator-side f-string on `.value` return
+    # a plain string across Python 3.9+ regardless of the str-Enum
+    # __str__ change in 3.11.
+    for member in mig.AbortReason:
+        assert isinstance(member.value, str), (
+            f"reason {member!r}.value must be str, got {type(member.value)}"
+        )
+        assert member == member.value, (
+            f"(str, Enum) equality contract broken for {member!r}"
+        )

@@ -59,7 +59,28 @@ from __future__ import annotations
 
 import json
 import sys
+from enum import Enum
 from pathlib import Path
+
+
+class AbortReason(str, Enum):
+    """Closed set of reason tags emitted by `SuspiciousRowAbort` and
+    surfaced in the operator stderr message.
+
+    `(str, Enum)` mixin keeps the wire format stable: each member is a
+    string equal to its value at the equality layer, and `.value`
+    gives the literal kebab-case tag for f-string interpolation
+    regardless of Python version (the default `__str__` of str-Enum
+    changed in 3.11; using `.value` explicitly avoids the version
+    dependency).
+
+    `test_abort_reason_set_is_closed` asserts the membership of this
+    set so a future silent addition that bypasses the operator message
+    contract fails fast (Codex R4 C2).
+    """
+
+    MISSING_ORDER_ID = "missing-order_id-with-pii-keys"
+    STEM_MISMATCH = "order_id-stem-mismatch"
 
 # Make this script runnable both as `python3 -m migrate_pii_encrypt`
 # from the web_backend directory and as a direct script invocation.
@@ -97,12 +118,13 @@ class SuspiciousRowAbort(Exception):
          either silently no-op'ing on the wrong target's absence or
          mutating an unrelated row's data.
 
-    Args: (basename, reason) — basename only, never row contents,
-    key/value snippets, or the full slug-bearing path beyond the
-    basename. The basename may still encode name+DOB for slug-shaped
-    filenames per the §16.5 deferred `_make_slug` surface, out of
-    scope here. The reason tag is a static string drawn from a
-    closed set, so it's audit-surface-safe.
+    Args: (basename, reason) where reason is an `AbortReason` enum
+    member. Basename only — never row contents, key/value snippets,
+    or the full slug-bearing path beyond the basename. The basename
+    may still encode name+DOB for slug-shaped filenames per the
+    §16.5 deferred `_make_slug` surface, out of scope here. The
+    reason is from `AbortReason`'s closed set (Codex R4 C2 catch),
+    so it's audit-surface-safe.
 
     The migration aborts on either trigger rather than silently
     skipping or auto-mutating. Silent skip would leave PII residue
@@ -124,9 +146,9 @@ def _try_load_row(path: Path) -> dict | None:
         or scalar, foreign dict that has neither `order_id` nor any
         PII field key. Caller skips silently.
       - raises SuspiciousRowAbort with one of:
-          * reason="missing-order_id-with-pii-keys" — dict missing
+          * reason=AbortReason.MISSING_ORDER_ID — dict missing
             `order_id` but carrying at least one PII field key.
-          * reason="order_id-stem-mismatch" — dict has `order_id`
+          * reason=AbortReason.STEM_MISMATCH — dict has `order_id`
             but it doesn't match `path.stem`.
         Caller aborts the migration without setting the marker.
     """
@@ -146,12 +168,12 @@ def _try_load_row(path: Path) -> dict | None:
         # from, processing the row would touch the wrong file (or no
         # file at all). Halt rather than auto-mutate.
         if parsed["order_id"] != path.stem:
-            raise SuspiciousRowAbort(path.name, "order_id-stem-mismatch")
+            raise SuspiciousRowAbort(path.name, AbortReason.STEM_MISMATCH)
         return parsed
     # Dict missing order_id. If any PII field key is present, this
     # looks like a partial row — abort rather than skip.
     if any(field in parsed for field in _PII_FIELDS):
-        raise SuspiciousRowAbort(path.name, "missing-order_id-with-pii-keys")
+        raise SuspiciousRowAbort(path.name, AbortReason.MISSING_ORDER_ID)
     return None
 
 
@@ -246,17 +268,20 @@ def main() -> int:
             _migrate_one(p, counters)
         except SuspiciousRowAbort as e:
             counters["files_quarantined_suspicious"] += 1
-            # e.args[0] is the path BASENAME, e.args[1] is a static
-            # reason tag from a closed set. Neither carries row
-            # contents, key/value snippets, or PII. The basename may
-            # still encode name+DOB for slug-shaped filenames per the
-            # deferred _make_slug §16.5 surface, out of scope here.
+            # e.args[0] is the path BASENAME, e.args[1] is an
+            # AbortReason enum member from a closed set. Neither
+            # carries row contents, key/value snippets, or PII. The
+            # basename may still encode name+DOB for slug-shaped
+            # filenames per the deferred _make_slug §16.5 surface,
+            # out of scope here. `.value` gives the kebab-case
+            # literal regardless of Python version (avoids the
+            # str-Enum __str__ change in 3.11).
             basename, reason = e.args[0], e.args[1]
             print(
                 f"[migrate-pii] QUARANTINED suspicious file "
-                f"{basename} (reason: {reason}) — manual inspection "
-                f"required, marker NOT set, rerun after triage. "
-                f"files_quarantined_suspicious="
+                f"{basename} (reason: {reason.value}) — manual "
+                f"inspection required, marker NOT set, rerun after "
+                f"triage. files_quarantined_suspicious="
                 f"{counters['files_quarantined_suspicious']}",
                 file=sys.stderr,
             )
