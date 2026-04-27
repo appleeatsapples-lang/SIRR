@@ -531,6 +531,9 @@ lsof Docs/operations/LANE_DOCTRINE_v*.md Docs/architecture/PRIVACY_TIERS.md Docs
 
 ## §13 — V-6 broadening, framing-amend, and history-scope
 
+*v3.1 amendment (2026-04-27): added §13.6-§13.11 codifying six doctrine deficiencies surfaced through the V-3 privacy wave (PRs #35, #37, #38).*
+
+
 ### §13.1 — V-6 broadened pattern matrix
 
 The narrow V-6 pattern (`MUHAB AKIF|1996-09-23`) used in PR #33 and PR #34 missed compact digit forms, Arabic-script names, integer-tuple DOBs, and generated-artifact files. PR #34's Codex round-1 verdict surfaced 12 public files with `23091996`, ~18 with Arabic-script same-person residues, and 5 module `.py` files with embedded family-name constants — all past V-6.
@@ -677,9 +680,115 @@ If the SC-N results raise any unexpected issue (or, in fact, if they raise no is
 
 *Evidence note:* the chat-handshake bypass claim is verified via the orchestrator session-resume prompt at the start of the 2026-04-26 session that wrote this section, not from git history. Git records the operational sequence of the E-1..E-4 commits but does not record whether an explicit "go to E-1" handshake preceded them in the chat surface. Future R3 incidents should leave a more durable evidence trail (e.g., a short orchestrator commit prefix or PR-comment naming the handshake before destructive ops) so this kind of after-the-fact verification doesn't depend on session memory.
 
+### §13.6 — Arabic pattern policy: combination-based, not bare-token
+
+**Rule:** Arabic-script PII patterns in V-6 grep blocks MUST use multi-word combinations specific to the protected nasab, NOT bare-token substrings. Bare protected tokens (a single given-name or surname or nisba in isolation) substring-match generic Arabic vocabulary unrelated to the protected identity. The literal token list belongs in private briefs per §13.9, not in this doctrine doc.
+
+**Concrete pattern policy:** for an N-word Arabic nasab, the closure-blocking pattern set is:
+
+1. The full nasab string as a single phrase (matches the complete chain when it appears verbatim)
+2. Adjacent-word pairs from positions (0,1), (1,2), ..., (N-2,N-1) (matches partial nasabs and reorderings)
+3. Compound-position pairs (positions where two words form one generational unit, if any)
+4. Any nisba (family attribution name) treated as a standalone token because nisbas are typically distinctive enough to avoid generic-word collisions
+
+**Verification probe (mandatory in any V-6 application):**
+
+```
+# Each of these inputs MUST match (true positives):
+echo "<full nasab string>" | grep -cE "$PATTERN"
+echo "<first-three-words of nasab>" | grep -cE "$PATTERN"
+echo "<first-two-words of nasab>" | grep -cE "$PATTERN"
+
+# Each of these inputs MUST NOT match (false positives that bare-token patterns would catch):
+echo "<a generic Arabic word that contains a protected substring>" | grep -cE "$PATTERN"
+echo "<a single bare protected token>" | grep -cE "$PATTERN"
+```
+
+The probe is run against the V-6 pattern at PR-author time AND at audit time, before any closure verdict.
+
+**Worked example:** the V-3b cycle's round-1 V-6 caught a Sanskrit transliteration (Vedic *mahābhūta* — "five great elements") as a false positive on a bare 4-character substring of the protected nasab. The round-3 amend introduced combination-based patterns (multi-word combinations from the nasab + family nisba) which catch all true partial-nasab forms while excluding generic vocabulary. The exact pattern is stored privately per §13.9; this rule documents the policy, not the literal regex.
+
+### §13.7 — Audit-surface scrub rule
+
+**Rule:** §13.4's no-PII operational rule extends to ALL audit-trail surfaces, not just commit messages:
+
+- Squash commit subject line
+- Squash commit body
+- PR title
+- PR description (body)
+- PR comments authored by orchestrator or CC (Codex audit comments are exempted as they are external)
+- Code review comments
+
+PR descriptions and PR comments MUST NOT embed PII strings, even in past tense as "old form" examples. Quote the working-tree change without naming the literal old-form string. Per §13.1's exclusion list, the doctrine doc and `SCRUB_V*_BRIEF.md` files are the only sanctioned exceptions for didactic content.
+
+**Worked example:** PR #38's round-1 PR description contained a literal closure-gate regex pattern that itself embedded all the PII tokens by construction. CC's catch surfaced this: closure-gate patterns themselves are PII-bearing artifacts, regardless of intent. They must live in private briefs or `/tmp/` files sourced at verification time, never in the public PR description.
+
+### §13.8 — Derived-identifier scope clarification
+
+**Rule:** PII protection scope splits into three classes, each requiring different treatment:
+
+1. **Literal PII** — a person's name, DOB, address, IDs as written. Closure-blocking under V-6 in all surfaces.
+
+2. **Derived identifiers** — values mathematically computable from literal PII that uniquely re-identify the person. Examples: Julian Day Number computed from a birth date, prenatal syzygy date computed from a birth date, Hijri-calendar conversion of a birth date, astronomical positions at the moment of birth. (Worked example values are stored privately per §13.9.) **Closure-blocking under V-6 in all surfaces.** These are NOT correctness concerns — they ARE personally-identifying data in encoded form.
+
+3. **Non-identifying correctness drift** — interpretation prose hardcoding values that don't match computed data, where the values are NOT uniquely identifying (e.g., "Pinnacle 1 = 5", "Challenge 1 = 4" — common across many users). NOT closure-blocking for V-6, but a correctness concern. Tracked under V-3d / similar correctness-stream PRs, NOT privacy-stream PRs.
+
+**Verification gate per class:**
+
+- Class 1 (literal): combination-pattern V-6 grep
+- Class 2 (derived): explicit pattern list per protected DOB (JDN computed from DOB, syzygy date computed from DOB, etc.). Generated at brief-authoring time alongside the literal pattern.
+- Class 3 (correctness drift): prose-vs-data type-agnostic scan; not in V-6 scope.
+
+**Worked example:** the V-3b cycle's round-1 caught a literal JDN value and a literal prenatal syzygy date in interpretation templates. Both are class-2 derived identifiers — Codex round-1 correctly classified them as closure-blocking even though they were not the literal birth date itself. The round-2 amend extended V-3b's V-6 pattern with a `DERIVED_IDS` group covering these values.
+
+### §13.9 — Closure-gate pattern storage
+
+**Rule:** V-6 closure-gate patterns themselves contain PII tokens by construction. They MUST NOT be stored in any audit-trail surface (per §13.7). Storage locations:
+
+1. **Private briefs** in `SIRR_PRIVATE/Orchestration/Briefs/` — full pattern, with explanatory context
+2. **`/tmp/` files** sourced at verification time — pure pattern, sourced via `PATTERN=$(cat /tmp/<name>.txt)` and used in shell pipelines without echoing to logs
+
+**NOT acceptable storage locations:**
+
+- PR descriptions, PR comments, commit messages
+- Public repo files (including doctrine docs — exception: §13.1 illustrative regex examples that use *placeholder* values, not real PII)
+- Log outputs that get persisted
+
+**Worked example:** PR #38 used `/tmp/v3c_closure_pattern.txt` as the pattern store. CC sourced it via `PATTERN=$(cat ...)` at verification time. The pattern never appeared in the PR description, commit message, or CI logs.
+
+### §13.10 — "Closure-gate ZERO" vs "raw-tree ZERO" precision
+
+**Rule:** PR descriptions and commit messages claiming "V-6 returns zero hits" MUST specify which mode:
+
+- **"Closure-gate ZERO"** — V-6 grep with `EXCLUDE_PATHS` filter applied (excludes didactic doctrine docs and brief docs per §13.1's exclusion list). This is the standard "PR is closure-clean" claim.
+- **"Raw-tree ZERO"** — V-6 grep without exclusions, against every tracked file. This claim is rarely true and is a stronger statement.
+
+Unqualified "ZERO hits" is ambiguous and causes round-trip vetoes. Use either qualifier explicitly. Recommended phrasing: "the §13.1 closure gate (combination pattern with `EXCLUDE_PATHS` for didactic doctrine docs) returns ZERO hits public-repo-wide."
+
+**Worked example:** PR #38's round-1 description claimed "ZERO hits public-tree-wide." Codex's round-1 audit found 6 raw-tree hits (all in `LANE_DOCTRINE_v3.md`, all explicitly excluded by §13.1). The veto was a doctrine ambiguity, not a privacy regression. Round-1.1 body amend qualified the claim; merge proceeded.
+
+### §13.11 — Post-merge grep validations: line-wrap robustness
+
+**Rule:** Post-merge or post-amend `grep` validations against PR/commit bodies MUST use either:
+
+- **Single-line phrases** that fit within the natural rendering width and won't wrap
+- **Multi-line grep** (`grep -Pzo` for Perl-mode null-terminated, or `grep -z` for null-separated) when phrase length cannot be controlled
+
+`git log --format='%b'` and `gh pr view --json body -q '.body'` both render with line wraps that depend on the rendering surface (terminal width, GitHub's display width). A validation phrase that spans a wrap boundary will silently fail the grep, causing a false-negative STOP.
+
+**Verification probe (mandatory before relying on a phrase-grep validation):**
+
+```
+# Confirm the phrase appears unwrapped in the rendered output
+git log -1 origin/main --format='%b' | grep -F '<exact phrase>'
+# If the phrase is split across lines, use grep -Pzo or split into two single-word greps
+```
+
+**Worked example:** PR #38's squash-body validation `grep -c 'V-3 wave closes here'` returned 0 because the phrase wrapped between `V-3` and `wave`. CC re-flowed the paragraph so the phrase sat on a single line; validation then passed. Doctrine deficiency #6 codified post-incident.
+
 ### §13 closure note
 
-§13 was added in response to the doctrine deficiencies surfaced by PR #33 → PR #34 + the Phase 3 reorg incident. All five sub-rules (§13.1-§13.5) are now mandatory; closure-sweep tier T7-full applies to any PR that touches §13 itself.
+§13 was originally added in response to the doctrine deficiencies surfaced by PR #33 → PR #34 + the Phase 3 reorg incident, codifying §13.1-§13.5. The v3.1 amendment added §13.6-§13.11 in response to deficiencies surfaced through the V-3 wave (PRs #35, #37, #38). All eleven sub-rules (§13.1-§13.11) are now mandatory; closure-sweep tier T7-full applies to any PR that touches §13 itself.
 
 ---
 
