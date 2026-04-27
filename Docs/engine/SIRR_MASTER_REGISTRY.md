@@ -54,7 +54,7 @@ This file is the source-of-truth summary for SIRR's privacy doctrine state, the 
 - `LANE_DOCTRINE_v2.md` codifies the multi-model lessons from this arc
 - Audit doc superseded header (audit relocated to `PRIVATE/Archive/audits/` as part of SCRUB-V2; not retained in public repo)
 
-**P2G (final §16.5 closure — order_store.py PII encryption-at-rest + delete null-out, 2026-04-27 commit `<HASH>`):**
+**P2G (final §16.5 closure — order_store.py PII encryption-at-rest + delete null-out, 2026-04-27 commit `7545baa`):**
 - `Engine/web_backend/order_store.py` — five PII fields (`name_latin`, `name_arabic`, `dob`, `birth_time`, `birth_location`) encrypted at rest per-field with AES-256-GCM via `crypto.encrypt_str(value, context=order_id)`. Per-field rather than whole-row so `get_order_by_stripe_session` stays O(N) reads, not O(N) decrypts, and `update_order(status=…)` doesn't re-encrypt PII on every non-PII write.
 - On-disk format sentinel: `enc:v1:<hex(blob)>`. **The `v1` sentinel is load-bearing** — any future migration to a new encrypted-field format must bump to `enc:v2:` and ship a read-side compat path that handles both prefixes during the transition window.
 - `get_order` is status-aware: rows with `status="failed"` skip decrypt and return PII fields as `None` (mirrors the P2F serve-side refusal pattern at `server.py:415`). Decryption failures on non-failed rows surface a `[order_store-decrypt]` WARNING via `hash_oid(order_id)` + `type(exc).__name__`, never raw payload/key/IV bytes; PII is then stripped to `None` and the dict is returned (preserves the existing `dict | None` contract for callers).
