@@ -36,11 +36,11 @@ Contents:
 
 **Encryption (enforced, post-P2F-PR2):**
 
-Per-record envelope encryption using a key derived from `HKDF(master_secret, salt=order_id, info="sirr-tier2-v1")`. At rest, the JSON and HTML files (output, legacy, unified, merged) are AES-256-GCM-encrypted; decryption happens only within the running request that produced or requested them. Production deployments **fail-fast** at startup if `SIRR_ENCRYPTION_KEY` is unset (detected via `RAILWAY_DEPLOYMENT_ID`). Encryption failures atomically delete any plaintext residue (P2F-PR2 FIX E) and mark `status="failed"`.
+Per-record envelope encryption using a key derived from `HKDF(master_secret, salt=order_id, info="sirr-tier2-v1")`. At rest, the JSON and HTML files (output, legacy, unified, merged) AND the order row's PII fields (`name_latin`, `name_arabic`, `dob`, `birth_time`, `birth_location`) are AES-256-GCM-encrypted; decryption happens only within the running request that produced or requested them. Production deployments **fail-fast** at startup if `SIRR_ENCRYPTION_KEY` is unset (detected via `RAILWAY_DEPLOYMENT_ID`). Encryption failures atomically delete any plaintext residue (P2F-PR2 FIX E pattern, extended to the row layer in P2G) and mark `status="failed"`.
 
 **Deletion flow:**
 
-`POST /api/delete` accepts either an encrypted token or `(order_id, email)` for authentication. On success it unlinks Tier 2 reading files (engine output, legacy/unified/merged HTML), marks the order row `status="deleted"` (nulling `profile`, `email_hash`, `reading_url`, and `error`), and queues the `order_id` for Tier 3 removal. Note: as of the P2F closure (2026-04-25), the order row still retains `name_latin`, `name_arabic`, `dob`, `birth_time`, and `birth_location` after this flow. That gap is documented in [`SIRR_MASTER_REGISTRY.md`](../engine/SIRR_MASTER_REGISTRY.md) §16.5 deferred surfaces and is in scope for the P2G arc.
+`POST /api/delete` accepts either an encrypted token or `(order_id, email)` for authentication. On success it unlinks Tier 2 reading files (engine output, legacy/unified/merged HTML), marks the order row `status="deleted"` and nulls `profile`, `email_hash`, `reading_url`, `error`, and the five PII fields (`name_latin`, `name_arabic`, `dob`, `birth_time`, `birth_location`), then queues the `order_id` for Tier 3 removal. The handler is idempotent: a repeat call against an already-deleted row returns the same response shape without re-running the unlink/update/queue path. Closed under the P2G arc (2026-04-27); see [`SIRR_MASTER_REGISTRY.md`](../engine/SIRR_MASTER_REGISTRY.md) §16.5 for closure details.
 
 ---
 
@@ -104,11 +104,13 @@ This is liability reduction, not just privacy discipline. If the operator cannot
 | No third-party client-side analytics | Verified |
 | Per-record Tier 2 encryption at rest (output / .html / _unified / _merged) | Shipped — P2F-PR2 |
 | Production startup fail-fast on missing SIRR_ENCRYPTION_KEY | Shipped — P2F-PR2 |
-| `order_store.py` plaintext order rows (name + DOB on disk) | Deferred — P2G |
+| `order_store.py` order-row PII encryption-at-rest (name + DOB on disk) | Closed — P2G (2026-04-27) |
+| `/api/delete` PII null-out + post-migration fail-closed mode | Closed — P2G (2026-04-27) |
+| `_make_slug` name+DOB-derived order_id (filename + row field) | Deferred — revisit at ~10⁵ active orders |
 | Tier 3 aggregate store | Planned — requires DB migration |
 | Differential-privacy noise calibration | Planned — requires real traffic |
 | Zero-knowledge admin UI | Planned |
 
 ---
 
-*Doc version 1.1 — 2026-04-25 — updated for P2F closure (encrypted tokens, encryption-at-rest enforcement, log hygiene). order_store.py plaintext rows explicitly deferred to P2G.*
+*Doc version 1.2 — 2026-04-27 — P2G closure: order-row PII encryption-at-rest + delete-endpoint PII null-out + idempotent (token-auth) repeat-delete + atomic-write hardening + post-migration fail-closed mode. Two §16.5 surfaces remain deferred with ~10⁵-active-order revisit thresholds: `hash_oid` 12-char log-correlation truncation, and `_make_slug` 4-char name+DOB-encoded order_id (filename + row field). See `Docs/engine/SIRR_MASTER_REGISTRY.md` §16.5 for upgrade paths.*
