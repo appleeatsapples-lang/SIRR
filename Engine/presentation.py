@@ -84,7 +84,7 @@ ID_VALUE_BUILDERS: Dict[str, Any] = {
         f"{d.get('stem_element', '')} · {d.get('branch_element', '')}".strip(" ·")
         or str(d.get("stem", "—"))
     ),
-    # Modules that would otherwise show JDN (2450350) as primary
+    # Modules that would otherwise show JDN as primary
     "julian": lambda d: str(d.get("julian_day", "—")),  # intentionally show JDN — that IS the module's output
     "geomancy": lambda d: str(d.get("primary_figure", d.get("figures", {}).get("judge", "—"))) if isinstance(d.get("primary_figure", d.get("figures")), (str, dict)) else "—",
     "mayan": lambda d: (

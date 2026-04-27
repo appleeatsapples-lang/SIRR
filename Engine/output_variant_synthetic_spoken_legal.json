@@ -30,13 +30,13 @@
         "scholarship_fidelity": "CLASSICAL",
         "scholarship_note": "Classified CLASSICAL via §4.6 crosswalk classifier (module source did not declare explicitly)."
       },
-      "interpretation": "Your Julian Day Number is 2450350, a continuous astronomical timestamp anchoring your birth to a universal temporal grid. This module carries no symbolic personality meaning but structures cross-calendar synchronization (Gregorian, Hijri, Hebrew, Mayan). It functions as infrastructure, ensuring deterministic alignment across systems. In SIRR architecture, it is the absolute clock reference.",
+      "interpretation": "Your Julian Day Number is a continuous astronomical timestamp anchoring your birth to a universal temporal grid. This module carries no symbolic personality meaning but structures cross-calendar synchronization (Gregorian, Hijri, Hebrew, Mayan). It functions as infrastructure, ensuring deterministic alignment across systems. In SIRR architecture, it is the absolute clock reference.",
       "constants_version": "sirr-new-systems-v1.2",
       "references": [
         "Gregorian JDN formula (Fliegel-Van Flandern)"
       ],
       "question": "infrastructure",
-      "ar_interpretation": "رقم اليوم اليولياني لديك هو 2450350، وهو طابع زمني فلكي مستمر يربط ميلادك بشبكة زمنية كونية. هذا النظام لا يحمل معنى رمزي للشخصية لكنه ينظم المزامنة بين التقويمات (الميلادي، الهجري، العبري، المايا). يعمل كبنية تحتية لضمان التطابق الحتمي بين الأنظمة. في معمارية SIRR هو مرجع الساعة المطلق.",
+      "ar_interpretation": "رقم اليوم اليولياني الخاص بك هو طابع زمني فلكي مستمر يربط ميلادك بشبكة زمنية كونية. هذا النظام لا يحمل معنى رمزي للشخصية لكنه ينظم المزامنة بين التقويمات (الميلادي، الهجري، العبري، المايا). يعمل كبنية تحتية لضمان التطابق الحتمي بين الأنظمة. في معمارية SIRR هو مرجع الساعة المطلق.",
       "domain": null,
       "tier": null
     },
@@ -845,13 +845,13 @@
         "scholarship_fidelity": "CLASSICAL",
         "scholarship_note": "Classified CLASSICAL via §4.6 crosswalk classifier (module source did not declare explicitly)."
       },
-      "interpretation": "Your Lo Shu grid from DDMMYYYY shows triple 9 concentration, amplifying intensity, vision, and completion cycles, while missing 4, 5, 7, and 8. The absence of 4 and 8 can weaken structural and financial grounding if not intentionally built, while missing 5 and 7 reduces spontaneous balance and reflective pause. The surplus 9 can elevate idealism yet create emotional overload.",
+      "interpretation": "Your Lo Shu grid concentration and absence pattern reveals which digits dominate and which are missing in your birth-digit composition. Surplus digits amplify their corresponding life themes (e.g., triple 9 amplifies intensity, vision, completion; triple 1 amplifies leadership, autonomy, initiative). Missing digits indicate areas requiring intentional development — common gaps are 4 (structural grounding), 5 (spontaneous balance), 7 (reflective pause), and 8 (financial discipline). The grid's specific signature is unique to your birth-date composition.",
       "constants_version": "sirr-new-systems-v1.2",
       "references": [
         "Lo Shu Grid: DOB digits mapped to 3x3 magic square positions"
       ],
       "question": "Q3_GAPS",
-      "ar_interpretation": "مربع لو شو من تاريخ DDMMYYYY يُظهر تكرار الرقم 9 ثلاث مرات، ما يضخّم الحدة والرؤية ودورات الإتمام، مع غياب 4 و5 و7 و8. غياب 4 و8 قد يضعف البناء العملي والمالي إن لم يُنشأ بوعي، بينما نقص 5 و7 يقلل التوازن التلقائي والتأمل. فائض 9 يرفع المثالية لكنه قد يسبب إرهاقًا عاطفيًا.",
+      "ar_interpretation": "مربع لو شو الخاص بك يكشف الأرقام السائدة والغائبة في تركيب أرقام ميلادك. الأرقام الفائضة تضخّم مواضيعها المقابلة (مثلاً: تكرار الرقم 9 يضخّم الحدة والرؤية ودورات الإتمام؛ تكرار الرقم 1 يضخّم القيادة والاستقلال والمبادرة). الأرقام الغائبة تشير إلى مجالات تتطلب تنمية مقصودة — الفجوات الشائعة هي 4 (التأسيس البنيوي)، 5 (التوازن التلقائي)، 7 (التأمل الانعكاسي)، 8 (الانضباط المالي). توقيع المربع الخاص بك فريد لتكوين تاريخ ميلادك.",
       "domain": null,
       "tier": null
     },
@@ -5385,8 +5385,8 @@
         "current_planet": "Venus",
         "current_dasha_start_age": 31.25,
         "current_dasha_end_age": 38.25,
-        "years_into_current": 4.85,
-        "years_remaining": 2.15,
+        "years_into_current": 4.86,
+        "years_remaining": 2.14,
         "cycle_length_years": 36,
         "period_quality": "benefic",
         "timeline": [
@@ -5761,7 +5761,7 @@
         "Al-Biruni, The Book of Instruction — dignity accumulation"
       ],
       "question": "Q3_NATURE",
-      "ar_interpretation": "في المنهج الوسيط عند ابن عزرا وغويدو بوناتي، يجمع نظام الألمتن (Almuten Figuris) نقاط الكرامات الأساسية—الموطن 5، الرفع 4، المثلثة 3، الحد/الترم 2، الوجه 1—عبر مواضع محورية في الهيئة لتعيين الكوكب الحاكم الأقوى. بالنسبة لمهاب عمر إسماعيل عاكف، يكون زحل هو الألمتن بنتيجة 17 نقطة (الزهرة 15)، وذلك أساسًا لأن زحل يتصدر موضع الشمس في الميزان (9) وموضع القمر في الدلو (8) ضمن خريطة نهارية. وكون المريخ الأعلى في سهم السعادة في الحمل (7) يبيّن ترسَ انطلاقٍ تكتيكيًا سريعًا، لكن مقود التوجيه يبقى زحليًا على مستوى البنية. عمليًا، ثبّت أنظمة واضحة—مواعيد نهائية، مهارات قابلة للقياس، وتحالفات متينة—ثم استخدم لحظات المريخ/الحمل لإطلاقات حاسمة داخل ذلك الإطار.",
+      "ar_interpretation": "في المنهج الوسيط عند ابن عزرا وغويدو بوناتي، يجمع نظام الألمتن (Almuten Figuris) نقاط الكرامات الأساسية—الموطن 5، الرفع 4، المثلثة 3، الحد/الترم 2، الوجه 1—عبر مواضع محورية في الهيئة لتعيين الكوكب الحاكم الأقوى. بالنسبة لهذا الملف، يكون زحل هو الألمتن بنتيجة 17 نقطة (الزهرة 15)، وذلك أساسًا لأن زحل يتصدر موضع الشمس في الميزان (9) وموضع القمر في الدلو (8) ضمن خريطة نهارية. وكون المريخ الأعلى في سهم السعادة في الحمل (7) يبيّن ترسَ انطلاقٍ تكتيكيًا سريعًا، لكن مقود التوجيه يبقى زحليًا على مستوى البنية. عمليًا، ثبّت أنظمة واضحة—مواعيد نهائية، مهارات قابلة للقياس، وتحالفات متينة—ثم استخدم لحظات المريخ/الحمل لإطلاقات حاسمة داخل ذلك الإطار.",
       "domain": "astro_timing",
       "tier": "STANDARD"
     },
@@ -21855,10 +21855,10 @@
         "pillar_balanced": false,
         "daat_active": true,
         "active_sephirot": [
-          "Da'at",
-          "Tiferet",
           "Keter",
-          "Netzach"
+          "Tiferet",
+          "Netzach",
+          "Da'at"
         ],
         "sephirot_count": 4,
         "module_class": "meta",
@@ -22620,7 +22620,7 @@
         "scholarship_fidelity": "CLASSICAL",
         "scholarship_note": "Classified CLASSICAL via §4.6 crosswalk classifier (module source did not declare explicitly)."
       },
-      "interpretation": "The last lunation before birth was a New Moon in Virgo on September 12, 1996, giving a pre-birth tone of reset, sorting, and quiet preparation. A Virgo New Moon is less theatrical than exacting: it clears, arranges, and refines before anything is publicly declared. This suggests an underlying sensitivity to what is unfinished, disordered, or not yet properly set in place. Lived inwardly, it can feel like beginning from a need to prepare the ground.",
+      "interpretation": "Your prenatal syzygy is the most recent New Moon or Full Moon before your birth — a lunar phase event that energetically frames your incarnation moment. The sign and degree of this syzygy hint at the pre-birth tone (e.g., New Moon in Virgo: reset, sorting; Full Moon in Capricorn: culmination, structure). Traditional Hellenistic and Vedic astrology both treat the syzygy as an inherited karmic anchor that shapes the Lot of Fortune calculation and identifies a sensitive natal degree.",
       "constants_version": "sirr-new-systems-v1.2",
       "references": [
         "Ptolemy, Tetrabiblos Book III: Prenatal Syzygy (lunation preceding birth)",
@@ -22628,7 +22628,7 @@
         "SOURCE_TIER:A — Classical Hellenistic text. Algorithmic implementation verified."
       ],
       "question": "Q1_IDENTITY",
-      "ar_interpretation": "آخر مقارنة قمرية قبل الميلاد كانت محاقًا في العذراء يوم 12 سبتمبر 1996، وهذا يعطي النغمة السابقة للميلاد معنى البدء من جديد والفرز والاستعداد الهادئ. فمحاق العذراء أقل استعراضيةً وأكثر ميلًا إلى الترتيب والتنقية قبل الإعلان أو الظهور. ويشير ذلك إلى حساسيةٍ كامنة تجاه ما لم يكتمل أو ما اختل ترتيبه أو ما لم يُوضَع في مكانه الصحيح بعد. ومن الداخل قد يُعاش هذا كأن البداية عندك تحتاج أولًا إلى إعداد الأرض.",
+      "ar_interpretation": "السيزيغي قبل الولادة هو آخر اقتران أو مقابلة قمرية قبل ميلادك — حدث طور قمري يؤطر لحظة تجسدك طاقياً. برج ودرجة هذا السيزيغي تلمح إلى نغمة ما قبل الميلاد (مثلاً: قمر جديد في العذراء: إعادة ضبط وفرز؛ قمر كامل في الجدي: ذروة وبنية). كل من علم الفلك الهيليني التقليدي والفيدي يعتبر السيزيغي مرساة كرمية موروثة تشكل حساب سهم السعادة وتحدد درجة طبيعية حساسة.",
       "domain": "astro_timing",
       "tier": "STANDARD"
     },
@@ -23162,13 +23162,13 @@
         "group_count": 8,
         "groups": [
           "tibetan_calendar",
-          "chinese_calendar",
-          "birth_digits",
+          "hellenistic_day",
           "arabic_name",
-          "birth_time",
           "astronomical",
-          "latin_name",
-          "hellenistic_day"
+          "birth_digits",
+          "chinese_calendar",
+          "birth_time",
+          "latin_name"
         ],
         "systems": [
           "compound",
@@ -23235,13 +23235,13 @@
         "system_count": 12,
         "group_count": 7,
         "groups": [
-          "birth_digits",
           "arabic_name",
-          "african_binary",
-          "mayan_calendar",
-          "birth_time",
           "astronomical",
-          "latin_name"
+          "birth_digits",
+          "birth_time",
+          "african_binary",
+          "latin_name",
+          "mayan_calendar"
         ],
         "systems": [
           "mayan",
@@ -23278,14 +23278,14 @@
         "system_count": 14,
         "group_count": 8,
         "groups": [
-          "chinese_calendar",
-          "birth_digits",
+          "hellenistic_day",
           "arabic_name",
-          "mayan_calendar",
-          "mandaean_name",
           "astronomical",
+          "birth_digits",
+          "chinese_calendar",
+          "mandaean_name",
           "latin_name",
-          "hellenistic_day"
+          "mayan_calendar"
         ],
         "systems": [
           "challenges",
@@ -23327,8 +23327,8 @@
         "group_count": 4,
         "groups": [
           "chinese_calendar",
-          "birth_digits",
           "arabic_name",
+          "birth_digits",
           "astronomical"
         ],
         "systems": [
@@ -23358,12 +23358,12 @@
         "system_count": 12,
         "group_count": 6,
         "groups": [
-          "derived",
-          "birth_digits",
+          "hellenistic_day",
           "astronomical",
+          "birth_digits",
+          "derived",
           "latin_name",
-          "hijri_calendar",
-          "hellenistic_day"
+          "hijri_calendar"
         ],
         "systems": [
           "essence",
@@ -23400,11 +23400,11 @@
         "system_count": 11,
         "group_count": 7,
         "groups": [
-          "derived",
-          "birth_digits",
-          "african_binary",
-          "birth_time",
           "astronomical",
+          "birth_digits",
+          "birth_time",
+          "derived",
+          "african_binary",
           "latin_name",
           "hijri_calendar"
         ],
@@ -23441,13 +23441,13 @@
         "system_count": 25,
         "group_count": 7,
         "groups": [
-          "chinese_calendar",
-          "birth_digits",
           "arabic_name",
-          "mayan_calendar",
           "astronomical",
+          "birth_digits",
+          "chinese_calendar",
           "chaldean_name",
-          "latin_name"
+          "latin_name",
+          "mayan_calendar"
         ],
         "systems": [
           "mayan",
@@ -23510,12 +23510,12 @@
         "system_count": 10,
         "group_count": 8,
         "groups": [
-          "derived",
-          "chinese_calendar",
-          "birth_digits",
           "arabic_name",
-          "birth_time",
           "astronomical",
+          "birth_digits",
+          "chinese_calendar",
+          "birth_time",
+          "derived",
           "latin_name",
           "hijri_calendar"
         ],
@@ -23550,9 +23550,9 @@
         "system_count": 4,
         "group_count": 3,
         "groups": [
-          "birth_digits",
+          "derived",
           "latin_name",
-          "derived"
+          "birth_digits"
         ],
         "systems": [
           "attitude",
@@ -23573,12 +23573,12 @@
         "system_count": 8,
         "group_count": 6,
         "groups": [
-          "derived",
-          "birth_digits",
           "arabic_name",
-          "mayan_calendar",
           "astronomical",
-          "solar_cycle"
+          "solar_cycle",
+          "birth_digits",
+          "derived",
+          "mayan_calendar"
         ],
         "systems": [
           "compound",
@@ -23607,11 +23607,11 @@
         "system_count": 8,
         "group_count": 5,
         "groups": [
-          "birth_digits",
           "arabic_name",
           "astronomical",
-          "latin_name",
-          "indo_javanese_calendar"
+          "birth_digits",
+          "indo_javanese_calendar",
+          "latin_name"
         ],
         "systems": [
           "compound",
@@ -23640,8 +23640,8 @@
         "system_count": 6,
         "group_count": 4,
         "groups": [
-          "birth_time",
           "hellenistic_day",
+          "birth_time",
           "derived",
           "astronomical"
         ],
@@ -23668,8 +23668,8 @@
         "system_count": 3,
         "group_count": 2,
         "groups": [
-          "birth_digits",
-          "astronomical"
+          "astronomical",
+          "birth_digits"
         ],
         "systems": [
           "compound",
@@ -23708,9 +23708,9 @@
         "system_count": 5,
         "group_count": 4,
         "groups": [
-          "astronomical",
-          "oceanic_lunar_calendar",
           "hebrew_calendar_family",
+          "oceanic_lunar_calendar",
+          "astronomical",
           "hijri_calendar"
         ],
         "systems": [
@@ -23735,8 +23735,8 @@
         "group_count": 4,
         "groups": [
           "approx",
-          "birth_digits",
           "astronomical",
+          "birth_digits",
           "birth_time"
         ],
         "systems": [
@@ -23764,12 +23764,12 @@
         "system_count": 10,
         "group_count": 6,
         "groups": [
-          "derived",
+          "african_calendar",
           "tibetan_calendar",
-          "chinese_calendar",
           "arabic_name",
-          "african_binary",
-          "african_calendar"
+          "chinese_calendar",
+          "derived",
+          "african_binary"
         ],
         "systems": [
           "nayin",
@@ -23790,12 +23790,12 @@
         "system_count": 10,
         "group_count": 6,
         "groups": [
-          "derived",
           "tibetan_calendar",
+          "hellenistic_day",
           "arabic_name",
-          "zoroastrian_calendar",
           "astronomical",
-          "hellenistic_day"
+          "zoroastrian_calendar",
+          "derived"
         ],
         "systems": [
           "elemental_letters",
@@ -24957,7 +24957,7 @@
   },
   "narrative": {
     "version": "narrative_v1.0",
-    "generated_at": "2026-04-19T11:28:40",
+    "generated_at": "2026-04-26T18:34:24",
     "profile_ref": {
       "subject": "FATIMA AHMED ALKATIB",
       "arabic": "فاطمة أحمد الكاتب",
@@ -24989,13 +24989,13 @@
       "dominant_percentile": 0.0,
       "dominant_group_ids": [
         "tibetan_calendar",
-        "chinese_calendar",
-        "birth_digits",
+        "hellenistic_day",
         "arabic_name",
-        "birth_time",
         "astronomical",
-        "latin_name",
-        "hellenistic_day"
+        "birth_digits",
+        "chinese_calendar",
+        "birth_time",
+        "latin_name"
       ],
       "secondary": [
         {

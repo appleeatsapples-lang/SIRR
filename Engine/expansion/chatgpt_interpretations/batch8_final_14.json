@@ -38,8 +38,8 @@
   {
     "system_id": "julian",
     "version": "v1.0",
-    "interpretation_en": "Your Julian Day Number is 2450350, a continuous astronomical timestamp anchoring your birth to a universal temporal grid. This module carries no symbolic personality meaning but structures cross-calendar synchronization (Gregorian, Hijri, Hebrew, Mayan). It functions as infrastructure, ensuring deterministic alignment across systems. In SIRR architecture, it is the absolute clock reference.",
-    "interpretation_ar": "رقم اليوم اليولياني لديك هو 2450350، وهو طابع زمني فلكي مستمر يربط ميلادك بشبكة زمنية كونية. هذا النظام لا يحمل معنى رمزي للشخصية لكنه ينظم المزامنة بين التقويمات (الميلادي، الهجري، العبري، المايا). يعمل كبنية تحتية لضمان التطابق الحتمي بين الأنظمة. في معمارية SIRR هو مرجع الساعة المطلق."
+    "interpretation_en": "Your Julian Day Number is a continuous astronomical timestamp anchoring your birth to a universal temporal grid. This module carries no symbolic personality meaning but structures cross-calendar synchronization (Gregorian, Hijri, Hebrew, Mayan). It functions as infrastructure, ensuring deterministic alignment across systems. In SIRR architecture, it is the absolute clock reference.",
+    "interpretation_ar": "رقم اليوم اليولياني الخاص بك هو طابع زمني فلكي مستمر يربط ميلادك بشبكة زمنية كونية. هذا النظام لا يحمل معنى رمزي للشخصية لكنه ينظم المزامنة بين التقويمات (الميلادي، الهجري، العبري، المايا). يعمل كبنية تحتية لضمان التطابق الحتمي بين الأنظمة. في معمارية SIRR هو مرجع الساعة المطلق."
   },
   {
     "system_id": "temperament",
