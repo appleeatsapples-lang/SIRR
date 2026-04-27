@@ -6334,8 +6334,8 @@
         "current_planet": "Venus",
         "current_dasha_start_age": 31.25,
         "current_dasha_end_age": 38.25,
-        "years_into_current": 4.86,
-        "years_remaining": 2.14,
+        "years_into_current": 4.87,
+        "years_remaining": 2.13,
         "cycle_length_years": 36,
         "period_quality": "benefic",
         "timeline": [
@@ -20855,7 +20855,7 @@
     {
       "id": "arabic_roots",
       "name": "Arabic Root Extraction (علم الاشتقاق)",
-      "certainty": "COMPUTED_STRICT",
+      "certainty": "APPROX",
       "data": {
         "module_class": "primary",
         "arabic_name": "فاطمة أحمد عمر الكاتب حسن محمود سمير وائل",
@@ -20880,16 +20880,12 @@
           },
           {
             "word": "عمر",
-            "root": "ع-م-ر",
-            "root_letters": [
-              "ع",
-              "م",
-              "ر"
-            ],
-            "primary_meaning": "To live long, inhabit, cultivate, build",
-            "semantic_field": "time_cultivation",
-            "form": "I",
-            "lane_ref": "Bk 1, p. 2154"
+            "root": null,
+            "root_letters": [],
+            "primary_meaning": "unclassified",
+            "semantic_field": "unclassified",
+            "form": null,
+            "lane_ref": ""
           },
           {
             "word": "الكاتب",
@@ -20951,9 +20947,7 @@
           {
             "unit": "عمر",
             "is_compound": false,
-            "roots": [
-              "ع-م-ر"
-            ]
+            "roots": []
           },
           {
             "unit": "الكاتب",
@@ -20981,18 +20975,12 @@
             "roots": []
           }
         ],
-        "root_count": 1,
-        "root_abjad_total": 310,
-        "root_abjad_root": 4,
-        "semantic_fields": {
-          "time_cultivation": 1
-        },
-        "dominant_field": "time_cultivation",
-        "all_root_letters": [
-          "ع",
-          "م",
-          "ر"
-        ],
+        "root_count": 0,
+        "root_abjad_total": 0,
+        "root_abjad_root": 0,
+        "semantic_fields": {},
+        "dominant_field": "none",
+        "all_root_letters": [],
         "scholarship_fidelity": "CLASSICAL",
         "scholarship_note": "Classified CLASSICAL via §4.6 crosswalk classifier (module source did not declare explicitly)."
       },
@@ -21011,7 +20999,7 @@
     {
       "id": "arabic_morphology",
       "name": "Arabic Morphology Analysis (علم الصرف)",
-      "certainty": "COMPUTED_STRICT",
+      "certainty": "APPROX",
       "data": {
         "module_class": "primary",
         "arabic_name": "فاطمة أحمد عمر الكاتب حسن محمود سمير وائل",
@@ -21038,13 +21026,13 @@
           },
           {
             "word": "عمر",
-            "wazn": "فُعَل",
-            "wazn_latin": "fuʿal",
-            "class": "proper_noun_deviated",
-            "class_ar": "معدول",
-            "form": "I",
+            "wazn": null,
+            "wazn_latin": null,
+            "class": "unclassified",
+            "class_ar": "",
+            "form": null,
             "voice": "n/a",
-            "note": "Deviated from active participle عامر denoting intensity/fixity"
+            "note": ""
           },
           {
             "word": "الكاتب",
@@ -21106,9 +21094,7 @@
         "dominant_voice": "active",
         "active_ratio": 0,
         "passive_ratio": 0,
-        "class_distribution": {
-          "proper_noun_deviated": 1
-        },
+        "class_distribution": {},
         "scholarship_fidelity": "CLASSICAL",
         "scholarship_note": "Classified CLASSICAL via §4.6 crosswalk classifier (module source did not declare explicitly)."
       },
@@ -21126,7 +21112,7 @@
     {
       "id": "name_semantics",
       "name": "Name Semantics (علم المعاني)",
-      "certainty": "LOOKUP_FIXED",
+      "certainty": "APPROX",
       "data": {
         "module_class": "primary",
         "arabic_name": "فاطمة أحمد عمر الكاتب حسن محمود سمير وائل",
@@ -21166,10 +21152,10 @@
               "عمر"
             ],
             "semantic_fields": [
-              "time_cultivation"
+              "unclassified"
             ],
             "primary_meanings": [
-              "To live long, inhabit, cultivate, build"
+              "unclassified"
             ]
           },
           {
@@ -21250,10 +21236,8 @@
             "id": "construction",
             "label_en": "Construction / Building",
             "label_ar": "البناء / التعمير",
-            "count": 1,
-            "units": [
-              "عمر"
-            ]
+            "count": 0,
+            "units": []
           },
           {
             "id": "observation",
@@ -21263,10 +21247,10 @@
             "units": []
           }
         ],
-        "dominant_cluster": "construction",
-        "dominant_cluster_count": 1,
-        "dominant_cluster_ratio": 100.0,
-        "total_classified": 1,
+        "dominant_cluster": "sacred_devotional",
+        "dominant_cluster_count": 0,
+        "dominant_cluster_ratio": 0,
+        "total_classified": 0,
         "scholarship_fidelity": "CLASSICAL",
         "scholarship_note": "Classified CLASSICAL via §4.6 crosswalk classifier (module source did not declare explicitly)."
       },
@@ -22360,7 +22344,7 @@
         "module_class": "comparative",
         "axes": {
           "name_abjad": 7,
-          "name_root_abjad": 4,
+          "name_root_abjad": 0,
           "digit_life_path": 1,
           "digit_expression": 8,
           "digit_birthday": 6,
@@ -22464,10 +22448,10 @@
           {
             "rank": 3,
             "fact": "semantic_center",
-            "value": "construction",
-            "ratio": 100.0,
+            "value": "sacred_devotional",
+            "ratio": 0,
             "source": "name_semantics",
-            "statement": "Semantic center: construction (100.0% of name)"
+            "statement": "Semantic center: sacred_devotional (0% of name)"
           },
           {
             "rank": 4,
@@ -22487,17 +22471,17 @@
           }
         ],
         "fact_count": 5,
-        "signature_string": "Root 1 dominates across 3 axes | Name is structurally active — identity is actively constructed | Semantic center: construction (100.0% of name) | Structural balance: structurally_dominant (coefficient 0.8966) | Void geometry: center present, 13 total voids",
+        "signature_string": "Root 1 dominates across 3 axes | Name is structurally active — identity is actively constructed | Semantic center: sacred_devotional (0% of name) | Structural balance: structurally_dominant (coefficient 0.8966) | Void geometry: center present, 13 total voids",
         "scholarship_fidelity": "MODERN_SYNTHESIS",
         "scholarship_note": "Classified MODERN_SYNTHESIS via §4.6 crosswalk classifier (module source did not declare explicitly)."
       },
-      "interpretation": "The minimum viable signature compresses the report into a small set of product-level signals: dominant root 1, dominant axis count 3, activity mode active, semantic center share 100.0, coefficient 0.8966, matrix void status center present, and void count 13. This is a SIRR summary layer, not a classical tradition. Its role is to show which internal signals remain visible after compression, without turning the summary into a destiny claim or a cross-module convergence argument.",
+      "interpretation": "The minimum viable signature compresses the report into a small set of product-level signals: dominant root 1, dominant axis count 3, activity mode active, semantic center share 0, coefficient 0.8966, matrix void status center present, and void count 13. This is a SIRR summary layer, not a classical tradition. Its role is to show which internal signals remain visible after compression, without turning the summary into a destiny claim or a cross-module convergence argument.",
       "constants_version": "sirr-new-systems-v1.2",
       "references": [
         "Structural distillation — the 5 irreducible facts of a SIRR profile"
       ],
       "question": "Q6_SYNTHESIS",
-      "ar_interpretation": "يختصر التوقيع الأدنى التقرير في مجموعة صغيرة من الإشارات على مستوى المنتج: الجذر المهيمن 1، وعدد المحاور المهيمنة 3، ونمط الفاعلية active، ونسبة المركز الدلالي 100.0، والمعامل 0.8966، وحالة فراغ المصفوفة center present، وعدد الفراغات 13. هذه طبقة تلخيص في SIRR وليست تقليدًا كلاسيكيًا. وظيفتها إظهار الإشارات الداخلية التي تبقى مرئية بعد الضغط، من غير تحويل الملخص إلى دعوى قدرية أو حجة تقارب بين الوحدات.",
+      "ar_interpretation": "يختصر التوقيع الأدنى التقرير في مجموعة صغيرة من الإشارات على مستوى المنتج: الجذر المهيمن 1، وعدد المحاور المهيمنة 3، ونمط الفاعلية active، ونسبة المركز الدلالي 0، والمعامل 0.8966، وحالة فراغ المصفوفة center present، وعدد الفراغات 13. هذه طبقة تلخيص في SIRR وليست تقليدًا كلاسيكيًا. وظيفتها إظهار الإشارات الداخلية التي تبقى مرئية بعد الضغط، من غير تحويل الملخص إلى دعوى قدرية أو حجة تقارب بين الوحدات.",
       "domain": "numerology",
       "tier": "COMPRESSED"
     },
@@ -23191,11 +23175,11 @@
         "pillar_balanced": false,
         "daat_active": false,
         "active_sephirot": [
-          "Tiferet",
-          "Hod",
-          "Keter",
+          "Yesod",
           "Netzach",
-          "Yesod"
+          "Keter",
+          "Tiferet",
+          "Hod"
         ],
         "sephirot_count": 5,
         "module_class": "meta",
@@ -24546,13 +24530,13 @@
         "system_count": 25,
         "group_count": 7,
         "groups": [
-          "latin_name",
           "chinese_calendar",
+          "latin_name",
           "tibetan_calendar",
           "astronomical",
-          "birth_time",
           "hellenistic_day",
-          "birth_digits"
+          "birth_digits",
+          "birth_time"
         ],
         "systems": [
           "essence",
@@ -24617,11 +24601,11 @@
         "groups": [
           "african_binary",
           "latin_name",
+          "arabic_name",
           "astronomical",
-          "birth_time",
           "mayan_calendar",
           "birth_digits",
-          "arabic_name"
+          "birth_time"
         ],
         "systems": [
           "mayan",
@@ -24659,12 +24643,12 @@
         "group_count": 7,
         "groups": [
           "latin_name",
-          "astronomical",
           "chinese_calendar",
+          "arabic_name",
+          "astronomical",
           "mayan_calendar",
           "hellenistic_day",
-          "birth_digits",
-          "arabic_name"
+          "birth_digits"
         ],
         "systems": [
           "challenges",
@@ -24700,16 +24684,16 @@
       },
       {
         "number": 4,
-        "system_count": 13,
+        "system_count": 12,
         "group_count": 7,
         "groups": [
-          "latin_name",
           "chinese_calendar",
+          "latin_name",
+          "arabic_name",
           "astronomical",
-          "mandaean_name",
           "derived",
-          "birth_digits",
-          "arabic_name"
+          "mandaean_name",
+          "birth_digits"
         ],
         "systems": [
           "notarikon",
@@ -24722,7 +24706,6 @@
           "sect",
           "declinations",
           "bonification",
-          "arabic_roots",
           "hebrew_aiq_beker",
           "hebrew_mispar_variants"
         ],
@@ -24737,7 +24720,6 @@
           "sect": "astronomical",
           "declinations": "astronomical",
           "bonification": "astronomical",
-          "arabic_roots": "arabic_name",
           "hebrew_aiq_beker": "arabic_name",
           "hebrew_mispar_variants": "arabic_name"
         },
@@ -24748,13 +24730,13 @@
         "system_count": 14,
         "group_count": 7,
         "groups": [
-          "latin_name",
-          "astronomical",
           "hijri_calendar",
+          "latin_name",
+          "arabic_name",
+          "astronomical",
           "derived",
           "hellenistic_day",
-          "birth_digits",
-          "arabic_name"
+          "birth_digits"
         ],
         "systems": [
           "challenges",
@@ -24795,14 +24777,14 @@
         "system_count": 12,
         "group_count": 8,
         "groups": [
-          "african_binary",
-          "chaldean_name",
-          "birth_time",
-          "astronomical",
-          "latin_name",
           "hijri_calendar",
+          "african_binary",
+          "latin_name",
+          "chaldean_name",
+          "astronomical",
           "derived",
-          "birth_digits"
+          "birth_digits",
+          "birth_time"
         ],
         "systems": [
           "compound",
@@ -24841,10 +24823,10 @@
         "groups": [
           "latin_name",
           "chinese_calendar",
+          "arabic_name",
           "astronomical",
           "mayan_calendar",
-          "birth_digits",
-          "arabic_name"
+          "birth_digits"
         ],
         "systems": [
           "mayan",
@@ -24901,13 +24883,13 @@
         "system_count": 11,
         "group_count": 7,
         "groups": [
-          "latin_name",
-          "birth_time",
-          "astronomical",
-          "chinese_calendar",
           "hijri_calendar",
+          "latin_name",
+          "chinese_calendar",
+          "arabic_name",
+          "astronomical",
           "birth_digits",
-          "arabic_name"
+          "birth_time"
         ],
         "systems": [
           "compound",
@@ -24942,9 +24924,9 @@
         "system_count": 5,
         "group_count": 3,
         "groups": [
+          "arabic_name",
           "latin_name",
-          "birth_digits",
-          "arabic_name"
+          "birth_digits"
         ],
         "systems": [
           "attitude",
@@ -24967,12 +24949,12 @@
         "system_count": 7,
         "group_count": 6,
         "groups": [
+          "arabic_name",
           "astronomical",
           "mayan_calendar",
-          "solar_cycle",
           "derived",
-          "birth_digits",
-          "arabic_name"
+          "solar_cycle",
+          "birth_digits"
         ],
         "systems": [
           "compound",
@@ -24999,10 +24981,10 @@
         "system_count": 6,
         "group_count": 4,
         "groups": [
-          "latin_name",
+          "arabic_name",
           "astronomical",
           "indo_javanese_calendar",
-          "arabic_name"
+          "latin_name"
         ],
         "systems": [
           "solar_lunar",
@@ -25027,10 +25009,10 @@
         "system_count": 6,
         "group_count": 4,
         "groups": [
-          "latin_name",
-          "hellenistic_day",
+          "astronomical",
           "birth_time",
-          "astronomical"
+          "latin_name",
+          "hellenistic_day"
         ],
         "systems": [
           "geomancy",
@@ -25075,9 +25057,9 @@
         "system_count": 4,
         "group_count": 3,
         "groups": [
-          "latin_name",
+          "approx",
           "indo_javanese_calendar",
-          "approx"
+          "latin_name"
         ],
         "systems": [
           "vedic_yoga",
@@ -25098,10 +25080,10 @@
         "system_count": 5,
         "group_count": 4,
         "groups": [
-          "hijri_calendar",
           "astronomical",
-          "oceanic_lunar_calendar",
-          "hebrew_calendar_family"
+          "hijri_calendar",
+          "hebrew_calendar_family",
+          "oceanic_lunar_calendar"
         ],
         "systems": [
           "hijri",
@@ -25124,11 +25106,11 @@
         "system_count": 7,
         "group_count": 5,
         "groups": [
-          "birth_time",
           "astronomical",
           "approx",
           "derived",
-          "birth_digits"
+          "birth_digits",
+          "birth_time"
         ],
         "systems": [
           "compound",
@@ -25157,8 +25139,8 @@
         "system_count": 3,
         "group_count": 2,
         "groups": [
-          "derived",
-          "arabic_name"
+          "arabic_name",
+          "derived"
         ],
         "systems": [
           "istikhara_adad",
@@ -25173,10 +25155,10 @@
         "group_count": 5,
         "groups": [
           "african_binary",
-          "african_calendar",
           "chinese_calendar",
+          "arabic_name",
           "tibetan_calendar",
-          "arabic_name"
+          "african_calendar"
         ],
         "systems": [
           "nayin",
@@ -25196,12 +25178,12 @@
         "system_count": 9,
         "group_count": 6,
         "groups": [
+          "arabic_name",
           "astronomical",
           "tibetan_calendar",
-          "zoroastrian_calendar",
           "derived",
           "hellenistic_day",
-          "arabic_name"
+          "zoroastrian_calendar"
         ],
         "systems": [
           "elemental_letters",
@@ -25221,9 +25203,9 @@
         "system_count": 8,
         "group_count": 4,
         "groups": [
-          "derived",
           "astronomical",
           "birth_time",
+          "derived",
           "chinese_calendar"
         ],
         "systems": [
@@ -25850,15 +25832,15 @@
         },
         {
           "id": "arabic_roots",
-          "certainty": "COMPUTED_STRICT"
+          "certainty": "APPROX"
         },
         {
           "id": "arabic_morphology",
-          "certainty": "COMPUTED_STRICT"
+          "certainty": "APPROX"
         },
         {
           "id": "name_semantics",
-          "certainty": "LOOKUP_FIXED"
+          "certainty": "APPROX"
         },
         {
           "id": "digit_patterns",
@@ -26350,10 +26332,10 @@
     },
     "confidence_summary": {
       "total_systems": 238,
-      "strict_locked": 202,
-      "method_locked": 24,
-      "approximate": 6,
-      "lockable_pct": 95.0
+      "strict_locked": 200,
+      "method_locked": 23,
+      "approximate": 9,
+      "lockable_pct": 93.7
     },
     "baseline": null,
     "resonance_count": 15,
@@ -26362,7 +26344,7 @@
   },
   "narrative": {
     "version": "narrative_v1.0",
-    "generated_at": "2026-04-26T18:34:23",
+    "generated_at": "2026-04-27T05:37:14",
     "profile_ref": {
       "subject": "FATIMA AHMED OMAR ALKATIB HASSAN MAHMOUD SAMIR WAEL",
       "arabic": "فاطمة أحمد عمر الكاتب حسن محمود سمير وائل",
@@ -26393,13 +26375,13 @@
       "dominant_tier": "TIER_1_RESONANCE",
       "dominant_percentile": 0.0,
       "dominant_group_ids": [
-        "latin_name",
         "chinese_calendar",
+        "latin_name",
         "tibetan_calendar",
         "astronomical",
-        "birth_time",
         "hellenistic_day",
-        "birth_digits"
+        "birth_digits",
+        "birth_time"
       ],
       "secondary": [
         {
@@ -26421,13 +26403,13 @@
           "tier": "TIER_1_RESONANCE"
         },
         {
-          "root": 4,
-          "systems": 13,
+          "root": 2,
+          "systems": 12,
           "groups": 7,
           "tier": "TIER_1_RESONANCE"
         },
         {
-          "root": 2,
+          "root": 4,
           "systems": 12,
           "groups": 7,
           "tier": "TIER_1_RESONANCE"
@@ -26558,7 +26540,7 @@
           "reason": "Pythagorean reduction is deterministic; all values COMPUTED_STRICT."
         },
         {
-          "item": "Approximate modules (6 total)",
+          "item": "Approximate modules (9 total)",
           "status": "UNCERTAIN",
           "reason": "These modules use approximate astronomical data or lack birth-time precision."
         },

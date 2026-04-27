@@ -4,26 +4,24 @@ Uses pre-classified semantic taxonomy from Round 3 data.
 
 Nasab structure: the name is grouped into generational UNITS, not raw words.
 Compound names (two adjacent words referring to one ancestor) are treated as
-a single semantic unit. An Arabic nasab chain may contain compound names
-(two words = one generational unit). The module detects these via configured
-positions (COMPOUND_POSITIONS) and treats them as single semantic entities.
+a single semantic unit. Compound positions are supplied per profile via
+``profile.compound_metadata`` (see ``InputProfile``); the module never
+hardcodes profile-specific compound data (V-3c calibration boundary).
 """
 from __future__ import annotations
 import json
 from pathlib import Path
 from sirr_core.types import InputProfile, SystemResult
+from sirr_core.private_overlay import load_and_merge, overlay_provides_lookups
 
 _DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "arabic_linguistics_tables.json"
 _TABLES = None
 
-# Compound name registry: multi-word names that form a single generational unit.
-# Keyed by position in the nasab chain — same word at different positions has
-# different semantics (a given-name as father is standalone; the same given-name
-# at a compound-position pairs with the next word).
-COMPOUND_POSITIONS = {
-    3: ("عمر", "عاكف"),    # great-grandfather position
-    5: ("محمد", "وصفي"),   # great-great-grandfather position
-}
+# Compound positions are now sourced from ``profile.compound_metadata`` at
+# compute time (V-3c calibration boundary). The module-level constant is
+# kept as an empty dict purely as a stable export for any external
+# importer; it is never populated with profile-specific data.
+COMPOUND_POSITIONS: dict = {}
 
 # Semantic field taxonomy: which fields belong to which cluster
 CLUSTER_TAXONOMY = {
@@ -48,24 +46,23 @@ CLUSTER_TAXONOMY = {
 def _load_tables() -> dict:
     global _TABLES
     if _TABLES is None:
-        _TABLES = json.loads(_DATA_PATH.read_text(encoding="utf-8"))
+        public = json.loads(_DATA_PATH.read_text(encoding="utf-8"))
+        _TABLES = load_and_merge(public)
     return _TABLES
 
 
-def _group_into_units(words: list[str]) -> list[dict]:
+def _group_into_units(words: list[str], compounds: dict) -> list[dict]:
     """Group raw words into generational units, merging compound names.
 
-    Uses positional detection: compound names are identified by their
-    position in the nasab chain, not by word alone (عمر at pos 1 is
-    standalone father; عمر at pos 3 starts compound great-grandfather).
-
-    Returns list of dicts: {words: [...], label: str, is_compound: bool}
+    Uses positional detection from the per-profile compound metadata: compound
+    names are identified by their position in the nasab chain, not by word
+    alone. Returns list of dicts: ``{words: [...], label: str, is_compound: bool}``.
     """
     units = []
     i = 0
     while i < len(words):
-        compound = COMPOUND_POSITIONS.get(i)
-        if compound and i + 1 < len(words) and words[i] == compound[0] and words[i + 1] == compound[1]:
+        compound = compounds.get(i)
+        if compound and len(compound) >= 2 and i + 1 < len(words) and words[i] == compound[0] and words[i + 1] == compound[1]:
             units.append({
                 "words": [words[i], words[i + 1]],
                 "label": f"{words[i]} {words[i + 1]}",
@@ -84,10 +81,12 @@ def _group_into_units(words: list[str]) -> list[dict]:
 
 def compute(profile: InputProfile, constants: dict, **kwargs) -> SystemResult:
     tables = _load_tables()
-    root_table = tables["name_roots"]
+    root_table = tables.get("name_roots", {}) or {}
+    has_lookups = overlay_provides_lookups(tables)
 
     words = profile.arabic.split()
-    units = _group_into_units(words)
+    compounds = profile.compound_metadata or {}
+    units = _group_into_units(words, compounds)
 
     unit_semantics = []
     field_list = []
@@ -145,7 +144,7 @@ def compute(profile: InputProfile, constants: dict, **kwargs) -> SystemResult:
     return SystemResult(
         id="name_semantics",
         name="Name Semantics (علم المعاني)",
-        certainty="LOOKUP_FIXED",
+        certainty="LOOKUP_FIXED" if has_lookups else "APPROX",
         data={
             "module_class": "primary",
             "arabic_name": profile.arabic,

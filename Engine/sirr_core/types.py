@@ -1,7 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass, field
 from datetime import date
-from typing import Any, Dict, List, Literal, Optional
+from typing import Any, Dict, List, Literal, Optional, Tuple
 
 Certainty = Literal[
     "COMPUTED_STRICT",
@@ -37,6 +37,12 @@ class InputProfile:
     latitude: Optional[float] = None   # decimal degrees (from geocoder)
     longitude: Optional[float] = None  # decimal degrees (from geocoder)
     utc_offset: Optional[float] = None # hours from UTC (from geocoder)
+    # V-3c calibration boundary: per-profile compound name positions.
+    # Maps a position index in the nasab chain to the (word1, word2) pair that
+    # forms a single generational unit at that position. Modules consult this
+    # field instead of any hardcoded module-level COMPOUND_POSITIONS dict.
+    # None or {} = no compound detection (every word is standalone).
+    compound_metadata: Optional[Dict[int, Tuple[str, str]]] = None
 
 @dataclass
 class SystemResult:

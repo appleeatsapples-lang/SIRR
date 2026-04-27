@@ -5,7 +5,8 @@ and map to primary meaning and semantic field.
 Compound name awareness: when two adjacent nasab positions form a
 compound generational unit, both component roots are extracted
 independently and credited to the same generation. Compound positions
-are configured in COMPOUND_POSITIONS below.
+are supplied per profile via ``profile.compound_metadata`` (see
+``InputProfile``).
 Sources: Lane's Lexicon, Lisan al-Arab, Maqayis al-Lugha (Ibn Faris)
 """
 from __future__ import annotations
@@ -13,27 +14,30 @@ import json
 from pathlib import Path
 from sirr_core.types import InputProfile, SystemResult
 from sirr_core.utils import reduce_number
+from sirr_core.private_overlay import load_and_merge, overlay_provides_lookups
 
 _DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "arabic_linguistics_tables.json"
 _TABLES = None
 
-# Positional compound detection
-COMPOUND_POSITIONS = {
-    3: ("عمر", "عاكف"),
-    5: ("محمد", "وصفي"),
-}
+# Compound positions are now sourced from ``profile.compound_metadata`` at
+# compute time (V-3c calibration boundary). The module-level constant is
+# kept as an empty dict purely as a stable export for any external
+# importer; it is never populated with profile-specific data.
+COMPOUND_POSITIONS: dict = {}
 
 
 def _load_tables() -> dict:
     global _TABLES
     if _TABLES is None:
-        _TABLES = json.loads(_DATA_PATH.read_text(encoding="utf-8"))
+        public = json.loads(_DATA_PATH.read_text(encoding="utf-8"))
+        _TABLES = load_and_merge(public)
     return _TABLES
 
 
 def compute(profile: InputProfile, constants: dict, **kwargs) -> SystemResult:
     tables = _load_tables()
-    root_table = tables["name_roots"]
+    root_table = tables.get("name_roots", {}) or {}
+    has_lookups = overlay_provides_lookups(tables)
     abjad = constants["arabic_letters"]["abjad_kabir"]
 
     words = profile.arabic.split()
@@ -65,12 +69,13 @@ def compute(profile: InputProfile, constants: dict, **kwargs) -> SystemResult:
                 "lane_ref": "",
             })
 
-    # Build compound_roots: group roots by generational unit
+    # Build compound_roots: group roots by generational unit.
+    profile_compounds = profile.compound_metadata or {}
     compound_roots = []
     i = 0
     while i < len(words):
-        compound = COMPOUND_POSITIONS.get(i)
-        if compound and i + 1 < len(words) and words[i] == compound[0] and words[i + 1] == compound[1]:
+        compound = profile_compounds.get(i)
+        if compound and len(compound) >= 2 and i + 1 < len(words) and words[i] == compound[0] and words[i + 1] == compound[1]:
             roots = []
             for j in (i, i + 1):
                 entry = root_table.get(words[j])
@@ -113,7 +118,7 @@ def compute(profile: InputProfile, constants: dict, **kwargs) -> SystemResult:
     return SystemResult(
         id="arabic_roots",
         name="Arabic Root Extraction (علم الاشتقاق)",
-        certainty="COMPUTED_STRICT",
+        certainty="COMPUTED_STRICT" if has_lookups else "APPROX",
         data={
             "module_class": "primary",
             "arabic_name": profile.arabic,

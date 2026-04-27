@@ -7,6 +7,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 from sirr_core.types import InputProfile, SystemResult
+from sirr_core.private_overlay import load_and_merge
 
 _DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "arabic_linguistics_tables.json"
 _TABLES = None
@@ -15,7 +16,8 @@ _TABLES = None
 def _load_tables() -> dict:
     global _TABLES
     if _TABLES is None:
-        _TABLES = json.loads(_DATA_PATH.read_text(encoding="utf-8"))
+        public = json.loads(_DATA_PATH.read_text(encoding="utf-8"))
+        _TABLES = load_and_merge(public)
     return _TABLES
 
 
