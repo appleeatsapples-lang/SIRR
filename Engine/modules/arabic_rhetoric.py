@@ -70,9 +70,10 @@ def compute(profile: InputProfile, constants: dict, **kwargs) -> SystemResult:
     # 5. طباق — antithesis detection (active vs passive voice in name)
     import json
     from pathlib import Path
+    from sirr_core.private_overlay import load_and_merge
     morph_path = Path(__file__).resolve().parent.parent / "data" / "arabic_linguistics_tables.json"
     try:
-        tables = json.loads(morph_path.read_text(encoding="utf-8"))
+        tables = load_and_merge(json.loads(morph_path.read_text(encoding="utf-8")))
         morph = tables.get("name_morphology", {})
         voices = []
         for w in words:

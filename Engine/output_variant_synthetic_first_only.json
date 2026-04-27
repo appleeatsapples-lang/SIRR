@@ -4872,8 +4872,8 @@
         "current_planet": "Venus",
         "current_dasha_start_age": 31.25,
         "current_dasha_end_age": 38.25,
-        "years_into_current": 4.86,
-        "years_remaining": 2.14,
+        "years_into_current": 4.87,
+        "years_remaining": 2.13,
         "cycle_length_years": 36,
         "period_quality": "benefic",
         "timeline": [
@@ -19375,7 +19375,7 @@
     {
       "id": "arabic_roots",
       "name": "Arabic Root Extraction (علم الاشتقاق)",
-      "certainty": "COMPUTED_STRICT",
+      "certainty": "APPROX",
       "data": {
         "module_class": "primary",
         "arabic_name": "فاطمة",
@@ -19421,7 +19421,7 @@
     {
       "id": "arabic_morphology",
       "name": "Arabic Morphology Analysis (علم الصرف)",
-      "certainty": "COMPUTED_STRICT",
+      "certainty": "APPROX",
       "data": {
         "module_class": "primary",
         "arabic_name": "فاطمة",
@@ -19464,7 +19464,7 @@
     {
       "id": "name_semantics",
       "name": "Name Semantics (علم المعاني)",
-      "certainty": "LOOKUP_FIXED",
+      "certainty": "APPROX",
       "data": {
         "module_class": "primary",
         "arabic_name": "فاطمة",
@@ -21168,11 +21168,11 @@
         "daat_active": true,
         "active_sephirot": [
           "Gevurah",
-          "Binah",
-          "Chesed",
           "Tiferet",
-          "Keter",
-          "Da'at"
+          "Da'at",
+          "Chesed",
+          "Binah",
+          "Keter"
         ],
         "sephirot_count": 6,
         "module_class": "meta",
@@ -22452,15 +22452,15 @@
         "system_count": 25,
         "group_count": 9,
         "groups": [
-          "tibetan_calendar",
-          "birth_digits",
-          "hellenistic_day",
-          "astronomical",
-          "arabic_name",
-          "latin_name",
-          "birth_time",
           "chinese_calendar",
-          "chaldean_name"
+          "chaldean_name",
+          "latin_name",
+          "hellenistic_day",
+          "arabic_name",
+          "tibetan_calendar",
+          "astronomical",
+          "birth_digits",
+          "birth_time"
         ],
         "systems": [
           "compound",
@@ -22524,11 +22524,11 @@
         "group_count": 7,
         "groups": [
           "mayan_calendar",
-          "birth_digits",
-          "astronomical",
-          "arabic_name",
-          "latin_name",
           "african_binary",
+          "latin_name",
+          "arabic_name",
+          "astronomical",
+          "birth_digits",
           "birth_time"
         ],
         "systems": [
@@ -22575,12 +22575,12 @@
         "group_count": 7,
         "groups": [
           "mayan_calendar",
-          "birth_digits",
+          "chinese_calendar",
+          "latin_name",
+          "arabic_name",
           "hellenistic_day",
           "astronomical",
-          "arabic_name",
-          "latin_name",
-          "chinese_calendar"
+          "birth_digits"
         ],
         "systems": [
           "compound",
@@ -22625,11 +22625,11 @@
         "system_count": 19,
         "group_count": 5,
         "groups": [
-          "birth_digits",
-          "astronomical",
-          "arabic_name",
+          "chinese_calendar",
           "latin_name",
-          "chinese_calendar"
+          "arabic_name",
+          "astronomical",
+          "birth_digits"
         ],
         "systems": [
           "bridges",
@@ -22680,11 +22680,11 @@
         "system_count": 11,
         "group_count": 5,
         "groups": [
-          "birth_digits",
-          "hellenistic_day",
           "hijri_calendar",
+          "latin_name",
+          "hellenistic_day",
           "astronomical",
-          "latin_name"
+          "birth_digits"
         ],
         "systems": [
           "compound",
@@ -22720,11 +22720,11 @@
         "group_count": 7,
         "groups": [
           "derived",
-          "birth_digits",
           "hijri_calendar",
-          "astronomical",
-          "latin_name",
           "african_binary",
+          "latin_name",
+          "astronomical",
+          "birth_digits",
           "birth_time"
         ],
         "systems": [
@@ -22773,10 +22773,10 @@
         "group_count": 5,
         "groups": [
           "mayan_calendar",
-          "birth_digits",
-          "astronomical",
+          "chinese_calendar",
           "latin_name",
-          "chinese_calendar"
+          "astronomical",
+          "birth_digits"
         ],
         "systems": [
           "mayan",
@@ -22812,13 +22812,13 @@
         "group_count": 8,
         "groups": [
           "derived",
-          "birth_digits",
           "hijri_calendar",
-          "astronomical",
-          "arabic_name",
+          "chinese_calendar",
           "latin_name",
-          "birth_time",
-          "chinese_calendar"
+          "arabic_name",
+          "astronomical",
+          "birth_digits",
+          "birth_time"
         ],
         "systems": [
           "bridges",
@@ -22855,10 +22855,10 @@
         "system_count": 6,
         "group_count": 4,
         "groups": [
-          "arabic_name",
-          "derived",
           "birth_digits",
-          "mandaean_name"
+          "mandaean_name",
+          "arabic_name",
+          "derived"
         ],
         "systems": [
           "essence",
@@ -22883,12 +22883,12 @@
         "system_count": 8,
         "group_count": 6,
         "groups": [
-          "derived",
           "mayan_calendar",
-          "birth_digits",
-          "astronomical",
+          "derived",
+          "solar_cycle",
           "arabic_name",
-          "solar_cycle"
+          "astronomical",
+          "birth_digits"
         ],
         "systems": [
           "compound",
@@ -22918,10 +22918,10 @@
         "group_count": 5,
         "groups": [
           "derived",
-          "astronomical",
-          "arabic_name",
+          "indo_javanese_calendar",
           "latin_name",
-          "indo_javanese_calendar"
+          "arabic_name",
+          "astronomical"
         ],
         "systems": [
           "tarot_name",
@@ -22950,9 +22950,9 @@
         "system_count": 5,
         "group_count": 3,
         "groups": [
-          "astronomical",
           "birth_time",
-          "hellenistic_day"
+          "hellenistic_day",
+          "astronomical"
         ],
         "systems": [
           "geomancy",
@@ -22975,8 +22975,8 @@
         "system_count": 3,
         "group_count": 2,
         "groups": [
-          "astronomical",
-          "birth_digits"
+          "birth_digits",
+          "astronomical"
         ],
         "systems": [
           "compound",
@@ -23015,10 +23015,10 @@
         "system_count": 5,
         "group_count": 4,
         "groups": [
-          "astronomical",
           "hebrew_calendar_family",
+          "hijri_calendar",
           "oceanic_lunar_calendar",
-          "hijri_calendar"
+          "astronomical"
         ],
         "systems": [
           "hijri",
@@ -23041,11 +23041,11 @@
         "system_count": 7,
         "group_count": 5,
         "groups": [
-          "birth_digits",
+          "chaldean_name",
           "astronomical",
-          "approx",
+          "birth_digits",
           "birth_time",
-          "chaldean_name"
+          "approx"
         ],
         "systems": [
           "compound",
@@ -23074,8 +23074,8 @@
         "system_count": 4,
         "group_count": 2,
         "groups": [
-          "arabic_name",
-          "derived"
+          "derived",
+          "arabic_name"
         ],
         "systems": [
           "elemental_letters",
@@ -23090,10 +23090,10 @@
         "system_count": 8,
         "group_count": 4,
         "groups": [
-          "tibetan_calendar",
-          "chinese_calendar",
+          "african_calendar",
           "african_binary",
-          "african_calendar"
+          "tibetan_calendar",
+          "chinese_calendar"
         ],
         "systems": [
           "nayin",
@@ -23113,11 +23113,11 @@
         "group_count": 6,
         "groups": [
           "derived",
-          "tibetan_calendar",
-          "hellenistic_day",
-          "astronomical",
+          "zoroastrian_calendar",
           "arabic_name",
-          "zoroastrian_calendar"
+          "hellenistic_day",
+          "tibetan_calendar",
+          "astronomical"
         ],
         "systems": [
           "elemental_letters",
@@ -23137,10 +23137,10 @@
         "system_count": 8,
         "group_count": 4,
         "groups": [
-          "astronomical",
+          "derived",
           "birth_time",
-          "chinese_calendar",
-          "derived"
+          "astronomical",
+          "chinese_calendar"
         ],
         "systems": [
           "nine_star_ki",
@@ -23768,15 +23768,15 @@
         },
         {
           "id": "arabic_roots",
-          "certainty": "COMPUTED_STRICT"
+          "certainty": "APPROX"
         },
         {
           "id": "arabic_morphology",
-          "certainty": "COMPUTED_STRICT"
+          "certainty": "APPROX"
         },
         {
           "id": "name_semantics",
-          "certainty": "LOOKUP_FIXED"
+          "certainty": "APPROX"
         },
         {
           "id": "digit_patterns",
@@ -24268,10 +24268,10 @@
     },
     "confidence_summary": {
       "total_systems": 238,
-      "strict_locked": 202,
-      "method_locked": 24,
-      "approximate": 6,
-      "lockable_pct": 95.0
+      "strict_locked": 200,
+      "method_locked": 23,
+      "approximate": 9,
+      "lockable_pct": 93.7
     },
     "baseline": null,
     "resonance_count": 14,
@@ -24280,7 +24280,7 @@
   },
   "narrative": {
     "version": "narrative_v1.0",
-    "generated_at": "2026-04-26T18:34:23",
+    "generated_at": "2026-04-27T05:37:13",
     "profile_ref": {
       "subject": "FATIMA",
       "arabic": "فاطمة",
@@ -24311,15 +24311,15 @@
       "dominant_tier": "TIER_1_RESONANCE",
       "dominant_percentile": 0.0,
       "dominant_group_ids": [
-        "tibetan_calendar",
-        "birth_digits",
-        "hellenistic_day",
-        "astronomical",
-        "arabic_name",
-        "latin_name",
-        "birth_time",
         "chinese_calendar",
-        "chaldean_name"
+        "chaldean_name",
+        "latin_name",
+        "hellenistic_day",
+        "arabic_name",
+        "tibetan_calendar",
+        "astronomical",
+        "birth_digits",
+        "birth_time"
       ],
       "secondary": [
         {
@@ -24472,7 +24472,7 @@
           "reason": "Pythagorean reduction is deterministic; all values COMPUTED_STRICT."
         },
         {
-          "item": "Approximate modules (6 total)",
+          "item": "Approximate modules (9 total)",
           "status": "UNCERTAIN",
           "reason": "These modules use approximate astronomical data or lack birth-time precision."
         },

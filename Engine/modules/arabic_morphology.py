@@ -3,37 +3,40 @@ Classify each Arabic name word by its morphological pattern (وزن),
 grammatical class, and voice (active/passive).
 
 Compound name awareness: certain nasab positions may pair adjacent
-words into a single generational unit (proper-noun + active-participle
-or passive-intensive + relative-adjective patterns). Compound
-positions are configured in COMPOUND_STRUCTURES below.
+words into a single generational unit. The position-to-word-pair map is
+supplied per profile via ``profile.compound_metadata`` (see
+``InputProfile``); the structural note is derived from the morphology
+table when both component words are classified.
 Sources: Sibawayh Al-Kitab, Wright's Arabic Grammar
 """
 from __future__ import annotations
 import json
 from pathlib import Path
 from sirr_core.types import InputProfile, SystemResult
+from sirr_core.private_overlay import load_and_merge, overlay_provides_lookups
 
 _DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "arabic_linguistics_tables.json"
 _TABLES = None
 
-# Compound name structures: positional compound detection
-# Position in the 8-word chain → (first_word, second_word, structural_note)
-COMPOUND_STRUCTURES = {
-    3: ("عمر", "عاكف", "proper_noun + active_participle (qualifier)"),
-    5: ("محمد", "وصفي", "passive_intensive + relative_adjective"),
-}
+# Compound positions are now sourced from ``profile.compound_metadata`` at
+# compute time (V-3c calibration boundary). The module-level constant is
+# kept as an empty dict purely as a stable export for any external
+# importer; it is never populated with profile-specific data.
+COMPOUND_STRUCTURES: dict = {}
 
 
 def _load_tables() -> dict:
     global _TABLES
     if _TABLES is None:
-        _TABLES = json.loads(_DATA_PATH.read_text(encoding="utf-8"))
+        public = json.loads(_DATA_PATH.read_text(encoding="utf-8"))
+        _TABLES = load_and_merge(public)
     return _TABLES
 
 
 def compute(profile: InputProfile, constants: dict, **kwargs) -> SystemResult:
     tables = _load_tables()
-    morph_table = tables["name_morphology"]
+    morph_table = tables.get("name_morphology", {}) or {}
+    has_lookups = overlay_provides_lookups(tables)
 
     words = profile.arabic.split()
     word_morphology = []
@@ -70,14 +73,23 @@ def compute(profile: InputProfile, constants: dict, **kwargs) -> SystemResult:
             })
             voice_counts["n/a"] += 1
 
-    # Detect compound name structures
+    # Detect compound name structures using the per-profile compound metadata.
     compound_names = []
-    for pos, (w1, w2, note) in COMPOUND_STRUCTURES.items():
+    profile_compounds = profile.compound_metadata or {}
+    for pos, pair in profile_compounds.items():
+        if not pair or len(pair) < 2:
+            continue
+        w1, w2 = pair[0], pair[1]
         if pos + 1 < len(words) and words[pos] == w1 and words[pos + 1] == w2:
+            entry1 = morph_table.get(w1) or {}
+            entry2 = morph_table.get(w2) or {}
+            cls1 = entry1.get("class", "unclassified")
+            cls2 = entry2.get("class", "unclassified")
+            structure = f"{cls1} + {cls2}" if entry1 and entry2 else "compound"
             compound_names.append({
                 "compound": f"{w1} {w2}",
                 "position": pos,
-                "structure": note,
+                "structure": structure,
                 "words": [w1, w2],
             })
 
@@ -95,7 +107,7 @@ def compute(profile: InputProfile, constants: dict, **kwargs) -> SystemResult:
     return SystemResult(
         id="arabic_morphology",
         name="Arabic Morphology Analysis (علم الصرف)",
-        certainty="COMPUTED_STRICT",
+        certainty="COMPUTED_STRICT" if has_lookups else "APPROX",
         data={
             "module_class": "primary",
             "arabic_name": profile.arabic,

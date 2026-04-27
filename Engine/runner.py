@@ -207,6 +207,10 @@ def load_profile(path: str = None) -> InputProfile:
             abjad_table = constants["arabic_letters"]["abjad_kabir"]
             first_word = arabic_name.split()[0] if arabic_name.strip() else ""
             abjad_first = sum(abjad_table.get(ch, 0) for ch in first_word)
+        raw_compound = data.get("compound_metadata")
+        compound_metadata = None
+        if raw_compound:
+            compound_metadata = {int(k): tuple(v) for k, v in raw_compound.items()}
         return InputProfile(
             subject=data["subject"],
             arabic=arabic_name,
@@ -229,6 +233,7 @@ def load_profile(path: str = None) -> InputProfile:
             latitude=data.get("latitude"),
             longitude=data.get("longitude"),
             utc_offset=data.get("utc_offset"),
+            compound_metadata=compound_metadata,
         )
 
     # Default: synthetic FATIMA AHMED OMAR ALKATIB — public demo profile

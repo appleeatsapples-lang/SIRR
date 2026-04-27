@@ -2,28 +2,29 @@
 Analyzes the sequence of per-word abjad sums across the nasab chain:
 palindromic patterns, deltas, positional symmetry.
 
-Also provides compound_groups: the 6-unit generational view where
-configured compound names (see COMPOUND_POSITIONS below) are summed
-as single units.
+Also provides compound_groups: a generational view in which adjacent
+positions configured via ``profile.compound_metadata`` are summed as
+single units. Compound positions are supplied per profile, not hardcoded
+in the module (V-3c calibration boundary).
 """
 from __future__ import annotations
 from sirr_core.types import InputProfile, SystemResult
 from sirr_core.utils import reduce_number
 
-# Positional compound detection (same as name_semantics)
-COMPOUND_POSITIONS = {
-    3: ("عمر", "عاكف"),    # great-grandfather
-    5: ("محمد", "وصفي"),   # great-great-grandfather
-}
+# Compound positions are now sourced from ``profile.compound_metadata`` at
+# compute time (V-3c calibration boundary). The module-level constant is
+# kept as an empty dict purely as a stable export for any external
+# importer; it is never populated with profile-specific data.
+COMPOUND_POSITIONS: dict = {}
 
 
-def _group_compound_sums(words: list[str], abjad: dict) -> list[dict]:
-    """Group words into generational units and sum compounds together."""
+def _group_compound_sums(words: list[str], abjad: dict, compounds: dict) -> list[dict]:
+    """Group words into generational units, summing configured compounds together."""
     groups = []
     i = 0
     while i < len(words):
-        compound = COMPOUND_POSITIONS.get(i)
-        if compound and i + 1 < len(words) and words[i] == compound[0] and words[i + 1] == compound[1]:
+        compound = compounds.get(i)
+        if compound and len(compound) >= 2 and i + 1 < len(words) and words[i] == compound[0] and words[i + 1] == compound[1]:
             s = sum(abjad.get(ch, 0) for ch in words[i]) + sum(abjad.get(ch, 0) for ch in words[i + 1])
             groups.append({
                 "unit": f"{words[i]} {words[i + 1]}",
@@ -47,8 +48,9 @@ def _group_compound_sums(words: list[str], abjad: dict) -> list[dict]:
 def compute(profile: InputProfile, constants: dict, **kwargs) -> SystemResult:
     abjad = constants["arabic_letters"]["abjad_kabir"]
     words = profile.arabic.split()
+    compounds = profile.compound_metadata or {}
 
-    # Word-level (8-element) sequence — preserved for backward compatibility
+    # Word-level (per-word) sequence — preserved for backward compatibility
     word_sums = []
     for w in words:
         s = sum(abjad.get(ch, 0) for ch in w)
@@ -58,8 +60,8 @@ def compute(profile: InputProfile, constants: dict, **kwargs) -> SystemResult:
     total = sum(sequence)
     n = len(sequence)
 
-    # Compound groups (6-unit generational view)
-    compound_units = _group_compound_sums(words, abjad)
+    # Compound groups (generational view, per profile.compound_metadata)
+    compound_units = _group_compound_sums(words, abjad, compounds)
     compound_groups = [u["sum"] for u in compound_units]
 
     # Palindromic detection: find repeated values at mirrored positions
