@@ -268,3 +268,123 @@ def test_ls_webhook_persists_ls_order_identifier(client, tmp_orders, monkeypatch
     )
     assert row["ls_order_identifier"] == ls_uuid
     assert row["status"] == "paid"
+
+
+# ─────────────────────────────────────────────────────────────
+# Launch Path-C — post-payment email wiring
+# ─────────────────────────────────────────────────────────────
+
+
+@pytest.fixture
+def mock_send_email(monkeypatch):
+    """Capture send_post_payment_email calls without touching Resend.
+    Mocks at the boundary (the function exposed on the server module),
+    not the resend SDK itself — keeps tests deterministic and
+    independent of resend being installed."""
+    sent: list = []
+
+    def _fake_send(*, to, reading_url, order_id):
+        sent.append({"to": to, "reading_url": reading_url, "order_id": order_id})
+
+    return sent, _fake_send
+
+
+def test_ls_webhook_order_created_triggers_email(client, tmp_orders, monkeypatch, mock_send_email):
+    """First delivery of order_created with valid signature →
+    send_post_payment_email called once with (to, reading_url, order_id)
+    derived from the webhook payload."""
+    tc, server = client
+    order_store, seed = tmp_orders
+    seed("ord-mail", "pending")
+
+    sent, fake_send = mock_send_email
+    monkeypatch.setattr(server, "send_post_payment_email", fake_send)
+    _RecordingThread.spawns = []
+    monkeypatch.setattr(server.threading, "Thread", _RecordingThread)
+
+    payload = {
+        "meta": {
+            "event_name": "order_created",
+            "custom_data": {"order_id": "ord-mail"},
+        },
+        "data": {
+            "attributes": {
+                "identifier": "11111111-2222-3333-4444-555555555555",
+                "user_email": "buyer@example.com",
+            }
+        },
+    }
+    r = _signed_post(tc, "test-secret-for-webhook", payload)
+
+    assert r.status_code == 200
+    assert len(sent) == 1
+    assert sent[0]["to"] == "buyer@example.com"
+    assert sent[0]["order_id"] == "ord-mail"
+    assert sent[0]["reading_url"].startswith(server.BASE_URL + "/r/")
+
+
+def test_ls_webhook_email_failure_returns_200(client, tmp_orders, monkeypatch):
+    """If send_post_payment_email raises EmailSendError, the webhook
+    must still return 200 (LS would retry forever otherwise; customer
+    has the LS receipt button as a recovery path)."""
+    tc, server = client
+    order_store, seed = tmp_orders
+    seed("ord-mailfail", "pending")
+
+    def _raises(**kw):
+        from email_sender import EmailSendError
+        raise EmailSendError("simulated-resend-outage")
+
+    monkeypatch.setattr(server, "send_post_payment_email", _raises)
+    _RecordingThread.spawns = []
+    monkeypatch.setattr(server.threading, "Thread", _RecordingThread)
+
+    payload = {
+        "meta": {
+            "event_name": "order_created",
+            "custom_data": {"order_id": "ord-mailfail"},
+        },
+        "data": {
+            "attributes": {
+                "identifier": "ffffffff-eeee-dddd-cccc-bbbbbbbbbbbb",
+                "user_email": "buyer@example.com",
+            }
+        },
+    }
+    r = _signed_post(tc, "test-secret-for-webhook", payload)
+
+    assert r.status_code == 200
+    # Engine still spawned despite email failure — delivery doesn't
+    # depend on the customer-touchpoint side-effect.
+    assert _RecordingThread.spawns == ["_generate_reading_background"]
+
+
+def test_ls_webhook_missing_user_email_skips_email_send(client, tmp_orders, monkeypatch, mock_send_email):
+    """Webhook payload without data.attributes.user_email → no email
+    attempted (don't crash). Engine still runs."""
+    tc, server = client
+    order_store, seed = tmp_orders
+    seed("ord-noemail", "pending")
+
+    sent, fake_send = mock_send_email
+    monkeypatch.setattr(server, "send_post_payment_email", fake_send)
+    _RecordingThread.spawns = []
+    monkeypatch.setattr(server.threading, "Thread", _RecordingThread)
+
+    payload = {
+        "meta": {
+            "event_name": "order_created",
+            "custom_data": {"order_id": "ord-noemail"},
+        },
+        "data": {
+            "attributes": {
+                "identifier": "00000000-1111-2222-3333-444444444444",
+                # no user_email
+            }
+        },
+    }
+    r = _signed_post(tc, "test-secret-for-webhook", payload)
+
+    assert r.status_code == 200
+    assert sent == []  # no email attempted
+    assert _RecordingThread.spawns == ["_generate_reading_background"]
