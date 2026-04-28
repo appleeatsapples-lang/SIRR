@@ -28,6 +28,10 @@ HIDE_EXACT_VALUES = {
     # here means they’re filtered out of both unified and merged
     # tables and from the legacy is_empty check.
     "None", "none", "NONE", "N/A", "n/a", "null", "NULL", "undefined",
+    # Wave 1 trust cleanup: bazi_luck_pillars and similar modules
+    # emit "unknown" when birth time is required but not supplied.
+    # Showing the row with no usable value erodes trust; hide instead.
+    "unknown", "Unknown", "UNKNOWN",
 }
 
 # Modules whose output has no reader-facing shape on first view
@@ -35,6 +39,10 @@ ALWAYS_HIDE_IDS = {
     "digit_patterns",
     "inclusion_table",
     "synastry",  # requires second profile
+    # Wave 1 trust cleanup: Birthday is already shown as the reduced cell
+    # in the numeric-signature grid; the raw day number duplicates the same
+    # concept under a different label and confused customer-walk readers.
+    "life_purpose",
 }
 
 # Per-module label overrides
@@ -99,9 +107,9 @@ ID_VALUE_BUILDERS: Dict[str, Any] = {
 
 # (id, value) → human-facing rewrite
 REWRITE_RULES = {
-    ("archetype_consensus", "0"):      "No dominant archetype",
-    ("archetype_consensus", "none"):   "No dominant archetype",
-    ("archetype_consensus", "None"):   "No dominant archetype",
+    ("archetype_consensus", "0"):      "Multi-axis archetypal pattern",
+    ("archetype_consensus", "none"):   "Multi-axis archetypal pattern",
+    ("archetype_consensus", "None"):   "Multi-axis archetypal pattern",
     ("timing_consensus",    "MIXED"):  "Mixed timing",
     ("timing_consensus",    "mixed"):  "Mixed timing",
     ("timing_consensus",    "Mixed"):  "Mixed timing",
@@ -147,10 +155,19 @@ _ERROR_PATTERNS = [
 _METHOD_RE = _re.compile(r'_v\d+$')
 
 
+_EMPTY_PARENS_RE = _re.compile(r'\s*\(\s*\)\s*')
+
+
 def clean_value(v: str) -> str:
     """Lightweight readability cleanup on scalar display values."""
     if not isinstance(v, str):
         return v
+    # Wave 1 trust cleanup: strip empty parenthetical placeholders like
+    # "Guǐ ( ) Yin Water" that arise when a glyph substitution is missing.
+    # Collapses to a single space, then re-trims.
+    if "(" in v and ")" in v:
+        v = _EMPTY_PARENS_RE.sub(" ", v).strip()
+        v = " ".join(v.split())
     if "_" in v and " " not in v and len(v) < 40:
         return v.replace("_", " ")
     return v

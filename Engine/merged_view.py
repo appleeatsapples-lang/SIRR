@@ -127,6 +127,15 @@ VISUAL_CSS = """
   line-height: 1.3;
 }
 
+.num-cell .num-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
 /* Tarot / cardology card row */
 .card-row {
   display: flex;
@@ -532,6 +541,33 @@ details.footnote > .footnote-body {
   margin: 0 10px;
 }
 
+/* Wave 1 trust cleanup: closing block at end of reading. Sits below
+   coherence badge, ends the page on a calm completion line + persistence
+   reassurance. No CTAs, no policy promises. */
+.reading-closing {
+  margin: 32px 0 24px;
+  padding: 22px 24px 20px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.reading-closing .closing-headline {
+  font-family: 'Instrument Serif', serif;
+  font-size: 18px;
+  color: var(--fg);
+  margin-bottom: 8px;
+  letter-spacing: 0;
+}
+
+.reading-closing .closing-sub {
+  font-family: 'Newsreader', serif;
+  font-size: 13.5px;
+  color: var(--fg-soft);
+  line-height: 1.5;
+  font-style: italic;
+}
+
 /* Tension pull-quote redesign — strip the decorative opening quote
    (previously rendered via ::before with no closing mate, which made
    the box look unfinished). Replace with a clean left-bordered callout. */
@@ -612,21 +648,27 @@ def _num_cell(value, label: str) -> str:
     if value is None or str(value).strip() in ("", "—", "-", "?"):
         v = "—"
         meaning = ""
+        is_master = False
     else:
         v = str(value)
         meaning = ""
+        is_master = False
         try:
             v_int = int(v)
             if v_int in _ROOT_MEANINGS:
                 meaning = _ROOT_MEANINGS[v_int]
+            if v_int in (11, 22, 33):
+                is_master = True
         except (ValueError, TypeError):
             pass
     meaning_html = f'<div class="num-meaning">{_esc(meaning)}</div>' if meaning else ""
+    note_html = '<div class="num-note">master number — kept unreduced</div>' if is_master else ""
     return f"""
       <div class="num-cell">
         <div class="num-value">{_esc(v)}</div>
         <div class="num-label">{_esc(label)}</div>
         {meaning_html}
+        {note_html}
       </div>"""
 
 
@@ -693,7 +735,7 @@ def _playing_card_html(cardology_data: Dict[str, Any]) -> str:
       <div class="playing-card">
         <div class="playing-suit {suit_color}">{suit_sym}</div>
         <div class="playing-rank">{_esc(rank)} of {_esc(suit)}</div>
-        <div class="playing-label">Birth Card</div>
+        <div class="playing-label">Cartomancy Birth Card</div>
       </div>"""
 
 
@@ -707,7 +749,7 @@ def render_name_cards(results_idx: Dict[str, Dict]) -> str:
 
     cards = []
     if tarot_birth.get("primary_card_name"):
-        cards.append(_tarot_card_html(tarot_birth["primary_card_name"], "Birth Card"))
+        cards.append(_tarot_card_html(tarot_birth["primary_card_name"], "Tarot Birth Card"))
     if tarot_birth.get("secondary_card_name"):
         cards.append(_tarot_card_html(tarot_birth["secondary_card_name"], "Shadow Card"))
     if tarot_name.get("expression_card_name"):
@@ -1021,7 +1063,7 @@ def render_domain_merged(
     """Render one domain section: visual block + analytical table.
 
     PR #19 density pass: first `visible_rows` rows show inline, any
-    additional rows are hidden behind a "Show all N signals" disclosure.
+    additional rows are hidden behind a "View N additional signals" disclosure.
     Cap lowered from 12 to 6 — with the visual block already carrying
     substantial weight at the top of the section, 6 analytical rows is
     where the reader still has capacity for the signal.
@@ -1092,7 +1134,7 @@ def render_domain_merged(
             body_rows += (
                 f'<details class="more-rows">'
                 f'<summary><span class="chev">›</span>'
-                f'Show all {len(rows)} signals · +{len(hidden)} more'
+                f'View {len(hidden)} additional signals'
                 f'</summary>'
                 f'{"".join(hidden)}'
                 f'</details>'
@@ -1102,7 +1144,7 @@ def render_domain_merged(
         # synthesized signal, the rows below are the per-tradition
         # receipts that support it.
         receipt_header_html = (
-            '<div class="receipt-header">How each tradition reads this</div>'
+            '<div class="receipt-header">Signals behind this section</div>'
             if visual_html.strip() else ""
         )
 
@@ -1198,6 +1240,15 @@ def render_merged_html(output: Dict[str, Any]) -> str:
             f'Coherence <span class="score">{int(score)}</span> · {_esc(label_c)}'
             '</div>'
         )
+
+    # Wave 1 trust cleanup: closing block ends the reading on a calm
+    # completion line + persistence reassurance. No CTAs or policy promises.
+    body_parts.append(
+        '<section class="reading-closing">'
+        '<div class="closing-headline"><strong>Your reading is complete.</strong></div>'
+        '<div class="closing-sub">Save this private link — you can return to it anytime.</div>'
+        '</section>'
+    )
 
     subject_title = _esc(subject).title()
 
