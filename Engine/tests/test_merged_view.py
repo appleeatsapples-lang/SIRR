@@ -465,3 +465,35 @@ def test_server_merged_route_has_mtime_regen_logic():
     assert "html_mtime" in src
     # Must set should_regen flag
     assert "should_regen" in src
+
+
+# ─────────────────────────────────────────────────────────────
+# Wave 2 B1 — headline reconciliation guards
+# ─────────────────────────────────────────────────────────────
+
+
+def test_reading_intro_block_renders(synthetic_output):
+    """B1 Wave 2 regression guard — page-1 reading intro must render
+    the three-measurements framing copy."""
+    from unified_view import render_unified_html
+    clone = copy.deepcopy(synthetic_output)
+    clone["results"] = [r for r in clone["results"] if "domain" in r]
+    html = render_unified_html(clone)
+    assert "three different kinds of result" in html
+    assert "answering different questions" in html
+    assert 'class="reading-intro"' in html
+    assert "Synthesis answers:" in html
+    # Lock post-walk vocab tightening (axis→root, unrelated→independent, happen to cluster→converge)
+    assert "organizing root?" in html
+    assert "independent systems converge?" in html
+
+
+def test_conv_intro_includes_concrete_example(synthetic_output):
+    """B1 Wave 2 regression guard — convergence section intro must
+    include the concrete '12 systems converge on 1' example."""
+    from unified_view import render_unified_html
+    clone = copy.deepcopy(synthetic_output)
+    clone["results"] = [r for r in clone["results"] if "domain" in r]
+    html = render_unified_html(clone)
+    assert "12 systems converge on 1" in html
+    assert "twelve traditions returned 1" in html

@@ -948,6 +948,32 @@ footer a:hover {
 .evidence-intro p + p {
   margin-top: 8px;
 }
+
+/* Page-1 reading intro — teaches the three-measurements framing before
+   the customer sees any numbers. Modeled on .evidence-intro for visual
+   continuity, minus the top-of-section divider since this opens the page. */
+.reading-intro {
+  margin: 0 0 48px;
+  max-width: 640px;
+}
+
+.reading-intro p {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.reading-intro p + p {
+  margin-top: 8px;
+}
+
+.reading-intro strong {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--fg);
+}
 """
 
 
@@ -969,6 +995,26 @@ def render_header(profile: Dict[str, Any]) -> str:
         Computed {today}
       </div>
     </header>
+    """
+
+
+def render_reading_intro() -> str:
+    """Page-1 framing block. Teaches the customer that they will see
+    multiple kinds of measurement (synthesis / evidence / tradition voices)
+    and that these are not competing answers.
+
+    Wave 2 B1 — added to address the headline-reconciliation trust break
+    flagged across all four customer walks (TRIANGULATED_FINDINGS.md).
+    """
+    return """
+    <section class="reading-intro">
+      <p>SIRR computes three different kinds of result on your name and birth date.</p>
+      <p><strong>Synthesis</strong> pools eight identity axes into one organizing root &mdash; the reading's primary headline.<br>
+      <strong>Evidence</strong> counts how many independent systems agree on the same value.<br>
+      <strong>Tradition voices</strong> let each tradition speak in its own measurement.</p>
+      <p>You'll see different numbers and elements in each section. They aren't disagreeing &mdash; they're answering different questions.</p>
+      <p>Synthesis answers: what's your reading's organizing root? Evidence answers: where do independent systems converge? Tradition voices answer: what does each tradition say in its own terms?</p>
+    </section>
     """
 
 
@@ -1437,6 +1483,7 @@ def render_convergences(synth: Dict[str, Any], top_n: int = 3) -> str:
         Raw counts: how many independent engines landed on the same number,
         and where that count sits against a 10,000-run random baseline.
         Evidence behind the synthesis above &mdash; not a separate reading.
+        Where you see &ldquo;12 systems converge on 1,&rdquo; that means twelve traditions returned 1 &mdash; not that your reading is 1.
       </p>
       <div class="conv-list">
         {"".join(items)}
@@ -1475,6 +1522,7 @@ def render_unified_html(output: Dict[str, Any]) -> str:
     # ── Synthesis layer (top of page) ──
     body_parts = [
         render_header(profile),
+        render_reading_intro(),
         render_portrait(output),
         render_coherence(unified),
         render_patterns(output),

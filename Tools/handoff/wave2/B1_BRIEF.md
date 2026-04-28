@@ -9,6 +9,8 @@ The fix is **not** to collapse to one canonical value. It is to teach the custom
 
 This is option (iv) — augment-not-replace. Block 1 ships as a new self-contained section above the portrait. Block 2 augments the existing `conv-intro` paragraph by appending one sentence. Block 3 (Monte Carlo transition) is dropped because the existing `conv-intro` already does that work.
 
+**Post-walk amendments (2026-04-28):** Block 1 was extended with a fourth `<p>` naming the three questions explicitly, after walk #1 surfaced the gap. Three single-word vocab swaps applied after walk #2 (axis→root, unrelated→independent, happen-to-cluster→converge) for internal consistency with paragraph 2 and to remove a flagged ambiguity. Both amendments documented in `B1_HEADLINE_RECONCILIATION_DRAFT.md` under "Amendment 1 — name the three questions."
+
 ## Source documents
 - **Locked copy + implementation note:** `Tools/handoff/wave2/B1_HEADLINE_RECONCILIATION_DRAFT.md` (read the "LOCKED COPY (2026-04-28)" section AND the "Implementation note — option (iv) augment-not-replace" section before starting)
 - **Customer-walk evidence:** `Tools/handoff/customer_walks/TRIANGULATED_FINDINGS.md`
@@ -38,6 +40,7 @@ def render_reading_intro() -> str:
       <strong>Evidence</strong> counts how many independent systems agree on the same value.<br>
       <strong>Tradition voices</strong> let each tradition speak in its own measurement.</p>
       <p>You'll see different numbers and elements in each section. They aren't disagreeing &mdash; they're answering different questions.</p>
+      <p>Synthesis answers: what's your reading's organizing root? Evidence answers: where do independent systems converge? Tradition voices answer: what does each tradition say in its own terms?</p>
     </section>
     """
 ```

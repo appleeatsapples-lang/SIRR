@@ -51,6 +51,22 @@ The locked copy section above stays unedited as the *decision artifact* — same
 
 ---
 
+## Amendment 1 — name the three questions (2026-04-28, post-walk)
+
+A customer walk on the rendered B1 implementation surfaced a real gap: Block 1's closing sentence says "they're answering different questions" but doesn't name the questions. Walker's exact question: *"What exact questions are they each answering?"*
+
+This amendment adds a fourth `<p>` to `render_reading_intro()` that names the three questions in parallel structure, immediately after the closing "different questions" sentence:
+
+> Synthesis answers: what's your reading's organizing root? Evidence answers: where do independent systems converge? Tradition voices answer: what does each tradition say in its own terms?
+
+~30 words. Stays within the original 200-word budget for Block 1 (now ~140 words total). One new test assertion guards the new paragraph.
+
+Locked copy at top of this file is preserved as the original spec; this amendment is layered on as a customer-walk-driven refinement, same doctrine as the truth-scan deferred-findings pattern.
+
+**Vocab tightening (post-walk #2, 2026-04-28):** three single-word swaps to align with Block 1's existing vocabulary and resolve a customer-flagged ambiguity. *axis → root* (Block 1 paragraph 2 uses "organizing root"; "axes" plural are the eight inputs, "root" singular is the output). *unrelated → independent* (matches "independent systems" in paragraph 2 and SIRR's technical vocabulary throughout the codebase). *happen to cluster → converge* (walker flagged "happen to cluster" as ambiguous between "accidental" and "meaningful"; "converge" parallels Block 2's vocabulary and removes the ambiguity).
+
+---
+
 ## The problem (recap)
 The reading currently shows the customer multiple "headline" values that look like competing answers:
 - Page 1: `Root 3 · Element Water` (the synthesis)
