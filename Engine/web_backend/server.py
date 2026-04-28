@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 import threading
 import time
@@ -23,7 +24,7 @@ load_dotenv()
 import stripe
 import httpx
 from fastapi import FastAPI, HTTPException, Query, Request
-from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
+from fastapi.responses import HTMLResponse, JSONResponse, FileResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
@@ -71,6 +72,7 @@ from order_store import (
     update_order,
     compare_and_swap_status,
     get_order_by_stripe_session,
+    find_order_by_ls_identifier,
     is_row_already_fully_deleted,
 )
 from reading_generator import generate_reading, extract_reading_context, generate_dashboard_panels
@@ -786,6 +788,35 @@ def _resolve_token_or_order_id(token_or_id: str) -> str:
     if resolved:
         return resolved
     raise HTTPException(404, "Reading not found")
+
+
+# LS order_identifier shape — RFC 4122 hex UUID. Regex-validated before
+# any disk lookup so path-traversal and SQLi-shaped inputs are rejected
+# at the route boundary, never reaching find_order_by_ls_identifier.
+_LS_UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
+
+
+@app.get("/r/by-ls/{ls_uuid}")
+async def reading_by_ls_uuid(ls_uuid: str):
+    """LS receipt-button recovery path. The LS receipt template
+    substitutes {order_identifier} server-side, so this endpoint
+    receives an LS UUID, looks up our internal order_id, and
+    302-redirects to the token-gated /r/{token} page.
+
+    Path-C launch wiring (Tools/handoff/LAUNCH_PATH_C_CUSTOM_EMAIL_BRIEF.md):
+    ensures the LS receipt button is not a dead link if the customer's
+    primary SIRR-branded email gets lost or filtered. Same 404 shape
+    on unknown UUID and on malformed UUID — never leak whether a
+    given identifier exists.
+    """
+    if not _LS_UUID_RE.match(ls_uuid):
+        raise HTTPException(404, "Reading not found")
+
+    order_id = find_order_by_ls_identifier(ls_uuid)
+    if not order_id:
+        raise HTTPException(404, "Reading not found")
+
+    return RedirectResponse(url=f"/r/{mint_token(order_id)}", status_code=302)
 
 
 @app.get("/r/{token}")

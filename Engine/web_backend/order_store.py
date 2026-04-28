@@ -384,6 +384,37 @@ def compare_and_swap_status(order_id: str, *, expected, new: str) -> bool:
         return True
 
 
+def find_order_by_ls_identifier(ls_uuid: str) -> str | None:
+    """Reverse-lookup the LS UUID stored on an order row by the
+    webhook handler back to our internal order_id.
+
+    Used by the /r/by-ls/{ls_uuid} redirect (Path-C) — when a customer
+    clicks the LS receipt button, LS substitutes its order identifier
+    server-side and we map back to our token to issue /r/{token}.
+
+    Returns the order_id if found, None otherwise. PII is never
+    decrypted on this path; the matched-on field (`ls_order_identifier`)
+    and the returned `order_id` are both plaintext index fields.
+
+    Linear scan mirrors get_order_by_stripe_session — acceptable at
+    launch volume (10-100 orders/mo, scan completes in low ms). When
+    order_store moves to a real DB, this becomes an indexed query.
+    """
+    for p in ORDERS_DIR.glob("*.json"):
+        try:
+            o = _safe_read_row(p)
+        except OrderStoreIOError as exc:
+            print(
+                f"[order_store-read] failed for row {hash_oid(p.stem)}: "
+                f"{type(exc).__name__}",
+                file=sys.stderr,
+            )
+            continue
+        if o.get("ls_order_identifier") == ls_uuid:
+            return o.get("order_id") or p.stem
+    return None
+
+
 def get_order_by_stripe_session(session_id: str) -> dict | None:
     # Match on the plaintext stripe_session_id field; only decrypt PII
     # for the matching row so the scan stays O(N) reads, not O(N) decrypts.
