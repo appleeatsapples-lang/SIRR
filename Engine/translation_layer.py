@@ -351,8 +351,8 @@ COMBINATION_RULES = [
 ]
 
 FALLBACK_LINK = (
-    "These patterns do not conflict — they describe different axes "
-    "of the same structural architecture."
+    "Together, these patterns describe complementary axes "
+    "of the same structural picture."
 )
 
 CONSTITUTIONAL_NOTE = (

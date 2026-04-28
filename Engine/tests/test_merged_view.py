@@ -243,16 +243,17 @@ def test_top_flow_order(synthetic_output):
 
 def test_rows_overflow_hidden_behind_disclosure(synthetic_output):
     """Domains with more than 6 qualifying rows must emit a
-    'Show all N signals · +M more' disclosure instead of a hard cap."""
+    'View N additional signals' disclosure instead of a hard cap."""
     from merged_view import render_merged_html
     html = render_merged_html(synthetic_output)
     # Synthetic profile has plenty of rows in each domain, so at least
     # one overflow disclosure must be present.
     assert html.count('class="more-rows"') >= 1
-    # The summary label uses this specific phrasing — regression-guard it
-    assert "Show all" in html
-    assert "more" in html
-    assert "signals" in html
+    # The summary label uses this specific phrasing — regression-guard it.
+    # Wave 1 trust cleanup renamed the teaser from "Show all N signals · +M more"
+    # to "View N additional signals" to reduce the held-back-content feel.
+    assert "View " in html
+    assert "additional signals" in html
 
 
 def test_first_six_rows_visible_per_domain(synthetic_output):
@@ -370,13 +371,18 @@ def test_convergence_verdict_shows_top_axes(synthetic_output):
 
 def test_bridging_receipt_header_between_visual_and_rows(synthetic_output):
     """Each domain with both a visual block and rows must have a bridging
-    'How each tradition reads this' header marking the tier transition."""
+    'Signals behind this section' header marking the tier transition.
+
+    Wave 1 trust cleanup renamed this header from "How each tradition reads
+    this" — many rows are computed metrics or modern composites rather than
+    classical tradition outputs, and customer-walk readers flagged the old
+    label as overclaiming."""
     from merged_view import render_merged_html
     html = render_merged_html(synthetic_output)
     assert 'class="receipt-header"' in html
-    assert "How each tradition reads this" in html
+    assert "Signals behind this section" in html
     # Must appear at least once per domain with a visual (N, NI, AT)
-    assert html.count("How each tradition reads this") >= 3
+    assert html.count("Signals behind this section") >= 3
 
 
 def test_astro_aux_inline_band_replaces_chip_row(synthetic_output):
