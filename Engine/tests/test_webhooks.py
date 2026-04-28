@@ -109,3 +109,64 @@ def test_ls_webhook_fails_closed_when_secret_unset(monkeypatch):
     )
     assert r.status_code == 503
     assert "not configured" in r.json()["detail"].lower()
+
+
+# ─────────────────────────────────────────────────────────────
+# Launch Path-C — compare_and_swap_status unit tests
+# ─────────────────────────────────────────────────────────────
+
+
+@pytest.fixture
+def tmp_orders(monkeypatch, tmp_path):
+    """Isolate order_store.ORDERS_DIR to a per-test tempdir so CAS
+    unit tests don't collide with each other or with on-disk launch
+    rows. Writes a row directly via _atomic_write_json with the
+    minimum schema CAS reads (`order_id`, `status`) to keep the
+    fixture independent of the PII-encryption code path."""
+    import order_store
+    monkeypatch.setattr(order_store, "ORDERS_DIR", tmp_path)
+
+    def _seed(order_id: str, status: str) -> None:
+        order_store._atomic_write_json(
+            tmp_path / f"{order_id}.json",
+            {"order_id": order_id, "status": status},
+        )
+
+    return order_store, _seed
+
+
+def test_compare_and_swap_status_first_call_succeeds(tmp_orders):
+    """Order in `pending` → CAS to `paid` returns True and persists."""
+    order_store, seed = tmp_orders
+    seed("ord-cas-first", "pending")
+
+    swapped = order_store.compare_and_swap_status(
+        "ord-cas-first", expected="pending", new="paid"
+    )
+
+    assert swapped is True
+    assert order_store._safe_read_row(
+        order_store.ORDERS_DIR / "ord-cas-first.json"
+    )["status"] == "paid"
+
+
+def test_compare_and_swap_status_second_call_returns_false(tmp_orders):
+    """Idempotency invariant: a duplicate webhook delivery (LS retry)
+    sees the row already at `paid` and the second CAS returns False
+    so post-payment side-effects fire exactly once."""
+    order_store, seed = tmp_orders
+    seed("ord-cas-dup", "pending")
+
+    first = order_store.compare_and_swap_status(
+        "ord-cas-dup", expected="pending", new="paid"
+    )
+    second = order_store.compare_and_swap_status(
+        "ord-cas-dup", expected="pending", new="paid"
+    )
+
+    assert first is True
+    assert second is False
+    # Status remains "paid" — second call did not regress or re-write.
+    assert order_store._safe_read_row(
+        order_store.ORDERS_DIR / "ord-cas-dup.json"
+    )["status"] == "paid"
