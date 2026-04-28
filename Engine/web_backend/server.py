@@ -76,6 +76,7 @@ from order_store import (
 from reading_generator import generate_reading, extract_reading_context, generate_dashboard_panels
 from html_reading import generate_html as generate_html_reading
 from unified_synthesis import compute_unified_synthesis
+from email_sender import send_post_payment_email, EmailSendError
 
 # ── FastAPI lifespan — starts/stops the in-process retention scheduler ──
 from contextlib import asynccontextmanager
@@ -1285,12 +1286,13 @@ async def lemonsqueezy_webhook(request: Request):
             # silently. Returning 200 prevents further LS retries.
             return {"received": True}
 
-        # Customer email is extracted transiently from the webhook payload
-        # at send time and NEVER persisted. The Path-C email module (next
-        # commit) will read this local; nothing about the customer's
-        # contact info enters the order row or any encryption surface.
+        # Customer email is extracted transiently from the webhook
+        # payload at send time and NEVER persisted. Nothing about the
+        # customer's contact info enters the order row or any
+        # encryption-at-rest surface — only process memory for the
+        # duration of the request.
         attrs = (data.get("data", {}) or {}).get("attributes", {}) or {}
-        customer_email = attrs.get("user_email")  # noqa: F841 — used by Path-C email send (commit 3)
+        customer_email = attrs.get("user_email")
         ls_order_identifier = attrs.get("identifier")
 
         # Persist the LS UUID so /r/by-ls/{ls_uuid} (commit 4) can map
@@ -1304,6 +1306,24 @@ async def lemonsqueezy_webhook(request: Request):
             args=(order_id,),
             daemon=True,
         ).start()
+
+        # Path-C primary delivery: SIRR-branded email with the durable
+        # /r/{token} link. Failure is logged but does NOT 5xx the
+        # webhook — LS would retry forever, and the customer also sees
+        # the LS receipt button (commit 4) as a recovery fallback.
+        if customer_email:
+            try:
+                send_post_payment_email(
+                    to=customer_email,
+                    reading_url=f"{BASE_URL}/r/{mint_token(order_id)}",
+                    order_id=order_id,
+                )
+            except EmailSendError as exc:
+                print(
+                    f"[email] send failed for order {hash_oid(order_id)}: "
+                    f"{type(exc).__name__}",
+                    file=sys.stderr,
+                )
 
     return {"received": True}
 
