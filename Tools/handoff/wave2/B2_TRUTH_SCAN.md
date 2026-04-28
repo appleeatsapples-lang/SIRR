@@ -3,7 +3,7 @@ Reviewer: Claude
 Source: Tools/handoff/wave2/B2_JARGON_DEFINITIONS_DRAFT.md
 Method: Re-read each definition against scholarly knowledge; web-verified two highest-confidence claims.
 
-> **Resolution status (as of this commit):** Findings 1, 2 (HIGH) and 3, 4, 5 (MEDIUM) resolved in `B2_JARGON_DEFINITIONS_DRAFT.md`. Finding 6 (LOW) accepted as Wave 2.5 polish, not actioned. Findings 7, 8, 9 deferred pending engineer-input on what each metric actually computes; the open questions stand as written below. Items in "CONFIDENCE-CHECKED" section also remain open for scholarship review.
+> **Resolution status (as of this commit):** Findings 1, 2 (HIGH) and 3, 4, 5 (MEDIUM) resolved in `B2_JARGON_DEFINITIONS_DRAFT.md`. Finding 6 (LOW) accepted as Wave 2.5 polish, not actioned. Findings 7, 8, 9 resolved 2026-04-28 via engine code-read (no Muhab-recall needed); see per-finding RESOLUTION blocks below for code references; rewrite landed in `B2_JARGON_DEFINITIONS_DRAFT.md`. Items in "CONFIDENCE-CHECKED" section remain open for scholarship review.
 
 ## How to read this scan
 Each finding has a severity (HIGH / MEDIUM / LOW) and a recommended rewrite where appropriate. HIGH means the current definition is factually wrong or misleading enough that a curious customer who researches the term will find we got it wrong, and that damages the engineer-not-mystic credibility. MEDIUM means incomplete in a way that misleads. LOW means could be more precise but not actionable.
@@ -112,6 +112,8 @@ Calling them both "cipher transformations" obscures the difference. Notarikon is
 
 **Confidence**: HIGH that the definition is too vague; uncertain about how to fix without engineer input.
 
+**RESOLUTION (2026-04-28)**: Engineer-input pulled via code-read of `Engine/modules/hermetic_alignment.py`. Module class: `comparative`. Computes the dominant value across 6 axes — name (abjad / abjad-root), digit (life-path / expression / birthday), sky (sun-degree), elemental (Al-Buni dominant element), cyclic (personal year), and Chaldean root — and scores `alignment_score = agreements / comparisons * 100` over all axis-pairs. Module's own reference: `"Hermetic correspondence — 'As above, so below' tested structurally across axes."` Confirmed: SIRR composite, no specific Hermetic-source citation; the framing names the principle the test operationalizes. Rewrite landed in `B2_JARGON_DEFINITIONS_DRAFT.md` (Convergence + Statistics category).
+
 ---
 
 ### 8. Daily cycle index — "modern cycle theory"
@@ -124,6 +126,8 @@ Calling them both "cipher transformations" obscures the difference. Notarikon is
 **Surface-back to engineer**: which specific cycle theory does this signal compute?
 
 **Confidence**: HIGH that the definition is too vague to be useful.
+
+**RESOLUTION (2026-04-28)**: Engineer-input pulled via code-read of `Engine/modules/biorhythm.py`. Three sine waves on 23/28/33-day periods (physical / emotional / intellectual) starting from DOB. Module's own `references` field: `"SOURCE_TIER:C — Proposed by Wilhelm Fliess (late 19th c.). No ancient or classical cycle backing."` Confirmed: standard biorhythm theory, Fliess provenance, engine self-flags as tier-C. Rewrite landed in `B2_JARGON_DEFINITIONS_DRAFT.md` (Numerology category).
 
 ---
 
@@ -143,6 +147,8 @@ These are different concepts. "Birth Ruler" as a label is ambiguous.
 
 **Confidence**: HIGH that the term is ambiguous in Vedic context.
 
+**RESOLUTION (2026-04-28)**: Engineer-input pulled via code-read of `Engine/modules/vimshottari.py` plus consumers. Module docstring: `"Uses the 120-year Vimshottari system based on birth nakshatra of the MOON (sidereal/Lahiri). Corrected per Parashara BPHS: dasha is keyed to Moon's sidereal nakshatra, not solar."` Field `nakshatra_ruler` is the planet ruling that nakshatra. Customer-facing label `Birth Ruler` (rendered at `Engine/html_reading.py:871`) maps to this field. Confirmed across `reading_generator.py:374,588,749` (narrated as "the planet that seeded their emotional body"). Definitive: **Janma Nakshatra Lord** — not Lagnesha (rising-sign ruler), not Atmakaraka (highest-degree planet). Rewrite landed in `B2_JARGON_DEFINITIONS_DRAFT.md` (Astro Timing category).
+
 ---
 
 ## CONFIDENCE-CHECKED — flagged for your scholarship eye
@@ -159,12 +165,12 @@ The following I'm somewhat confident about but would value your verification on:
 
 ## SUMMARY
 
-**9 findings total**:
-- 2 HIGH severity — should fix before shipping (Celtic Tree Calendar, Nine Star Ki origin)
-- 3 MEDIUM severity — improve before shipping (Barzakh, Notarikon/Albam, Shadow Card)
-- 4 LOW severity — could improve (Abjad Kabir regional variation, Hermetic framing, Daily cycle, Birth Ruler)
+**9 findings total** (status as of 2026-04-28):
+- 2 HIGH severity — resolved (Celtic Tree Calendar, Nine Star Ki origin)
+- 3 MEDIUM severity — resolved (Barzakh, Notarikon/Albam, Shadow Card)
+- 4 LOW severity — 3 resolved 2026-04-28 via engine code-read (Hermetic framing, Daily cycle, Birth Ruler); 1 accepted as Wave 2.5 polish (Abjad Kabir regional variation)
 
-**Findings requiring engineer input** (you, not me): items 7, 8, 9 — what specifically does each compute?
+**Findings requiring engineer input** (you, not me): items 7, 8, 9 — what specifically does each compute? **RESOLVED 2026-04-28**: orchestrator pulled answers via direct engine code-read; no Muhab-recall needed. See per-finding RESOLUTION blocks above.
 
 **Net assessment**: The draft is more carefully calibrated than I expected. Most definitions are correct or correct-enough for first-launch. The HIGH-severity findings are recoverable in 5-10 min of edits. The MEDIUM ones add nuance without breaking flow. The LOW ones can be addressed in a Wave 2.5 polish pass after launch.
 
