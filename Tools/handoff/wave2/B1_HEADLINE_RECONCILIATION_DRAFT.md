@@ -1,6 +1,56 @@
 # B1 — Headline Reconciliation Copy Drafting
 Wave 2 work item. Decisions locked in `WAVE_2_DECISIONS_LOCKED.md`. Strawman + structured prompt below.
 
+## LOCKED COPY (2026-04-28)
+
+**Provenance:** hybrid — Draft A's structure for page 1 intro + (Draft A's opener + Draft B's "12 systems converge on 1" example) for convergence + Draft A tightened for Monte Carlo. Total new copy ≈110 words, under the 200-word budget.
+
+**The strawman drafts A/B/C and structured prompt below are preserved as the evidence chain. Do not edit them.**
+
+### Block 1 — Page 1 intro (NEW; placed before the "YOUR READING" band)
+
+> SIRR computes three different kinds of result on your name and birth date.
+>
+> **Synthesis** pools eight identity axes into one organizing root — the reading's primary headline.
+> **Evidence** counts how many independent systems agree on the same value.
+> **Tradition voices** let each tradition speak in its own measurement.
+>
+> You'll see different numbers and elements in each section. They aren't disagreeing — they're answering different questions.
+
+### Block 2 — Convergence section transition (NEW; placed at top of Convergence section, before existing content)
+
+> *Evidence count, not a competing answer.* Where you see "12 systems converge on 1," that means twelve traditions returned 1 — not that your reading is 1.
+
+### Block 3 — Monte Carlo section transition (NEW; placed at top of Monte Carlo section)
+
+> *Receipts for the convergence above.* These rows show raw agreement counts against a 10,000-run random baseline. The numbers 2, 4, 6 aren't "your numbers" — they're the values systems clustered on.
+
+---
+
+## Implementation note — option (iv) augment-not-replace (2026-04-28)
+
+The locked copy above was specced before the actual `unified_view.py` render pipeline was inspected. Scoping pass surfaced three architectural facts that collapse the 3-block plan to 1+1:
+
+1. **The synthesis-first / evidence-second doctrine is already implemented.** The render pipeline (locked spec 61428, 2026-04-17) has an `Underlying Signals` evidence-intro block at `unified_view.py` lines 1485–1493 that already frames the catalog as supporting evidence, not as a competing reading. Block 1's framing slots above this without conflict.
+2. **The existing `conv-intro` paragraph (lines 1437–1441) already does ~90% of Block 3.** Current copy: *"Raw counts: how many independent engines landed on the same number, and where that count sits against a 10,000-run random baseline. Evidence behind the synthesis above — not a separate reading."* Calmer than the original Block 3 draft and says the same thing.
+3. **Convergence and Monte Carlo are ONE combined section, not two.** Single smallcap label at line 1435: `Numeric Convergence · Monte Carlo Evidence`. There is no separate Monte Carlo section to receive a transition.
+
+### Resolution: option (iv) — augment, don't replace
+
+**Block 1 — ships as written.** New `render_reading_intro()` function inserted in `body_parts` between `render_header` and `render_portrait`. Self-contained section. New CSS class `.reading-intro` modeled on `.evidence-intro`.
+
+**Block 2 — augments existing conv-intro by appending one sentence.** The existing two sentences stay. The "12 systems converge on 1" example sentence from the locked copy is appended as the third sentence. Final form of the conv-intro paragraph (lines 1437–1441 region):
+
+> Raw counts: how many independent engines landed on the same number, and where that count sits against a 10,000-run random baseline. Evidence behind the synthesis above — not a separate reading. Where you see "12 systems converge on 1," that means twelve traditions returned 1 — not that your reading is 1.
+
+**Block 3 — dropped.** The existing "Evidence behind the synthesis above — not a separate reading" sentence already does the work. Adding a separate Monte Carlo transition would be redundant within the same section.
+
+### Why locked copy is preserved as written
+
+The locked copy section above stays unedited as the *decision artifact* — same doctrine as the A/B/C strawman drafts below. Future readers see the spec that was approved AND the implementation translation that ships, not just the post-translation result. If a future architectural change re-separates Convergence from Monte Carlo, the original Block 3 copy is still on file ready to ship.
+
+---
+
 ## The problem (recap)
 The reading currently shows the customer multiple "headline" values that look like competing answers:
 - Page 1: `Root 3 · Element Water` (the synthesis)
