@@ -29,7 +29,7 @@ Where Grok's Round 2 audit (Apr 16) flagged a scholarship correction, the defini
 - **Pinnacle Cycles** — four life phases derived from birth-date math; each phase is one cycle
 - **Attitude Number** — a number from your birth month and day; one numerology tradition reads it as first-impression style
 - **Balance Number** — a number from the initials of your name; one numerology tradition reads it as how you steady yourself under pressure
-- **Daily cycle index** — a single-day number from a modern cycle theory; "neutral" means your day's value sits at the midpoint
+- **Daily cycle index** — your day's position in biorhythm sine cycles (23/28/33-day waves from your birthdate, after Wilhelm Fliess c.1900); "neutral" means today's wave sits near the midpoint
 - **Personal Year / Month / Day** — calendar-based numerology cycles that change over time
 
 ## Name Intelligence category
@@ -73,7 +73,7 @@ Where Grok's Round 2 audit (Apr 16) flagged a scholarship correction, the defini
 - **Shravana** — one of 27 Vedic lunar mansions (nakshatras); your moon's nakshatra
 - **Nakshatra** — Vedic lunar mansion (one of 27 sectors of the moon's path)
 - **In Joy** — classical Hellenistic placement: a planet "in joy" sits in the house its tradition assigns it; Sun's joy is the 9th house
-- **Birth Ruler** — the planet a given Vedic tradition treats as your dominant ruler at birth
+- **Birth Ruler** — your Janma Nakshatra Lord: the planet ruling the lunar mansion (nakshatra) the Moon was occupying at your birth, computed sidereally per Parashara. Distinct from Lagnesha (rising-sign ruler) and Atmakaraka (highest-degree planet)
 - **BaZi** — the Chinese Four Pillars system; reads year, month, day, and hour as a four-pillar identity
 - **Four Pillars** — the four time-based pillars of BaZi (year/month/day/hour)
 - **Guǐ** — one of 10 Heavenly Stems in BaZi; corresponds to Yin Water
@@ -95,7 +95,7 @@ Where Grok's Round 2 audit (Apr 16) flagged a scholarship correction, the defini
 - **Divergent (in coherence)** — coherence score below the median; means your reading distributes attention across many values rather than clustering
 - **Barzakh Coefficient** — a SIRR composite scoring how much your reading sits in liminal/threshold patterns; ranges 0-1, median ~0.5
 - **Tradition-vote element** — a four-oracle vote on which classical element your reading leans toward; one evidence lane, not a competing answer to the synthesis element
-- **Hermetic framing (axes)** — a SIRR comparative metric scoring placement on a hermetic correspondence axis
+- **Hermetic framing (axes)** — a SIRR composite that scores how often six axes (name/abjad, life-path digit, sun-degree, Al-Buni element, personal year, Chaldean root) land on the same number; the "Hermetic" framing names the as-above-so-below principle being tested — the test itself is SIRR's, not Hermetic literature's
 - **Cross-Scripture Intersection** — a SIRR pattern matcher across the structures of Quranic, Biblical, and Vedic texts; "pattern N" labels which structural rhyme matched
 - **Monte Carlo** — a statistical method that runs the calculation on thousands of random inputs to establish what convergence looks like by chance; SIRR uses 10,000 random baselines
 - **Random baseline** — the convergence pattern that appears when name+birth inputs are randomized; what your real result is being compared against
