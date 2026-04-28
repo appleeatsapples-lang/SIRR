@@ -346,6 +346,44 @@ def update_order(order_id: str, **kwargs):
         _atomic_write_json(p, order)
 
 
+def compare_and_swap_status(order_id: str, *, expected, new: str) -> bool:
+    """Atomically transition order status from `expected` to `new`.
+
+    Returns True iff the row existed AND its status matched `expected`
+    AND the swap was written. Returns False otherwise (missing row,
+    corrupt row, or status not in `expected`).
+
+    Used by the LS webhook handler to make `order_created` idempotent
+    against LS-side delivery retries — only the first delivery for a
+    given order_id transitions pending→paid, so post-payment
+    side-effects (engine spawn, email send) fire exactly once.
+
+    `expected` accepts a single status string or an iterable of allowed
+    statuses; the swap fires if the current status is any of them.
+
+    Within-process: protected by the module-level `_lock` plus the
+    atomic file rename in `_atomic_write_json`. Cross-process
+    (gunicorn multi-worker) the race remains theoretically open;
+    deferred until the JSON store is replaced with a real DB. At
+    launch volume (10-100 orders/mo) the race is extremely unlikely
+    in practice.
+    """
+    with _lock:
+        p = ORDERS_DIR / f"{order_id}.json"
+        if not p.exists():
+            return False
+        try:
+            row = _safe_read_row(p)
+        except OrderStoreIOError:
+            return False
+        expected_set = (expected,) if isinstance(expected, str) else tuple(expected)
+        if row.get("status") not in expected_set:
+            return False
+        row["status"] = new
+        _atomic_write_json(p, row)
+        return True
+
+
 def get_order_by_stripe_session(session_id: str) -> dict | None:
     # Match on the plaintext stripe_session_id field; only decrypt PII
     # for the matching row so the scan stays O(N) reads, not O(N) decrypts.
