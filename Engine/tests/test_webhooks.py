@@ -388,3 +388,67 @@ def test_ls_webhook_missing_user_email_skips_email_send(client, tmp_orders, monk
     assert r.status_code == 200
     assert sent == []  # no email attempted
     assert _RecordingThread.spawns == ["_generate_reading_background"]
+
+
+# ─────────────────────────────────────────────────────────────
+# Launch Path-C — /r/by-ls/{uuid} redirect endpoint
+# ─────────────────────────────────────────────────────────────
+
+
+def test_redirect_by_ls_uuid_to_token(client, tmp_orders):
+    """Order with stored ls_order_identifier → /r/by-ls/{uuid}
+    302-redirects to /r/{token}."""
+    tc, server = client
+    order_store, _seed = tmp_orders
+
+    ls_uuid = "12345678-90ab-cdef-1234-567890abcdef"
+    # Seed a row with the ls_order_identifier index field directly.
+    order_store._atomic_write_json(
+        order_store.ORDERS_DIR / "ord-redir.json",
+        {
+            "order_id": "ord-redir",
+            "status": "paid",
+            "ls_order_identifier": ls_uuid,
+        },
+    )
+
+    r = tc.get(f"/r/by-ls/{ls_uuid}", follow_redirects=False)
+
+    assert r.status_code == 302
+    location = r.headers["location"]
+    assert location.startswith("/r/"), f"unexpected redirect target: {location}"
+    # The token is opaque; verify it round-trips back to the same order_id
+    # via the same try_verify_token path the real /r/{token} uses.
+    token = location[len("/r/"):]
+    assert server.try_verify_token(token) == "ord-redir"
+
+
+def test_redirect_by_ls_uuid_unknown_returns_404(client, tmp_orders):
+    """No order has this LS UUID → 404. Don't leak existence info; the
+    response shape must be identical to the malformed-UUID case below."""
+    tc, _server = client
+    # tmp_orders isolates ORDERS_DIR to an empty tempdir; no rows match.
+    r = tc.get(
+        "/r/by-ls/99999999-8888-7777-6666-555555555555",
+        follow_redirects=False,
+    )
+    assert r.status_code == 404
+
+
+@pytest.mark.parametrize(
+    "bad_uuid",
+    [
+        "..%2F..%2Fetc%2Fpasswd",          # path traversal (URL-encoded)
+        "%27%3B%20DROP%20TABLE%20orders",   # SQLi shape (URL-encoded)
+        "abc",                              # too short
+        "G2345678-90ab-cdef-1234-567890abcdef",  # non-hex char
+        "12345678901234567890123456789012",      # no dashes
+    ],
+)
+def test_redirect_by_ls_uuid_malformed_returns_404(client, tmp_orders, bad_uuid):
+    """Path-traversal / SQLi / non-UUID-shaped inputs → 404 at the
+    regex boundary, never reaching find_order_by_ls_identifier or
+    touching disk."""
+    tc, _server = client
+    r = tc.get(f"/r/by-ls/{bad_uuid}", follow_redirects=False)
+    assert r.status_code == 404
