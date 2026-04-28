@@ -747,7 +747,7 @@ footer p { font-family:'Outfit',sans-serif; font-size:9px; color:var(--text-f); 
 
     html += '<div class="tarot-row">\n'
     html += f'  <div class="num-sig-title" style="width:100%;margin-bottom:12px">Your Cards</div>\n'
-    html += f'  {_tarot_card_html(tarot_birth_data.get("primary_card_name", ""), "Birth Card")}\n'
+    html += f'  {_tarot_card_html(tarot_birth_data.get("primary_card_name", ""), "Tarot Birth Card")}\n'
     html += f'  {_tarot_card_html(tarot_birth_data.get("secondary_card_name", ""), "Shadow Card")}\n'
     html += f'  {_tarot_card_html(tarot_name_data.get("expression_card_name", ""), "Expression")}\n'
 
@@ -759,7 +759,7 @@ footer p { font-family:'Outfit',sans-serif; font-size:9px; color:var(--text-f); 
         html += f'''  <div class="playing-card">
       <div class="playing-suit {suit_color}">{suit_sym}</div>
       <div class="playing-rank">{_esc(rank)} of {_esc(suit)}</div>
-      <div class="playing-label">Birth Card</div>
+      <div class="playing-label">Cartomancy Birth Card</div>
     </div>\n'''
 
     html += '</div>\n\n'

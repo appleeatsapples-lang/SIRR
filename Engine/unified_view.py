@@ -1142,6 +1142,19 @@ def render_portrait(output: Dict[str, Any]) -> str:
     if not descriptor:
         return ""
 
+    # Wave 1 trust cleanup: strip fired-pattern descriptors out of
+    # conv_reading so the page-1 paragraph does not duplicate the
+    # labeled pattern cards rendered just below by render_patterns.
+    fired_for_dedup = pm.get("fired_patterns", []) or []
+    if conv_reading and isinstance(fired_for_dedup, list):
+        for fp in fired_for_dedup:
+            if not isinstance(fp, dict):
+                continue
+            fp_desc = fp.get("descriptor")
+            if fp_desc and isinstance(fp_desc, str):
+                conv_reading = conv_reading.replace(fp_desc, "")
+        conv_reading = " ".join(conv_reading.split()).strip()
+
     # Build the axis line — cross_root + domain + cross_element
     axis_parts = []
     if cross_root is not None and domain:
