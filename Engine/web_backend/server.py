@@ -69,6 +69,7 @@ from order_store import (
     create_order,
     get_order,
     update_order,
+    compare_and_swap_status,
     get_order_by_stripe_session,
     is_row_already_fully_deleted,
 )
@@ -1271,13 +1272,38 @@ async def lemonsqueezy_webhook(request: Request):
     if event_name == "order_created":
         custom = data.get("meta", {}).get("custom_data", {})
         order_id = custom.get("order_id")
-        if order_id:
-            update_order(order_id, status="paid")
-            threading.Thread(
-                target=_generate_reading_background,
-                args=(order_id,),
-                daemon=True
-            ).start()
+        if not order_id:
+            return {"received": True}
+
+        # Idempotency guard: only fire post-payment side-effects on the
+        # FIRST delivery of order_created for this order. LS retries on
+        # non-200 — without this guard, retries would spawn duplicate
+        # engine runs (and, once Path-C email lands, duplicate emails).
+        # Stricter semantic: only "pending → paid" fires side-effects.
+        if not compare_and_swap_status(order_id, expected="pending", new="paid"):
+            # Already past "pending" (paid/processing/failed) — drop
+            # silently. Returning 200 prevents further LS retries.
+            return {"received": True}
+
+        # Customer email is extracted transiently from the webhook payload
+        # at send time and NEVER persisted. The Path-C email module (next
+        # commit) will read this local; nothing about the customer's
+        # contact info enters the order row or any encryption surface.
+        attrs = (data.get("data", {}) or {}).get("attributes", {}) or {}
+        customer_email = attrs.get("user_email")  # noqa: F841 — used by Path-C email send (commit 3)
+        ls_order_identifier = attrs.get("identifier")
+
+        # Persist the LS UUID so /r/by-ls/{ls_uuid} (commit 4) can map
+        # back to our internal order_id when the customer clicks the LS
+        # receipt button. Plaintext index field; never PII.
+        if ls_order_identifier:
+            update_order(order_id, ls_order_identifier=ls_order_identifier)
+
+        threading.Thread(
+            target=_generate_reading_background,
+            args=(order_id,),
+            daemon=True,
+        ).start()
 
     return {"received": True}
 
