@@ -170,3 +170,101 @@ def test_compare_and_swap_status_second_call_returns_false(tmp_orders):
     assert order_store._safe_read_row(
         order_store.ORDERS_DIR / "ord-cas-dup.json"
     )["status"] == "paid"
+
+
+# ─────────────────────────────────────────────────────────────
+# Launch Path-C — webhook idempotency + ls_identifier persistence
+# ─────────────────────────────────────────────────────────────
+
+
+class _RecordingThread:
+    """Stand-in for threading.Thread: records spawns without running
+    the engine. The webhook idempotency tests assert spawn count, not
+    target completion."""
+
+    spawns: list = []
+
+    def __init__(self, *args, **kwargs):
+        self._target = kwargs.get("target")
+
+    def start(self):
+        type(self).spawns.append(
+            self._target.__name__ if self._target else "<noname>"
+        )
+
+
+def _signed_post(tc, secret: str, payload: dict):
+    body = json.dumps(payload).encode()
+    sig = _sign(secret, body)
+    return tc.post(
+        "/api/webhook/lemonsqueezy",
+        content=body,
+        headers={"Content-Type": "application/json", "X-Signature": sig},
+    )
+
+
+def test_ls_webhook_is_idempotent_on_duplicate_delivery(client, tmp_orders, monkeypatch):
+    """LS retry scenario: two identical signed deliveries of
+    order_created → engine spawned exactly once, status pinned at
+    paid. Validates the compare_and_swap_status guard in the webhook
+    handler."""
+    tc, server = client
+    order_store, seed = tmp_orders
+    seed("ord-idemp", "pending")
+
+    _RecordingThread.spawns = []
+    monkeypatch.setattr(server.threading, "Thread", _RecordingThread)
+
+    payload = {
+        "meta": {
+            "event_name": "order_created",
+            "custom_data": {"order_id": "ord-idemp"},
+        },
+        "data": {
+            "attributes": {
+                "identifier": "550e8400-e29b-41d4-a716-446655440000",
+                "user_email": "test@example.com",
+            }
+        },
+    }
+    r1 = _signed_post(tc, "test-secret-for-webhook", payload)
+    r2 = _signed_post(tc, "test-secret-for-webhook", payload)
+
+    assert r1.status_code == 200
+    assert r2.status_code == 200
+    # Engine spawned for the first delivery only.
+    assert _RecordingThread.spawns == ["_generate_reading_background"], (
+        f"expected 1 engine spawn, got {_RecordingThread.spawns}"
+    )
+    assert order_store._safe_read_row(
+        order_store.ORDERS_DIR / "ord-idemp.json"
+    )["status"] == "paid"
+
+
+def test_ls_webhook_persists_ls_order_identifier(client, tmp_orders, monkeypatch):
+    """Webhook must store data.attributes.identifier on the order row
+    so /r/by-ls/{uuid} (commit 4) can resolve back to our internal
+    order_id when the customer clicks the LS receipt button."""
+    tc, server = client
+    order_store, seed = tmp_orders
+    seed("ord-idmark", "pending")
+
+    _RecordingThread.spawns = []
+    monkeypatch.setattr(server.threading, "Thread", _RecordingThread)
+
+    ls_uuid = "abcdef00-0000-1111-2222-deadbeefcafe"
+    payload = {
+        "meta": {
+            "event_name": "order_created",
+            "custom_data": {"order_id": "ord-idmark"},
+        },
+        "data": {"attributes": {"identifier": ls_uuid}},
+    }
+    r = _signed_post(tc, "test-secret-for-webhook", payload)
+
+    assert r.status_code == 200
+    row = order_store._safe_read_row(
+        order_store.ORDERS_DIR / "ord-idmark.json"
+    )
+    assert row["ls_order_identifier"] == ls_uuid
+    assert row["status"] == "paid"
