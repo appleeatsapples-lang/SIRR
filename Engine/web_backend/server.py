@@ -1208,6 +1208,13 @@ async def create_checkout(request: Request, req: CheckoutRequest):
                             },
                             "product_options": {
                                 "redirect_url": f"{BASE_URL}/success?token={mint_token(order_id)}",
+                                # Path-C receipt-button retarget — LS substitutes
+                                # {{order_identifier}} server-side (doubled braces
+                                # are an f-string escape; the rendered value is
+                                # the literal LS placeholder, not Python interp).
+                                "receipt_button_text": "View Your Reading",
+                                "receipt_link_url": f"{BASE_URL}/r/by-ls/{{order_identifier}}",
+                                "receipt_thank_you_note": "Your reading is being prepared. The link above takes you to it.",
                             },
                         },
                         "relationships": {
