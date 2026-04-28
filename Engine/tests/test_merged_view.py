@@ -11,6 +11,7 @@ from __future__ import annotations
 import copy
 import json
 import os
+import re
 import sys
 import types
 from pathlib import Path
@@ -252,8 +253,13 @@ def test_rows_overflow_hidden_behind_disclosure(synthetic_output):
     # The summary label uses this specific phrasing — regression-guard it.
     # Wave 1 trust cleanup renamed the teaser from "Show all N signals · +M more"
     # to "View N additional signals" to reduce the held-back-content feel.
-    assert "View " in html
-    assert "additional signals" in html
+    # Wave 1 followup (Codex Round 1): the loose substring checks would have
+    # passed even if the old label crept back alongside the new one. Tighten
+    # to absence of the old phrasing AND a regex match on the exact new shape.
+    assert "Show all" not in html
+    assert re.search(r"View \d+ additional signals", html), (
+        "expected 'View N additional signals' overflow label"
+    )
 
 
 def test_first_six_rows_visible_per_domain(synthetic_output):
@@ -383,6 +389,33 @@ def test_bridging_receipt_header_between_visual_and_rows(synthetic_output):
     assert "Signals behind this section" in html
     # Must appear at least once per domain with a visual (N, NI, AT)
     assert html.count("Signals behind this section") >= 3
+
+
+def test_archetype_consensus_rewrite_uses_distributed_phrasing():
+    """archetype_consensus = '0' must rewrite to the Wave 1-followup
+    phrasing — clinical/system-output framing instead of the earlier
+    'Multi-axis archetypal pattern' product copy or the original
+    'No dominant archetype' failure phrasing.
+
+    Note: the 'none'/'None' REWRITE_RULES entries are unreachable in
+    practice — those values hit HIDE_EXACT_VALUES first and are
+    filtered to None before the rewrite stage. The '0' path is the
+    only one that actually fires, so this test guards exactly it.
+
+    Defense-in-depth: assert the new exact string is produced AND that
+    both prior phrasings are absent from the rewritten output, so a
+    drift-back to either would fail this guard."""
+    from presentation import resolve_display
+
+    expected = "Your archetype pattern is distributed"
+    result = {"id": "archetype_consensus", "data": {"consensus": "0"}}
+    rewritten = resolve_display(result, subject="Test")
+    assert rewritten == expected, (
+        f"archetype_consensus='0' should rewrite to {expected!r}, "
+        f"got {rewritten!r}"
+    )
+    assert rewritten != "No dominant archetype"
+    assert rewritten != "Multi-axis archetypal pattern"
 
 
 def test_astro_aux_inline_band_replaces_chip_row(synthetic_output):

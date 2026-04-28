@@ -107,9 +107,9 @@ ID_VALUE_BUILDERS: Dict[str, Any] = {
 
 # (id, value) → human-facing rewrite
 REWRITE_RULES = {
-    ("archetype_consensus", "0"):      "Multi-axis archetypal pattern",
-    ("archetype_consensus", "none"):   "Multi-axis archetypal pattern",
-    ("archetype_consensus", "None"):   "Multi-axis archetypal pattern",
+    ("archetype_consensus", "0"):      "Your archetype pattern is distributed",
+    ("archetype_consensus", "none"):   "Your archetype pattern is distributed",
+    ("archetype_consensus", "None"):   "Your archetype pattern is distributed",
     ("timing_consensus",    "MIXED"):  "Mixed timing",
     ("timing_consensus",    "mixed"):  "Mixed timing",
     ("timing_consensus",    "Mixed"):  "Mixed timing",
