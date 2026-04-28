@@ -1,4 +1,5 @@
 # Jargon Definitions — Wave 2 Inline Parenthetical Draft
+Note: edited from snapshot version (commit 01df66c). See B2_TRUTH_SCAN.md for resolution status of findings 1-9.
 Source: terms surfaced as "what does X mean?" in 4 customer walks (Claude, M2, M3, M4)
 Format: `Term — definition` (~5-15 words, inline-parenthetical safe, ASCII-only where possible)
 Register: engineer-not-mystic. Factually accurate. No "ancient wisdom" filler.
@@ -41,17 +42,18 @@ Where Grok's Round 2 audit (Apr 16) flagged a scholarship correction, the defini
 - **Mandaean** — refers here to a modern synthesis of Mandaic letter values; the native Mandaic numeric system uses a duodecimal scheme that is computed separately
 - **Ethiopian (cognate)** — Ge'ez letter values mapped onto Arabic input
 - **Name Weight** — a SIRR composite metric that scores name length and letter rarity; the scale runs roughly 1-15 with most names landing 4-9
-- **Notarikon** / **Albam** — Hebrew cipher transformations (acronyms / letter swap); applied here to Arabic input as a modern method
+- **Notarikon** — a Kabbalistic acronym/expansion method that reads each letter of a word as the initial of another word; applied here to Arabic input as a modern method
+- **Albam** — a Hebrew letter-substitution cipher (split alphabet in half, swap pairs); applied here to Arabic input as a modern method
 - **Birth Card (tarot)** — a tarot card derived from your birth date
 - **Birth Card (cartomancy)** — a playing-card equivalent from a separate (cartomantic) tradition
-- **Shadow Card** — a second tarot card paired with the birth card; one tradition reads it as compensatory pattern
+- **Shadow Card** — a modern tarot practice (popularized by Mary Greer in the 1980s-90s); a second card paired with the birth card and read as a compensatory archetype
 - **Hidden Passion** — a Western numerology signal from letter frequency
 
 ## Pattern category
 
 - **Threshold Birth** — a SIRR pattern triggered when your birth date falls between defined transition periods in multiple traditions
 - **Bifurcated Roots** — a SIRR pattern triggered when your name-derived and birth-derived organizing numbers point in different directions
-- **Barzakh** — Arabic for "isthmus" or "between-state"; the term appears in Ibn Arabi's Futuhat as a metaphysical category for liminal phases
+- **Barzakh** — a Quranic term (3 occurrences: 23:100, 25:53, 55:20) meaning "isthmus" or "between-state"; philosophically developed in Ibn Arabi's *Al-Futuhat al-Makkiyya* as a metaphysical category for liminal phases
 - **Sandhi / Sandhya** — a Vedic Jyotish term for the junction between two periods (sunrise, sunset, two zodiacal sectors)
 - **Liminal period** — anthropology's term for a transition phase between two stable identities or states
 - **Split Crown** — a SIRR composite term, no single classical cognate, for the name/birth axis divergence pattern
@@ -77,7 +79,7 @@ Where Grok's Round 2 audit (Apr 16) flagged a scholarship correction, the defini
 - **Guǐ** — one of 10 Heavenly Stems in BaZi; corresponds to Yin Water
 - **Day Animal / Year Animal** — Chinese zodiac assigns one animal to your year and one to your day; some lineages read year as public self, day as private self
 - **Female Monkey (Vedic)** — Vedic compatibility tradition assigns one of 14 animal/gender pairings independent of the customer's actual gender
-- **Vine (Celtic)** — Celtic tree calendar assigns one of 21 trees to a date range
+- **Vine (Celtic)** — a date range in Robert Graves's 1948 tree-month calendar (*The White Goddess*), derived from the medieval Ogham alphabet; popular in modern neo-pagan practice but not historically pre-modern Celtic
 - **Manik (Mayan)** — one of 20 day-signs in the Mayan tzolkin calendar; "12 Manik" pairs the day-sign with one of 13 numeric tones
 - **Melancholic (humoral)** — one of four classical Greek temperaments; describes a tendency toward depth and reflection, not necessarily sadness
 - **Chronobiology** — modern study of biological rhythms over hours, days, and seasons; the value here is a continuous index from a published model
@@ -97,7 +99,10 @@ Where Grok's Round 2 audit (Apr 16) flagged a scholarship correction, the defini
 - **Cross-Scripture Intersection** — a SIRR pattern matcher across the structures of Quranic, Biblical, and Vedic texts; "pattern N" labels which structural rhyme matched
 - **Monte Carlo** — a statistical method that runs the calculation on thousands of random inputs to establish what convergence looks like by chance; SIRR uses 10,000 random baselines
 - **Random baseline** — the convergence pattern that appears when name+birth inputs are randomized; what your real result is being compared against
-- **Lo Shu Grid / Nine Star Ki / Flying Star / Bazhai** — Chinese number-grid traditions that map birth date onto nine cells; each tradition reads the cell pattern differently
+- **Lo Shu Grid** — a 3×3 Chinese magic square that maps numbers onto a nine-cell pattern; foundation for several feng shui systems
+- **Nine Star Ki** — a Japanese system codified by Shinjiro Sonoda in 1924, drawing on Chinese metaphysical roots (Lo Shu, Five Elements, Eight Trigrams); reads birth date through a nine-cell grid
+- **Flying Star** — a Chinese feng shui timing system that rotates Lo Shu numbers through space and time
+- **Bazhai** — Chinese "Eight Mansions" feng shui that maps a person's birth direction to spatial energy
 - **Tibetan Mewa** — the Tibetan version of the nine-star grid; "mewa" is Tibetan for "mole" or "spot"
 - **Dwad** — Vedic 1/12th sub-divisional chart of your zodiac sign
 - **Tarot Year Card** — a Western practice that derives one tarot card per calendar year from the birth date

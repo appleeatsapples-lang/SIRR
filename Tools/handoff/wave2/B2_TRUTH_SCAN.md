@@ -3,6 +3,8 @@ Reviewer: Claude
 Source: Tools/handoff/wave2/B2_JARGON_DEFINITIONS_DRAFT.md
 Method: Re-read each definition against scholarly knowledge; web-verified two highest-confidence claims.
 
+> **Resolution status (as of this commit):** Findings 1, 2 (HIGH) and 3, 4, 5 (MEDIUM) resolved in `B2_JARGON_DEFINITIONS_DRAFT.md`. Finding 6 (LOW) accepted as Wave 2.5 polish, not actioned. Findings 7, 8, 9 deferred pending engineer-input on what each metric actually computes; the open questions stand as written below. Items in "CONFIDENCE-CHECKED" section also remain open for scholarship review.
+
 ## How to read this scan
 Each finding has a severity (HIGH / MEDIUM / LOW) and a recommended rewrite where appropriate. HIGH means the current definition is factually wrong or misleading enough that a curious customer who researches the term will find we got it wrong, and that damages the engineer-not-mystic credibility. MEDIUM means incomplete in a way that misleads. LOW means could be more precise but not actionable.
 
