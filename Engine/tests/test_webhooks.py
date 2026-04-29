@@ -676,6 +676,39 @@ def test_redirect_by_ls_uuid_to_token(client, tmp_orders):
     assert server.try_verify_token(token) == "ord-redir"
 
 
+def test_redirect_by_ls_uuid_accepts_uppercase(client, tmp_orders):
+    """C-AUDIT-1: RFC 4122 UUIDs are case-insensitive. If LS ever
+    emits uppercase (or mixed-case) in receipt-button substitution,
+    the redirect must still resolve. The regex carries IGNORECASE
+    and the lookup lowercases before matching the stored value
+    (which is itself lowercased on webhook persist)."""
+    tc, server = client
+    order_store, _seed = tmp_orders
+
+    # Stored value is lowercase (matches webhook-persist normalization).
+    ls_uuid_lower = "550e8400-e29b-41d4-a716-446655440000"
+    order_store._atomic_write_json(
+        order_store.ORDERS_DIR / "ord-case.json",
+        {
+            "order_id": "ord-case",
+            "status": "paid",
+            "ls_order_identifier": ls_uuid_lower,
+        },
+    )
+
+    # LS sends the uppercase variant — must still 302 to the same order.
+    r = tc.get(
+        "/r/by-ls/550E8400-E29B-41D4-A716-446655440000",
+        follow_redirects=False,
+    )
+
+    assert r.status_code == 302
+    location = r.headers["location"]
+    assert location.startswith("/r/"), f"unexpected redirect target: {location}"
+    token = location[len("/r/"):]
+    assert server.try_verify_token(token) == "ord-case"
+
+
 def test_redirect_by_ls_uuid_unknown_returns_404(client, tmp_orders):
     """No order has this LS UUID → 404. Don't leak existence info; the
     response shape must be identical to the malformed-UUID case below."""
