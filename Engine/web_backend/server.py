@@ -1353,22 +1353,25 @@ async def lemonsqueezy_webhook(request: Request):
         ).start()
 
         # Path-C primary delivery: SIRR-branded email with the durable
-        # /r/{token} link. Failure is logged but does NOT 5xx the
-        # webhook — LS would retry forever, and the customer also sees
-        # the LS receipt button (commit 4) as a recovery fallback.
+        # /r/{token} link. Spawned in a daemon thread (not called
+        # inline) because the Resend SDK's HTTPS call has a 30s
+        # default timeout, well past LS's ~10-15s webhook window —
+        # an inline call against a slow Resend would cause the webhook
+        # to time out, LS to retry, and the retry to hit a CAS=False
+        # silent drop. Customer paid, no email, no recovery.
+        # Same shape as the disk-failure window V2 closed; this thread
+        # closes the network-latency variant. See
+        # _send_post_payment_email_background for failure logging.
         if customer_email:
-            try:
-                send_post_payment_email(
-                    to=customer_email,
-                    reading_url=f"{BASE_URL}/r/{mint_token(order_id)}",
-                    order_id=order_id,
-                )
-            except EmailSendError as exc:
-                print(
-                    f"[email] send failed for order {hash_oid(order_id)}: "
-                    f"{type(exc).__name__}",
-                    file=sys.stderr,
-                )
+            threading.Thread(
+                target=_send_post_payment_email_background,
+                kwargs={
+                    "to": customer_email,
+                    "reading_url": f"{BASE_URL}/r/{mint_token(order_id)}",
+                    "order_id": order_id,
+                },
+                daemon=True,
+            ).start()
 
     return {"received": True}
 
@@ -1441,6 +1444,51 @@ def _generate_merged_view(output_json_path: str, order_id: str) -> Optional[str]
     except Exception as e:
         print(f"[merged_view] failed for order {hash_oid(order_id)}: {sanitize_exception(e)}", file=sys.stderr)
         return None
+
+
+def _send_post_payment_email_background(
+    *,
+    to: str,
+    reading_url: str,
+    order_id: str,
+) -> None:
+    """Background-thread target for the SIRR-branded post-payment email.
+
+    Wrapping the synchronous Resend HTTPS call in a daemon thread is
+    what keeps the webhook handler responsive — the Resend SDK's
+    default urllib3 timeout is 30s, well past LS's ~10-15s webhook
+    timeout window. Without this thread, a slow Resend window would
+    cause LS to time out the webhook, retry, then hit a paid-status
+    CAS=False silent drop — order paid, no email, no recovery.
+
+    Same bug shape as the disk-failure variant Codex caught in V2
+    (atomic CAS), just network-triggered instead of disk-triggered.
+
+    Failure is logged with hash_oid + exception type only; never
+    propagates (the webhook has already returned 200 by the time this
+    runs). The bare `except Exception:` is deliberate defense-in-depth
+    in this daemon-thread tail position — any exception type the
+    email_sender doesn't already wrap as EmailSendError would
+    otherwise vanish silently into thread death.
+    """
+    try:
+        send_post_payment_email(
+            to=to,
+            reading_url=reading_url,
+            order_id=order_id,
+        )
+    except EmailSendError as exc:
+        print(
+            f"[email] send failed for order {hash_oid(order_id)}: "
+            f"{type(exc).__name__}",
+            file=sys.stderr,
+        )
+    except Exception as exc:
+        print(
+            f"[email] unexpected failure for order {hash_oid(order_id)}: "
+            f"{type(exc).__name__}",
+            file=sys.stderr,
+        )
 
 
 def _generate_reading_background(order_id: str):
