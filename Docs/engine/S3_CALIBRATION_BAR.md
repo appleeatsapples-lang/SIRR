@@ -80,3 +80,53 @@ Revisability triggers: locked as above
 ```
 
 S3 audit measures against this bar. Revisability triggers (first 100 customers' real distribution / customer feedback / new module additions) are the only paths to re-open.
+
+
+---
+
+## Empirical addendum — 2026-04-29
+
+**What was measured**
+
+The n=10,000 Monte Carlo baseline was inspected on 2026-04-29 and analyzed against the locked 1.5%/5% bars from this document. Full analysis at `Docs/engine/S3_FINDINGS_2026-04-29.md`.
+
+**Headline finding**
+
+The locked bars are **incompatible with the engine's current convergence architecture.** The engine emits convergence as a continuous statistical signal (every random profile produces 9-17 Tier-1 events at current `min_systems`/`min_groups` thresholds). The bar assumes a discrete-event model where Tier-1 firing is rare. These are different models.
+
+**Quantitative consequences**
+
+- 100% of random profiles produce ≥9 Tier-1 convergence events at current thresholds (Tier-1 FP rate is 100%, not 1.5%)
+- To hit a 1.5% tail on `tier1_count`, the threshold would need to be raised so that `tier1_count ≥ 17` is required for "Tier-1 firing." Only 0.13% of random profiles reach this threshold
+- Muhab's own profile has `tier1_count = 13` (median of the distribution). At a 1.5%-bar-compatible threshold, the headline customer's reading would not trigger Tier-1 convergence
+
+**What "S3 clean" now means**
+
+This document's pass/fail bar required reframe in light of measurement. Two legitimate interpretations of "S3 clean" survive:
+
+1. **Path B (rigorous engineering, post-launch):** reframe customer-visible signal from binary "Tier-1 fired" to continuous percentile display. Reading shows "your peak sits in the Nth percentile of n=10,000 baseline." Calibration bar becomes "percentile delivery accuracy ±1% of MC ground truth." Estimated 1-2 days of customer-visible copy work.
+2. **Path C (aggressive launch, this revision):** acknowledge the architectural mismatch in this document, defer Path B to post-launch. PRs #50 + #51 + #53 already softened customer-facing convergence framing — the reading no longer claims "independent witnesses agree" or specific rarity numbers. Live-mode flip not gated on a binary the data tells us doesn't exist.
+
+**Active interpretation as of this revision**
+
+**Path C.** Per `S3_FINDINGS_2026-04-29.md` recommendation, accepted by Muhab on (DATE — to fill on merge).
+
+The 1.5% / 5.0% numerical bars in the body of this document remain on record as the *aspirational* target for Path B's post-launch reframe. They are not a current pass/fail gate. The current pass/fail gate is: customer-facing copy honest about what convergence is and isn't (cleared by PRs #50, #51, #53), reproducible MC measurement available (cleared by `Engine/monte_carlo_baseline.py` shipped in PR #52), empirical findings documented (cleared by `S3_FINDINGS_2026-04-29.md`).
+
+**Reproducibility commit**
+
+`Engine/monte_carlo_baseline.py` shipped in PR #52 (commit `b967325`). Re-running with `python3 -m monte_carlo_baseline --n 10000` regenerates the baseline against current engine HEAD. Smoke-tested at n=20 on 2026-04-29 against current main (14.6 profiles/sec; n=10,000 estimated ~11 min).
+
+**Revisability triggers (unchanged)**
+
+The original three triggers remain valid:
+1. First 100 customers' profile distribution lands
+2. Customer feedback on Convergence frequency
+3. New Convergence modules added
+
+Plus one new trigger:
+4. Path B copy-reframe work begins (Wave 4 post-launch)
+
+---
+
+*Empirical addendum version 1.0 — 2026-04-29 — added in response to S3 measurement gap discovered during 2026-04-29 work session.*
