@@ -20,6 +20,9 @@ python-dotenv
 # Payments
 stripe
 
+# Path-C post-payment email (Launch — see Tools/handoff/LAUNCH_PATH_C_CUSTOM_EMAIL_BRIEF.md)
+resend
+
 # LLM narrative generation
 anthropic
 

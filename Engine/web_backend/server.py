@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 import threading
 import time
@@ -23,7 +24,7 @@ load_dotenv()
 import stripe
 import httpx
 from fastapi import FastAPI, HTTPException, Query, Request
-from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
+from fastapi.responses import HTMLResponse, JSONResponse, FileResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
@@ -69,12 +70,15 @@ from order_store import (
     create_order,
     get_order,
     update_order,
+    compare_and_swap_status,
     get_order_by_stripe_session,
+    find_order_by_ls_identifier,
     is_row_already_fully_deleted,
 )
 from reading_generator import generate_reading, extract_reading_context, generate_dashboard_panels
 from html_reading import generate_html as generate_html_reading
 from unified_synthesis import compute_unified_synthesis
+from email_sender import send_post_payment_email, EmailSendError
 
 # ── FastAPI lifespan — starts/stops the in-process retention scheduler ──
 from contextlib import asynccontextmanager
@@ -786,6 +790,50 @@ def _resolve_token_or_order_id(token_or_id: str) -> str:
     raise HTTPException(404, "Reading not found")
 
 
+# LS order_identifier shape — RFC 4122 hex UUID. Regex-validated before
+# any disk lookup so path-traversal and SQLi-shaped inputs are rejected
+# at the route boundary, never reaching find_order_by_ls_identifier.
+# IGNORECASE because RFC 4122 is case-insensitive — LS docs show
+# lowercase but don't guarantee it; an account variant or future API
+# change emitting uppercase would dead-link the receipt button without
+# this flag.
+_LS_UUID_RE = re.compile(
+    r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+    re.IGNORECASE,
+)
+
+
+@app.get("/r/by-ls/{ls_uuid}")
+async def reading_by_ls_uuid(ls_uuid: str):
+    """LS receipt-button recovery path. The LS receipt template
+    substitutes [order_identifier] server-side (LS Link Variables
+    use square brackets, not curly braces), so this endpoint
+    receives an LS UUID, looks up our internal order_id, and
+    302-redirects to the token-gated /r/{token} page.
+
+    UUIDs are normalized to lowercase before matching against the
+    stored ls_order_identifier — RFC 4122 is case-insensitive, but
+    our stored values come from whatever LS sent in the webhook
+    payload (also normalized to lowercase on persist), so
+    normalize-on-both-ends keeps the index aligned regardless of
+    LS's case convention now or later.
+
+    Path-C launch wiring (Tools/handoff/LAUNCH_PATH_C_CUSTOM_EMAIL_BRIEF.md):
+    ensures the LS receipt button is not a dead link if the customer's
+    primary SIRR-branded email gets lost or filtered. Same 404 shape
+    on unknown UUID and on malformed UUID — never leak whether a
+    given identifier exists.
+    """
+    if not _LS_UUID_RE.match(ls_uuid):
+        raise HTTPException(404, "Reading not found")
+
+    order_id = find_order_by_ls_identifier(ls_uuid.lower())
+    if not order_id:
+        raise HTTPException(404, "Reading not found")
+
+    return RedirectResponse(url=f"/r/{mint_token(order_id)}", status_code=302)
+
+
 @app.get("/r/{token}")
 async def reading_by_token(token: str):
     """Token-gated reading page. §16.5 — replaces /reading/{order_id} pattern."""
@@ -1175,6 +1223,16 @@ async def create_checkout(request: Request, req: CheckoutRequest):
                             },
                             "product_options": {
                                 "redirect_url": f"{BASE_URL}/success?token={mint_token(order_id)}",
+                                # Path-C receipt-button retarget — LS substitutes
+                                # [order_identifier] server-side per the LS Link
+                                # Variables docs (square brackets, NOT curly
+                                # braces). After substitution the URL becomes
+                                # /r/by-ls/<uuid>, matched by _LS_UUID_RE in
+                                # the redirect endpoint and resolved back to
+                                # our internal order_id.
+                                "receipt_button_text": "View Your Reading",
+                                "receipt_link_url": f"{BASE_URL}/r/by-ls/[order_identifier]",
+                                "receipt_thank_you_note": "Your reading is being prepared. The link above takes you to it.",
                             },
                         },
                         "relationships": {
@@ -1271,12 +1329,68 @@ async def lemonsqueezy_webhook(request: Request):
     if event_name == "order_created":
         custom = data.get("meta", {}).get("custom_data", {})
         order_id = custom.get("order_id")
-        if order_id:
-            update_order(order_id, status="paid")
+        if not order_id:
+            return {"received": True}
+
+        # Customer email is extracted transiently from the webhook
+        # payload at send time and NEVER persisted. Nothing about the
+        # customer's contact info enters the order row or any
+        # encryption-at-rest surface — only process memory for the
+        # duration of the request.
+        attrs = (data.get("data", {}) or {}).get("attributes", {}) or {}
+        customer_email = attrs.get("user_email")
+        # Normalize the LS UUID to lowercase on persist — RFC 4122 is
+        # case-insensitive and LS doesn't guarantee a single case in
+        # the webhook payload. The /r/by-ls/{uuid} lookup also
+        # lowercases before disk match, so both ends of the index
+        # stay aligned. The `or None` keeps the falsy-empty-string
+        # guard so a missing identifier still skips persist.
+        ls_order_identifier = (attrs.get("identifier") or "").lower() or None
+
+        # Idempotency guard + atomic LS UUID persistence: only fire
+        # post-payment side-effects on the FIRST delivery of order_created
+        # for this order, and write the LS UUID index field in the same
+        # locked operation as the status flip. Without the atomicity, a
+        # second update_order could raise after status="paid", leaving LS
+        # to retry into a silent CAS=False drop — order paid, no engine,
+        # no email. Stricter semantic: only "pending → paid" fires
+        # side-effects. LS retries on non-200; CAS=False returns 200 so
+        # they stop.
+        cas_extras = (
+            {"ls_order_identifier": ls_order_identifier}
+            if ls_order_identifier
+            else {}
+        )
+        if not compare_and_swap_status(
+            order_id, expected="pending", new="paid", **cas_extras
+        ):
+            return {"received": True}
+
+        threading.Thread(
+            target=_generate_reading_background,
+            args=(order_id,),
+            daemon=True,
+        ).start()
+
+        # Path-C primary delivery: SIRR-branded email with the durable
+        # /r/{token} link. Spawned in a daemon thread (not called
+        # inline) because the Resend SDK's HTTPS call has a 30s
+        # default timeout, well past LS's ~10-15s webhook window —
+        # an inline call against a slow Resend would cause the webhook
+        # to time out, LS to retry, and the retry to hit a CAS=False
+        # silent drop. Customer paid, no email, no recovery.
+        # Same shape as the disk-failure window V2 closed; this thread
+        # closes the network-latency variant. See
+        # _send_post_payment_email_background for failure logging.
+        if customer_email:
             threading.Thread(
-                target=_generate_reading_background,
-                args=(order_id,),
-                daemon=True
+                target=_send_post_payment_email_background,
+                kwargs={
+                    "to": customer_email,
+                    "reading_url": f"{BASE_URL}/r/{mint_token(order_id)}",
+                    "order_id": order_id,
+                },
+                daemon=True,
             ).start()
 
     return {"received": True}
@@ -1350,6 +1464,51 @@ def _generate_merged_view(output_json_path: str, order_id: str) -> Optional[str]
     except Exception as e:
         print(f"[merged_view] failed for order {hash_oid(order_id)}: {sanitize_exception(e)}", file=sys.stderr)
         return None
+
+
+def _send_post_payment_email_background(
+    *,
+    to: str,
+    reading_url: str,
+    order_id: str,
+) -> None:
+    """Background-thread target for the SIRR-branded post-payment email.
+
+    Wrapping the synchronous Resend HTTPS call in a daemon thread is
+    what keeps the webhook handler responsive — the Resend SDK's
+    default urllib3 timeout is 30s, well past LS's ~10-15s webhook
+    timeout window. Without this thread, a slow Resend window would
+    cause LS to time out the webhook, retry, then hit a paid-status
+    CAS=False silent drop — order paid, no email, no recovery.
+
+    Same bug shape as the disk-failure variant Codex caught in V2
+    (atomic CAS), just network-triggered instead of disk-triggered.
+
+    Failure is logged with hash_oid + exception type only; never
+    propagates (the webhook has already returned 200 by the time this
+    runs). The bare `except Exception:` is deliberate defense-in-depth
+    in this daemon-thread tail position — any exception type the
+    email_sender doesn't already wrap as EmailSendError would
+    otherwise vanish silently into thread death.
+    """
+    try:
+        send_post_payment_email(
+            to=to,
+            reading_url=reading_url,
+            order_id=order_id,
+        )
+    except EmailSendError as exc:
+        print(
+            f"[email] send failed for order {hash_oid(order_id)}: "
+            f"{type(exc).__name__}",
+            file=sys.stderr,
+        )
+    except Exception as exc:
+        print(
+            f"[email] unexpected failure for order {hash_oid(order_id)}: "
+            f"{type(exc).__name__}",
+            file=sys.stderr,
+        )
 
 
 def _generate_reading_background(order_id: str):

@@ -346,6 +346,105 @@ def update_order(order_id: str, **kwargs):
         _atomic_write_json(p, order)
 
 
+# Plaintext-by-design fields that callers may write through
+# compare_and_swap_status's extra_fields kwargs. PII fields are
+# excluded by construction — they go through the encrypted-at-rest
+# path on update_order, never through CAS extras. Names not in this
+# set are silently dropped to defend against future callers
+# accidentally piping PII through this surface.
+_ALLOWED_PLAINTEXT_EXTRAS = frozenset({"ls_order_identifier", "stripe_session_id"})
+
+
+def compare_and_swap_status(
+    order_id: str,
+    *,
+    expected,
+    new: str,
+    **extra_fields,
+) -> bool:
+    """Atomically transition order status from `expected` to `new`,
+    optionally writing additional plaintext fields in the same locked
+    write.
+
+    Returns True iff the row existed AND its status matched `expected`
+    AND the swap was written. Returns False otherwise (missing row,
+    corrupt row, or status not in `expected`).
+
+    `expected` accepts a single status string or an iterable of allowed
+    statuses; the swap fires if the current status is any of them.
+
+    `extra_fields` is for plaintext index fields (e.g., LS UUIDs) that
+    must land atomically with the status transition. Disallowed names
+    (anything outside `_ALLOWED_PLAINTEXT_EXTRAS`) are silently dropped
+    so callers cannot accidentally route PII through this path —
+    PII belongs on update_order, which encrypts at rest.
+
+    Used by the LS webhook handler to make `order_created` idempotent
+    against LS-side delivery retries — only the first delivery for a
+    given order_id transitions pending→paid, so post-payment
+    side-effects (engine spawn, email send) fire exactly once. The
+    extras path closes a paid-but-no-side-effects window: if the LS
+    UUID persistence raised after the status flip, LS would retry,
+    re-enter the handler, see status=paid, and silently drop without
+    firing the email or engine spawn.
+
+    Within-process: protected by the module-level `_lock` plus the
+    atomic file rename in `_atomic_write_json`. Cross-process
+    (gunicorn multi-worker) the race remains theoretically open;
+    deferred until the JSON store is replaced with a real DB. At
+    launch volume (10-100 orders/mo) the race is extremely unlikely
+    in practice.
+    """
+    with _lock:
+        p = ORDERS_DIR / f"{order_id}.json"
+        if not p.exists():
+            return False
+        try:
+            row = _safe_read_row(p)
+        except OrderStoreIOError:
+            return False
+        expected_set = (expected,) if isinstance(expected, str) else tuple(expected)
+        if row.get("status") not in expected_set:
+            return False
+        row["status"] = new
+        for k, v in extra_fields.items():
+            if k in _ALLOWED_PLAINTEXT_EXTRAS:
+                row[k] = v
+        _atomic_write_json(p, row)
+        return True
+
+
+def find_order_by_ls_identifier(ls_uuid: str) -> str | None:
+    """Reverse-lookup the LS UUID stored on an order row by the
+    webhook handler back to our internal order_id.
+
+    Used by the /r/by-ls/{ls_uuid} redirect (Path-C) — when a customer
+    clicks the LS receipt button, LS substitutes its order identifier
+    server-side and we map back to our token to issue /r/{token}.
+
+    Returns the order_id if found, None otherwise. PII is never
+    decrypted on this path; the matched-on field (`ls_order_identifier`)
+    and the returned `order_id` are both plaintext index fields.
+
+    Linear scan mirrors get_order_by_stripe_session — acceptable at
+    launch volume (10-100 orders/mo, scan completes in low ms). When
+    order_store moves to a real DB, this becomes an indexed query.
+    """
+    for p in ORDERS_DIR.glob("*.json"):
+        try:
+            o = _safe_read_row(p)
+        except OrderStoreIOError as exc:
+            print(
+                f"[order_store-read] failed for row {hash_oid(p.stem)}: "
+                f"{type(exc).__name__}",
+                file=sys.stderr,
+            )
+            continue
+        if o.get("ls_order_identifier") == ls_uuid:
+            return o.get("order_id") or p.stem
+    return None
+
+
 def get_order_by_stripe_session(session_id: str) -> dict | None:
     # Match on the plaintext stripe_session_id field; only decrypt PII
     # for the matching row so the scan stays O(N) reads, not O(N) decrypts.
