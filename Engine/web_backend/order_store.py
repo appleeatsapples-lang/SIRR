@@ -346,20 +346,47 @@ def update_order(order_id: str, **kwargs):
         _atomic_write_json(p, order)
 
 
-def compare_and_swap_status(order_id: str, *, expected, new: str) -> bool:
-    """Atomically transition order status from `expected` to `new`.
+# Plaintext-by-design fields that callers may write through
+# compare_and_swap_status's extra_fields kwargs. PII fields are
+# excluded by construction — they go through the encrypted-at-rest
+# path on update_order, never through CAS extras. Names not in this
+# set are silently dropped to defend against future callers
+# accidentally piping PII through this surface.
+_ALLOWED_PLAINTEXT_EXTRAS = frozenset({"ls_order_identifier", "stripe_session_id"})
+
+
+def compare_and_swap_status(
+    order_id: str,
+    *,
+    expected,
+    new: str,
+    **extra_fields,
+) -> bool:
+    """Atomically transition order status from `expected` to `new`,
+    optionally writing additional plaintext fields in the same locked
+    write.
 
     Returns True iff the row existed AND its status matched `expected`
     AND the swap was written. Returns False otherwise (missing row,
     corrupt row, or status not in `expected`).
 
+    `expected` accepts a single status string or an iterable of allowed
+    statuses; the swap fires if the current status is any of them.
+
+    `extra_fields` is for plaintext index fields (e.g., LS UUIDs) that
+    must land atomically with the status transition. Disallowed names
+    (anything outside `_ALLOWED_PLAINTEXT_EXTRAS`) are silently dropped
+    so callers cannot accidentally route PII through this path —
+    PII belongs on update_order, which encrypts at rest.
+
     Used by the LS webhook handler to make `order_created` idempotent
     against LS-side delivery retries — only the first delivery for a
     given order_id transitions pending→paid, so post-payment
-    side-effects (engine spawn, email send) fire exactly once.
-
-    `expected` accepts a single status string or an iterable of allowed
-    statuses; the swap fires if the current status is any of them.
+    side-effects (engine spawn, email send) fire exactly once. The
+    extras path closes a paid-but-no-side-effects window: if the LS
+    UUID persistence raised after the status flip, LS would retry,
+    re-enter the handler, see status=paid, and silently drop without
+    firing the email or engine spawn.
 
     Within-process: protected by the module-level `_lock` plus the
     atomic file rename in `_atomic_write_json`. Cross-process
@@ -380,6 +407,9 @@ def compare_and_swap_status(order_id: str, *, expected, new: str) -> bool:
         if row.get("status") not in expected_set:
             return False
         row["status"] = new
+        for k, v in extra_fields.items():
+            if k in _ALLOWED_PLAINTEXT_EXTRAS:
+                row[k] = v
         _atomic_write_json(p, row)
         return True
 
