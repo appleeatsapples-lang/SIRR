@@ -277,6 +277,33 @@ class _RecordingThread:
         )
 
 
+class _ImmediateThread:
+    """Like _RecordingThread but invokes the target inline for the
+    email-background path only. Engine-spawn target is recorded but
+    NOT invoked — running _generate_reading_background inline would
+    burn Anthropic API and write engine output, not what the unit
+    tests want.
+
+    Used by tests that need to assert side-effects of the email
+    background thread (e.g., mock_send_email captures, EmailSendError
+    swallowing). Pass kwargs= or args= through unchanged so the
+    real-world call shape is exercised.
+    """
+
+    spawns: list = []
+
+    def __init__(self, *args, **kwargs):
+        self._target = kwargs.get("target")
+        self._kwargs = kwargs.get("kwargs", {}) or {}
+        self._args = kwargs.get("args", ()) or ()
+
+    def start(self):
+        name = self._target.__name__ if self._target else "<noname>"
+        type(self).spawns.append(name)
+        if name == "_send_post_payment_email_background" and self._target:
+            self._target(*self._args, **self._kwargs)
+
+
 def _signed_post(tc, secret: str, payload: dict):
     body = json.dumps(payload).encode()
     sig = _sign(secret, body)
@@ -316,9 +343,14 @@ def test_ls_webhook_is_idempotent_on_duplicate_delivery(client, tmp_orders, monk
 
     assert r1.status_code == 200
     assert r2.status_code == 200
-    # Engine spawned for the first delivery only.
-    assert _RecordingThread.spawns == ["_generate_reading_background"], (
-        f"expected 1 engine spawn, got {_RecordingThread.spawns}"
+    # Both engine and email spawn for the first delivery only — CAS
+    # gates the second delivery before any side-effect fires. With
+    # V-AUDIT-1, the email is now off-thread, so it shows up as a
+    # spawn alongside the engine.
+    assert _RecordingThread.spawns.count("_generate_reading_background") == 1
+    assert _RecordingThread.spawns.count("_send_post_payment_email_background") == 1
+    assert len(_RecordingThread.spawns) == 2, (
+        f"expected exactly 2 spawns total (engine + email), got {_RecordingThread.spawns}"
     )
     assert order_store._safe_read_row(
         order_store.ORDERS_DIR / "ord-idemp.json"
@@ -398,15 +430,20 @@ def mock_send_email(monkeypatch):
 def test_ls_webhook_order_created_triggers_email(client, tmp_orders, monkeypatch, mock_send_email):
     """First delivery of order_created with valid signature →
     send_post_payment_email called once with (to, reading_url, order_id)
-    derived from the webhook payload."""
+    derived from the webhook payload.
+
+    Uses _ImmediateThread so the email background target actually fires
+    and mock_send_email captures. Engine target is recorded but skipped
+    by _ImmediateThread (running engine inline would burn Anthropic API).
+    """
     tc, server = client
     order_store, seed = tmp_orders
     seed("ord-mail", "pending")
 
     sent, fake_send = mock_send_email
     monkeypatch.setattr(server, "send_post_payment_email", fake_send)
-    _RecordingThread.spawns = []
-    monkeypatch.setattr(server.threading, "Thread", _RecordingThread)
+    _ImmediateThread.spawns = []
+    monkeypatch.setattr(server.threading, "Thread", _ImmediateThread)
 
     payload = {
         "meta": {
@@ -432,7 +469,14 @@ def test_ls_webhook_order_created_triggers_email(client, tmp_orders, monkeypatch
 def test_ls_webhook_email_failure_returns_200(client, tmp_orders, monkeypatch):
     """If send_post_payment_email raises EmailSendError, the webhook
     must still return 200 (LS would retry forever otherwise; customer
-    has the LS receipt button as a recovery path)."""
+    has the LS receipt button as a recovery path).
+
+    Post V-AUDIT-1: the EmailSendError raises inside the daemon thread
+    target (_send_post_payment_email_background), is caught by its
+    own try/except, and never propagates back to the webhook return
+    path. _ImmediateThread runs the email target inline so the raise
+    actually fires under test.
+    """
     tc, server = client
     order_store, seed = tmp_orders
     seed("ord-mailfail", "pending")
@@ -442,8 +486,8 @@ def test_ls_webhook_email_failure_returns_200(client, tmp_orders, monkeypatch):
         raise EmailSendError("simulated-resend-outage")
 
     monkeypatch.setattr(server, "send_post_payment_email", _raises)
-    _RecordingThread.spawns = []
-    monkeypatch.setattr(server.threading, "Thread", _RecordingThread)
+    _ImmediateThread.spawns = []
+    monkeypatch.setattr(server.threading, "Thread", _ImmediateThread)
 
     payload = {
         "meta": {
@@ -460,9 +504,11 @@ def test_ls_webhook_email_failure_returns_200(client, tmp_orders, monkeypatch):
     r = _signed_post(tc, "test-secret-for-webhook", payload)
 
     assert r.status_code == 200
-    # Engine still spawned despite email failure — delivery doesn't
-    # depend on the customer-touchpoint side-effect.
-    assert _RecordingThread.spawns == ["_generate_reading_background"]
+    # Engine + email both spawned; email target raised internally and
+    # was swallowed by _send_post_payment_email_background — webhook
+    # return path never saw the exception.
+    assert "_generate_reading_background" in _ImmediateThread.spawns
+    assert "_send_post_payment_email_background" in _ImmediateThread.spawns
 
 
 def test_email_body_uses_hash_oid_not_name_derived_slug(monkeypatch):
@@ -543,6 +589,58 @@ def test_ls_webhook_missing_user_email_skips_email_send(client, tmp_orders, monk
     assert r.status_code == 200
     assert sent == []  # no email attempted
     assert _RecordingThread.spawns == ["_generate_reading_background"]
+
+
+def test_ls_webhook_email_send_does_not_block_webhook_response(client, tmp_orders, monkeypatch):
+    """V-AUDIT-1: a slow Resend call must NOT delay the webhook
+    response. Pre-fix, a 30s Resend timeout would block past LS's
+    ~10-15s webhook window — LS would time out, retry, and the retry
+    would CAS=False silently. Customer paid, no email, no recovery.
+
+    Asserts the webhook returns within 1 second even when
+    send_post_payment_email is configured to sleep 5 seconds.
+
+    Uses _RecordingThread (records but does NOT run the target) so the
+    5-second sleep never actually fires in the test. The invariant is
+    structural: the webhook calls threading.Thread(target=email_bg)
+    rather than calling send_post_payment_email inline. A real prod
+    trace would show webhook returning ~10ms while Resend is still
+    in-flight on the daemon thread.
+    """
+    import time as _time
+    tc, server = client
+    order_store, seed = tmp_orders
+    seed("ord-slowsend", "pending")
+
+    def _slow_send(*, to, reading_url, order_id):
+        _time.sleep(5)
+
+    monkeypatch.setattr(server, "send_post_payment_email", _slow_send)
+    _RecordingThread.spawns = []
+    monkeypatch.setattr(server.threading, "Thread", _RecordingThread)
+
+    payload = {
+        "meta": {
+            "event_name": "order_created",
+            "custom_data": {"order_id": "ord-slowsend"},
+        },
+        "data": {
+            "attributes": {
+                "identifier": "550e8400-e29b-41d4-a716-446655440000",
+                "user_email": "buyer@example.com",
+            }
+        },
+    }
+    start = _time.time()
+    r = _signed_post(tc, "test-secret-for-webhook", payload)
+    elapsed = _time.time() - start
+
+    assert r.status_code == 200
+    assert elapsed < 1.0, (
+        f"webhook blocked for {elapsed:.2f}s (V-AUDIT-1 regression — "
+        "email must spawn in a daemon thread, never block the webhook)"
+    )
+    assert "_send_post_payment_email_background" in _RecordingThread.spawns
 
 
 # ─────────────────────────────────────────────────────────────
