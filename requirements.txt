@@ -15,7 +15,7 @@ openpyxl
 fastapi
 uvicorn[standard]
 httpx
-python-dotenv
+python-dotenv>=1.2.2  # CVE-2026-28684 (set_key symlink — not directly used, hygiene)
 
 # Payments
 stripe
@@ -33,5 +33,9 @@ cryptography
 slowapi
 
 # Testing (needed in CI; prod containers will load but not use)
-pytest
+pytest>=9.0.3  # CVE-2025-71176 (/tmp pytest-of dir — test only, hygiene)
 pytest-asyncio
+
+# Transitive deps with security patches (pip-audit 2026-04-29 — none directly used in code, hygiene upgrades)
+pillow>=12.2.0  # CVE-2026-25990 + CVE-2026-40192 (transitive via reportlab)
+requests>=2.33.0  # CVE-2026-25645 (transitive)
