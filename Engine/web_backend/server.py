@@ -588,10 +588,11 @@ def compute_name_length_tier(name_en: str, name_ar: str = "") -> dict:
         tier = "long"
         frame = "full signal"
         copy = (
-            "15 of 25 traditions return the same root. "
-            "No comparable profile in our reference population has matched this number."
+            "With the full nasab present, the convergence base is at its broadest — "
+            "letter-system traditions that depend on grandparent and great-grandparent names contribute, "
+            "and the structural reading is computed from the deepest signal SIRR can extract."
         )
-        allows_pvalue = True
+        allows_pvalue = False
     elif word_count >= 4:
         tier = "medium"
         frame = "partial convergence"
