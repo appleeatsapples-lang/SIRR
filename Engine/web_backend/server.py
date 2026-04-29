@@ -1314,16 +1314,6 @@ async def lemonsqueezy_webhook(request: Request):
         if not order_id:
             return {"received": True}
 
-        # Idempotency guard: only fire post-payment side-effects on the
-        # FIRST delivery of order_created for this order. LS retries on
-        # non-200 — without this guard, retries would spawn duplicate
-        # engine runs (and, once Path-C email lands, duplicate emails).
-        # Stricter semantic: only "pending → paid" fires side-effects.
-        if not compare_and_swap_status(order_id, expected="pending", new="paid"):
-            # Already past "pending" (paid/processing/failed) — drop
-            # silently. Returning 200 prevents further LS retries.
-            return {"received": True}
-
         # Customer email is extracted transiently from the webhook
         # payload at send time and NEVER persisted. Nothing about the
         # customer's contact info enters the order row or any
@@ -1333,11 +1323,24 @@ async def lemonsqueezy_webhook(request: Request):
         customer_email = attrs.get("user_email")
         ls_order_identifier = attrs.get("identifier")
 
-        # Persist the LS UUID so /r/by-ls/{ls_uuid} (commit 4) can map
-        # back to our internal order_id when the customer clicks the LS
-        # receipt button. Plaintext index field; never PII.
-        if ls_order_identifier:
-            update_order(order_id, ls_order_identifier=ls_order_identifier)
+        # Idempotency guard + atomic LS UUID persistence: only fire
+        # post-payment side-effects on the FIRST delivery of order_created
+        # for this order, and write the LS UUID index field in the same
+        # locked operation as the status flip. Without the atomicity, a
+        # second update_order could raise after status="paid", leaving LS
+        # to retry into a silent CAS=False drop — order paid, no engine,
+        # no email. Stricter semantic: only "pending → paid" fires
+        # side-effects. LS retries on non-200; CAS=False returns 200 so
+        # they stop.
+        cas_extras = (
+            {"ls_order_identifier": ls_order_identifier}
+            if ls_order_identifier
+            else {}
+        )
+        if not compare_and_swap_status(
+            order_id, expected="pending", new="paid", **cas_extras
+        ):
+            return {"received": True}
 
         threading.Thread(
             target=_generate_reading_background,
