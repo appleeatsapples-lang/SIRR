@@ -515,6 +515,10 @@ def test_redirect_by_ls_uuid_unknown_returns_404(client, tmp_orders):
         "abc",                              # too short
         "G2345678-90ab-cdef-1234-567890abcdef",  # non-hex char
         "12345678901234567890123456789012",      # no dashes
+        # V1 defensive: if LS ever fails to substitute the placeholder
+        # (template typo, account misconfig, etc.) the literal
+        # [order_identifier] must 404 at the regex, not 500.
+        "%5Border_identifier%5D",
     ],
 )
 def test_redirect_by_ls_uuid_malformed_returns_404(client, tmp_orders, bad_uuid):
