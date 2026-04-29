@@ -793,7 +793,14 @@ def _resolve_token_or_order_id(token_or_id: str) -> str:
 # LS order_identifier shape — RFC 4122 hex UUID. Regex-validated before
 # any disk lookup so path-traversal and SQLi-shaped inputs are rejected
 # at the route boundary, never reaching find_order_by_ls_identifier.
-_LS_UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
+# IGNORECASE because RFC 4122 is case-insensitive — LS docs show
+# lowercase but don't guarantee it; an account variant or future API
+# change emitting uppercase would dead-link the receipt button without
+# this flag.
+_LS_UUID_RE = re.compile(
+    r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+    re.IGNORECASE,
+)
 
 
 @app.get("/r/by-ls/{ls_uuid}")
@@ -804,6 +811,13 @@ async def reading_by_ls_uuid(ls_uuid: str):
     receives an LS UUID, looks up our internal order_id, and
     302-redirects to the token-gated /r/{token} page.
 
+    UUIDs are normalized to lowercase before matching against the
+    stored ls_order_identifier — RFC 4122 is case-insensitive, but
+    our stored values come from whatever LS sent in the webhook
+    payload (also normalized to lowercase on persist), so
+    normalize-on-both-ends keeps the index aligned regardless of
+    LS's case convention now or later.
+
     Path-C launch wiring (Tools/handoff/LAUNCH_PATH_C_CUSTOM_EMAIL_BRIEF.md):
     ensures the LS receipt button is not a dead link if the customer's
     primary SIRR-branded email gets lost or filtered. Same 404 shape
@@ -813,7 +827,7 @@ async def reading_by_ls_uuid(ls_uuid: str):
     if not _LS_UUID_RE.match(ls_uuid):
         raise HTTPException(404, "Reading not found")
 
-    order_id = find_order_by_ls_identifier(ls_uuid)
+    order_id = find_order_by_ls_identifier(ls_uuid.lower())
     if not order_id:
         raise HTTPException(404, "Reading not found")
 
@@ -1325,7 +1339,13 @@ async def lemonsqueezy_webhook(request: Request):
         # duration of the request.
         attrs = (data.get("data", {}) or {}).get("attributes", {}) or {}
         customer_email = attrs.get("user_email")
-        ls_order_identifier = attrs.get("identifier")
+        # Normalize the LS UUID to lowercase on persist — RFC 4122 is
+        # case-insensitive and LS doesn't guarantee a single case in
+        # the webhook payload. The /r/by-ls/{uuid} lookup also
+        # lowercases before disk match, so both ends of the index
+        # stay aligned. The `or None` keeps the falsy-empty-string
+        # guard so a missing identifier still skips persist.
+        ls_order_identifier = (attrs.get("identifier") or "").lower() or None
 
         # Idempotency guard + atomic LS UUID persistence: only fire
         # post-payment side-effects on the FIRST delivery of order_created
