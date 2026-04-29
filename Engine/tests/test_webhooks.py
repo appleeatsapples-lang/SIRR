@@ -431,6 +431,55 @@ def test_ls_webhook_email_failure_returns_200(client, tmp_orders, monkeypatch):
     assert _RecordingThread.spawns == ["_generate_reading_background"]
 
 
+def test_email_body_uses_hash_oid_not_name_derived_slug(monkeypatch):
+    """V4: the order ID printed in the email body must be name-irreversible.
+
+    order_store._make_slug derives order_id from name+DOB, so the first
+    eight chars of the slug deterministically encode customer PII.
+    Embedding that in the body shipped to Resend (third-party) would
+    leak name-derivation to their logs, analytics, and any
+    deliverability-debugging surface. hash_oid is the
+    SHA-256-first-12-chars correlation ID used everywhere else for
+    operational logging — name-irreversible by construction.
+    """
+    import email_sender
+    from sanitize import hash_oid
+
+    captured: dict = {}
+
+    class _FakeEmails:
+        @staticmethod
+        def send(payload):
+            captured.update(payload)
+
+    class _FakeResend:
+        api_key = None
+        Emails = _FakeEmails
+
+    monkeypatch.setattr(email_sender, "resend", _FakeResend)
+    monkeypatch.setenv("RESEND_API_KEY", "test-key")
+    monkeypatch.setenv("EMAIL_FROM", "noreply@example.com")
+
+    # Mimics _make_slug output: the first 8 chars are name-derived.
+    order_id = "janesmith-15mar1990-a7f3"
+    expected_hash = hash_oid(order_id)
+    name_derived_prefix = order_id[:8]  # "janesmi" + "t"
+
+    email_sender.send_post_payment_email(
+        to="buyer@example.com",
+        reading_url="https://example.com/r/opaque-token",
+        order_id=order_id,
+    )
+
+    assert f"Order: {expected_hash}" in captured["html"]
+    assert f"Order: {expected_hash}" in captured["text"]
+    # name-derived prefix must NOT leak into either body. 'janesmit' is
+    # not a hex substring (j, n, s, m, i, t are all outside [0-9a-f]),
+    # so the hash cannot collide with it by construction.
+    assert name_derived_prefix not in captured["html"]
+    assert name_derived_prefix not in captured["text"]
+
+
 def test_ls_webhook_missing_user_email_skips_email_send(client, tmp_orders, monkeypatch, mock_send_email):
     """Webhook payload without data.attributes.user_email → no email
     attempted (don't crash). Engine still runs."""
