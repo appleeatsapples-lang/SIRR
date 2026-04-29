@@ -172,6 +172,56 @@ def test_compare_and_swap_status_second_call_returns_false(tmp_orders):
     )["status"] == "paid"
 
 
+def test_cas_writes_extra_fields_atomically(tmp_orders):
+    """V2: compare_and_swap_status with extra_fields writes status AND
+    the extra plaintext index fields in one locked operation. Closes
+    the paid-but-no-engine-spawn window where a post-CAS update_order
+    could raise after the status flip."""
+    order_store, seed = tmp_orders
+    seed("ord-cas-extras", "pending")
+
+    swapped = order_store.compare_and_swap_status(
+        "ord-cas-extras",
+        expected="pending",
+        new="paid",
+        ls_order_identifier="abcdef00-1111-2222-3333-444455556666",
+    )
+
+    assert swapped is True
+    row = order_store._safe_read_row(
+        order_store.ORDERS_DIR / "ord-cas-extras.json"
+    )
+    assert row["status"] == "paid"
+    assert row["ls_order_identifier"] == "abcdef00-1111-2222-3333-444455556666"
+
+
+def test_cas_silently_drops_disallowed_extra_fields(tmp_orders):
+    """V2 defense-in-depth: extras outside _ALLOWED_PLAINTEXT_EXTRAS
+    are silently dropped so a future caller cannot route PII (or any
+    other field) through CAS. PII fields belong on update_order, which
+    encrypts at rest."""
+    order_store, seed = tmp_orders
+    seed("ord-cas-pii-block", "pending")
+
+    swapped = order_store.compare_and_swap_status(
+        "ord-cas-pii-block",
+        expected="pending",
+        new="paid",
+        ls_order_identifier="cafebabe-0000-1111-2222-333344445555",
+        name_latin="Should Not Land",
+        dob="1990-01-01",
+    )
+
+    assert swapped is True
+    row = order_store._safe_read_row(
+        order_store.ORDERS_DIR / "ord-cas-pii-block.json"
+    )
+    assert row["status"] == "paid"
+    assert row["ls_order_identifier"] == "cafebabe-0000-1111-2222-333344445555"
+    assert "name_latin" not in row
+    assert "dob" not in row
+
+
 # ─────────────────────────────────────────────────────────────
 # Launch Path-C — webhook idempotency + ls_identifier persistence
 # ─────────────────────────────────────────────────────────────
