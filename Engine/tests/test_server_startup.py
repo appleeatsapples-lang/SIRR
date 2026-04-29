@@ -1,13 +1,36 @@
 import pytest
 import sys
 import importlib
+from pathlib import Path
+
+
+# Resolve web_backend path from this test file's location, NOT cwd.
+# Relative paths like "Engine/web_backend" leak through pytest cwd
+# (Codex T5 round 1 finding 2026-04-29).
+WEB_BACKEND_PATH = Path(__file__).resolve().parents[1] / "web_backend"
+
+
+@pytest.fixture(autouse=True)
+def _server_module_cleanup():
+    """Ensure server module is dropped from sys.modules before AND after
+    each test, so test order cannot leak cached state. Belt-and-suspenders
+    alongside the explicit sys.modules.pop calls inside tests — protects
+    against the case where a test raises an unexpected exception before
+    reaching its trailing cleanup line."""
+    sys.modules.pop("server", None)
+    yield
+    sys.modules.pop("server", None)
 
 
 def _force_reimport_server(monkeypatch):
     """Drop cached server module + put web_backend on path, so importlib
-    actually re-executes the module-level startup checks."""
+    actually re-executes the module-level startup checks.
+
+    Uses absolute path computed from __file__ rather than relative path
+    to be cwd-independent (test runs correctly from repo root or Engine/).
+    """
     sys.modules.pop("server", None)
-    monkeypatch.syspath_prepend("Engine/web_backend")
+    monkeypatch.syspath_prepend(str(WEB_BACKEND_PATH))
 
 
 def _seed_prod_baseline(monkeypatch):
