@@ -1034,6 +1034,8 @@ footer p { font-family:'Outfit',sans-serif; font-size:9px; color:var(--text-f); 
   <p>
     This reading is a structural reflection, not a prediction.<br>
     What the patterns mean is yours to determine.<br><br>
+    SIRR computes with what these traditions built &mdash; it does not perform them,<br>
+    claim sacred authority, or substitute for practice within them.<br><br>
     238 computations across Arabic, Vedic, Western, Chinese, Hebrew, Hellenistic,<br>
     Celtic, African, Mesoamerican, Southeast Asian, Tibetan, Japanese,<br>
     Polynesian, Egyptian, Babylonian, Zoroastrian, and Esoteric traditions.<br><br>
