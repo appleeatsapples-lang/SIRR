@@ -660,7 +660,7 @@ footer p { font-family:'Outfit',sans-serif; font-size:9px; color:var(--text-f); 
 <div class="signal">
   <div class="signal-number">{peak_count}</div>
   <div class="signal-label">traditions converge on your primary signal</div>
-  <div class="signal-sub">across {peak_groups} independent tradition families</div>
+  <div class="signal-sub">across {peak_groups} tradition families</div>
 </div>
 '''
 

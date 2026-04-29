@@ -588,7 +588,7 @@ def compute_name_length_tier(name_en: str, name_ar: str = "") -> dict:
         tier = "long"
         frame = "full signal"
         copy = (
-            "15 of 25 independent traditions return the same root. "
+            "15 of 25 traditions return the same root. "
             "No comparable profile in our reference population has matched this number."
         )
         allows_pvalue = True
@@ -596,7 +596,7 @@ def compute_name_length_tier(name_en: str, name_ar: str = "") -> dict:
         tier = "medium"
         frame = "partial convergence"
         copy = (
-            "Across independent traditions, a consistent pattern emerges. "
+            "Across many traditions, a consistent pattern emerges. "
             "Fuller name chains — father's name, grandfather's name — deepen the reading."
         )
         allows_pvalue = False
