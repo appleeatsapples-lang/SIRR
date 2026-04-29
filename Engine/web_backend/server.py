@@ -56,6 +56,28 @@ LS_VARIANT_ID = os.environ.get("LEMONSQUEEZY_VARIANT_ID")
 TEST_MODE = not (stripe.api_key or LS_API_KEY)  # No payment keys = test mode
 BASE_URL = os.environ.get("BASE_URL", "http://localhost:8000")
 
+# Production hard-fail — BASE_URL is embedded in checkout success URLs
+# (Stripe success_url, LS redirect_url, LS receipt_link_url) and post-
+# payment customer email links (Resend reading_url). If unset in
+# production, customers complete payment and receive localhost URLs,
+# breaking the post-payment flow silently. Mirrors the SIRR_ENCRYPTION_KEY
+# pattern in crypto.py:_load_master_secret.
+if os.environ.get("RAILWAY_DEPLOYMENT_ID"):
+    _base_is_local = (
+        not BASE_URL
+        or BASE_URL.startswith("http://localhost")
+        or BASE_URL.startswith("http://127.")
+        or BASE_URL.startswith("http://0.")
+    )
+    if _base_is_local:
+        raise RuntimeError(
+            "BASE_URL must be set to a public HTTPS URL in production. "
+            f"Detected Railway deployment but BASE_URL={BASE_URL!r}. "
+            "Customer-facing checkout URLs (Stripe success_url, LS "
+            "redirect_url, post-payment email link) would point to "
+            "localhost. Set BASE_URL in the Railway dashboard."
+        )
+
 ENGINE = Path(__file__).parent.parent  # web_backend → Engine
 sys.path.insert(0, str(ENGINE))
 
