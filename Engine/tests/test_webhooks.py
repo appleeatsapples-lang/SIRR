@@ -26,28 +26,32 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "web_backend"))
 def _block_real_email_sends(monkeypatch):
     """Defense-in-depth: ensure NO test in this file can ever trigger
     a real Resend send, even if RESEND_API_KEY and EMAIL_FROM happen
-    to be set in the test environment (e.g., a developer's .env loaded
-    into the pytest process).
+    to be set in the test environment (e.g., a developer's .env
+    loaded into the pytest process).
+
+    Imports server eagerly inside the fixture body so the monkeypatch
+    applies for every test — not conditionally, not dependent on
+    whether the test uses the `client` fixture or on pytest
+    collection order. The previous `if "server" in sys.modules`
+    guard was removed (C-AUDIT-3): the autouse docstring promised
+    universal protection, but the guard silently skipped on cold
+    start and left the contract fragile to test-reordering.
 
     Tests that need to assert on email behavior should depend on the
     `mock_send_email` fixture below, which re-monkeypatches with an
-    explicit capture list (last-monkeypatch-wins semantics). This
-    autouse backstop catches any test that forgets to mock.
+    explicit capture list (last-monkeypatch-wins). This autouse
+    backstop catches any test that forgets to mock.
 
     The V4 email-body test that exercises send_post_payment_email
     end-to-end through email_sender (not via the webhook handler)
-    monkeypatches `email_sender.resend` directly, so this server-level
-    backstop is orthogonal and does not interfere.
+    monkeypatches `email_sender.resend` directly, so this server-
+    level backstop is orthogonal and does not interfere.
     """
     def _no_op_send(*, to, reading_url, order_id):
         return None
 
-    # server may not be imported yet at autouse time (the `client`
-    # fixture re-imports it). Skip the patch if so — once `client`
-    # imports server, the test that uses `client` will also depend
-    # on `mock_send_email` if it cares about email behavior.
-    if "server" in sys.modules:
-        monkeypatch.setattr("server.send_post_payment_email", _no_op_send)
+    import server
+    monkeypatch.setattr(server, "send_post_payment_email", _no_op_send)
 
 
 @pytest.fixture
