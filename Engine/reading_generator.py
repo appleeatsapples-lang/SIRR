@@ -558,7 +558,7 @@ CONSTITUTIONAL RULES
 
 CONFIDENCE MAPPING
 - 20+ traditions align → "Every tradition examined points to..."
-- 12-19 align → "Multiple independent traditions..."
+- 12-19 align → "Multiple traditions..."
 - 8-11 align → "Several traditions suggest..."
 - Fewer than 8 → "Some traditions hint at..."
 
@@ -611,23 +611,23 @@ Weave planets into panels as follows:
 # NOT AI-generated. The block is selected by name_length_tier and injected
 # verbatim into the reading.
 
-CONVERGENCE_POINT_SHORT = """Across systems with no shared origin, the same pattern appears in a different language: your life moves best when expression serves structure.
+CONVERGENCE_POINT_SHORT = """Across the symbolic frameworks SIRR measures, the same pattern appears in a different language: your life moves best when expression serves structure.
 
 This is the convergence point of your reading. Your path becomes clear when your expressive nature is given weight, direction, and standards. When the 3 in you leads without shape, energy disperses. Too many openings appear at once. But when the 8 takes over without the 3, life narrows past what is humanly alive.
 
 So the work is not choosing one side. The work is union. Your speech must carry authority without becoming hard. Your standards must remain high without sealing off warmth, wit, and movement. Your strongest periods are rarely the loosest ones. They are the periods in which your voice becomes deliberate, your direction becomes visible, and your energy stops scattering itself across places that do not deserve your seriousness."""
 
-CONVERGENCE_POINT_MEDIUM = """Across systems with no shared origin, the same pattern appears in a different language: your life moves best when expression serves structure.
+CONVERGENCE_POINT_MEDIUM = """Across the symbolic frameworks SIRR measures, the same pattern appears in a different language: your life moves best when expression serves structure.
 
-With a partial nasab, the convergence is already clear enough to name. Islamic letter science, Mandaean Gnostic cosmology, Chinese palace astrology, and the African binary oracle are not variations of one method. They were built in different civilizations for different purposes. Yet here they still return the same underlying tension: expression becomes strongest when it is given form, limit, and consequence.
+With a partial nasab, the convergence is already clear enough to name. Islamic letter science, Chinese palace astrology, and the African binary oracle were built in different civilizations for different purposes. Some of the frameworks SIRR examines are independent of each other; others share roots, lineage, or computation methods. Where they return the same underlying tension — expression becomes strongest when it is given form, limit, and consequence — the signal is the agreement itself.
 
 This is the convergence point of your reading. Not softness against strength. Not creativity against discipline. Something more exact than that. When the 3 in you leads without shape, energy disperses. Too many openings appear at once, and the center thins out. But when the 8 takes over without the 3, the opposite problem emerges: life becomes efficient, controlled, and narrowed past what is humanly alive.
 
 So the work is not choosing one side. The work is union. Your speech must carry authority without becoming hard. Your standards must remain high without sealing off warmth, wit, and movement. Your natural intelligence is not meant to decorate your life from the outside; it is meant to become an instrument of order, persuasion, and durable impact."""
 
-CONVERGENCE_POINT_LONG = """Across systems with no shared origin, the same pattern appears in a different language: your life moves best when expression serves structure.
+CONVERGENCE_POINT_LONG = """Across the symbolic frameworks SIRR measures, the same pattern appears in a different language: your life moves best when expression serves structure.
 
-With the full nasab present, the signal becomes stronger and more precise. Islamic letter science, Mandaean Gnostic cosmology, Chinese palace astrology, and the African binary oracle are not variations of one method. They were built in different civilizations for different purposes. Yet here they converge on the same pattern. 15 of 25 independent traditions. No comparable profile of matching length has reached this number.
+With the full nasab present, the signal becomes stronger and more precise. Islamic letter science, Chinese palace astrology, and the African binary oracle were built in different civilizations for different purposes. Some of the frameworks SIRR examines are independent of each other; others share roots, lineage, or computation methods. Where they converge on the same pattern, the signal is the agreement itself, not a metaphysical claim about its origin. 15 of 25 traditions return the same root. No comparable profile of matching length has reached this number.
 
 That does not change the substance of the reading. It clarifies it. Not softness against strength. Not creativity against discipline. Something more exact than that. Your path becomes clear when your expressive nature is given weight, direction, and standards. When the 3 in you leads without shape, energy disperses. Too many openings appear at once. Too much becomes possible, and the center thins out. But when the 8 takes over without the 3, the opposite problem emerges: life becomes efficient, controlled, and narrowed past what is humanly alive.
 
