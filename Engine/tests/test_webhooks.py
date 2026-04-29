@@ -294,13 +294,28 @@ def test_ls_webhook_is_idempotent_on_duplicate_delivery(client, tmp_orders, monk
 def test_ls_webhook_persists_ls_order_identifier(client, tmp_orders, monkeypatch):
     """Webhook must store data.attributes.identifier on the order row
     so /r/by-ls/{uuid} (commit 4) can resolve back to our internal
-    order_id when the customer clicks the LS receipt button."""
+    order_id when the customer clicks the LS receipt button.
+
+    V2 invariant: the persistence happens inside the same atomic CAS
+    write as the status flip — NOT via a follow-up update_order call.
+    Asserts update_order is never reached during the handler, so the
+    paid-but-no-side-effects window is provably closed.
+    """
     tc, server = client
     order_store, seed = tmp_orders
     seed("ord-idmark", "pending")
 
     _RecordingThread.spawns = []
     monkeypatch.setattr(server.threading, "Thread", _RecordingThread)
+
+    update_calls: list = []
+    real_update = server.update_order
+
+    def _spy_update(order_id, **kwargs):
+        update_calls.append((order_id, dict(kwargs)))
+        return real_update(order_id, **kwargs)
+
+    monkeypatch.setattr(server, "update_order", _spy_update)
 
     ls_uuid = "abcdef00-0000-1111-2222-deadbeefcafe"
     payload = {
@@ -318,6 +333,13 @@ def test_ls_webhook_persists_ls_order_identifier(client, tmp_orders, monkeypatch
     )
     assert row["ls_order_identifier"] == ls_uuid
     assert row["status"] == "paid"
+    # V2: the LS UUID landed via CAS extras, not via a follow-up
+    # update_order. The webhook handler must not call update_order
+    # post-CAS at all (the engine background thread may, but the
+    # handler proper has no further row writes).
+    assert update_calls == [], (
+        f"webhook handler called update_order post-CAS: {update_calls}"
+    )
 
 
 # ─────────────────────────────────────────────────────────────
