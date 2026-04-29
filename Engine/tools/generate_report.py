@@ -115,7 +115,7 @@ def build_cover(data, styles):
     elements.append(Spacer(1, 0.3 * inch))
     elements.append(Paragraph(f"Generated {datetime.now().strftime('%B %d, %Y')}", styles['CoverSub']))
     elements.append(Spacer(1, 0.8 * inch))
-    elements.append(Paragraph("This report presents structural reflections across independent traditions. All outputs are deterministic computations, not predictions. No prophecy. No destiny claims. Agency is always yours.", styles['Disclaimer']))
+    elements.append(Paragraph("This report presents structural reflections across many traditions. All outputs are deterministic computations, not predictions. No prophecy. No destiny claims. Agency is always yours.", styles['Disclaimer']))
     elements.append(PageBreak())
     return elements
 
@@ -239,7 +239,7 @@ def build_mirror_reading(data, styles):
     clusters = mr.get('cross_tradition_clusters', [])
     if clusters:
         elements.append(Paragraph("Cross-Tradition Convergences", styles['SubHead']))
-        elements.append(Paragraph("When independent traditions with no shared computational ancestry point to the same theme, the signal carries extra weight.", styles['BodySmall']))
+        elements.append(Paragraph("When traditions that genuinely differ in computation method point to the same theme, the signal carries extra weight.", styles['BodySmall']))
         elements.append(Spacer(1, 6))
         for cluster in clusters:
             elements.append(Paragraph(cluster['title'], styles['ClusterTitle']))
