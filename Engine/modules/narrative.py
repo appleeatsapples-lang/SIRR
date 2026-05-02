@@ -418,14 +418,17 @@ def _build_headline(conv_summary: Dict[str, Any]) -> str:
     if root is None or systems == 0:
         return "Synthesis data unavailable — narrative partial."
 
-    pct_note = ""
-    if pct >= 90:
-        pct_note = f" ({pct}th percentile)"
+    # pct_note retired under §X.3 — percentiles are engine machinery, not
+    # customer-facing copy. The variable is no longer assembled into the
+    # sentence; it remains computed upstream for the ledger/debug surface.
+    _ = pct  # acknowledge for future audit-trail use; not surfaced to customer
 
+    # §X.3-compliant: no system/group counts, no percentiles in customer copy.
+    # Engineering signals (`systems`, `groups`, `pct`) remain available upstream
+    # for non-customer-facing surfaces. See reading_generator.py:708-725.
     return (
-        f"{systems} independent systems across {groups} tradition families "
-        f"converge on Root {root}{pct_note}, pointing consistently toward "
-        f"this number as the dominant structural pattern in the profile."
+        f"Root {root} emerges as the dominant structural pattern in this "
+        f"profile, recurring across multiple traditions."
     )
 
 
