@@ -67,3 +67,7 @@ Engine/fixtures/user_profiles/*.json
 # Reports (generated)
 reports/*.json
 !reports/.gitkeep
+
+# Operational handoff scratch (briefs, openers, audit packets, drafts).
+# Privacy: must NOT ship to public repo. Source-of-truth handoff lives in PRIVATE/.
+Tools/handoff/
