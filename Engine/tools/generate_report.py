@@ -172,8 +172,16 @@ def build_core_numbers(data, styles):
 
 
 def build_convergence(data, styles):
+    """Convergence Analysis page.
+
+    Under §X.3 strict-no-counts (Decision 2, 2026-05-03), the inline
+    counts row, Top Convergences table, Secondary Resonances list, and
+    Monte Carlo baseline footer are retired. The page now surfaces the
+    dominant root concept (Option γ analog for PDF) plus the headline
+    callout. Engineering signals (system_count, group_count, percentile)
+    remain in the synthesis JSON for non-customer-facing audit use.
+    """
     elements = []
-    synth = data['synthesis']
     narr = data['narrative']
     cs = narr.get('convergence_summary', {})
     elements.append(Paragraph("Convergence Analysis", styles['SectionHead']))
@@ -183,43 +191,18 @@ def build_convergence(data, styles):
     if headline:
         elements.append(Paragraph(f'"{headline}"', styles['Callout']))
         elements.append(Spacer(1, 8))
-    elements.append(Paragraph(
-        f"<b>Dominant Root:</b> {cs.get('dominant_root', '?')}  ·  "
-        f"<b>Systems:</b> {cs.get('dominant_systems', '?')}  ·  "
-        f"<b>Independence Groups:</b> {cs.get('dominant_groups', '?')}  ·  "
-        f"<b>Monte Carlo Percentile:</b> {cs.get('dominant_percentile', '?')}th",
-        styles['Body']))
-    elements.append(Spacer(1, 8))
-    nc_list = synth.get('number_convergences', [])
-    nc_sorted = sorted(nc_list, key=lambda x: x.get('system_count', 0), reverse=True)[:12]
-    if nc_sorted:
-        elements.append(Paragraph("Top Convergences", styles['SubHead']))
-        table_data = [["Root", "Systems", "Groups", "Tier", "Percentile"]]
-        for nc in nc_sorted:
-            pct = nc.get('baseline_percentile')
-            pct_str = f"{pct:.1f}%" if pct and pct > 0 else "—"
-            table_data.append([str(nc.get('number', '?')), str(nc.get('system_count', '?')), str(nc.get('group_count', '?')), nc.get('tier', '?').replace('TIER_1_', ''), pct_str])
-        t = Table(table_data, colWidths=[0.7*inch, 0.9*inch, 0.9*inch, 1.8*inch, 1.1*inch])
-        t.setStyle(TableStyle([
-            ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'), ('FONTSIZE', (0, 0), (-1, 0), 8.5),
-            ('TEXTCOLOR', (0, 0), (-1, 0), white), ('BACKGROUND', (0, 0), (-1, 0), TABLE_HEAD),
-            ('FONTSIZE', (0, 1), (-1, -1), 9), ('FONTNAME', (0, 1), (0, -1), 'Helvetica-Bold'),
-            ('TEXTCOLOR', (0, 1), (0, -1), DEEP_NAVY), ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'), ('ROWBACKGROUNDS', (0, 1), (-1, -1), [white, TABLE_ALT]),
-            ('TOPPADDING', (0, 0), (-1, -1), 6), ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
-            ('GRID', (0, 0), (-1, -1), 0.5, LIGHT_GRAY),
-            ('BACKGROUND', (0, 1), (-1, 1), HexColor("#FFF3E0")),
-            ('TEXTCOLOR', (4, 1), (4, 1), ACCENT_RED), ('FONTNAME', (4, 1), (4, 1), 'Helvetica-Bold'),
-        ]))
-        elements.append(t)
+    dominant_root = cs.get('dominant_root', '?')
+    if dominant_root != '?':
+        elements.append(Paragraph(
+            f"<b>Dominant Root:</b> {dominant_root}",
+            styles['Body']))
+        elements.append(Spacer(1, 8))
     secondary = cs.get('secondary', [])
     if secondary:
-        elements.append(Spacer(1, 12))
-        elements.append(Paragraph("Secondary Resonances", styles['SubHead2']))
-        sec_text = ", ".join(f"Root {s['root']} ({s['systems']} sys / {s['groups']} grp)" for s in secondary[:6])
+        elements.append(Paragraph("Secondary Patterns", styles['SubHead2']))
+        sec_text = ", ".join(f"Root {s['root']}" for s in secondary[:6])
         elements.append(Paragraph(sec_text, styles['BodySmall']))
-    elements.append(Spacer(1, 8))
-    elements.append(Paragraph(f"Baseline: {synth.get('baseline', {}).get('n', '?')} random profiles. Mean peak: {synth.get('baseline', {}).get('max_sys_mean', '?')} systems.", styles['BodySmall']))
+        elements.append(Spacer(1, 8))
     elements.append(PageBreak())
     return elements
 
@@ -334,8 +317,8 @@ def build_methodology(data, styles):
     elements = []
     elements.append(Paragraph("Methodology", styles['SectionHead']))
     elements.append(HRFlowable(width="100%", thickness=1, color=GOLD, spaceBefore=0, spaceAfter=12))
-    elements.append(Paragraph("SIRR (Systems Integration Resonance Recognition) is a deterministic computation engine that analyzes a person's name and date of birth across 15+ independent esoteric traditions. Each tradition computes independently using its own mapping tables, algorithms, and cultural frameworks. No tradition influences another's calculation.", styles['Body']))
-    elements.append(Paragraph("The synthesis engine then detects cross-tradition convergences: when unrelated systems with no shared computational ancestry produce the same value, that signal is flagged. Convergence requires at least 3 systems from at least 2 independence groups. A Monte Carlo baseline of random profiles provides statistical context.", styles['Body']))
+    elements.append(Paragraph("SIRR (Systems Integration Resonance Recognition) is a deterministic computation engine that analyzes a person's name and date of birth across multiple esoteric traditions. Each tradition computes using its own mapping tables, algorithms, and cultural frameworks. Some traditions share input structure (cognate-mapped letter values) and are flagged accordingly; others operate on disjoint inputs.", styles['Body']))
+    elements.append(Paragraph("The synthesis engine surfaces patterns of agreement, divergence, and structural absence across the computed traditions. Where multiple traditions return the same value, that pattern is shown without claiming it as evidence; agreement may arise from shared computation, input dependency, archetypal recurrence, or coincidence.", styles['Body']))
     elements.append(Paragraph("Certainty Tags", styles['SubHead2']))
     cert_data = [["Tag", "Meaning"], ["COMPUTED_STRICT", "Pure math, fully deterministic"], ["LOOKUP_FIXED", "Fixed mapping table, deterministic"], ["APPROX", "Approximation, needs ephemeris for exactness"], ["NEEDS_EPHEMERIS", "Requires astronomical data (provided via pyswisseph)"]]
     ct = Table(cert_data, colWidths=[1.8*inch, 4.6*inch])

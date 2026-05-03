@@ -26,7 +26,7 @@ Visual block per domain:
   astro_timing      → Your Animals + Your Planets
                       (BaZi year/day + 4 planets + Vimshottari bar
                        + profection badge)
-  convergence       → (no visual block; Monte Carlo IS the visual)
+  convergence       → (no visual block; per-module receipt rows render below)
 
 Graceful degradation: each block is skipped if its source data is
 missing (returns empty string). The domain section still renders with
@@ -387,7 +387,7 @@ details.more-rows > summary .chev {
 
 details.more-rows[open] > summary .chev { transform: rotate(90deg); }
 
-/* Footnote disclosures below the domain sections — Monte Carlo + Three Lenses */
+/* Footnote disclosures below the domain sections (Three Lenses; Monte Carlo retired §X.3) */
 details.footnote {
   margin: 48px 0 24px;
   padding: 0;
@@ -1128,7 +1128,7 @@ def render_merged_html(output: Dict[str, Any]) -> str:
       6. Primary tension
       7. Evidence intro
       8. Domain sections — each with its visual block + analytical table
-      9. Convergence counts (Monte Carlo)
+      9. (retired §X.3 strict-no-counts — convergence counts no longer rendered)
       10. Footer
     """
     profile = output.get("profile", {}) or {}
