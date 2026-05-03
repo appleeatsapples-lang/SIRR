@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIRR — Each tradition, computed on its own terms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@300;400;500&family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+Hebrew:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0e0d0b;
+  --surface: #16140f;
+  --surface-2: #1f1c15;
+  --ink: #f4ede0;
+  --ink-soft: #cfc6b3;
+  --muted: #8a8275;
+  --line: #2a261d;
+  --accent: #c9582a;
+  --agree: #6b8a7a;
+  --diverge: #b88a4a;
+  --silence: #5a5448;
+  --display: 'Cormorant Garamond', serif;
+  --body: 'EB Garamond', serif;
+  --mono: 'JetBrains Mono', monospace;
+  --arabic: 'Amiri', serif;
+  --devanagari: 'Noto Sans Devanagari', 'Cormorant Garamond', serif;
+  --cjk: 'Noto Sans SC', 'Cormorant Garamond', serif;
+  --hebrew: 'Noto Sans Hebrew', 'Cormorant Garamond', serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+html, body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 18px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+
+/* Subtle parchment grain */
+body::before {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1;
+  background-image: radial-gradient(circle at 20% 30%, rgba(201,88,42,0.025) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 70%, rgba(107,138,122,0.02) 0%, transparent 60%);
+  mix-blend-mode: screen;
+}
+
+.container { max-width: 980px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+
+/* ========== Header ========== */
+header.top {
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+}
+header.top .row { display: flex; justify-content: space-between; align-items: baseline; }
+.wordmark {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 28px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.wordmark .ar {
+  font-family: var(--arabic);
+  font-size: 30px;
+  font-weight: 400;
+  margin-left: 12px;
+  color: var(--accent);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.lang-toggle {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.lang-toggle .active { color: var(--ink); border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+.lang-toggle .sep { margin: 0 10px; color: var(--line); }
+
+/* ========== Hero ========== */
+section.hero {
+  padding: 110px 0 80px;
+  border-bottom: 1px solid var(--line);
+}
+.hero .eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 32px;
+  display: inline-block;
+}
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(48px, 6vw, 78px);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin-bottom: 32px;
+  max-width: 820px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.hero .lede {
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 620px;
+  margin-bottom: 48px;
+}
+.hero .pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+}
+.hero .pillars > div {
+  border-right: 1px solid var(--line);
+  padding-right: 28px;
+}
+.hero .pillars > div:last-child { border-right: 0; padding-right: 0; }
+.hero .pillars > div:not(:first-child) { padding-left: 28px; }
+.pillar-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+}
+.pillar-text {
+  font-family: var(--display);
+  font-size: 19px;
+  line-height: 1.35;
+  font-weight: 400;
+}
+
+/* ========== Method demonstration ========== */
+section.demo {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--line);
+}
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: block;
+}
+.section-title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+.section-sub {
+  font-size: 19px;
+  color: var(--ink-soft);
+  margin-bottom: 56px;
+  max-width: 640px;
+}
+
+/* Synthetic identity card */
+.identity {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 36px 40px;
+  margin-bottom: 48px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+.identity .label {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--muted); letter-spacing: 0.18em;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.identity .name {
+  font-family: var(--display); font-size: 32px; font-weight: 500;
+  margin-bottom: 4px;
+}
+.identity .name .ar {
+  font-family: var(--arabic); font-weight: 400;
+  margin-left: 16px; color: var(--ink-soft);
+}
+.identity .meta {
+  font-family: var(--mono); font-size: 13px;
+  color: var(--muted); letter-spacing: 0.04em;
+}
+.identity .badge {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--diverge); letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid var(--diverge); padding: 6px 12px;
+}
+
+/* Tradition rows */
+.traditions { display: flex; flex-direction: column; gap: 0; }
+.trad {
+  border-top: 1px solid var(--line);
+  padding: 28px 0;
+  display: grid;
+  grid-template-columns: 200px 1fr 80px;
+  gap: 32px;
+  align-items: start;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.trad:hover { background: rgba(201, 88, 42, 0.02); }
+.trad:last-child { border-bottom: 1px solid var(--line); }
+.trad .trad-name {
+  font-family: var(--display); font-size: 22px; font-weight: 500;
+}
+.trad .trad-name .sub {
+  display: block; font-family: var(--mono); font-size: 10px;
+  color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase;
+  margin-top: 4px; font-weight: 400;
+}
+.trad .trad-result {
+  font-family: var(--display); font-size: 18px;
+  line-height: 1.5;
+}
+.trad .trad-result .number {
+  font-family: var(--mono); font-size: 28px; font-weight: 500;
+  color: var(--accent); margin-right: 14px; vertical-align: middle;
+}
+.trad .toggle {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase;
+  text-align: right; padding-top: 8px;
+}
+.trad.open .toggle { color: var(--accent); }
+.trad .toggle::before { content: "show ↓"; }
+.trad.open .toggle::before { content: "hide ↑"; }
+
+.derivation {
+  display: none;
+  padding: 24px 0 8px;
+  font-family: var(--mono); font-size: 13px;
+  color: var(--ink-soft); line-height: 1.7;
+}
+.trad.open .derivation { display: block; }
+.derivation .step { margin-bottom: 14px; }
+.derivation .step-label {
+  color: var(--muted); font-size: 10px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  margin-bottom: 4px; display: block;
+}
+.derivation .calc {
+  background: var(--surface-2); padding: 10px 14px;
+  border-left: 2px solid var(--accent);
+  margin-top: 4px;
+  font-size: 13px;
+}
+.derivation .arabic-calc { font-family: var(--arabic); font-size: 19px; }
+
+/* Synthesis layer */
+.synthesis {
+  margin-top: 64px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 40px 44px;
+}
+.synthesis h3 {
+  font-family: var(--display); font-size: 26px; font-weight: 500;
+  margin-bottom: 28px; line-height: 1.2;
+}
+.synth-row {
+  display: grid; grid-template-columns: 90px 1fr;
+  gap: 24px; padding: 20px 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+.synth-row:first-of-type { border-top: 0; padding-top: 8px; }
+.synth-tag {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 4px 0; border-top: 2px solid;
+}
+.synth-tag.agree { color: var(--agree); border-color: var(--agree); }
+.synth-tag.diverge { color: var(--diverge); border-color: var(--diverge); }
+.synth-tag.silence { color: var(--silence); border-color: var(--silence); }
+.synth-body {
+  font-family: var(--display); font-size: 19px;
+  line-height: 1.5; color: var(--ink);
+}
+.synth-body .highlight { color: var(--accent); }
+.synth-body em { color: var(--ink-soft); }
+
+/* ========== Honest limits ========== */
+section.limits {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--line);
+}
+.limit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  margin-top: 48px;
+}
+.limit-col h4 {
+  font-family: var(--display);
+  font-size: 24px; font-weight: 500;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.limit-col.cant h4::before { content: "× "; color: var(--accent); }
+.limit-col.do h4::before { content: "✓ "; color: var(--agree); }
+.limit-col ul { list-style: none; }
+.limit-col li {
+  padding: 12px 0;
+  font-size: 17px; line-height: 1.45;
+  color: var(--ink-soft);
+}
+.limit-col li + li { border-top: 1px solid var(--line); }
+
+.caveat {
+  margin-top: 56px;
+  padding: 28px 32px;
+  border-left: 3px solid var(--diverge);
+  background: var(--surface);
+  font-family: var(--display);
+  font-size: 17px; line-height: 1.6;
+  color: var(--ink-soft);
+}
+.caveat strong { color: var(--diverge); font-style: italic; font-weight: 500; }
+
+/* ========== Pricing ========== */
+section.pricing {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--line);
+}
+.price-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 32px; margin-top: 48px;
+}
+.price-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 44px 40px 40px;
+  position: relative;
+}
+.price-card.featured { border-color: var(--accent); }
+.price-card .tier {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 24px;
+}
+.price-card.featured .tier { color: var(--accent); }
+.price-card .amount {
+  font-family: var(--display); font-size: 64px; font-weight: 400;
+  line-height: 1; margin-bottom: 8px;
+}
+.price-card .amount .currency {
+  font-size: 28px; vertical-align: top; color: var(--muted);
+  margin-right: 6px; font-weight: 400;
+}
+.price-card .once {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 28px;
+}
+.price-card h4 {
+  font-family: var(--display); font-size: 22px; font-weight: 500;
+  margin-bottom: 16px;
+}
+.price-card ul { list-style: none; margin-bottom: 32px; }
+.price-card li {
+  padding: 8px 0; font-size: 16px;
+  color: var(--ink-soft); line-height: 1.4;
+}
+.price-card li::before {
+  content: "—"; color: var(--accent);
+  margin-right: 12px;
+}
+.price-card .cta {
+  display: inline-block;
+  font-family: var(--mono); font-size: 12px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink); padding: 14px 24px;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.price-card.featured .cta {
+  background: var(--accent); border-color: var(--accent);
+}
+.price-card .cta:hover {
+  background: var(--ink); color: var(--bg);
+}
+.price-card.featured .cta:hover {
+  background: var(--ink-soft); border-color: var(--ink-soft); color: var(--bg);
+}
+
+.no-sub {
+  margin-top: 56px; text-align: center;
+  font-family: var(--display); font-style: italic;
+  font-size: 26px; color: var(--ink-soft);
+}
+.no-sub::before, .no-sub::after {
+  content: "·"; color: var(--accent);
+  margin: 0 16px; vertical-align: middle;
+}
+
+/* Beta card (replaces price-grid) */
+.beta-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 48px 52px;
+}
+.beta-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 28px;
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+.beta-row:first-of-type { border-top: 0; padding-top: 8px; }
+.beta-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  padding-top: 8px;
+}
+.beta-text h4 {
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+.beta-text p {
+  font-size: 17px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  max-width: 620px;
+}
+.beta-cta {
+  display: inline-block;
+  margin-top: 32px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 16px 28px;
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  transition: all 0.2s;
+}
+.beta-cta:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+
+/* ========== Footer ========== */
+footer {
+  padding: 64px 0 48px;
+  font-family: var(--mono); font-size: 12px;
+  color: var(--muted); letter-spacing: 0.06em;
+}
+footer .row {
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 24px;
+}
+footer a { color: var(--ink-soft); text-decoration: none; }
+footer a:hover { color: var(--accent); }
+
+/* ========== Responsive ========== */
+/* ========== Chapters (per-tradition deep treatment) ========== */
+.chapter {
+  --chapter-accent: var(--accent);
+  border-top: 1px solid var(--line);
+  padding: 80px 0 70px;
+  position: relative;
+}
+.chapter:first-of-type { border-top: 1px solid var(--line); margin-top: 56px; }
+
+.chapter-abjad       { --chapter-accent: #c9582a; }
+.chapter-pythagorean { --chapter-accent: #6b8a7a; }
+.chapter-chaldean    { --chapter-accent: #a17a45; }
+.chapter-hellenistic { --chapter-accent: #6577a1; }
+.chapter-vedic       { --chapter-accent: #b86848; }
+.chapter-chinese     { --chapter-accent: #6a7a8a; }
+.chapter-hebrew      { --chapter-accent: #7a8a6b; }
+
+.chapter-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--chapter-accent);
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--chapter-accent);
+  display: inline-block;
+}
+.chapter-abjad .chapter-num { font-family: var(--arabic), var(--mono); font-size: 14px; letter-spacing: 0.06em; text-transform: none; }
+.chapter-hebrew .chapter-num { font-family: var(--hebrew), var(--mono); font-size: 14px; letter-spacing: 0.04em; text-transform: none; }
+.chapter-pythagorean .chapter-num { font-size: 13px; letter-spacing: 0.04em; text-transform: none; }
+.chapter-vedic .chapter-num { font-family: var(--devanagari), var(--mono); font-size: 14px; letter-spacing: 0.04em; text-transform: none; }
+.chapter-chinese .chapter-num { font-family: var(--cjk), var(--mono); font-size: 14px; letter-spacing: 0.06em; text-transform: none; }
+
+.chapter-title {
+  font-family: var(--display);
+  font-size: clamp(34px, 4.2vw, 46px);
+  line-height: 1.12;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 36px;
+  max-width: 760px;
+}
+.chapter-title em {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.chapter-section-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin: 36px 0 14px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.chapter-section-label:first-of-type { margin-top: 0; }
+
+.chapter-prose {
+  font-family: var(--display);
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 720px;
+}
+.chapter-prose + .chapter-prose { margin-top: 14px; }
+.chapter-prose em {
+  font-style: italic;
+  color: var(--ink);
+}
+
+.chapter-derivation {
+  background: var(--surface);
+  border-left: 3px solid var(--chapter-accent);
+  padding: 28px 32px;
+  margin: 8px 0 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+.chapter-derivation .calc {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  color: var(--ink);
+  line-height: 1.85;
+}
+.chapter-derivation .calc strong {
+  color: var(--chapter-accent);
+  font-weight: 500;
+  font-size: 16px;
+}
+.calc-step-label {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.chapter-abjad .chapter-derivation .calc {
+  direction: ltr;
+}
+.chapter-derivation .result {
+  font-family: var(--display);
+  font-size: 96px;
+  line-height: 0.95;
+  font-weight: 400;
+  color: var(--chapter-accent);
+  letter-spacing: -0.02em;
+  position: relative;
+}
+.chapter-derivation .result.hellenistic-glyph {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px;
+}
+.chapter-derivation .result.vedic-glyph {
+  font-family: var(--devanagari);
+  font-size: 56px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.chapter-derivation .result.chinese-glyph {
+  font-family: var(--cjk);
+  font-size: 56px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  font-feature-settings: "palt" 1;
+}
+.cognate-flag {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--diverge);
+  margin-top: 8px;
+  text-align: center;
+  font-weight: 400;
+}
+
+/* Hebrew chapter caveat block */
+.chapter-caveat {
+  background: var(--surface-2);
+  border-left: 3px solid var(--diverge);
+  padding: 22px 28px;
+  margin-bottom: 32px;
+  font-family: var(--display);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.chapter-caveat strong { color: var(--ink); font-weight: 500; }
+
+/* ========== Appendix ========== */
+.appendix {
+  margin-top: 72px;
+  padding: 48px 0 0;
+  border-top: 1px solid var(--line);
+}
+.appendix-title {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 400;
+  font-style: italic;
+  margin-top: 8px;
+  margin-bottom: 32px;
+  color: var(--ink-soft);
+  max-width: 700px;
+  letter-spacing: -0.005em;
+}
+.appendix-list {
+  list-style: none;
+}
+.appendix-list li {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 24px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+.appendix-list li:last-child { border-bottom: 1px solid var(--line); }
+.appendix-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 4px 0;
+  border-top: 2px solid;
+}
+.appendix-tag.agree { color: var(--agree); border-color: var(--agree); }
+.appendix-tag.diverge { color: var(--diverge); border-color: var(--diverge); }
+.appendix-tag.silence { color: var(--silence); border-color: var(--silence); }
+.appendix-body {
+  font-family: var(--display);
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.appendix-body em { color: var(--ink); font-style: italic; }
+
+/* ========== Reading guide ========== */
+.reading-guide {
+  font-family: var(--display);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: -32px 0 56px;
+  max-width: 720px;
+  padding-left: 16px;
+  border-left: 1px solid var(--line);
+}
+.reading-guide em {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ========== See also (intra-chapter cross-reference) ========== */
+.see-also {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--line);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  max-width: 720px;
+}
+.see-also em {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-soft);
+  letter-spacing: 0;
+}
+.see-also a {
+  color: var(--chapter-accent);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: color 0.15s;
+}
+.see-also a:hover { color: var(--ink); }
+
+/* ========== Chapter Navigator (right rail, desktop only) ========== */
+.chapter-nav {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 50;
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 14px 10px 14px 14px;
+  background: rgba(14, 13, 11, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+}
+.chapter-nav .nav-rule {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 5px 8px;
+  transition: color 0.15s, background 0.15s;
+  border-radius: 1px;
+}
+.nav-link:hover {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.025);
+}
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--nav-accent);
+  flex-shrink: 0;
+}
+.nav-abjad        { --nav-accent: #c9582a; }
+.nav-pythagorean  { --nav-accent: #6b8a7a; }
+.nav-chaldean     { --nav-accent: #a17a45; }
+.nav-hellenistic  { --nav-accent: #6577a1; }
+.nav-vedic        { --nav-accent: #b86848; }
+.nav-chinese      { --nav-accent: #6a7a8a; }
+.nav-hebrew       { --nav-accent: #7a8a6b; }
+.nav-label {
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  font-size: 11px;
+}
+@media (max-width: 1180px) {
+  .chapter-nav { display: none; }
+}
+
+@media (max-width: 720px) {
+  .hero { padding: 60px 0 50px; }
+  .hero h1 { font-size: 38px; }
+  .hero .lede { font-size: 18px; }
+  .hero .pillars { grid-template-columns: 1fr; }
+  .hero .pillars > div { border-right: 0; border-bottom: 1px solid var(--line); padding: 16px 0 !important; }
+  .hero .pillars > div:last-child { border-bottom: 0; }
+  .section-title { font-size: 32px; }
+  .identity { grid-template-columns: 1fr; }
+  .trad { grid-template-columns: 1fr; gap: 12px; }
+  .trad .toggle { text-align: left; }
+  .chapter { padding: 56px 0 40px; }
+  .chapter-title { font-size: 28px; }
+  .chapter-derivation { grid-template-columns: 1fr; gap: 16px; padding: 22px 24px; }
+  .chapter-derivation .result { font-size: 64px; text-align: left; }
+  .appendix-list li { grid-template-columns: 1fr; gap: 8px; }
+  .limit-grid, .price-grid { grid-template-columns: 1fr; gap: 32px; }
+  .synth-row { grid-template-columns: 1fr; gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== CHAPTER NAVIGATOR ========== -->
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  <div class="nav-rule">SEVEN CHAPTERS</div>
+  <a href="#ch-abjad" class="nav-link nav-abjad"><span class="nav-dot"></span><span class="nav-label">01 · علم الأسماء</span></a>
+  <a href="#ch-pythagorean" class="nav-link nav-pythagorean"><span class="nav-dot"></span><span class="nav-label">02 · Πυθαγόρειος</span></a>
+  <a href="#ch-chaldean" class="nav-link nav-chaldean"><span class="nav-dot"></span><span class="nav-label">03 · Chaldean</span></a>
+  <a href="#ch-hellenistic" class="nav-link nav-hellenistic"><span class="nav-dot"></span><span class="nav-label">04 · Hellenistic</span></a>
+  <a href="#ch-vedic" class="nav-link nav-vedic"><span class="nav-dot"></span><span class="nav-label">05 · ज्योतिष</span></a>
+  <a href="#ch-chinese" class="nav-link nav-chinese"><span class="nav-dot"></span><span class="nav-label">06 · 八字</span></a>
+  <a href="#ch-hebrew" class="nav-link nav-hebrew"><span class="nav-dot"></span><span class="nav-label">07 · גימטריה</span></a>
+</nav>
+
+<!-- ========== HEADER ========== -->
+<header class="top">
+  <div class="container">
+    <div class="row">
+      <div class="wordmark">SIRR<span class="ar">سِرّ</span></div>
+      <div class="lang-toggle">
+        <span class="active">EN</span><span class="sep">/</span><span>ع</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">A deterministic name &amp; birth-data engine</span>
+    <h1>Each tradition, <em>computed on its own terms.</em><br>Then we show where they agree.</h1>
+    <p class="lede">
+      Most numerology calculators take Pythagorean shortcuts on every tradition. SIRR doesn't. Pythagorean stays Pythagorean. Chaldean stays Chaldean. Hebrew gematria uses Hebrew letter values. Arabic abjad uses abjad. The synthesis layer tells you specifically where the traditions agree — and where they don't.
+    </p>
+    <div class="pillars">
+      <div>
+        <div class="pillar-num">01</div>
+        <div class="pillar-text">Same input, same output. Every time. No LLM interpretation, no AI chat, no answers that change between runs.</div>
+      </div>
+      <div>
+        <div class="pillar-num">02</div>
+        <div class="pillar-text">Every claim shows its derivation. Click to see the calculation that produced it.</div>
+      </div>
+      <div>
+        <div class="pillar-num">03</div>
+        <div class="pillar-text">No prediction. No fortune-telling. The engine reads structure, not future.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== METHOD DEMONSTRATION ========== -->
+<section class="demo">
+  <div class="container">
+    <span class="section-label">A worked example, by tradition</span>
+    <h2 class="section-title">Seven chapters. Seven traditions.<br>Each on its own terms.</h2>
+    <p class="section-sub">Below is a sample profile for a synthetic identity. Each tradition gets its own chapter — its own lineage, its own computation, its own reading, its own honest limits. Where chapters touch each other, the appendix at the end notes it briefly. The traditions do not dissolve into a single number.</p>
+    <p class="reading-guide"><em>How to read this page.</em> &nbsp; Each chapter carries its own accent color and a signature mark in the result block. Name-based traditions produce a single number; chart-based traditions produce a zodiacal position; the Chinese chapter produces four binomial pillars. The engine evaluates each on its own terms.</p>
+
+    <div class="identity">
+      <div>
+        <div class="label">Sample profile</div>
+        <div class="name">Sara Khalid<span class="ar">سارة خالد</span></div>
+        <div class="meta">born 1990 · 03 · 15 · 14:30 · Cairo, Egypt</div>
+      </div>
+      <div class="badge">Synthetic — for demonstration</div>
+    </div>
+
+    <!-- ====== CHAPTER 01 — ABJAD ====== -->
+    <article id="ch-abjad" class="chapter chapter-abjad">
+      <div class="chapter-num">Chapter 01 · علم الأسماء</div>
+      <h3 class="chapter-title">Arabic abjad <em>and the science of letters.</em></h3>
+
+      <span class="chapter-section-label">Lineage</span>
+      <p class="chapter-prose">The science of letters in Arabic tradition (علم الحروف) traces to the early Islamic centuries and was developed at length by Sufi scholars, most extensively by Ibn Arabi (d. 1240). Its computational system, حساب الجمل (abjad numerology), assigns numerical values to the 28 Arabic letters in their classical ordering: أبجد · هوز · حطي · كلمن · سعفص · قرشت · ثخذ · ضظغ. The tradition is treated as <em>علم</em> — a scholarly discipline — when kept within Quran and Sunnah, and is held distinct from <em>التنجيم</em> (predictive astrology), which falls outside its boundary.</p>
+
+      <span class="chapter-section-label">Computation</span>
+      <div class="chapter-derivation">
+        <div class="calc">
+          <span class="calc-step-label">letters · سارة خالد</span>
+          س = 60 · ا = 1 · ر = 200 · ة = 5 &nbsp;&nbsp;→&nbsp;&nbsp;266<br>
+          خ = 600 · ا = 1 · ل = 30 · د = 4 &nbsp;&nbsp;→&nbsp;&nbsp;635<br><br>
+          <span class="calc-step-label">sum and reduce</span>
+          266 + 635 = 901 → 9 + 0 + 1 = 10 → 1 + 0 = <strong>1</strong>
+        </div>
+        <div class="result">1</div>
+      </div>
+
+      <span class="chapter-section-label">Reading</span>
+      <p class="chapter-prose">The reduced abjad sum of 1 is <em>الواحد</em> — unity. In abjad logic, 1 corresponds to <em>alif</em> (ا), the first letter of the alphabet, the upright stroke that begins every act of writing. Names that reduce to 1 in this tradition are read as oriented toward singularity of purpose — not isolation, but a structural inclination to lead from oneself rather than to be carried by group consensus. The reading describes a tendency in the name's structure, not a destiny.</p>
+
+      <span class="chapter-section-label">What this tradition cannot tell you</span>
+      <p class="chapter-prose">Abjad reads the structure of a name. It does not predict events. It does not name compatibilities, marriages, or futures. A practitioner working within tradition will tell you what your letters incline toward — never what will happen.</p>
+    </article>
+
+    <!-- ====== CHAPTER 02 — PYTHAGOREAN ====== -->
+    <article id="ch-pythagorean" class="chapter chapter-pythagorean">
+      <div class="chapter-num">Chapter 02 · Πυθαγόρειος</div>
+      <h3 class="chapter-title">Pythagorean numerology, <em>a Western convention.</em></h3>
+
+      <span class="chapter-section-label">Lineage</span>
+      <p class="chapter-prose">Modern Western numerology calls itself Pythagorean by tradition, though the actual letter-to-number system in use today was popularized in the late 19th and 20th centuries — primarily by L. Dow Balliett (<em>The Day of Wisdom According to Number Vibration</em>, 1903) and Florence Campbell (<em>Your Days Are Numbered</em>, 1931). The historical Pythagoras (d. ~495 BCE) taught that "all is number" but did not leave a letter-mapping system. The contemporary Pythagorean system maps Latin letters to digits 1–9 cyclically and reduces sums to a single digit.</p>
+
+      <span class="chapter-section-label">Computation</span>
+      <div class="chapter-derivation">
+        <div class="calc">
+          <span class="calc-step-label">letter values · A=1, B=2, …, I=9, J=1, …</span>
+          S=1 · A=1 · R=9 · A=1 &nbsp;&nbsp;→&nbsp;&nbsp;12<br>
+          K=2 · H=8 · A=1 · L=3 · I=9 · D=4 &nbsp;&nbsp;→&nbsp;&nbsp;27<br><br>
+          <span class="calc-step-label">sum and reduce</span>
+          12 + 27 = 39 → 3 + 9 = 12 → 1 + 2 = <strong>3</strong>
+        </div>
+        <div class="result">3</div>
+      </div>
+
+      <span class="chapter-section-label">Reading</span>
+      <p class="chapter-prose">A reduced value of 3 in the Pythagorean tradition is read as expressive — communicative, creative, social. It is the number of the artist and the speaker; the number of voice. The reading carries a caution as well as a strength: the same expressiveness that opens doors can dilute focus when scattered across too many channels at once.</p>
+
+      <span class="chapter-section-label">What this tradition cannot tell you</span>
+      <p class="chapter-prose">Pythagorean numerology computes on Latin-letter spellings. It has no independent claim on the structure of an Arabic name; it reads the spelling, not the name. Where the name has multiple Latin transliterations (Sara / Sarah / Saara), the system produces multiple results — each correct for the spelling fed in, none of them canonical.</p>
+    </article>
+
+    <!-- ====== CHAPTER 03 — CHALDEAN ====== -->
+    <article id="ch-chaldean" class="chapter chapter-chaldean">
+      <div class="chapter-num">Chapter 03 · Chaldean</div>
+      <h3 class="chapter-title">Chaldean numerology, <em>a different convention on the same name.</em></h3>
+
+      <span class="chapter-section-label">Lineage</span>
+      <p class="chapter-prose">The Chaldean system takes its name from the Chaldeans, a Semitic people of southern Babylonia (c. 9th–6th century BCE), though direct continuity with that civilization is not historically established. The contemporary Chaldean letter-mapping system was popularized by 20th-century occultists working in the Cheiro and Sepharial lineage. It differs structurally from Pythagorean: it assigns digits 1–8 only (not 1–9), treating 9 as sacred and reserved.</p>
+
+      <span class="chapter-section-label">Computation</span>
+      <div class="chapter-derivation">
+        <div class="calc">
+          <span class="calc-step-label">letter values · Chaldean assigns 1–8, no 9</span>
+          S=3 · A=1 · R=2 · A=1 &nbsp;&nbsp;→&nbsp;&nbsp;7<br>
+          K=2 · H=5 · A=1 · L=3 · I=1 · D=4 &nbsp;&nbsp;→&nbsp;&nbsp;16<br><br>
+          <span class="calc-step-label">sum and reduce</span>
+          7 + 16 = 23 → 2 + 3 = <strong>5</strong>
+        </div>
+        <div class="result">5</div>
+      </div>
+
+      <span class="chapter-section-label">Reading</span>
+      <p class="chapter-prose">A reduced value of 5 in the Chaldean tradition is read as movement-oriented — change, travel, restlessness, freedom-seeking. The Chaldean 5 carries a sharper edge than the Pythagorean 5: it is unsettled rather than expansive. Where Pythagorean reads its own 5 as adventurous, Chaldean reads its 5 as the principle of change itself, sometimes resisted, sometimes embraced.</p>
+
+      <span class="chapter-section-label">Where this chapter and the previous one differ</span>
+      <p class="chapter-prose">The same name produces 3 in Pythagorean and 5 in Chaldean. SIRR does not pick. Both are shown because picking one would suppress the structural fact that letter-to-number numerology in the Latin alphabet has no canonical answer — it has competing conventions. The divergence itself is part of what the engine reports.</p>
+    </article>
+
+    <!-- ====== CHAPTER 04 — HELLENISTIC ====== -->
+    <article id="ch-hellenistic" class="chapter chapter-hellenistic">
+      <div class="chapter-num">Chapter 04 · Hellenistic</div>
+      <h3 class="chapter-title">Hellenistic astrology, <em>computed on time and place.</em></h3>
+
+      <span class="chapter-section-label">Lineage</span>
+      <p class="chapter-prose">Hellenistic astrology emerged in late 2nd-century BCE Egypt, fusing Babylonian observational astronomy, Egyptian decanic systems, and Greek philosophical frameworks. Its principal sources are Vettius Valens (<em>Anthology</em>, 2nd c. CE), Dorotheus of Sidon (<em>Carmen Astrologicum</em>), and Ptolemy. The tradition was largely lost in the Latin West for nearly a millennium and has been recovered in scholarly form since the 1990s through translation projects led by Robert Schmidt, Robert Hand, and Chris Brennan.</p>
+
+      <span class="chapter-section-label">Chart elements at this date and place</span>
+      <div class="chapter-derivation">
+        <div class="calc">
+          <span class="calc-step-label">primary luminary</span>
+          Sun · 24° 17′ Pisces<br>
+          dispositor: Jupiter (traditional ruler of Pisces)<br><br>
+          <span class="calc-step-label">sect</span>
+          day chart (born 14:30, after sunrise)<br>
+          sect light: Sun · primary benefic in sect: Jupiter<br><br>
+          <span class="calc-step-label">moon</span>
+          Moon · 12° Scorpio (approximate)
+        </div>
+        <div class="result hellenistic-glyph">♓</div>
+      </div>
+
+      <span class="chapter-section-label">Reading</span>
+      <p class="chapter-prose">With the Sun in Pisces in a day chart, the sect light is in a sign ruled by Jupiter — a structurally favorable placement in Hellenistic logic. The tradition does not read this as "you will have good fortune." It reads it as <em>"the chart's primary luminary is housed by a benefic ruler in the dominant sect, which is one configuration of structural support."</em> The Moon in Scorpio brings depth and emotional intensity to a chart that might otherwise be read as diffuse; it functions as ballast.</p>
+
+      <span class="chapter-section-label">What this chapter requires that we don't have</span>
+      <p class="chapter-prose">Hellenistic astrology depends on the Ascendant (rising sign) and house cusps, which require birth time accurate to within minutes. With approximate birth time, the chart can be sketched at the level of luminaries and sect, but house-based delineations — career, marriage, body — are speculative. SIRR will produce the full chart only with precise time; otherwise the chapter remains at the luminary level and is honest about it.</p>
+
+      <p class="see-also"><em>See also</em> · <a href="#ch-vedic">Chapter 05 — Jyotiṣa</a>, where the same Sun falls under Jupiter's rulership but in sidereal Mīna rather than tropical Pisces.</p>
+    </article>
+
+    <!-- ====== CHAPTER 06 — VEDIC / JYOTISH ====== -->
+    <article id="ch-vedic" class="chapter chapter-vedic">
+      <div class="chapter-num">Chapter 05 · ज्योतिष</div>
+      <h3 class="chapter-title">Jyotiṣa, <em>the Vedic science of light.</em></h3>
+
+      <span class="chapter-section-label">Lineage</span>
+      <p class="chapter-prose">Vedic astrology (ज्योतिष, <em>jyotiṣa</em>, "science of light") is one of the six classical Vedāṅgas, traditionally rooted in the late Vedic period (c. 1500–500 BCE) and codified in Sanskrit texts including Parāśara's <em>Bṛhat Parāśara Horā Śāstra</em> and Varāhamihira's <em>Bṛhat Saṃhitā</em> (6th c. CE). The tradition uses the sidereal zodiac (<em>nirayaṇa</em>) — fixed against the actual stars — rather than the tropical (<em>sāyana</em>) zodiac used by Western and Hellenistic astrology. The standard correction between the two zodiacs (the <em>ayanāṃśa</em>) for 1990 is approximately 23°43′ on the Lahiri reckoning.</p>
+
+      <span class="chapter-section-label">Chart elements at this date and place</span>
+      <div class="chapter-derivation">
+        <div class="calc">
+          <span class="calc-step-label">sun · sidereal (Lahiri ayanāṃśa)</span>
+          tropical 24°17′ Pisces − 23°43′ ≈ 0°34′ Pisces (Mīna)<br>
+          dispositor: Jupiter (Bṛhaspati)<br><br>
+          <span class="calc-step-label">moon · approximate</span>
+          sidereal ~18° Libra (Tulā)<br>
+          nakshatra: Viśākhā (lord: Jupiter)<br><br>
+          <span class="calc-step-label">vimshottari dasha at birth</span>
+          Jupiter mahā-daśā (entered via Viśākhā nakshatra at birth)
+        </div>
+        <div class="result vedic-glyph">मीन</div>
+      </div>
+
+      <span class="chapter-section-label">Reading</span>
+      <p class="chapter-prose">In Jyotiṣa, with both Sun and Moon disposited by Jupiter (Bṛhaspati) — the Sun in Mīna which Jupiter rules, and the Moon in Viśākhā which Jupiter also lords — the chart's primary luminaries are bound to a single benefic disposition. The reading places this not as fortune but as a <em>karmic structure</em>: the chart's main themes will unfold under Jupiter's signature, which Vedic tradition associates with teaching, expansion, dharma, and the transmission of knowledge. The early Vimshottari dasha is also Jupiter, reinforcing the structural pattern.</p>
+
+      <span class="chapter-section-label">Where this chapter and Hellenistic touched</span>
+      <p class="chapter-prose">Both chapters find the Sun under Jupiter's rulership — Hellenistic via tropical Pisces, Vedic via sidereal Mīna. The structural agreement is interesting because the two traditions disagree on the zodiac's relationship to the equinox. Same star-region, two different framings of why it matters. SIRR notes the agreement; it does not flatten the difference between sidereal and tropical into a single claim.</p>
+
+      <span class="chapter-section-label">What this chapter requires that we don't have</span>
+      <p class="chapter-prose">Like Hellenistic, Jyotiṣa needs precise birth time for accurate house cusps, divisional charts (vargas), and full dasha computations. With approximate time, the chapter can offer luminaries and an approximate Moon nakshatra; the divisional charts, planetary friendships, and yoga combinations that constitute the heart of a full Jyotiṣa reading are reserved until precise time is provided.</p>
+    </article>
+
+    <!-- ====== CHAPTER 07 — CHINESE FOUR PILLARS / BAZI ====== -->
+    <article id="ch-chinese" class="chapter chapter-chinese">
+      <div class="chapter-num">Chapter 06 · 八字</div>
+      <h3 class="chapter-title">BaZi, <em>the four pillars of destiny.</em></h3>
+
+      <span class="chapter-section-label">Lineage</span>
+      <p class="chapter-prose">BaZi (八字, "Eight Characters") — also called <em>Ziping</em> (子平) after its Song-dynasty systematizer Xu Ziping (徐子平) — is the classical Chinese astrological system codified during the Tang and Song dynasties (7th–13th c. CE). It draws on the much older Heavenly Stems and Earthly Branches calendar system, the <em>jiazi</em> (甲子) cycle of 60 binomial pairings recorded in Shang oracle bone inscriptions (c. 1200 BCE). The system is structurally distinct from numerology and astrology in the Western sense: it does not produce a number or a chart of planets. It produces four binomial <em>pillars</em> — one each for Year, Month, Day, and Hour of birth.</p>
+
+      <span class="chapter-section-label">Pillars at this date and place</span>
+      <div class="chapter-derivation">
+        <div class="calc">
+          <span class="calc-step-label">year pillar · 1990</span>
+          庚午 — Gēng Wǔ (yang Metal · Horse)<br><br>
+          <span class="calc-step-label">month pillar · after Jīngzhé solar term</span>
+          己卯 — Jǐ Mǎo (yin Earth · Rabbit)<br><br>
+          <span class="calc-step-label">day pillar</span>
+          (requires ephemeris keyed to Chinese calendar; Day Master would be the Heavenly Stem of this pillar)<br><br>
+          <span class="calc-step-label">hour pillar · 14:30 local</span>
+          未 — Wèi (Goat hour, 1–3 PM)
+        </div>
+        <div class="result chinese-glyph">庚午</div>
+      </div>
+
+      <span class="chapter-section-label">Reading</span>
+      <p class="chapter-prose">BaZi reads the chart as a balance of the five elements (五行, <em>wǔxíng</em>: wood, fire, earth, metal, water) as they appear across the four pillars. The <em>Day Master</em> — the Heavenly Stem of the Day pillar — represents the self, and its strength is read against the supporting and conflicting elements in the rest of the chart. With the Year pillar Geng-Wu, the year carries yang Metal energy on a Fire branch (Horse); the Month pillar Ji-Mao adds yin Earth on a Wood branch. Without the Day pillar, the structural reading sketches the framework but reserves the substantive elemental balance.</p>
+
+      <span class="chapter-section-label">Why this chapter is structurally different from the others</span>
+      <p class="chapter-prose">BaZi does not reduce to a number. It does not produce a degree-position. Its output is a set of four binomial pairs and a structural elemental analysis. This means it cannot "agree" or "disagree" with the numerology chapters in the way Pythagorean and Chaldean disagreed with each other. The chapter stands on its own; the appendix at the end does not try to force a comparison.</p>
+
+      <span class="chapter-section-label">What this chapter requires that we don't have</span>
+      <p class="chapter-prose">The Day Master computation requires an ephemeris keyed to the Chinese lunisolar calendar. Without it, the chapter shows three of the four pillars and the Hour branch, but the substantive Day Master reading and the ten-year <em>luck pillars</em> (大運, <em>dàyùn</em>) that follow from it are reserved until a precise computation is run.</p>
+    </article>
+
+    <!-- ====== CHAPTER 07 — HEBREW GEMATRIA (counter-chapter) ====== -->
+    <article id="ch-hebrew" class="chapter chapter-hebrew">
+      <div class="chapter-num">Chapter 07 · גימטריה</div>
+      <h3 class="chapter-title">Hebrew gematria — <em>where the engine flags itself.</em></h3>
+
+      <div class="chapter-caveat">
+        <strong>Note:</strong> The name "Sara Khalid" is Arabic, not Hebrew. To compute Hebrew gematria for an Arabic name, SIRR maps Arabic letters to their Hebrew cognates (ס↔س, א↔ا, ר↔ر, …) and applies Hebrew gematria values to the cognates. The result will track the Arabic abjad result by construction, because the cognate mapping preserves the value structure. <strong style="color:var(--diverge);">A non-trivial agreement here is identity-by-construction, not cross-tradition convergence.</strong> SIRR flags this on every cognate-mapped result.
+      </div>
+
+      <span class="chapter-section-label">Lineage</span>
+      <p class="chapter-prose">Gematria is the Hebrew letter-value tradition recorded in rabbinic and Kabbalistic literature. Its values follow the Hebrew alphabet ordering: א=1, ב=2, … י=10, כ=20, … ק=100, ר=200, ש=300, ת=400. Major sources include the <em>Sefer Yetzirah</em> and the <em>Zohar</em> (13th c.). Within Jewish tradition, gematria is studied as exegesis — a hermeneutic for reading Torah and Talmud — not as a fortune-telling system.</p>
+
+      <span class="chapter-section-label">Computation (cognate-mapped, with caveat)</span>
+      <div class="chapter-derivation">
+        <div class="calc">
+          <span class="calc-step-label">cognate-mapped from Arabic abjad</span>
+          The Arabic letters of سارة خالد map to Hebrew cognates with the same value structure.<br>
+          The reduced result is 1 — identical to the abjad chapter <em>by construction.</em>
+        </div>
+        <div class="result">1<span class="cognate-flag">cognate</span></div>
+      </div>
+
+      <span class="chapter-section-label">Reading</span>
+      <p class="chapter-prose">For a native Hebrew name, gematria of 1 would carry a substantive structural reading — oriented toward unity, the alef principle, the singular. For the cognate-mapped Arabic name "Sara Khalid," SIRR does <em>not</em> write a separate Hebrew reading. The result is identical to the Arabic abjad result by construction, and presenting it as independent would mislead. The Hebrew chapter exists in the report as a placeholder, with the caveat visible.</p>
+
+      <span class="chapter-section-label">Why we still include this chapter</span>
+      <p class="chapter-prose">Two reasons. For names that are natively Hebrew, gematria is independent and substantive — and we want the chapter structure to be there when it applies. And for cognate-mapped cases, the visible caveat is itself the point: a cross-tradition engine that hides identity-by-construction behind a fake convergence claim is a worse engine than one that says, plainly, <em>"this result is not independent of the previous chapter."</em></p>
+    </article>
+
+    <!-- ====== APPENDIX ====== -->
+    <aside class="appendix">
+      <span class="section-label">Appendix · cross-chapter notes</span>
+      <h3 class="appendix-title">Where the chapters touched, disagreed, and fell silent.</h3>
+
+      <ul class="appendix-list">
+        <li>
+          <span class="appendix-tag agree">Touched</span>
+          <span class="appendix-body">The abjad chapter (1) and the birth-date path (1+9+9+0+0+3+1+5 = 28 → 1+0 = 1) reduce to the same value. Independent computations on different inputs — name letters versus birth digits — landing on the same reduced value. Structural, not constructed.</span>
+        </li>
+        <li>
+          <span class="appendix-tag diverge">Disagreed</span>
+          <span class="appendix-body">Pythagorean (3) and Chaldean (5) on the same name. SIRR does not pick. The divergence itself is the finding: Latin-letter numerology has competing conventions, not a canonical answer.</span>
+        </li>
+        <li>
+          <span class="appendix-tag silence">Fell silent</span>
+          <span class="appendix-body">Hebrew gematria for an Arabic name is cognate-mapped, not independent. The engine marks this as silence, not agreement. <em>Sometimes the absence is the finding.</em></span>
+        </li>
+        <li>
+          <span class="appendix-tag agree">Held its weight</span>
+          <span class="appendix-body">Among the chapters, abjad carries the most authority for this name because the name is native to that tradition. SIRR weights tradition-native computations more heavily than cognate-mapped ones when summarizing across chapters.</span>
+        </li>
+      </ul>
+    </aside>
+
+  </div>
+</section>
+
+<!-- ========== HONEST LIMITS ========== -->
+<section class="limits">
+  <div class="container">
+    <span class="section-label">What SIRR does and doesn't do</span>
+    <h2 class="section-title">Limits, stated upfront.</h2>
+    <p class="section-sub">
+      The depth of this work depends on being honest about what it isn't. We name the limits clearly so you can decide whether SIRR is for you.
+    </p>
+
+    <div class="limit-grid">
+      <div class="limit-col cant">
+        <h4>SIRR doesn't do</h4>
+        <ul>
+          <li>Predict the future, names winners, or identify the timing of events.</li>
+          <li>Tell you who you'll marry, what year you'll get rich, or when you'll die.</li>
+          <li>Replace scholarly tradition or a teacher who has spent a lifetime in one of these systems.</li>
+          <li>Use AI to generate interpretations. Every claim comes from a deterministic rule set with visible derivation.</li>
+          <li>Charge a subscription, hide features behind tiers, or push notifications at you.</li>
+        </ul>
+      </div>
+      <div class="limit-col do">
+        <h4>SIRR does</h4>
+        <ul>
+          <li>Compute each tradition on its own logic — Pythagorean stays Pythagorean, abjad stays abjad.</li>
+          <li>Tell you exactly where the traditions agree, where they disagree, and where they fall silent.</li>
+          <li>Show the derivation of every claim. Click and see the math.</li>
+          <li>Mark which results are tradition-native and which are cognate-mapped (and therefore identity-by-construction).</li>
+          <li>Run on a deterministic engine. Same inputs, same outputs, every time.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="caveat">
+      <strong>A note on Islamic orthodoxy.</strong> SIRR works within the boundary recognized by classical Islamic scholarship: <em>علم الحروف</em> and <em>علم الأسماء</em> are treated as scholarly disciplines (علم), with explicit avoidance of <em>التنجيم</em> — predictive horoscope claims that scholarly consensus considers prohibited. SIRR's outputs are structural, not predictive. If you are seeking fortune-telling, this is not the product for you.
+    </div>
+  </div>
+</section>
+
+<!-- ========== BETA ACCESS ========== -->
+<section class="pricing">
+  <div class="container">
+    <span class="section-label">Currently in private beta</span>
+    <h2 class="section-title">Free for the first testers.</h2>
+    <p class="section-sub">SIRR is in private beta. The engine is built and computing; the language and the experience are still being refined. Early testers get a full profile at no charge in exchange for honest feedback.</p>
+
+    <div class="beta-card">
+      <div class="beta-row">
+        <div class="beta-num">01</div>
+        <div class="beta-text">
+          <h4>Request a profile</h4>
+          <p>Send your full name, birth date, and birth place. The engine computes across the traditions named above and produces your profile.</p>
+        </div>
+      </div>
+      <div class="beta-row">
+        <div class="beta-num">02</div>
+        <div class="beta-text">
+          <h4>Read it. Tell us what's true and what's noise.</h4>
+          <p>The honest part: SIRR's synthesis is deterministic but the language layer is still being calibrated. Your feedback on what reads true, what reads generic, and what's unclear shapes what the next version becomes.</p>
+        </div>
+      </div>
+      <div class="beta-row">
+        <div class="beta-num">03</div>
+        <div class="beta-text">
+          <h4>Pricing comes later, when we know what's worth charging for.</h4>
+          <p>We're not setting a price until we know what the work is actually worth to the people using it. When pricing arrives, it will be one-time. No subscription. No tier upgrades.</p>
+        </div>
+      </div>
+      <a href="#" class="beta-cta">Request a beta profile</a>
+    </div>
+
+    <div class="no-sub">One time. No subscription. No notifications. <em>That part is permanent.</em></div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div>SIRR · سِرّ · A deterministic identity engine</div>
+      <div><a href="#">Methodology</a> &nbsp;·&nbsp; <a href="#">Honest limits</a> &nbsp;·&nbsp; <a href="#">Contact</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
