@@ -1435,64 +1435,6 @@ def render_domain(domain_id: str, results: List[Dict[str, Any]], subject: str = 
     """
 
 
-def render_convergences(synth: Dict[str, Any], top_n: int = 3) -> str:
-    """Render the top N strongest cross-system number convergences."""
-    convs = synth.get("number_convergences", []) or []
-    # Rank by independence groups (the real signal), then system count
-    convs_sorted = sorted(
-        convs,
-        key=lambda c: (c.get("group_count", 0), c.get("system_count", 0)),
-        reverse=True,
-    )
-    top = convs_sorted[:top_n]
-
-    if not top:
-        return ""
-
-    items = []
-    for c in top:
-        num = c.get("number", "?")
-        groups = c.get("group_count", 0)
-        sys_count = c.get("system_count", 0)
-        pct = c.get("baseline_percentile", None)
-        systems = c.get("systems", [])
-        sys_display = ", ".join(systems[:8])
-        if len(systems) > 8:
-            sys_display += f" + {len(systems)-8} more"
-
-        pct_line = f'<span class="pct">p{pct}</span>' if pct is not None else ""
-        items.append(f"""
-        <div class="conv-item">
-          <div class="num">{num}</div>
-          <div class="detail-block">
-            <div class="headline">{sys_count} systems converge on {num} across {groups} independent families</div>
-            <div class="systems">{_esc(sys_display)}</div>
-          </div>
-          <div class="stats">
-            {groups} groups<br>
-            {sys_count} systems
-            {pct_line}
-          </div>
-        </div>
-        """)
-
-    return f"""
-    <section class="convergences">
-      <div class="smallcap label">Numeric Convergence &middot; Monte Carlo Evidence</div>
-      <p class="conv-intro">
-        Raw counts: how many independent engines landed on the same number,
-        and where that count sits against a 10,000-run random baseline.
-        Evidence behind the synthesis above &mdash; not a separate reading.
-        Where you see &ldquo;12 systems converge on 1,&rdquo; that means twelve traditions returned 1 &mdash; not that your reading is 1.
-      </p>
-      <div class="conv-list">
-        {"".join(items)}
-      </div>
-    </section>
-    """
-
-
-
 def render_unified_html(output: Dict[str, Any]) -> str:
     """
     Main entry point. Takes the full /api/analyze response (unified=True view)
@@ -1545,7 +1487,6 @@ def render_unified_html(output: Dict[str, Any]) -> str:
     # ── Evidence layer (domain catalog) ──
     for domain_id in DOMAIN_ORDER:
         body_parts.append(render_domain(domain_id, results, subject=subject, subject_ar=subject_ar))
-    body_parts.append(render_convergences(synth))
 
     subject_title = _esc(subject).title()
 

@@ -370,18 +370,9 @@ def _build_uncertainties(results: List[SystemResult],
         "reason": "Pythagorean reduction is deterministic; all values COMPUTED_STRICT.",
     })
 
-    # Dominant convergence
-    dom = conv_summary.get("dominant_systems", 0)
-    pct = conv_summary.get("dominant_percentile", 0)
-    if dom >= 15 and pct >= 90:
-        uncertainties.append({
-            "item": f"Root {conv_summary.get('dominant_root')} convergence ({dom} systems)",
-            "status": "CONFIDENT",
-            "reason": (
-                f"{dom} systems across {conv_summary.get('dominant_groups', 0)} "
-                f"independence groups; {pct}th percentile vs 10,000 random profiles."
-            ),
-        })
+    # Dominant convergence: ledger entry retired under §X.3 strict-no-counts
+    # (Decision 2, 2026-05-03). The dominant_systems / dominant_percentile
+    # signals remain computed in conv_summary for engineering / debug use.
 
     # Ephemeris-dependent items
     approx_count = sum(1 for r in results if r.certainty in ("APPROX", "NEEDS_EPHEMERIS"))
@@ -488,8 +479,7 @@ def compute_narrative(profile: InputProfile, results: list,
     uncertainties = _build_uncertainties(results, conv_summary)
 
     integration_principles = [
-        (f"Expressive capacity (Root {conv_summary.get('dominant_root', '?')}, "
-         f"{conv_summary.get('dominant_systems', 0)} systems) is documented but "
+        (f"Expressive capacity (Root {conv_summary.get('dominant_root', '?')}) "
          f"reaches maximum clarity when routed through explicit structure — "
          f"templates, acceptance criteria, defined release points."),
         ("Arabic and Latin paths remain separate computations; cross-tradition "
