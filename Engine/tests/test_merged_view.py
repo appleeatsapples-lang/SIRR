@@ -483,9 +483,13 @@ def test_reading_intro_block_renders(synthetic_output):
     assert "answering different questions" in html
     assert 'class="reading-intro"' in html
     assert "Synthesis answers:" in html
-    # Lock post-walk vocab tightening (axis→root, unrelated→independent, happen to cluster→converge)
+    # Lock post-walk vocab tightening (axis→root question form preserved)
     assert "organizing root?" in html
-    assert "independent systems converge?" in html
+    # §X.3/§X.4 strict-no-counts (2026-05-03): "independent systems converge?"
+    # retired. Replacement asks about agreement with shared-input caveat.
+    assert "independent systems converge?" not in html
+    assert "where do computed methods agree" in html
+    assert "shared inputs may explain" in html
 
 
 def test_conv_intro_includes_concrete_example(synthetic_output):

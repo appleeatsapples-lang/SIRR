@@ -1010,10 +1010,10 @@ def render_reading_intro() -> str:
     <section class="reading-intro">
       <p>SIRR computes three different kinds of result on your name and birth date.</p>
       <p><strong>Synthesis</strong> pools eight identity axes into one organizing root &mdash; the reading's primary headline.<br>
-      <strong>Evidence</strong> counts how many independent systems agree on the same value.<br>
+      <strong>Evidence</strong> shows where multiple computed methods return the same mark, with caveats on shared inputs.<br>
       <strong>Tradition voices</strong> let each tradition speak in its own measurement.</p>
       <p>You'll see different numbers and elements in each section. They aren't disagreeing &mdash; they're answering different questions.</p>
-      <p>Synthesis answers: what's your reading's organizing root? Evidence answers: where do independent systems converge? Tradition voices answer: what does each tradition say in its own terms?</p>
+      <p>Synthesis answers: what's your reading's organizing root? Evidence answers: where do computed methods agree, and what shared inputs may explain the agreement? Tradition voices answer: what does each tradition say in its own terms?</p>
     </section>
     """
 
