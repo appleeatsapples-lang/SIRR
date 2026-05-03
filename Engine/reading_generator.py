@@ -864,9 +864,11 @@ def build_ground_truth(data: dict) -> str:
     # Dominant root
     dom = ranked[0] if ranked else {"number": "?", "system_count": 0, "group_count": 0}
     
-    # Convergence table
+    # Convergence table — Option γ (Decision 5, 2026-05-03):
+    # Keep ranked list of dominant roots in prompt for LLM grounding;
+    # strip parenthetical counts so the LLM cannot leak them to customer.
     conv_table = "\n".join(
-        f"  Root {c['number']}: {c['system_count']} systems, {c['group_count']} groups"
+        f"  Root {c['number']}"
         for c in ranked[:8]
     )
     
@@ -927,10 +929,10 @@ def build_ground_truth(data: dict) -> str:
 These values are computed by the deterministic engine. You MUST use them.
 Do NOT infer a different dominant root. Do NOT invent convergence patterns.
 
-DOMINANT ROOT: Root {dom['number']} ({dom['system_count']} systems across {dom['group_count']} independence groups)
+DOMINANT ROOT: Root {dom['number']}
 This MUST be the subject of Card 1 (The Dominant Thread).
 
-CONVERGENCE HIERARCHY (ranked by system count, then group breadth):
+CONVERGENCE HIERARCHY:
 {conv_table}
 
 CORE NUMBERS:

@@ -101,14 +101,6 @@ def test_visual_block_content_from_synthetic(synthetic_output):
     assert "Profection" in html
 
 
-def test_convergence_monte_carlo_still_rendered(synthetic_output):
-    """Regression guard — merged view must preserve the Monte Carlo
-    convergence section from unified_view unchanged."""
-    from merged_view import render_merged_html
-    html = render_merged_html(synthetic_output)
-    assert "Monte Carlo Evidence" in html
-
-
 def _strip_ids(output, ids_to_remove):
     """Return a deep-copy of output with the given module IDs dropped
     from results. Used for graceful-degradation tests."""
@@ -179,7 +171,10 @@ def test_unified_view_still_renders(synthetic_output):
     html = render_unified_html(clone)
     assert "<!DOCTYPE html>" in html
     assert ">Numerology</h2>" in html
-    assert "Monte Carlo Evidence" in html
+    # Doctrine §X.3 strict-no-counts (Decision 2, 2026-05-03):
+    # Monte Carlo Evidence label retired; assertion below locks that retirement.
+    assert "Monte Carlo Evidence" not in html
+    assert "systems converge on" not in html
     # Unified view does NOT include the merged-view visual blocks
     assert "Your Numeric Signature" not in html
     assert "Cards Derived from Your Name" not in html
@@ -284,20 +279,6 @@ def test_first_six_rows_visible_per_domain(synthetic_output):
     assert visible_rows == 6, f"expected 6 visible rows, got {visible_rows}"
 
 
-def test_monte_carlo_wrapped_in_footnote_disclosure(synthetic_output):
-    """Monte Carlo receipts must be closed-by-default below the domain sections."""
-    from merged_view import render_merged_html
-    html = render_merged_html(synthetic_output)
-    assert "Monte Carlo Receipts" in html
-    # Must be inside a footnote disclosure
-    mc_idx = html.find("Monte Carlo Receipts")
-    enclosing_details = html.rfind('<details class="footnote">', 0, mc_idx)
-    assert enclosing_details >= 0, "Monte Carlo not wrapped in footnote disclosure"
-    # Content (Monte Carlo Evidence label from render_convergences) is
-    # inside the disclosure body, reachable when expanded
-    assert "Monte Carlo Evidence" in html
-
-
 def test_coherence_demoted_to_bottom_badge(synthetic_output):
     """Coherence stat is now a single-line bottom badge, not a top hero."""
     from merged_view import render_merged_html
@@ -339,40 +320,6 @@ def test_tarot_block_relabeled_for_name_intelligence(synthetic_output):
     assert "Cards Derived from Your Name" in html
     # Old label must be gone to prevent drift back
     assert "<div class=\"block-title\">Your Cards</div>" not in html
-
-
-def test_convergence_verdict_sentence_present(synthetic_output):
-    """Convergence domain must lead with a verdict sentence answering
-    'so what actually converges most strongly here?' before the receipts."""
-    from merged_view import render_merged_html
-    html = render_merged_html(synthetic_output)
-    assert 'class="convergence-verdict"' in html
-    assert "converge most strongly on" in html
-    # Verdict appears within the Convergence domain section, above the
-    # convergences table — find the anchors and verify order
-    convergence_h2 = html.find("<h2>Convergence</h2>")
-    verdict = html.find('class="convergence-verdict"')
-    convergences_table = html.find('class="convergences"')
-    assert convergence_h2 > 0
-    assert verdict > convergence_h2
-    # convergences table may not always be at a known offset, but if
-    # present it should be after the verdict
-    if convergences_table > 0:
-        assert verdict < convergences_table
-
-
-def test_convergence_verdict_shows_top_axes(synthetic_output):
-    """Verdict should surface the top number, element, and timing axes
-    with system/group counts."""
-    from merged_view import render_merged_html
-    html = render_merged_html(synthetic_output)
-    # Synthetic fixture has strong convergences in all three axes
-    assert "Number" in html
-    assert "Element" in html
-    assert "Timing" in html
-    # And the system count pattern "N systems"
-    import re
-    assert re.search(r"\d+ systems", html), "verdict should cite system counts"
 
 
 def test_bridging_receipt_header_between_visual_and_rows(synthetic_output):
@@ -488,12 +435,3 @@ def test_reading_intro_block_renders(synthetic_output):
     assert "independent systems converge?" in html
 
 
-def test_conv_intro_includes_concrete_example(synthetic_output):
-    """B1 Wave 2 regression guard — convergence section intro must
-    include the concrete '12 systems converge on 1' example."""
-    from unified_view import render_unified_html
-    clone = copy.deepcopy(synthetic_output)
-    clone["results"] = [r for r in clone["results"] if "domain" in r]
-    html = render_unified_html(clone)
-    assert "12 systems converge on 1" in html
-    assert "twelve traditions returned 1" in html

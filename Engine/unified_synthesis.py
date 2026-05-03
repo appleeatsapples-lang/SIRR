@@ -614,10 +614,13 @@ def compute_signal_summary(output: Dict[str, Any]) -> Dict[str, Any]:
             "modality_diversity": modalities,
             "baseline_percentile": c.get("baseline_percentile"),
             "groups": sorted(groups),
+            # §X.3-compliant: customer-facing copy never surfaces engine machinery
+            # (system count, group count, modality count). The engineering signal
+            # remains in the structured fields above for unified=False/debug views.
+            # See reading_generator.py:708-725 for the doctrine.
             "sentence": (
-                f"{c['system_count']} systems across {c['group_count']} independence "
-                f"groups ({modalities} distinct input modalities) converge on "
-                f"Root {n} — {_theme(n)}."
+                f"Root {n} ({_theme(n)}) appears as a recurring structural "
+                f"pattern across multiple traditions in this profile."
             ),
         }
 

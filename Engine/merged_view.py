@@ -26,7 +26,7 @@ Visual block per domain:
   astro_timing      → Your Animals + Your Planets
                       (BaZi year/day + 4 planets + Vimshottari bar
                        + profection badge)
-  convergence       → (no visual block; Monte Carlo IS the visual)
+  convergence       → (no visual block; per-module receipt rows render below)
 
 Graceful degradation: each block is skipped if its source data is
 missing (returns empty string). The domain section still renders with
@@ -47,7 +47,7 @@ from unified_view import (
     CSS as _UNIFIED_CSS,
     DOMAIN_LABELS, DOMAIN_SUBTITLES, DOMAIN_ORDER,
     render_header, render_portrait, render_coherence, render_patterns,
-    render_theses, render_tension, render_convergences,
+    render_theses, render_tension,
     _esc,
 )
 from presentation import (
@@ -387,7 +387,7 @@ details.more-rows > summary .chev {
 
 details.more-rows[open] > summary .chev { transform: rotate(90deg); }
 
-/* Footnote disclosures below the domain sections — Monte Carlo + Three Lenses */
+/* Footnote disclosures below the domain sections (Three Lenses; Monte Carlo retired §X.3) */
 details.footnote {
   margin: 48px 0 24px;
   padding: 0;
@@ -971,58 +971,6 @@ def render_astro_planets(planet: Dict[str, Any]) -> str:
 # zero-regression-risk to /reading/{id}/unified.
 # ────────────────────────────────────────────────────────────────────
 
-def _render_convergence_verdict(synth: Dict[str, Any]) -> str:
-    """One-sentence verdict at the top of the Convergence domain.
-
-    Reads the top entries from number / element / timing convergences
-    and composes a scannable verdict line. PR #20: answers "so what
-    actually converges most strongly here?" before the receipts.
-    """
-    if not synth or not isinstance(synth, dict):
-        return ""
-    parts = []
-    number_convs = synth.get("number_convergences") or []
-    if number_convs and isinstance(number_convs, list) and number_convs[0].get("number") is not None:
-        top = number_convs[0]
-        num = top["number"]
-        sys_ct = top.get("system_count", 0)
-        grp_ct = top.get("group_count", 0)
-        parts.append(
-            f'<span class="verdict-axis">Number</span> '
-            f'<strong>{_esc(str(num))}</strong> '
-            f'<span class="verdict-count">{sys_ct} systems · {grp_ct} cultural groups</span>'
-        )
-    elem_convs = synth.get("element_convergences") or []
-    if elem_convs and isinstance(elem_convs, list) and elem_convs[0].get("element"):
-        top = elem_convs[0]
-        elem = top["element"]
-        sys_ct = top.get("system_count", 0)
-        grp_ct = top.get("group_count", 0)
-        parts.append(
-            f'<span class="verdict-axis">Element</span> '
-            f'<strong>{_esc(elem)}</strong> '
-            f'<span class="verdict-count">{sys_ct} systems · {grp_ct} groups</span>'
-        )
-    time_convs = synth.get("timing_convergences") or []
-    if time_convs and isinstance(time_convs, list) and time_convs[0].get("number") is not None:
-        top = time_convs[0]
-        num = top["number"]
-        sys_ct = top.get("system_count", 0)
-        grp_ct = top.get("group_count", 0)
-        parts.append(
-            f'<span class="verdict-axis">Timing</span> '
-            f'<strong>{_esc(str(num))}</strong> '
-            f'<span class="verdict-count">{sys_ct} systems · {grp_ct} groups</span>'
-        )
-    if not parts:
-        return ""
-    return (
-        '<div class="convergence-verdict">'
-        '<div class="verdict-lead">These traditions converge most strongly on:</div>'
-        '<div class="verdict-axes">' + "".join(parts) + "</div>"
-        "</div>"
-    )
-
 
 def _visual_block_for_domain(domain_id: str, output: Dict[str, Any]) -> str:
     """Dispatch to the correct renderer for this domain, or empty string."""
@@ -1043,11 +991,10 @@ def _visual_block_for_domain(domain_id: str, output: Dict[str, Any]) -> str:
         return render_astro_animals(animal) + render_astro_planets(planet)
 
     if domain_id == "convergence":
-        # PR #20: verdict sentence in place of a visual block.
-        # Answers "so what actually converges most strongly here?" before
-        # the user wades into the receipt rows.
-        synth = output.get("synthesis", {}) or {}
-        return _render_convergence_verdict(synth)
+        # PR #20 verdict retired under §X.3 strict-no-counts (Decision 2,
+        # 2026-05-03). Convergence-domain visual block is now empty; the
+        # per-module receipt rows below render via render_domain_merged().
+        return ""
 
     return ""
 
@@ -1181,7 +1128,7 @@ def render_merged_html(output: Dict[str, Any]) -> str:
       6. Primary tension
       7. Evidence intro
       8. Domain sections — each with its visual block + analytical table
-      9. Convergence counts (Monte Carlo)
+      9. (retired §X.3 strict-no-counts — convergence counts no longer rendered)
       10. Footer
     """
     profile = output.get("profile", {}) or {}
@@ -1209,15 +1156,8 @@ def render_merged_html(output: Dict[str, Any]) -> str:
             domain_id, results, output, subject=subject, subject_ar=subject_ar
         ))
 
-    # Demoted footnotes. All three still render, but closed by default.
-    convergences_html = render_convergences(synth)
-    if convergences_html:
-        body_parts.append(
-            '<details class="footnote">'
-            '<summary>Monte Carlo Receipts &nbsp;·&nbsp; Evidence behind the convergence</summary>'
-            f'<div class="footnote-body">{convergences_html}</div>'
-            '</details>'
-        )
+    # Demoted footnotes. Monte Carlo Receipts retired under §X.3
+    # strict-no-counts (Decision 2, 2026-05-03). Other footnotes still render.
 
     theses_html = render_theses(output)
     if theses_html:

@@ -370,18 +370,9 @@ def _build_uncertainties(results: List[SystemResult],
         "reason": "Pythagorean reduction is deterministic; all values COMPUTED_STRICT.",
     })
 
-    # Dominant convergence
-    dom = conv_summary.get("dominant_systems", 0)
-    pct = conv_summary.get("dominant_percentile", 0)
-    if dom >= 15 and pct >= 90:
-        uncertainties.append({
-            "item": f"Root {conv_summary.get('dominant_root')} convergence ({dom} systems)",
-            "status": "CONFIDENT",
-            "reason": (
-                f"{dom} systems across {conv_summary.get('dominant_groups', 0)} "
-                f"independence groups; {pct}th percentile vs 10,000 random profiles."
-            ),
-        })
+    # Dominant convergence: ledger entry retired under §X.3 strict-no-counts
+    # (Decision 2, 2026-05-03). The dominant_systems / dominant_percentile
+    # signals remain computed in conv_summary for engineering / debug use.
 
     # Ephemeris-dependent items
     approx_count = sum(1 for r in results if r.certainty in ("APPROX", "NEEDS_EPHEMERIS"))
@@ -418,14 +409,17 @@ def _build_headline(conv_summary: Dict[str, Any]) -> str:
     if root is None or systems == 0:
         return "Synthesis data unavailable — narrative partial."
 
-    pct_note = ""
-    if pct >= 90:
-        pct_note = f" ({pct}th percentile)"
+    # pct_note retired under §X.3 — percentiles are engine machinery, not
+    # customer-facing copy. The variable is no longer assembled into the
+    # sentence; it remains computed upstream for the ledger/debug surface.
+    _ = pct  # acknowledge for future audit-trail use; not surfaced to customer
 
+    # §X.3-compliant: no system/group counts, no percentiles in customer copy.
+    # Engineering signals (`systems`, `groups`, `pct`) remain available upstream
+    # for non-customer-facing surfaces. See reading_generator.py:708-725.
     return (
-        f"{systems} independent systems across {groups} tradition families "
-        f"converge on Root {root}{pct_note}, pointing consistently toward "
-        f"this number as the dominant structural pattern in the profile."
+        f"Root {root} emerges as the dominant structural pattern in this "
+        f"profile, recurring across multiple traditions."
     )
 
 
@@ -485,8 +479,7 @@ def compute_narrative(profile: InputProfile, results: list,
     uncertainties = _build_uncertainties(results, conv_summary)
 
     integration_principles = [
-        (f"Expressive capacity (Root {conv_summary.get('dominant_root', '?')}, "
-         f"{conv_summary.get('dominant_systems', 0)} systems) is documented but "
+        (f"Expressive capacity (Root {conv_summary.get('dominant_root', '?')}) "
          f"reaches maximum clarity when routed through explicit structure — "
          f"templates, acceptance criteria, defined release points."),
         ("Arabic and Latin paths remain separate computations; cross-tradition "
